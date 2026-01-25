@@ -115,3 +115,5 @@ shape = SubResource("RectangleShape2D_e80uo")
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_wi0c6")
 animation = &"idle"
+
+[node name="Camera2D" type="Camera2D" parent="."]
