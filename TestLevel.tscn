@@ -7,10 +7,9 @@
 
 [node name="ParallaxLevel" parent="." instance=ExtResource("2_1kog2")]
 position = Vector2(576, 322)
-repeat_count = 4
-repeat_scroll_factor = 0.98
-repeat_scale_factor = 0.98
-repeat_color = Color(0.9776916, 0.9776916, 0.9776916, 1)
+repeat_count = 100
+repeat_scroll_factor = 0.99
+repeat_scale_factor = 0.99
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_y1jsw")]
-position = Vector2(232, 5)
+position = Vector2(232, 7)
