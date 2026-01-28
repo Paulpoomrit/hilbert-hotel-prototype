@@ -60,7 +60,7 @@ func _ready() -> void:
 		new_parallax.scale *= parallax_scale_factor
 		new_parallax.z_index -= 1
 		$Parallaxes.add_child(new_parallax)
-	for i in range(min_parallax, max(0, min_parallax)):
+	for i in range(min_parallax, min(0, max_parallax)):
 		new_parallax = new_parallax.duplicate()
 		# Set scroll, scale, modulate, and z index
 		new_parallax.scroll_scale *= parallax_scroll_factor
