@@ -24,11 +24,69 @@ tile_set = ExtResource("4_waekl")
 
 [node name="3DParallaxObject2" parent="." instance=ExtResource("3_2xot7")]
 position = Vector2(-85, 493)
-max_parallax = -10
-parallax_scroll_factor = 0.98
-parallax_scale_factor = 0.98
-metadata/_edit_group_ = true
+min_parallax = -2
+max_parallax = 1
+parallax_scroll_factor = 0.99
+parallax_scale_factor = 0.99
 
 [node name="Sprite2D" type="Sprite2D" parent="3DParallaxObject2"]
+position = Vector2(282, -218)
 texture = ExtResource("4_mvtj7")
-region_rect = Rect2(184.19833, 314.7235, 147.25769, 169.0458)
+region_enabled = true
+region_rect = Rect2(185.81442, 314.7235, 145.6416, 169.0458)
+
+[node name="3DParallaxObject3" parent="." instance=ExtResource("3_2xot7")]
+min_parallax = -5
+max_parallax = -1
+parallax_scroll_factor = 0.9
+parallax_scale_factor = 0.9
+parallax_modulate_factor = Color(0.69151497, 0.95468724, 0.95468724, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="3DParallaxObject3"]
+position = Vector2(-214, 503.99997)
+scale = Vector2(1.7142857, 1.7142857)
+texture = ExtResource("4_mvtj7")
+region_enabled = true
+region_rect = Rect2(638.6176, 55.651596, 43.249878, 14.521484)
+
+[node name="3DParallaxObject4" parent="." instance=ExtResource("3_2xot7")]
+position = Vector2(576, 324)
+min_parallax = -19
+max_parallax = -18
+parallax_scroll_factor = 0.98
+parallax_scale_factor = 0.98
+
+[node name="Sprite2D" type="Sprite2D" parent="3DParallaxObject4"]
+position = Vector2(-1017, 80)
+scale = Vector2(2.26, 2.2599998)
+texture = ExtResource("4_mvtj7")
+region_enabled = true
+region_rect = Rect2(1241.9115, 37.257988, 106.024414, 100.087105)
+
+[node name="3DParallaxObject5" parent="." instance=ExtResource("3_2xot7")]
+position = Vector2(1152, 648)
+min_parallax = -36
+max_parallax = -35
+parallax_scroll_factor = 0.98
+parallax_scale_factor = 0.98
+
+[node name="Sprite2D" type="Sprite2D" parent="3DParallaxObject5"]
+position = Vector2(-1555, -291)
+scale = Vector2(2.26, 2.2599998)
+texture = ExtResource("4_mvtj7")
+region_enabled = true
+region_rect = Rect2(943.6513, 338.10526, 101.993835, 144.79898)
+
+[node name="3DParallaxObject6" parent="." instance=ExtResource("3_2xot7")]
+position = Vector2(-170, 986)
+min_parallax = -10
+max_parallax = -9
+parallax_scroll_factor = 0.98
+parallax_scale_factor = 0.98
+
+[node name="Sprite2D" type="Sprite2D" parent="3DParallaxObject6"]
+position = Vector2(76, -585)
+scale = Vector2(2.014563, 2.014563)
+texture = ExtResource("4_mvtj7")
+region_enabled = true
+region_rect = Rect2(46.662342, 183.79924, 103.03784, 118.4944)
