@@ -1,0 +1,149 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6w35nsox3nud"]
+
+[ext_resource type="PackedScene" uid="uid://ciexe7prabm03" path="res://Common/MendingMechanics/block.tscn" id="2_a0i6h"]
+
+[node name="MendingUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MendingArea" type="GridContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 4
+
+[node name="Block" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block2" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block3" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block4" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block5" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block6" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block7" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block8" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block9" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block10" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block11" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block12" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block13" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block14" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block15" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block16" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block17" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block18" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block19" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block20" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Inventory" type="GridContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 4
+
+[node name="Block" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block2" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block3" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block4" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block5" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block6" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block7" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block8" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block9" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block10" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block11" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block12" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block13" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block14" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block15" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block16" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block17" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block18" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block19" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block20" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+layout_mode = 2

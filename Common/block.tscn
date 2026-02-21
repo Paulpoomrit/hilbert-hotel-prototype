@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ciexe7prabm03"]
-
-[ext_resource type="Script" uid="uid://b05s4uikni887" path="res://Common/block.gd" id="1_8c77u"]
-
-[node name="Node" type="Node"]
-script = ExtResource("1_8c77u")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]

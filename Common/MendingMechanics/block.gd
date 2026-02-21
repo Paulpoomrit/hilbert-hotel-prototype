@@ -4,7 +4,6 @@ class_name Block
 extends Node
 
 
-@onready var _sprite_2d: Sprite2D = $Sprite2D
 @export var _block_type: String = "null"
 var _previous_block: Block = null
 var _next_block: Block = null
