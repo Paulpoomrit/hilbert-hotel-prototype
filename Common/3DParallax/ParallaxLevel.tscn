@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=4 uid="uid://d06xsn1e5ymqc"]
 
-[ext_resource type="Script" uid="uid://cdlr7qvns8mvp" path="res://parallax_level.gd" id="1_7r5nt"]
-[ext_resource type="TileSet" uid="uid://1olsiv5pfgjf" path="res://TileSet.tres" id="2_2mcvq"]
-[ext_resource type="Texture2D" uid="uid://brbs01oqh5cqk" path="res://content/sprites/Pixel Plains Premium Pack/Characters 24x24/Character 7 v2.png" id="3_2mcvq"]
+[ext_resource type="Script" uid="uid://cdlr7qvns8mvp" path="res://Common/3DParallax/parallax_level.gd" id="1_7r5nt"]
+[ext_resource type="TileSet" uid="uid://1olsiv5pfgjf" path="res://Content/Resources/TileSet.tres" id="2_2mcvq"]
+[ext_resource type="Texture2D" uid="uid://brbs01oqh5cqk" path="res://Content/sprites/Pixel Plains Premium Pack/Characters 24x24/Character 7 v2.png" id="3_2mcvq"]
 
 [node name="ParallaxLevel" type="Node2D"]
 script = ExtResource("1_7r5nt")
