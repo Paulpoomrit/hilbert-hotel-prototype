@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cj71l6m3fgrxf"]
+
+[ext_resource type="Script" uid="uid://bagkf2bhdyuq4" path="res://Common/3DParallax/3d_parallax_object.gd" id="1_jc7ad"]
+
+[node name="3DParallaxObject" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_jc7ad")
+
+[node name="Parallaxes" type="Node2D" parent="."]

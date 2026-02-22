@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1spn5t2go2xg"
-path="res://.godot/imported/Basic Tiles 1.png-9cd34e5da02bbeca27bcb2aefc4107e3.ctex"
+path="res://.godot/imported/Basic Tiles 1.png-e8c43ec900eef04e8a7c172817190fe7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/Pixel Plains Premium Pack/Fall/Basic Tiles 1.png"
-dest_files=["res://.godot/imported/Basic Tiles 1.png-9cd34e5da02bbeca27bcb2aefc4107e3.ctex"]
+source_file="res://Content/sprites/Pixel Plains Premium Pack/Fall/Basic Tiles 1.png"
+dest_files=["res://.godot/imported/Basic Tiles 1.png-e8c43ec900eef04e8a7c172817190fe7.ctex"]
 
 [params]
 

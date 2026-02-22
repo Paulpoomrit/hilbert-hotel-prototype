@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bqtabn268bg1v"
-path="res://.godot/imported/Spring 3 v1.png-f33dbd63f49d293394503b75edefd330.ctex"
+path="res://.godot/imported/Spring 3 v1.png-52e4c26ddb72725ff4cfd968f56bdc9c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/Pixel Plains Premium Pack/Characters 24x24/Spring 3 v1.png"
-dest_files=["res://.godot/imported/Spring 3 v1.png-f33dbd63f49d293394503b75edefd330.ctex"]
+source_file="res://Content/sprites/Pixel Plains Premium Pack/Characters 24x24/Spring 3 v1.png"
+dest_files=["res://.godot/imported/Spring 3 v1.png-52e4c26ddb72725ff4cfd968f56bdc9c.ctex"]
 
 [params]
 

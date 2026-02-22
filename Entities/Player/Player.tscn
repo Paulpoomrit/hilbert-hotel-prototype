@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://bl6msvoc1qtd4"]
 
-[ext_resource type="Script" uid="uid://4o0efb4i18s8" path="res://player.gd" id="1_kne1u"]
-[ext_resource type="Texture2D" uid="uid://bkbivjtaukmnh" path="res://content/sprites/Pixel Plains Premium Pack/Characters 24x24/Spring 1 v1.png" id="1_kpjcp"]
+[ext_resource type="Script" uid="uid://4o0efb4i18s8" path="res://Entities/Player/player.gd" id="1_kne1u"]
+[ext_resource type="Texture2D" uid="uid://bkbivjtaukmnh" path="res://Content/sprites/Pixel Plains Premium Pack/Characters 24x24/Spring 1 v1.png" id="1_kpjcp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e80uo"]
 size = Vector2(72, 76)
@@ -115,3 +115,5 @@ shape = SubResource("RectangleShape2D_e80uo")
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_wi0c6")
 animation = &"idle"
+
+[node name="Camera2D" type="Camera2D" parent="."]

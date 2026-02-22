@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://mxr2olloy5cn"
-path="res://.godot/imported/Waterfall anim 4.png-a4d2be02a991b235e43c43ed77c9c2fe.ctex"
+path="res://.godot/imported/Waterfall anim 4.png-b6e8cdab82fa555022ebba3880c8e5d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/Pixel Plains Premium Pack/Waterfall anim 4.png"
-dest_files=["res://.godot/imported/Waterfall anim 4.png-a4d2be02a991b235e43c43ed77c9c2fe.ctex"]
+source_file="res://Content/sprites/Pixel Plains Premium Pack/Waterfall anim 4.png"
+dest_files=["res://.godot/imported/Waterfall anim 4.png-b6e8cdab82fa555022ebba3880c8e5d0.ctex"]
 
 [params]
 
