@@ -15,6 +15,10 @@ run/main_scene="uid://dvfww42havutn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MendingSignalHub="*res://Common/Globals/MendingSignalHub.gd"
+
 [display]
 
 window/stretch/mode="canvas_items"
