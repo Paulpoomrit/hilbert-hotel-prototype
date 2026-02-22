@@ -6,3 +6,6 @@
 [node name="Block" type="TextureButton"]
 texture_normal = ExtResource("2_62855")
 script = ExtResource("1_c73nc")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

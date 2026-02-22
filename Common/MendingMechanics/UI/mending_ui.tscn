@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6w35nsox3nud"]
+[gd_scene load_steps=3 format=3 uid="uid://b6w35nsox3nud"]
 
+[ext_resource type="Script" uid="uid://kgycyc3ck78a" path="res://Common/MendingMechanics/UI/mending_ui.gd" id="1_a0i6h"]
 [ext_resource type="PackedScene" uid="uid://ciexe7prabm03" path="res://Common/MendingMechanics/block.tscn" id="2_a0i6h"]
 
 [node name="MendingUI" type="Control"]
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_a0i6h")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -147,3 +149,5 @@ layout_mode = 2
 
 [node name="Block20" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
