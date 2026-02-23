@@ -31,7 +31,9 @@ func disable_block() -> void:
 
 func _on_mouse_entered() -> void:
 	self.modulate = _hover_tint
+	scale = Vector2(1.05, 1.05)
 
 
 func _on_mouse_exited() -> void:
 	self.modulate = Color(1,1,1,1)
+	scale = Vector2(1, 1)

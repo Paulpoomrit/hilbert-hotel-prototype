@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6w35nsox3nud"]
+[gd_scene load_steps=4 format=3 uid="uid://b6w35nsox3nud"]
 
 [ext_resource type="Script" uid="uid://kgycyc3ck78a" path="res://Common/MendingMechanics/UI/mending_ui.gd" id="1_a0i6h"]
 [ext_resource type="PackedScene" uid="uid://ciexe7prabm03" path="res://Common/MendingMechanics/block.tscn" id="2_a0i6h"]
+[ext_resource type="Theme" uid="uid://b8xypxaan6n64" path="res://Common/MendingMechanics/UI/mending_ui_grid_theme.tres" id="2_ajjxs"]
 
 [node name="MendingUI" type="Control"]
 layout_mode = 3
@@ -10,144 +11,163 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_a0i6h")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.84, 0.84)
+use_top_left = true
 
-[node name="MendingArea" type="GridContainer" parent="HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="MendingArea" type="GridContainer" parent="CenterContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("2_ajjxs")
 columns = 4
 
-[node name="Block" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+[node name="Block" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block2" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+[node name="Block2" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block3" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+[node name="Block3" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block4" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+[node name="Block4" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block5" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+[node name="Block5" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block6" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+[node name="Block6" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block7" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+[node name="Block7" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block8" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+[node name="Block8" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block9" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+[node name="Block9" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block10" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+[node name="Block10" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block11" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+[node name="Block11" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block12" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+[node name="Block12" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block13" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+[node name="Block13" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block14" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+[node name="Block14" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block15" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+[node name="Block15" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block16" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+[node name="Block16" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block17" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+[node name="Block17" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block18" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+[node name="Block18" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block19" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+[node name="Block19" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block20" parent="HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+[node name="Block20" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Inventory" type="GridContainer" parent="HBoxContainer"]
+[node name="Control" type="Control" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
+[node name="Inventory" type="GridContainer" parent="CenterContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("2_ajjxs")
 columns = 4
 
-[node name="Block" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+[node name="Block" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block2" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+[node name="Block2" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block3" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+[node name="Block3" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block4" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+[node name="Block4" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block5" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+[node name="Block5" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block6" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+[node name="Block6" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block7" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+[node name="Block7" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block8" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+[node name="Block8" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block9" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+[node name="Block9" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block10" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+[node name="Block10" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block11" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+[node name="Block11" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block12" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+[node name="Block12" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block13" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+[node name="Block13" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block14" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+[node name="Block14" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block15" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+[node name="Block15" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block16" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+[node name="Block16" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block17" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+[node name="Block17" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block18" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+[node name="Block18" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block19" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+[node name="Block19" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
-[node name="Block20" parent="HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+[node name="Block20" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

@@ -1,8 +1,8 @@
 extends Control
 
 
-@onready var mending_area: GridContainer = $HBoxContainer/MendingArea
-@onready var inventory: GridContainer = $HBoxContainer/Inventory
+@onready var mending_area: GridContainer = $CenterContainer/HBoxContainer/MendingArea
+@onready var inventory: GridContainer = $CenterContainer/HBoxContainer/Inventory
 
 
 # Called when the node enters the scene tree for the first time.
