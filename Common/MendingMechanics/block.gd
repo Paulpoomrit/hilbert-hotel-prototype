@@ -43,10 +43,21 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	if self.texture_normal == null:
 		return
 	
+	# Create preview icon for dragging
 	var preview_block = self.duplicate()
 	var preview_control_node = Control.new()
 	preview_control_node.add_child(preview_block)
 	preview_block.position -= self.texture_normal.get_size() / 2
 	
 	set_drag_preview(preview_control_node)
-	return self.texture_normal
+	return self
+
+
+func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
+	return true
+
+
+func _drop_data(at_position: Vector2, data: Variant) -> void:
+	var current_block_temp = self.texture_normal
+	self.texture_normal = data.texture_normal
+	data.texture_normal = current_block_temp

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6w35nsox3nud"]
+[gd_scene load_steps=5 format=3 uid="uid://b6w35nsox3nud"]
 
 [ext_resource type="Script" uid="uid://kgycyc3ck78a" path="res://Common/MendingMechanics/UI/mending_ui.gd" id="1_a0i6h"]
 [ext_resource type="PackedScene" uid="uid://ciexe7prabm03" path="res://Common/MendingMechanics/block.tscn" id="2_a0i6h"]
 [ext_resource type="Theme" uid="uid://b8xypxaan6n64" path="res://Common/MendingMechanics/UI/mending_ui_grid_theme.tres" id="2_ajjxs"]
+[ext_resource type="Texture2D" uid="uid://b2kg8s2ru82uy" path="res://Content/sprites/Pixel Plains Premium Pack/Fall/Sunflowers.png" id="4_lie0p"]
 
 [node name="MendingUI" type="Control"]
 layout_mode = 3
@@ -24,9 +25,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
+offset_left = -19.999939
 offset_top = -20.0
-offset_right = 20.0
+offset_right = 20.000061
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -44,6 +45,7 @@ columns = 4
 
 [node name="Block" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
+texture_normal = ExtResource("4_lie0p")
 
 [node name="Block2" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
