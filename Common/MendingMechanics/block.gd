@@ -37,3 +37,16 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	self.modulate = Color(1,1,1,1)
 	scale = Vector2(1, 1)
+
+
+func _get_drag_data(at_position: Vector2) -> Variant:
+	if self.texture_normal == null:
+		return
+	
+	var preview_block = self.duplicate()
+	var preview_control_node = Control.new()
+	preview_control_node.add_child(preview_block)
+	preview_block.position -= self.texture_normal.get_size() / 2
+	
+	set_drag_preview(preview_control_node)
+	return self.texture_normal
