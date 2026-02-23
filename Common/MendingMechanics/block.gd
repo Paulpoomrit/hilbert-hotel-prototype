@@ -4,11 +4,20 @@ class_name Block
 extends TextureButton
 
 
-@export var _block_type: String = "null"
-@export var _hover_tint: Color = Color(0.41, 0.41, 0.41, 1.0)
+@export var _block_data: BlockData = preload("uid://c80app652t07d")
 
 
+var _block_type: String
 var _is_enable: bool = false
+
+
+func _ready() -> void:
+	update_ui()
+
+
+func update_ui() -> void:
+	self.texture_normal = _block_data.block_texture
+	_block_type = _block_data.block_type
 
 
 func get_block_type() -> String:
@@ -30,7 +39,7 @@ func disable_block() -> void:
 
 
 func _on_mouse_entered() -> void:
-	self.modulate = _hover_tint
+	self.modulate = _block_data.hover_tint
 	scale = Vector2(1.05, 1.05)
 
 
@@ -40,7 +49,7 @@ func _on_mouse_exited() -> void:
 
 
 func _get_drag_data(at_position: Vector2) -> Variant:
-	if self.texture_normal == null:
+	if not _block_data:
 		return
 	
 	# Create preview icon for dragging
@@ -58,6 +67,10 @@ func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
-	var current_block_temp = self.texture_normal
-	self.texture_normal = data.texture_normal
-	data.texture_normal = current_block_temp
+	# swap data
+	var current_block_temp = _block_data
+	_block_data = data._block_data
+	data._block_data = current_block_temp
+	
+	self.update_ui()
+	data.update_ui()
