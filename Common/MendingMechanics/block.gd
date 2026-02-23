@@ -16,6 +16,8 @@ func _ready() -> void:
 
 
 func update_ui() -> void:
+	if not _block_data:
+		return
 	self.texture_normal = _block_data.block_texture
 	_block_type = _block_data.block_type
 
@@ -41,6 +43,7 @@ func disable_block() -> void:
 func _on_mouse_entered() -> void:
 	self.modulate = _block_data.hover_tint
 	scale = Vector2(1.05, 1.05)
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.ON_BLOCK_HOVER)
 
 
 func _on_mouse_exited() -> void:
@@ -51,6 +54,8 @@ func _on_mouse_exited() -> void:
 func _get_drag_data(at_position: Vector2) -> Variant:
 	if not _block_data:
 		return
+	
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.ON_BLOCK_CLICK)
 	
 	# Create preview icon for dragging
 	var preview_block = self.duplicate()
@@ -67,6 +72,9 @@ func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
+	
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.ON_BLOCK_DROP)
+	
 	# swap data
 	var current_block_temp = _block_data
 	_block_data = data._block_data

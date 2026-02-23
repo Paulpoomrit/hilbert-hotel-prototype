@@ -8,6 +8,7 @@ extends Node2D
 ## @tutorial: https://www.youtube.com/watch?v=Egf2jgET3nQ
 
 var sound_effect_dict: Dictionary = {} ## Loads all registered SoundEffects on ready as a reference.
+var rng = RandomNumberGenerator.new()
 
 @export var sound_effects: Array[SoundEffect] ## Stores all possible SoundEffects that can be played.
 
@@ -29,7 +30,7 @@ func create_2d_audio_at_location(location: Vector2, type: SoundEffect.SOUND_EFFE
 			new_2D_audio.stream = sound_effect.sound_effect
 			new_2D_audio.volume_db = sound_effect.volume
 			new_2D_audio.pitch_scale = sound_effect.pitch_scale
-			new_2D_audio.pitch_scale += Global.rng.randf_range(-sound_effect.pitch_randomness, sound_effect.pitch_randomness )
+			new_2D_audio.pitch_scale += rng.randf_range(-sound_effect.pitch_randomness, sound_effect.pitch_randomness )
 			new_2D_audio.finished.connect(sound_effect.on_audio_finished)
 			new_2D_audio.finished.connect(new_2D_audio.queue_free)
 			new_2D_audio.play()
@@ -48,7 +49,7 @@ func create_audio(type: SoundEffect.SOUND_EFFECT_TYPE) -> void:
 			new_audio.stream = sound_effect.sound_effect
 			new_audio.volume_db = sound_effect.volume
 			new_audio.pitch_scale = sound_effect.pitch_scale
-			new_audio.pitch_scale += Global.rng.randf_range(-sound_effect.pitch_randomness, sound_effect.pitch_randomness )
+			new_audio.pitch_scale += rng.randf_range(-sound_effect.pitch_randomness, sound_effect.pitch_randomness )
 			new_audio.finished.connect(sound_effect.on_audio_finished)
 			new_audio.finished.connect(new_audio.queue_free)
 			new_audio.play()
