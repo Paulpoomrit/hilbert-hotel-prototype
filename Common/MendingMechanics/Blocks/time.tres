@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="BlockData" load_steps=3 format=3 uid="uid://bwkt027c46iuc"]
 
-[ext_resource type="Texture2D" uid="uid://b2kg8s2ru82uy" path="res://Content/sprites/Pixel Plains Premium Pack/Fall/Sunflowers.png" id="1_b2186"]
+[ext_resource type="Texture2D" uid="uid://ca2apq1a7xgiv" path="res://Common/MendingMechanics/Sprites/Blocks (128 x 128 px)/Time.png" id="1_b2186"]
 [ext_resource type="Script" uid="uid://d0g8vr3ydganx" path="res://Common/MendingMechanics/block_data_resource.gd" id="2_g5gvd"]
 
 [resource]
 script = ExtResource("2_g5gvd")
-block_type = "time"
+block_type = "Time"
 block_texture = ExtResource("1_b2186")
 metadata/_custom_type_script = "uid://d0g8vr3ydganx"

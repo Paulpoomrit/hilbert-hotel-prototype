@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=3 format=3 uid="uid://bxpj41o2usndm"]
+
+[ext_resource type="Texture2D" uid="uid://eyrmeb4kyqug" path="res://Common/MendingMechanics/Sprites/Blocks (128 x 128 px)/Perspective.png" id="1_eg8g3"]
+[ext_resource type="Script" uid="uid://d0g8vr3ydganx" path="res://Common/MendingMechanics/block_data_resource.gd" id="2_45er4"]
+
+[resource]
+script = ExtResource("2_45er4")
+block_type = "Perspective"
+block_texture = ExtResource("1_eg8g3")
+metadata/_custom_type_script = "uid://d0g8vr3ydganx"

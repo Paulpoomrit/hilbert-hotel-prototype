@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=3 format=3 uid="uid://b28c81x7v8eys"]
+
+[ext_resource type="Texture2D" uid="uid://08obkfuec2bd" path="res://Common/MendingMechanics/Sprites/Blocks (128 x 128 px)/Speed.png" id="1_4qnb5"]
+[ext_resource type="Script" uid="uid://d0g8vr3ydganx" path="res://Common/MendingMechanics/block_data_resource.gd" id="2_3ab71"]
+
+[resource]
+script = ExtResource("2_3ab71")
+block_type = "Speed"
+block_texture = ExtResource("1_4qnb5")
+metadata/_custom_type_script = "uid://d0g8vr3ydganx"

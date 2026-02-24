@@ -1,9 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6w35nsox3nud"]
+[gd_scene load_steps=23 format=3 uid="uid://b6w35nsox3nud"]
 
 [ext_resource type="Script" uid="uid://kgycyc3ck78a" path="res://Common/MendingMechanics/UI/mending_ui.gd" id="1_a0i6h"]
 [ext_resource type="PackedScene" uid="uid://ciexe7prabm03" path="res://Common/MendingMechanics/block.tscn" id="2_a0i6h"]
 [ext_resource type="Theme" uid="uid://b8xypxaan6n64" path="res://Common/MendingMechanics/UI/mending_ui_grid_theme.tres" id="2_ajjxs"]
 [ext_resource type="Resource" uid="uid://bwkt027c46iuc" path="res://Common/MendingMechanics/Blocks/time.tres" id="4_lie0p"]
+[ext_resource type="Resource" uid="uid://b1a80lgxgkurs" path="res://Common/MendingMechanics/Blocks/gravity.tres" id="5_p62ws"]
+[ext_resource type="Resource" uid="uid://b28c81x7v8eys" path="res://Common/MendingMechanics/Blocks/danger.tres" id="6_756bo"]
+[ext_resource type="Resource" uid="uid://dslunw1cp57x" path="res://Common/MendingMechanics/Blocks/speed.tres" id="7_a2hsm"]
+[ext_resource type="Resource" uid="uid://bxpj41o2usndm" path="res://Common/MendingMechanics/Blocks/perspective.tres" id="8_a2oxc"]
+[ext_resource type="Resource" uid="uid://25rjd7yrrg7t" path="res://Common/MendingMechanics/Blocks/size.tres" id="9_867gp"]
+[ext_resource type="Resource" uid="uid://d1hwyrqm43nj3" path="res://Common/MendingMechanics/Blocks/colour.tres" id="10_55niv"]
+[ext_resource type="Resource" uid="uid://ngmjikb8mom7" path="res://Common/MendingMechanics/Blocks/money.tres" id="11_ktojv"]
+[ext_resource type="Resource" uid="uid://dpxt5ekyebnwb" path="res://Common/MendingMechanics/Blocks/alive.tres" id="12_57agw"]
+[ext_resource type="Resource" uid="uid://7v3uj11bw5f0" path="res://Common/MendingMechanics/Blocks/death.tres" id="13_m5hi7"]
+[ext_resource type="Resource" uid="uid://cbamflbme833l" path="res://Common/MendingMechanics/Blocks/minus.tres" id="14_7frce"]
+[ext_resource type="Resource" uid="uid://tfpphfxjos4y" path="res://Common/MendingMechanics/Blocks/1.tres" id="15_s31gp"]
+[ext_resource type="Resource" uid="uid://c2onf2tr5qfp8" path="res://Common/MendingMechanics/Blocks/2.tres" id="16_5j1i6"]
+[ext_resource type="Resource" uid="uid://3ainxyqylg3s" path="res://Common/MendingMechanics/Blocks/3.tres" id="17_8s5ia"]
+[ext_resource type="Resource" uid="uid://r5joufngsc8" path="res://Common/MendingMechanics/Blocks/real.tres" id="18_a2oxc"]
+[ext_resource type="Resource" uid="uid://gnkhreccae0a" path="res://Common/MendingMechanics/Blocks/i.tres" id="19_867gp"]
+[ext_resource type="Resource" uid="uid://cyx7ov7x4cl1u" path="res://Common/MendingMechanics/Blocks/enemy.tres" id="20_55niv"]
+[ext_resource type="Resource" uid="uid://xh7cdgo7erb7" path="res://Common/MendingMechanics/Blocks/is.tres" id="21_867gp"]
+[ext_resource type="Resource" uid="uid://bpyipd32l8m4o" path="res://Common/MendingMechanics/Blocks/not.tres" id="22_55niv"]
 
 [node name="MendingUI" type="Control"]
 layout_mode = 3
@@ -116,60 +134,80 @@ columns = 4
 
 [node name="Block" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
+_block_data = ExtResource("5_p62ws")
 
 [node name="Block2" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
+_block_data = ExtResource("6_756bo")
 
 [node name="Block3" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
+_block_data = ExtResource("7_a2hsm")
 
 [node name="Block4" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
+_block_data = ExtResource("4_lie0p")
 
 [node name="Block5" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
+_block_data = ExtResource("8_a2oxc")
 
 [node name="Block6" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
+_block_data = ExtResource("9_867gp")
 
 [node name="Block7" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
+_block_data = ExtResource("10_55niv")
 
 [node name="Block8" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
+_block_data = ExtResource("11_ktojv")
 
 [node name="Block9" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
+_block_data = ExtResource("12_57agw")
 
 [node name="Block10" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
+_block_data = ExtResource("13_m5hi7")
 
 [node name="Block11" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
+_block_data = ExtResource("14_7frce")
 
 [node name="Block12" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
+_block_data = ExtResource("15_s31gp")
 
 [node name="Block13" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
+_block_data = ExtResource("16_5j1i6")
 
 [node name="Block14" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
+_block_data = ExtResource("17_8s5ia")
 
 [node name="Block15" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
+_block_data = ExtResource("18_a2oxc")
 
 [node name="Block16" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
+_block_data = ExtResource("19_867gp")
 
 [node name="Block17" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
+_block_data = ExtResource("20_55niv")
 
 [node name="Block18" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
+_block_data = ExtResource("21_867gp")
 
 [node name="Block19" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
+_block_data = ExtResource("21_867gp")
 
 [node name="Block20" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
+_block_data = ExtResource("22_55niv")
