@@ -7,8 +7,8 @@ var _grammar_dict: Dictionary[String, PackedStringArray]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	populate_grammar_dict()
-	# cky_recognition(["Gravity", "Is", "Real"])
-	cky_recognition(["Gravity", "Is", "Not", "Real"])
+	is_valid(["Gravity", "Is", "Real"])
+	is_valid(["Gravity", "Is", "Not", "Real"])
 
 
 func populate_grammar_dict() -> void:	
@@ -43,6 +43,7 @@ func populate_grammar_dict() -> void:
 	# print(_grammar_dict)
 
 
+# NOT WORKING YET!
 func cky_recognition(sentence: PackedStringArray) -> bool:
 	
 	if sentence[1] != "Is":
@@ -93,6 +94,15 @@ func cky_recognition(sentence: PackedStringArray) -> bool:
 		print("invalid sentence")
 		return false
 
+
+func is_valid(sentence: PackedStringArray) -> bool:
+	var valid_grammar = search_for_valid_grammar(sentence)
+	if valid_grammar == "":
+		print("invalid sentence: %s" % sentence)
+		return false
+	else:
+		print("valid sentence: %s" % sentence)
+		return true
 
 func search_for_valid_grammar(block_combo: PackedStringArray) -> String:
 	for key: String in _grammar_dict:

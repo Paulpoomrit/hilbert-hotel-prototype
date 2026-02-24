@@ -1,7 +1,1 @@
-S -> Gravity PropP
-
-PropP -> Prop
-
-Prop -> Real
-
-Gravity -> Gravity
+S -> Gravity Is Real
