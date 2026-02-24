@@ -86,7 +86,7 @@ func cky_recognition(sentence: PackedStringArray) -> bool:
 	
 	print(table)
 	
-	if (table[0][len(sentence)-1] == "S"):
+	if (len(table[0][len(sentence)-1]) > 0 and table[0][len(sentence)-1][0] == "S"):
 		print("valid sentence")
 		return true
 	else:
