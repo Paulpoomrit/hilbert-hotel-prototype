@@ -42,7 +42,7 @@ func populate_grammar_dict() -> void:
 	print(_grammar_dict)
 
 
-func cky_recognition(sentence: PackedStringArray) -> Variant:
+func cky_recognition(sentence: PackedStringArray) -> bool:
 	
 	if sentence[1] != "Is":
 		print("The sentence should always contain the 'Is' Operator")
@@ -86,8 +86,12 @@ func cky_recognition(sentence: PackedStringArray) -> Variant:
 	
 	print(table)
 	
-	
-	return table
+	if (table[0][len(sentence)-1] == "S"):
+		print("valid sentence")
+		return true
+	else:
+		print("invalid sentence")
+		return false
 
 
 func search_for_valid_grammar(block_combo: PackedStringArray) -> String:
