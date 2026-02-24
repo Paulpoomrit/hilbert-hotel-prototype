@@ -1,7 +1,7 @@
 extends Node
 
 const GRAMMAR_PATH = "res://Common/MendingMechanics/Parser/grammar.txt"
-var _grammar_dict: Dictionary[String, String]
+var _grammar_dict: Dictionary[String, PackedStringArray]
 
 
 # Called when the node enters the scene tree for the first time.
@@ -13,8 +13,29 @@ func populate_grammar_dict() -> void:
 	
 	var file = FileAccess.open(GRAMMAR_PATH, FileAccess.READ)
 	
+	# iterate over each line of grammar.txt
 	while not file.eof_reached():
-		var line = file.get_line()
+		var line: String = file.get_line()
 		
-		var rhs
-		var lhs
+		# skip if line is empty
+		if line == "" or line == " ":
+			continue
+		
+		# match everything on the lhs of the symbol ->
+		var lhs_regex = RegEx.create_from_string(".+(?=->)") 
+		# match everything on the rhs of the symbol ->
+		var rhs_regex = RegEx.create_from_string("(?<=->).+")
+		
+		var lhs: String = lhs_regex.search(line).get_string()
+		var rhs: String = rhs_regex.search(line).get_string()
+		
+		# text cleaning
+		lhs = lhs.replace(" ", "")
+		rhs = rhs.strip_edges()
+		var rhs_array: PackedStringArray = rhs.split(" ")
+		
+		print("lhs: %s | rhs: %s" % [lhs, rhs_array])
+		
+		_grammar_dict[lhs] = rhs_array
+	
+	print(_grammar_dict)

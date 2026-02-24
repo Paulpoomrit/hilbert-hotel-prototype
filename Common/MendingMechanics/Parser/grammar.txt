@@ -2,4 +2,4 @@ S -> Gravity PropP
 
 PropP -> Prop
 
-Prop -> Gravity
+Prop -> Real
