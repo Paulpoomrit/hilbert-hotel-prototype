@@ -3,3 +3,5 @@ S -> Gravity PropP
 PropP -> Prop
 
 Prop -> Real
+
+Gravity -> Gravity
