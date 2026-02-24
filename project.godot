@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 MendingSignalHub="*res://Common/Globals/MendingSignalHub.gd"
 AudioManager="*res://Common/AudioManager/audio_manager_scene.tscn"
+Parser="*res://Common/MendingMechanics/Parser/parser.gd"
 
 [display]
 
