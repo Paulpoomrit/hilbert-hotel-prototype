@@ -42,59 +42,6 @@ func populate_grammar_dict() -> void:
 	
 	# print(_grammar_dict)
 
-
-# NOT WORKING YET!
-func cky_recognition(sentence: PackedStringArray) -> bool:
-	
-	if sentence[1] != "Is":
-		print("The sentence should always contain the 'Is' Operator")
-		return false
-	
-	sentence.remove_at(1)
-	
-	var table: Array[Array]
-	for row in len(sentence):
-		table.append([])
-		for col in len(sentence):
-			table[row].append([])
-	
-	for j in range(1, len(sentence) + 1):
-		
-		for key: String in _grammar_dict:
-			var value: PackedStringArray = _grammar_dict[key]
-			
-			if value == PackedStringArray([sentence[j-1]]):
-				table[j-1][j-1].append(key)
-				
-				var another_key = search_for_valid_grammar([key])
-				if another_key != key:
-					table[j-1][j-1].append(another_key)
-		
-		for i in range(j-2, -1, -1):
-			for k in range(i, j):
-				
-				for block_b in table[j-1][j-1]:
-					for block_a in table[i][k]:
-						var block_combo: PackedStringArray
-						block_combo.append(block_a)
-						block_combo.append(block_b)
-						
-						for key: String in _grammar_dict:
-							var value: PackedStringArray = _grammar_dict[key]
-					
-							if value == block_combo:
-								table[i][j-1].append(key)
-	
-	print(table)
-	
-	if (len(table[0][len(sentence)-1]) > 0 and table[0][len(sentence)-1][0] == "S"):
-		print("valid sentence: %s" % sentence)
-		return true
-	else:
-		print("invalid sentence")
-		return false
-
-
 func is_valid(sentence: PackedStringArray) -> bool:
 	var valid_grammar = search_for_valid_grammar(sentence)
 	if valid_grammar == "":
