@@ -28,18 +28,35 @@ func HandleBlockDropped(block: Block) -> void:
 	if block_index == -1:
 		return
 		
-	var row = block_index / 4 # starting from 0
+	var row = block_index / columns # starting from 0
 	var row_start_index = row * columns
 	
-	var sentence: Array[String]
+	var row_string: String
 	
 	# Loop over all the elements in that row
 	for i in range(row_start_index, row_start_index + columns):
-		sentence.append(_grid_array[i]._block_type)
+		row_string += _grid_array[i]._block_type + " "
 	
-	if sentence.size() < 3:
-		return
+	# Replace all the nulls in between with _
+	# which will be used later as the delimeter
+	var null_regex = RegEx.create_from_string("(Null )+")
+	row_string = null_regex.sub(row_string, "_ ", true)
+	row_string = row_string.rstrip(" ")
+	
+	var temp_sentences := row_string.split("_", false)
+	var sentences: Array[PackedStringArray]
+	
+	for sentence in temp_sentences:
+		sentence = sentence.lstrip(" ")
+		sentence = sentence.rstrip(" ")
+		print(sentence)
+		sentences.append(sentence.split(" ", false))
+	
+	print(sentences)
+	
+	
+	
 	
 	# Try parsing the first k words
-	for k in range(2, sentence.size() + 1):
-		Parser.is_valid(sentence.slice(0,k))
+	#for k in range(3, sentence.size() + 1):
+		#Parser.is_valid(sentence.slice(0,k)) 

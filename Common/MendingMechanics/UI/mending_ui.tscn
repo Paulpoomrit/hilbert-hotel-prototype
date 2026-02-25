@@ -48,7 +48,7 @@ offset_right = 20.000061
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.84, 0.84)
+scale = Vector2(0.7, 0.7)
 use_top_left = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
@@ -58,7 +58,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_ajjxs")
-columns = 4
+columns = 6
 script = ExtResource("3_ktojv")
 
 [node name="Block" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
@@ -120,6 +120,18 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Block20" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block21" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block22" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block23" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block24" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CenterContainer/HBoxContainer"]
