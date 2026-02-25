@@ -27,25 +27,25 @@ func HandleBlockDropped(block: Block) -> void:
 	var row = block_index / columns # starting from 0
 	var row_start_index = row * columns
 	
-	var row_string: String = ""
+	var strings_for_processing: String = ""
 	
 	# 1. GRAB ALL SENTENCES IN ROW
 	for i in range(row_start_index, row_start_index + columns):
-		row_string += _grid_array[i]._block_type + " "
+		strings_for_processing += _grid_array[i]._block_type + " "
 	
 	# 2. GRAB ALL SENTENCES IN COLUMN
 	var col = block_index - row_start_index # starting from 0
 	for i in range(col, _grid_array.size(), columns):
-		print(i)
+		strings_for_processing += _grid_array[i]._block_type + " "
 	
 	
 	# Replace all the nulls in between with _
 	# which will be used later as the delimeter
 	var null_regex = RegEx.create_from_string("(Null )+")
-	row_string = null_regex.sub(row_string, "_ ", true)
-	row_string = row_string.rstrip(" ")
+	strings_for_processing = null_regex.sub(strings_for_processing, "_ ", true)
+	strings_for_processing = strings_for_processing.rstrip(" ")
 	
-	var temp_sentences := row_string.split("_", false)
+	var temp_sentences := strings_for_processing.split("_", false)
 	var sentences: Array[PackedStringArray]
 	
 	for sentence in temp_sentences:
