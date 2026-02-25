@@ -1,7 +1,7 @@
 extends Node
 
 const GRAMMAR_PATH = "res://Common/MendingMechanics/Parser/grammar.txt"
-var _grammar_dict: Dictionary[String, PackedStringArray]
+var _grammar_dict: Array[GrammarRule]
 
 
 # Called when the node enters the scene tree for the first time.
@@ -34,11 +34,10 @@ func populate_grammar_dict() -> void:
 		rhs = rhs.strip_edges()
 		var rhs_array: PackedStringArray = rhs.split(" ")
 		
+		# for checking if the grammar is loaded properly!
 		# print("lhs: %s | rhs: %s" % [lhs, rhs_array])
 		
-		_grammar_dict[lhs] = rhs_array
-	
-	print(_grammar_dict)
+		_grammar_dict.append(GrammarRule.new(lhs,rhs_array))
 
 func is_valid(sentence: PackedStringArray) -> bool:
 	var valid_grammar = search_for_valid_grammar(sentence)
@@ -50,8 +49,9 @@ func is_valid(sentence: PackedStringArray) -> bool:
 		return true
 
 func search_for_valid_grammar(block_combo: PackedStringArray) -> String:
-	for key: String in _grammar_dict:
-		var value: PackedStringArray = _grammar_dict[key]
+	for rule: GrammarRule in _grammar_dict:
+		var key: String = rule.lhs
+		var value: PackedStringArray = rule.rhs
 		if value == block_combo:
 			return key
 	return ""

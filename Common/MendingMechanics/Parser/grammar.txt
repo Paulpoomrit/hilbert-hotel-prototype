@@ -1,3 +1,5 @@
 
-S1 -> Gravity Is Real
-S2 -> Gravity Is Not Real
+S -> Gravity Is Real
+S -> Gravity Is Not Real
+
+S -> Time Is Real
