@@ -10,11 +10,6 @@ func _ready() -> void:
 	MendingSignalHub.on_block_drop.connect(HandleBlockDropped)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func populate_grid_array() -> void:
 	
 	for block in get_children():
@@ -28,14 +23,21 @@ func HandleBlockDropped(block: Block) -> void:
 	if block_index == -1:
 		return
 		
+	@warning_ignore("integer_division")
 	var row = block_index / columns # starting from 0
 	var row_start_index = row * columns
 	
-	var row_string: String
+	var row_string: String = ""
 	
-	# Loop over all the elements in that row
+	# 1. GRAB ALL SENTENCES IN ROW
 	for i in range(row_start_index, row_start_index + columns):
 		row_string += _grid_array[i]._block_type + " "
+	
+	# 2. GRAB ALL SENTENCES IN COLUMN
+	var col = block_index - row_start_index # starting from 0
+	for i in range(col, _grid_array.size(), columns):
+		print(i)
+	
 	
 	# Replace all the nulls in between with _
 	# which will be used later as the delimeter
@@ -54,6 +56,19 @@ func HandleBlockDropped(block: Block) -> void:
 	# print(sentences)
 	
 	for sentence in sentences:
-	# Try parsing the first k words
-		for k in range(3, sentence.size() + 1):
-			Parser.is_valid(sentence.slice(0,k)) 
+		#print(" ".join(sentence) + "\n-------\n")
+		# Try parsing the first k words
+		for k in range(sentence.size() + 1, -1, -1):
+			#print("First k")
+			if Parser.is_valid(sentence.slice(0,k)):
+				return # TODO: Found valid parse! -> DO SOMERTHING
+			#print("Last k")
+			if Parser.is_valid(sentence.slice(k, sentence.size())):
+				return # TODO: Found valid parse! -> DO SOMERTHING
+			
+			# Try parsing the middle words from k to l
+			for l in range(k+1, sentence.size()+1):
+				#print("Middle")
+				if Parser.is_valid(sentence.slice(k, l)):
+					return # TODO: Found valid parse! -> DO SOMERTHING
+		

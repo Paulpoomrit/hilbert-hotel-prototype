@@ -43,7 +43,7 @@ func populate_grammar_dict() -> void:
 func is_valid(sentence: PackedStringArray) -> bool:
 	var valid_grammar = search_for_valid_grammar(sentence)
 	if valid_grammar == "":
-		print("invalid sentence: %s" % sentence)
+		#print("invalid sentence: %s" % sentence)
 		return false
 	else:
 		print("valid sentence: %s" % sentence)
