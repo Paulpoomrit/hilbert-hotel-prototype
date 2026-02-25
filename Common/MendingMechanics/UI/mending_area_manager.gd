@@ -49,14 +49,11 @@ func HandleBlockDropped(block: Block) -> void:
 	for sentence in temp_sentences:
 		sentence = sentence.lstrip(" ")
 		sentence = sentence.rstrip(" ")
-		print(sentence)
 		sentences.append(sentence.split(" ", false))
 	
-	print(sentences)
+	# print(sentences)
 	
-	
-	
-	
+	for sentence in sentences:
 	# Try parsing the first k words
-	#for k in range(3, sentence.size() + 1):
-		#Parser.is_valid(sentence.slice(0,k)) 
+		for k in range(3, sentence.size() + 1):
+			Parser.is_valid(sentence.slice(0,k)) 

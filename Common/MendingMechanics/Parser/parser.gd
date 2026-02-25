@@ -38,7 +38,7 @@ func populate_grammar_dict() -> void:
 		
 		_grammar_dict[lhs] = rhs_array
 	
-	# print(_grammar_dict)
+	print(_grammar_dict)
 
 func is_valid(sentence: PackedStringArray) -> bool:
 	var valid_grammar = search_for_valid_grammar(sentence)
