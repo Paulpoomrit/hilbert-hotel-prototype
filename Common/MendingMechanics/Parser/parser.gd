@@ -39,6 +39,7 @@ func populate_grammar_dict() -> void:
 		
 		_grammar_dict.append(GrammarRule.new(lhs,rhs_array))
 
+
 func is_valid(sentence: PackedStringArray) -> bool:
 	var valid_grammar = search_for_valid_grammar(sentence)
 	if valid_grammar == "":
@@ -48,10 +49,27 @@ func is_valid(sentence: PackedStringArray) -> bool:
 		print("valid sentence: %s" % sentence)
 		return true
 
+
 func search_for_valid_grammar(block_combo: PackedStringArray) -> String:
+	# Helper function to search for a valid rule in _grammar_dict
 	for rule: GrammarRule in _grammar_dict:
 		var key: String = rule.lhs
 		var value: PackedStringArray = rule.rhs
 		if value == block_combo:
 			return key
 	return ""
+
+
+func implement(sentence: PackedStringArray) -> void:
+	# Implement an already validated sentence
+	# [So we know the structure will be grammartical according to grammar.gd]
+	
+	# I'm turning it to a string just for demonstration
+	# Feel free to keep sentence as an array
+	var string_sentence: String = " ".join(sentence)
+	print("Implementing: %s" % string_sentence)
+	
+	match string_sentence:
+		"Time Is Real":
+			# TODO: wire this with a signal (should be defined in MendingSignalHub.gd)
+			print('yo')

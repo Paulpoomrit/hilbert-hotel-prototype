@@ -61,14 +61,20 @@ func HandleBlockDropped(block: Block) -> void:
 		for k in range(sentence.size() + 1, -1, -1):
 			#print("First k")
 			if Parser.is_valid(sentence.slice(0,k)):
-				return # TODO: Found valid parse! -> DO SOMERTHING
+				# Found valid parse!
+				Parser.implement(sentence.slice(0,k))
+				return
 			#print("Last k")
 			if Parser.is_valid(sentence.slice(k, sentence.size())):
-				return # TODO: Found valid parse! -> DO SOMERTHING
+				# Found valid parse!
+				Parser.implement(sentence.slice(k, sentence.size()))
+				return
 			
 			# Try parsing the middle words from k to l
 			for l in range(k+1, sentence.size()+1):
 				#print("Middle")
 				if Parser.is_valid(sentence.slice(k, l)):
-					return # TODO: Found valid parse! -> DO SOMERTHING
+					# Found valid parse!
+					Parser.implement(sentence.slice(k, l))
+					return
 		
