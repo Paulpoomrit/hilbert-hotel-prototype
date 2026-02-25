@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BlockData" load_steps=3 format=3 uid="uid://d1hwyrqm43nj3"]
 
 [ext_resource type="Texture2D" uid="uid://bsfu4k0umdkue" path="res://Common/MendingMechanics/Sprites/Blocks (128 x 128 px)/Colour.png" id="1_oun4r"]
-[ext_resource type="Script" uid="uid://d0g8vr3ydganx" path="res://Common/MendingMechanics/block_data_resource.gd" id="2_ikt00"]
+[ext_resource type="Script" uid="uid://d0g8vr3ydganx" path="res://Common/MendingMechanics/Data/block_data_resource.gd" id="2_ikt00"]
 
 [resource]
 script = ExtResource("2_ikt00")

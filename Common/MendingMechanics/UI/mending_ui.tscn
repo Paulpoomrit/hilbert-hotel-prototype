@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://b6w35nsox3nud"]
+[gd_scene load_steps=24 format=3 uid="uid://b6w35nsox3nud"]
 
 [ext_resource type="Script" uid="uid://kgycyc3ck78a" path="res://Common/MendingMechanics/UI/mending_ui.gd" id="1_a0i6h"]
 [ext_resource type="PackedScene" uid="uid://ciexe7prabm03" path="res://Common/MendingMechanics/block.tscn" id="2_a0i6h"]
 [ext_resource type="Theme" uid="uid://b8xypxaan6n64" path="res://Common/MendingMechanics/UI/mending_ui_grid_theme.tres" id="2_ajjxs"]
+[ext_resource type="Script" uid="uid://d3hkrxowdn53g" path="res://Common/MendingMechanics/UI/mending_area_manager.gd" id="3_ktojv"]
 [ext_resource type="Resource" uid="uid://bwkt027c46iuc" path="res://Common/MendingMechanics/Blocks/time.tres" id="4_lie0p"]
 [ext_resource type="Resource" uid="uid://b1a80lgxgkurs" path="res://Common/MendingMechanics/Blocks/gravity.tres" id="5_p62ws"]
 [ext_resource type="Resource" uid="uid://b28c81x7v8eys" path="res://Common/MendingMechanics/Blocks/danger.tres" id="6_756bo"]
@@ -58,6 +59,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_ajjxs")
 columns = 4
+script = ExtResource("3_ktojv")
 
 [node name="Block" parent="CenterContainer/HBoxContainer/MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
@@ -209,3 +211,5 @@ _block_data = ExtResource("21_867gp")
 [node name="Block20" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("22_55niv")
+
+[connection signal="property_list_changed" from="CenterContainer/HBoxContainer/MendingArea" to="CenterContainer/HBoxContainer/MendingArea" method="_on_property_list_changed"]

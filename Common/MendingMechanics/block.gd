@@ -82,3 +82,6 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 	
 	self.update_ui()
 	data.update_ui()
+	
+	MendingSignalHub.on_block_drop.emit(self)
+	MendingSignalHub.on_block_drop.emit(data)

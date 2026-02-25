@@ -1,6 +1,9 @@
 extends Node
 
 
+signal on_block_drop(block: Block)
+
+
 var is_dragging = false
 
 

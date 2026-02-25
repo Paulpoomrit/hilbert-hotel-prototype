@@ -7,8 +7,6 @@ var _grammar_dict: Dictionary[String, PackedStringArray]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	populate_grammar_dict()
-	is_valid(["Gravity", "Is", "Real"])
-	is_valid(["Gravity", "Is", "Not", "Real"])
 
 
 func populate_grammar_dict() -> void:	
