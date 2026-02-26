@@ -1,0 +1,32 @@
+[gd_scene load_steps=9 format=3 uid="uid://d4cb8iox2ar78"]
+
+[ext_resource type="Script" uid="uid://cpuj750wli2iy" path="res://Common/AudioManager/AudioManager.gd" id="1_nd4jl"]
+[ext_resource type="Script" uid="uid://yx0sln0jvyur" path="res://Common/AudioManager/SoundEffectSetting.gd" id="2_gwqcc"]
+[ext_resource type="AudioStream" uid="uid://bty1e7wswvhmo" path="res://Content/SFX/ table_top_wav_hd/JDSherbert - Tabletop Games SFX Pack - Piece Impact - 5.wav" id="3_kqwf1"]
+[ext_resource type="AudioStream" uid="uid://bitomnte4w7ap" path="res://Content/SFX/ table_top_wav_hd/JDSherbert - Tabletop Games SFX Pack - Piece Impact - 2.wav" id="4_j8t6g"]
+[ext_resource type="AudioStream" uid="uid://dbhmnmilq2xl1" path="res://Content/SFX/ table_top_wav_hd/JDSherbert - Tabletop Games SFX Pack - Piece Impact - 10.wav" id="5_j8t6g"]
+
+[sub_resource type="Resource" id="Resource_kqwf1"]
+script = ExtResource("2_gwqcc")
+sound_effect = ExtResource("3_kqwf1")
+volume = -20.0
+pitch_randomness = 0.25
+metadata/_custom_type_script = "uid://yx0sln0jvyur"
+
+[sub_resource type="Resource" id="Resource_34xhm"]
+script = ExtResource("2_gwqcc")
+type = 1
+sound_effect = ExtResource("4_j8t6g")
+volume = -5.0
+metadata/_custom_type_script = "uid://yx0sln0jvyur"
+
+[sub_resource type="Resource" id="Resource_untb1"]
+script = ExtResource("2_gwqcc")
+type = 2
+sound_effect = ExtResource("5_j8t6g")
+pitch_randomness = 0.2
+metadata/_custom_type_script = "uid://yx0sln0jvyur"
+
+[node name="AudioManagerScene" type="Node2D"]
+script = ExtResource("1_nd4jl")
+sound_effects = Array[ExtResource("2_gwqcc")]([SubResource("Resource_kqwf1"), SubResource("Resource_34xhm"), SubResource("Resource_untb1")])

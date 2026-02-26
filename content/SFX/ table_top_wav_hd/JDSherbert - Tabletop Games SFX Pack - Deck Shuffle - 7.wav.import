@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bwmpugewijqij"
+path="res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Deck Shuffle - 7.wav-4a9b31698a00ebbd98a2074d7b6d0858.sample"
+
+[deps]
+
+source_file="res://Content/SFX/ table_top_wav_hd/JDSherbert - Tabletop Games SFX Pack - Deck Shuffle - 7.wav"
+dest_files=["res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Deck Shuffle - 7.wav-4a9b31698a00ebbd98a2074d7b6d0858.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

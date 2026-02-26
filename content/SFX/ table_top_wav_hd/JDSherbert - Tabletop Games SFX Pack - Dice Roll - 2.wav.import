@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cl57rc3u5g034"
+path="res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Dice Roll - 2.wav-cc18b14cc7e4de516fea1e14d7e12465.sample"
+
+[deps]
+
+source_file="res://Content/SFX/ table_top_wav_hd/JDSherbert - Tabletop Games SFX Pack - Dice Roll - 2.wav"
+dest_files=["res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Dice Roll - 2.wav-cc18b14cc7e4de516fea1e14d7e12465.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

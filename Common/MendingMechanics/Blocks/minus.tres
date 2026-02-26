@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=3 format=3 uid="uid://cbamflbme833l"]
+
+[ext_resource type="Texture2D" uid="uid://dlpd1j8kn84g4" path="res://Common/MendingMechanics/Sprites/Blocks (128 x 128 px)/Minus.png" id="1_18j0b"]
+[ext_resource type="Script" uid="uid://d0g8vr3ydganx" path="res://Common/MendingMechanics/Data/block_data_resource.gd" id="2_ra8jt"]
+
+[resource]
+script = ExtResource("2_ra8jt")
+block_type = "Minus"
+block_texture = ExtResource("1_18j0b")
+metadata/_custom_type_script = "uid://d0g8vr3ydganx"
