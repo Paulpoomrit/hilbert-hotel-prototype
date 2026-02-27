@@ -221,6 +221,7 @@ layout_mode = 2
 _block_data = ExtResource("21_867gp")
 
 [node name="Block20" parent="CenterContainer/HBoxContainer/Inventory" instance=ExtResource("2_a0i6h")]
+z_index = 100
 layout_mode = 2
 _block_data = ExtResource("22_55niv")
 
