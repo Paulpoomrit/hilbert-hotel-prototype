@@ -62,6 +62,7 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	var preview_control_node = Control.new()
 	preview_control_node.add_child(preview_block)
 	preview_block.position -= self.texture_normal.get_size() / 2
+	preview_block.scale = self.get_global_transform_with_canvas().get_scale()
 	
 	set_drag_preview(preview_control_node)
 	return self
