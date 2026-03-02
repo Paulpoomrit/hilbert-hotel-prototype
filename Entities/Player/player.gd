@@ -30,18 +30,23 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.animation = "idle"
 		controls_velocity.x = move_toward(controls_velocity.x, 0, SPEED)
 		
+	var natural_velocity = velocity
 	velocity = velocity + controls_velocity
 	var initial_velocity = velocity
 	
 	move_and_slide() # Theoretically this should never increase velocity in any direction by itself
-	#print(velocity.x)
+	
 	# Remove controls_velocity from total velocity
-	if velocity.x != 0:
-		velocity.x -= controls_velocity.x * (velocity.x / initial_velocity.x)
-	elif initial_velocity.x == 0 and controls_velocity.x != 0:
+	if abs(velocity.x) >= abs(initial_velocity.x):
 		velocity.x -= controls_velocity.x
-	if velocity.y != 0:
-		velocity.y -= controls_velocity.y * (velocity.y / initial_velocity.y)
-	elif initial_velocity.y == 0 and controls_velocity.y != 0:
+	elif natural_velocity.x * initial_velocity.x < 0 or (abs(natural_velocity.x) > 0 and initial_velocity.x == 0):
+		velocity.x += natural_velocity.x
+	else:
+		velocity.x -= controls_velocity.x * (velocity.x / initial_velocity.x)
+		
+	if abs(velocity.y) >= abs(initial_velocity.y):
 		velocity.y -= controls_velocity.y
-	#print(velocity.x)
+	elif natural_velocity.y * initial_velocity.y < 0 or (abs(natural_velocity.y) > 0 and initial_velocity.y == 0):
+		velocity.y += natural_velocity.y
+	else:
+		velocity.y -= controls_velocity.y * (velocity.y / initial_velocity.y)
