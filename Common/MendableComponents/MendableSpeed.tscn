@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://cnmp26hv874sr"]
+[gd_scene load_steps=2 format=3 uid="uid://cnmp26hv874sr"]
+
+[ext_resource type="Script" uid="uid://d26gy3h3m4p3k" path="res://Common/MendableComponents/mendable_speed.gd" id="1_i2u4r"]
 
 [node name="MendableSpeed" type="Node2D"]
+script = ExtResource("1_i2u4r")

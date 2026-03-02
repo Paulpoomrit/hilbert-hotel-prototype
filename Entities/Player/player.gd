@@ -25,10 +25,10 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite2D.flip_h = true
 		else:
 			$AnimatedSprite2D.flip_h = false
-		controls_velocity.x = direction * SPEED
+		controls_velocity.x = direction * SPEED * $MendableSpeed.get_speed_multiplier()
 	else:
 		$AnimatedSprite2D.animation = "idle"
-		controls_velocity.x = move_toward(controls_velocity.x, 0, SPEED)
+		controls_velocity.x = move_toward(controls_velocity.x, 0, SPEED * $MendableSpeed.get_speed_multiplier())
 		
 	var natural_velocity = velocity
 	velocity = velocity + controls_velocity
