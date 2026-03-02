@@ -1,13 +1,14 @@
-[gd_scene load_steps=25 format=3 uid="uid://b6w35nsox3nud"]
+[gd_scene load_steps=26 format=3 uid="uid://b6w35nsox3nud"]
 
-[ext_resource type="Script" uid="uid://kgycyc3ck78a" path="res://Common/MendingMechanics/UI/mending_ui.gd" id="1_a0i6h"]
+[ext_resource type="Script" uid="uid://kgycyc3ck78a" path="res://Common/MendingMechanics/scripts/mending_ui.gd" id="1_a0i6h"]
 [ext_resource type="PackedScene" uid="uid://ciexe7prabm03" path="res://Common/MendingMechanics/block.tscn" id="2_a0i6h"]
 [ext_resource type="Theme" uid="uid://b8xypxaan6n64" path="res://Common/MendingMechanics/UI/mending_ui_grid_theme.tres" id="2_ajjxs"]
-[ext_resource type="Script" uid="uid://d3hkrxowdn53g" path="res://Common/MendingMechanics/UI/mending_area_manager.gd" id="3_ktojv"]
+[ext_resource type="Script" uid="uid://d3hkrxowdn53g" path="res://Common/MendingMechanics/scripts/mending_area_manager.gd" id="3_ktojv"]
 [ext_resource type="Resource" uid="uid://bwkt027c46iuc" path="res://Common/MendingMechanics/Blocks/time.tres" id="4_lie0p"]
 [ext_resource type="Resource" uid="uid://b1a80lgxgkurs" path="res://Common/MendingMechanics/Blocks/gravity.tres" id="5_p62ws"]
 [ext_resource type="Resource" uid="uid://b28c81x7v8eys" path="res://Common/MendingMechanics/Blocks/danger.tres" id="6_756bo"]
 [ext_resource type="Resource" uid="uid://dslunw1cp57x" path="res://Common/MendingMechanics/Blocks/speed.tres" id="7_a2hsm"]
+[ext_resource type="Script" uid="uid://boot62ab1jtq6" path="res://Common/MendingMechanics/scripts/inventory_manger.gd" id="7_m5hi7"]
 [ext_resource type="Resource" uid="uid://bxpj41o2usndm" path="res://Common/MendingMechanics/Blocks/perspective.tres" id="8_a2oxc"]
 [ext_resource type="Resource" uid="uid://25rjd7yrrg7t" path="res://Common/MendingMechanics/Blocks/size.tres" id="9_867gp"]
 [ext_resource type="Resource" uid="uid://d1hwyrqm43nj3" path="res://Common/MendingMechanics/Blocks/colour.tres" id="10_55niv"]
@@ -43,11 +44,11 @@ texture = ExtResource("24_57agw")
 
 [node name="MendingArea" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = 208.0
-offset_top = 161.0
-offset_right = 1026.0
-offset_bottom = 841.0
-scale = Vector2(0.25, 0.25)
+offset_left = 167.0
+offset_top = 104.0
+offset_right = 985.0
+offset_bottom = 784.0
+scale = Vector2(0.4, 0.4)
 size_flags_horizontal = 3
 theme = ExtResource("2_ajjxs")
 columns = 6
@@ -128,14 +129,15 @@ layout_mode = 2
 
 [node name="Inventory" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = 976.0
-offset_top = 455.0
-offset_right = 1518.0
-offset_bottom = 1135.0
+offset_left = 939.0
+offset_top = 480.0
+offset_right = 1757.0
+offset_bottom = 1160.0
 scale = Vector2(0.25, 0.25)
 size_flags_horizontal = 3
 theme = ExtResource("2_ajjxs")
-columns = 4
+columns = 6
+script = ExtResource("7_m5hi7")
 
 [node name="Block" parent="Inventory" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
