@@ -6,6 +6,10 @@ var update_function = "linear"
 var gravity_multiplier = Vector2(0, 1.0)
 
 
+func _ready() -> void:
+	pass
+
+
 func update(delta):
 	if update_function == "linear":
 		return linear_gravity(delta, gravity_multiplier)
@@ -22,6 +26,8 @@ func colourful_gravity(delta):
 	return Vector2(0, 0)
 
 
-# Callback function for when a signal to change gravity-related rules are sent
-func _on_change_gravity_type(new_type):
-	pass
+func _on_change_gravity_type(new_val, negated : bool = false, target = null):
+	if target:
+		var parent = get_parent()
+		if not parent or not is_instance_of(parent, target):
+			return
