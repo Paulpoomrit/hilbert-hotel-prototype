@@ -2,7 +2,7 @@ extends Node2D
 
 
 @export var base_gravity : float = 980.0
-var update_function = "linear"
+var gravity_function = "linear"
 var gravity_multiplier = Vector2(0, 1.0)
 
 
@@ -11,9 +11,9 @@ func _ready() -> void:
 
 
 func update(delta):
-	if update_function == "linear":
+	if gravity_function == "linear":
 		return linear_gravity(delta, gravity_multiplier)
-	elif update_function == "colourful":
+	elif gravity_function == "colourful":
 		return colourful_gravity(delta)
 
 

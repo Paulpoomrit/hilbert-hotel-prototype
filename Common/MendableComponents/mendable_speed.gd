@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var update_function = "linear"
+var speed_function = "linear"
 var speed_multiplier = 1.0
 
 
@@ -10,7 +10,7 @@ func _ready() -> void:
 
 
 func get_speed_multiplier():
-	if update_function == "linear":
+	if speed_function == "linear":
 		return linear_speed()
 
 
