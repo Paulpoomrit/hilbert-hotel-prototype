@@ -10,14 +10,14 @@ func _ready() -> void:
 	pass
 
 
-func update(delta):
+func update(delta: float):
 	if gravity_function == "linear":
 		return linear_gravity(delta, gravity_multiplier)
 	elif gravity_function == "colourful":
 		return colourful_gravity(delta)
 
 
-func linear_gravity(delta, mult):
+func linear_gravity(delta: float, mult):
 	return base_gravity*delta*mult
 
 
