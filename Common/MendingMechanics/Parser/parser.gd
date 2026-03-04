@@ -21,10 +21,14 @@ func populate_grammar_dict() -> void:
 		if line == "" or line == " ":
 			continue
 		
+		# skip if line is comment
+		if line[0] == "#":
+			continue
+		
 		# match everything on the lhs of the symbol ->
-		var lhs_regex = RegEx.create_from_string(".+(?=->)") 
+		var lhs_regex = RegEx.create_from_string(".+(?=(->|→))") 
 		# match everything on the rhs of the symbol ->
-		var rhs_regex = RegEx.create_from_string("(?<=->).+")
+		var rhs_regex = RegEx.create_from_string("(?<=(->|→)).+")
 		
 		var lhs: String = lhs_regex.search(line).get_string()
 		var rhs: String = rhs_regex.search(line).get_string()
