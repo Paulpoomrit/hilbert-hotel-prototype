@@ -98,4 +98,6 @@ func implement(sentence: PackedStringArray) -> void:
 	if sentence[0] == "Gravity":
 		MendingSignalHub.on_change_gravity_type.emit(new_val, negated, target)
 	elif sentence[0] == "Speed":
-		pass
+		MendingSignalHub.on_change_speed_type.emit(new_val, negated, target)
+	elif sentence[0] == "Time":
+		MendingSignalHub.on_change_time_type.emit(new_val, negated, target)

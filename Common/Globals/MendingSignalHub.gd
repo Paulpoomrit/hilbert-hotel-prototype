@@ -4,8 +4,8 @@ extends Node
 signal on_block_drop(block: Block)
 
 signal on_change_gravity_type(new_val: Variant, negated: bool, target: String)
-signal on_change_speed_type(new_val, negated: bool, target)
-
+signal on_change_speed_type(new_val: Variant, negated: bool, target: String)
+signal on_change_time_type(new_val: Variant, negated: bool, target: String)
 
 var is_dragging = false
 
