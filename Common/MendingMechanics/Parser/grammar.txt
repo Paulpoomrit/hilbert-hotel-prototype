@@ -23,3 +23,15 @@ S → Enemy Gravity Is 3
 S → Enemy Gravity Is - 1
 S → Enemy Gravity Is - 2
 S → Enemy Gravity Is - 3
+
+
+# Speed
+S → Speed Is 1
+S → Speed Is 2
+S → Speed Is 3
+S → Player Speed Is 1
+S → Player Speed Is 2
+S → Player Speed Is 3
+S → Enemy Speed Is 1
+S → Enemy Speed Is 2
+S → Enemy Speed Is 3

@@ -73,25 +73,29 @@ func implement(sentence: PackedStringArray) -> void:
 	var string_sentence: String = " ".join(sentence)
 	print("Implementing: %s" % string_sentence)
 	
+	# Extracting info
+	var new_val_regex = RegEx.create_from_string("(Real|1|2|3|- 1|- 2|- 3)") 
+	var new_val = new_val_regex.search(string_sentence).get_string()
+	new_val = new_val.replacen(" ", "")
+	if new_val.is_valid_int():
+		new_val = int(new_val)
+		
+	var negated: bool = false
+	var negated_regex = RegEx.create_from_string("Not")
+	if  negated_regex.search(string_sentence):
+		negated = true
+		
+	var target = null
+	var target_regex = RegEx.create_from_string("Player|Enemy")
+	var found_target = target_regex.search(string_sentence)
+	if found_target:
+		target = found_target.to_string()
+		
+	# for checking the parameters are being set properly!
+	# print("New Val: %s | Negated: %s | Target: %s" % [new_val, negated, target])
+	
+	# Sending the correct signal
 	if sentence[0] == "Gravity":
-		var new_val_regex = RegEx.create_from_string("(Real|1|2|3|- 1|- 2|- 3)") 
-		var new_val = new_val_regex.search(string_sentence).get_string()
-		new_val = new_val.replacen(" ", "")
-		if new_val.is_valid_int():
-			new_val = int(new_val)
-			print(new_val)
-		
-		var negated: bool = false
-		var negated_regex = RegEx.create_from_string("Not")
-		if  negated_regex.search(string_sentence):
-			negated = true
-		
-		var target = null
-		var target_regex = RegEx.create_from_string("Player|Enemy")
-		var found_target = target_regex.search(string_sentence)
-		if found_target:
-			target = found_target.to_string()
-		
-		# for checking the parameters are being set properly!
-		# print("New Val: %s | Negated: %s | Target: %s" % [new_val, negated, target])
 		MendingSignalHub.on_change_gravity_type.emit(new_val, negated, target)
+	elif sentence[0] == "Speed":
+		pass
