@@ -2,6 +2,7 @@ extends Node
 
 
 signal on_block_drop(block: Block)
+signal on_change_gravity_type(new_val: Variant, negated: bool, target: String)
 
 
 var is_dragging = false

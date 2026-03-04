@@ -4,22 +4,22 @@ S → Gravity Is Not Real
 S → Gravity Is 1
 S → Gravity Is 2
 S → Gravity Is 3
-S → Gravity Is -1
-S → Gravity Is -2
-S → Gravity Is -3
+S → Gravity Is - 1
+S → Gravity Is - 2
+S → Gravity Is - 3
 S → Player Gravity Is Real
 S → Player Gravity Is Not Real
 S → Player Gravity Is 1
 S → Player Gravity Is 2
 S → Player Gravity Is 3
-S → Player Gravity Is -1
-S → Player Gravity Is -2
-S → Player Gravity Is -3
+S → Player Gravity Is - 1
+S → Player Gravity Is - 2
+S → Player Gravity Is - 3
 S → Enemy Gravity Is Real
 S → Enemy Gravity Is Not Real
 S → Enemy Gravity Is 1
 S → Enemy Gravity Is 2
 S → Enemy Gravity Is 3
-S → Enemy Gravity Is -1
-S → Enemy Gravity Is -2
-S → Enemy Gravity Is -3
+S → Enemy Gravity Is - 1
+S → Enemy Gravity Is - 2
+S → Enemy Gravity Is - 3

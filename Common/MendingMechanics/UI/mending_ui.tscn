@@ -75,9 +75,11 @@ layout_mode = 2
 
 [node name="Block7" parent="MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
+_block_data = ExtResource("5_p62ws")
 
 [node name="Block8" parent="MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
+_block_data = ExtResource("21_867gp")
 
 [node name="Block9" parent="MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
@@ -93,9 +95,11 @@ layout_mode = 2
 
 [node name="Block13" parent="MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
+_block_data = ExtResource("22_55niv")
 
 [node name="Block14" parent="MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
+_block_data = ExtResource("18_a2oxc")
 
 [node name="Block15" parent="MendingArea" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
@@ -236,6 +240,6 @@ _block_data = ExtResource("21_867gp")
 
 [node name="Block24" parent="Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
-_block_data = ExtResource("21_867gp")
+_block_data = ExtResource("18_a2oxc")
 
 [connection signal="property_list_changed" from="MendingArea" to="MendingArea" method="_on_property_list_changed"]
