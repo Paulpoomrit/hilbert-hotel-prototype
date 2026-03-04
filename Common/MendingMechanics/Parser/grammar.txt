@@ -25,6 +25,33 @@ S → Enemy Gravity Is - 2
 S → Enemy Gravity Is - 3
 
 
+# Time
+S → Time Is Real
+S → Time Is Not Real
+S → Time Is 1
+S → Time Is 2
+S → Time Is 3
+S → Time Is -1
+S → Time Is -2
+S → Time Is -3
+S → Player Time Is Real
+S → Player Time Is Not Real
+S → Player Time Is 1
+S → Player Time Is 2
+S → Player Time Is 3
+S → Player Time Is -1
+S → Player Time Is -2
+S → Player Time Is -3
+S → Enemy Time Is Real
+S → Enemy Time Is Not Real
+S → Enemy Time Is 1
+S → Enemy Time Is 2
+S → Enemy Time Is 3
+S → Enemy Time Is -1
+S → Enemy Time Is -2
+S → Enemy Time Is -3
+
+
 # Speed
 S → Speed Is 1
 S → Speed Is 2
