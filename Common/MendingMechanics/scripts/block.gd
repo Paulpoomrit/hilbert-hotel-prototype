@@ -9,9 +9,7 @@ extends TextureButton
 
 var _block_type: String
 var _is_enable: bool = false
-
-
-const block_hover_scale = Vector2(2,2)
+var _block_hover_scale = Vector2(2,2)
 
 
 func _ready() -> void:
@@ -25,12 +23,17 @@ func update_ui() -> void:
 	_block_type = _block_data.block_type
 
 
+
 func get_block_type() -> String:
 	return _block_type
 
 
 func set_block_type(new_type: String) -> void:
 	_block_type = new_type
+
+
+func set_block_hover_scale(new_scale: Vector2) -> void:
+	_block_hover_scale = new_scale
 
 
 func enable_block() -> void:
@@ -49,7 +52,7 @@ func _on_mouse_entered() -> void:
 	
 	if (_block_data.block_type != "Null"):
 		z_index = 1000
-		scale = block_hover_scale
+		scale = _block_hover_scale
 
 
 func _on_mouse_exited() -> void:

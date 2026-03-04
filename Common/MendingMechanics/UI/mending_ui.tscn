@@ -139,7 +139,8 @@ rings = 584
 ring_spacing = 177.63
 start_radius = 227.4
 rotation_offset_degrees = 144.0
-arc_angle = 147.3
+use_half_ring = true
+arc_angle = 360.0
 
 [node name="Block" parent="Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2

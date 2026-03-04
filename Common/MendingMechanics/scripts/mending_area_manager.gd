@@ -1,6 +1,9 @@
 extends GridContainer
 
 
+@export var block_hover_scale = Vector2(1.2, 1.2)
+
+
 var _grid_array: Array[Block]
 
 
@@ -12,7 +15,8 @@ func _ready() -> void:
 
 func populate_grid_array() -> void:
 	
-	for block in get_children():
+	for block: Block in get_children():
+		block.set_block_hover_scale(block_hover_scale)
 		_grid_array.append(block)
 	
 	print(_grid_array)

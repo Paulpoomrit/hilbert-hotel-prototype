@@ -7,6 +7,9 @@ extends Container
 # https://youtu.be/kujEADRYZwo?si=uAFpFJ3h8GE32leB
 
 
+@export var block_hover_scale: Vector2 = Vector2(2,2)
+
+
 @export var rings: int = 3:
 	set(value):
 		rings = max(1, value) # ring needs to be at least 1
@@ -65,6 +68,9 @@ extends Container
 
 func _ready() -> void:
 	_update_container()
+	
+	for block:Block in get_children():
+		block.set_block_hover_scale(block_hover_scale)
 
 
 func _update_container() -> void:
