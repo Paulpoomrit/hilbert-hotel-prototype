@@ -12,7 +12,19 @@ func _ready() -> void:
 	$AnimatedSprite2D.play()
 
 
-func _physics_process(delta: float) -> void:	
+func _physics_process(delta: float) -> void:
+	# Set time speed
+	delta *= $MendableTime.get_time_multiplier()
+	# Rewind time if time speed is backwards
+	if delta < 0:
+		var frame_data = $MendableTime.pop_record(-delta)
+		position = frame_data[0]
+		velocity = frame_data[1]
+		$AnimatedSprite2D.animation = frame_data[2]
+		$AnimatedSprite2D.flip_h = frame_data[3]
+		$AnimatedSprite2D.frame = frame_data[4]
+		return
+	
 	# Add the gravity.
 	velocity += $MendableGravity.update(delta)
 
@@ -52,3 +64,6 @@ func _physics_process(delta: float) -> void:
 		velocity.y += natural_velocity.y
 	else:
 		velocity.y -= controls_velocity.y * (velocity.y / initial_velocity.y)
+	
+	# Save this frame's final result for MendableTime
+	$MendableTime.update_record(delta, [position, velocity, $AnimatedSprite2D.animation, $AnimatedSprite2D.flip_h, $AnimatedSprite2D.frame])
