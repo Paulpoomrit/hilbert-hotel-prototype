@@ -22,7 +22,7 @@ func linear_gravity(delta: float, mult):
 
 
 func colourful_gravity(delta):
-	# Placeholder
+	# global_position
 	return Vector2(0, 0)
 
 
