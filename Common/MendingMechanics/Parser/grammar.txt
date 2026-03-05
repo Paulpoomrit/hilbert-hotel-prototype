@@ -1,5 +1,64 @@
+# Gravity
+S → Gravity Is Real
+S → Gravity Is Not Real
+S → Gravity Is 1
+S → Gravity Is 2
+S → Gravity Is 3
+S → Gravity Is - 1
+S → Gravity Is - 2
+S → Gravity Is - 3
+S → Player Gravity Is Real
+S → Player Gravity Is Not Real
+S → Player Gravity Is 1
+S → Player Gravity Is 2
+S → Player Gravity Is 3
+S → Player Gravity Is - 1
+S → Player Gravity Is - 2
+S → Player Gravity Is - 3
+S → Enemy Gravity Is Real
+S → Enemy Gravity Is Not Real
+S → Enemy Gravity Is 1
+S → Enemy Gravity Is 2
+S → Enemy Gravity Is 3
+S → Enemy Gravity Is - 1
+S → Enemy Gravity Is - 2
+S → Enemy Gravity Is - 3
 
-S -> Gravity Is Real
-S -> Gravity Is Not Real
 
-S -> Time Is Real
+# Time
+S → Time Is Real
+S → Time Is Not Real
+S → Time Is 1
+S → Time Is 2
+S → Time Is 3
+S → Time Is -1
+S → Time Is -2
+S → Time Is -3
+S → Player Time Is Real
+S → Player Time Is Not Real
+S → Player Time Is 1
+S → Player Time Is 2
+S → Player Time Is 3
+S → Player Time Is -1
+S → Player Time Is -2
+S → Player Time Is -3
+S → Enemy Time Is Real
+S → Enemy Time Is Not Real
+S → Enemy Time Is 1
+S → Enemy Time Is 2
+S → Enemy Time Is 3
+S → Enemy Time Is -1
+S → Enemy Time Is -2
+S → Enemy Time Is -3
+
+
+# Speed
+S → Speed Is 1
+S → Speed Is 2
+S → Speed Is 3
+S → Player Speed Is 1
+S → Player Speed Is 2
+S → Player Speed Is 3
+S → Enemy Speed Is 1
+S → Enemy Speed Is 2
+S → Enemy Speed Is 3

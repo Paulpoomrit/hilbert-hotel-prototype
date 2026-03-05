@@ -9,6 +9,7 @@ extends TextureButton
 
 var _block_type: String
 var _is_enable: bool = false
+var _block_hover_scale = Vector2(2,2)
 
 
 func _ready() -> void:
@@ -22,12 +23,17 @@ func update_ui() -> void:
 	_block_type = _block_data.block_type
 
 
+
 func get_block_type() -> String:
 	return _block_type
 
 
 func set_block_type(new_type: String) -> void:
 	_block_type = new_type
+
+
+func set_block_hover_scale(new_scale: Vector2) -> void:
+	_block_hover_scale = new_scale
 
 
 func enable_block() -> void:
@@ -42,13 +48,17 @@ func disable_block() -> void:
 
 func _on_mouse_entered() -> void:
 	self.modulate = _block_data.hover_tint
-	scale = Vector2(1.05, 1.05)
 	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.ON_BLOCK_HOVER)
+	
+	if (_block_data.block_type != "Null"):
+		z_index = 1000
+		scale = _block_hover_scale
 
 
 func _on_mouse_exited() -> void:
 	self.modulate = Color(1,1,1,1)
 	scale = Vector2(1, 1)
+	z_index = 0
 
 
 func _get_drag_data(at_position: Vector2) -> Variant:
@@ -62,6 +72,7 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	var preview_control_node = Control.new()
 	preview_control_node.add_child(preview_block)
 	preview_block.position -= self.texture_normal.get_size() / 2
+	preview_block.scale = self.get_global_transform_with_canvas().get_scale()
 	
 	set_drag_preview(preview_control_node)
 	return self

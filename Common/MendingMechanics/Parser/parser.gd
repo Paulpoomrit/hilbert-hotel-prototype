@@ -3,6 +3,11 @@ extends Node
 const GRAMMAR_PATH = "res://Common/MendingMechanics/Parser/grammar.txt"
 var _grammar_dict: Array[GrammarRule]
 
+var _identifier_dict: Dictionary[String, Object] = {
+		"Player": Player,
+		"Enemy": Enemy
+	}
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,10 +26,14 @@ func populate_grammar_dict() -> void:
 		if line == "" or line == " ":
 			continue
 		
+		# skip if line is comment
+		if line[0] == "#":
+			continue
+		
 		# match everything on the lhs of the symbol ->
-		var lhs_regex = RegEx.create_from_string(".+(?=->)") 
+		var lhs_regex = RegEx.create_from_string(".+(?=(->|→))") 
 		# match everything on the rhs of the symbol ->
-		var rhs_regex = RegEx.create_from_string("(?<=->).+")
+		var rhs_regex = RegEx.create_from_string("(?<=(->|→)).+")
 		
 		var lhs: String = lhs_regex.search(line).get_string()
 		var rhs: String = rhs_regex.search(line).get_string()
@@ -69,7 +78,34 @@ func implement(sentence: PackedStringArray) -> void:
 	var string_sentence: String = " ".join(sentence)
 	print("Implementing: %s" % string_sentence)
 	
-	match string_sentence:
-		"Time Is Real":
-			# TODO: wire this with a signal (should be defined in MendingSignalHub.gd)
-			print('yo')
+	# Extracting info
+	var new_val_regex = RegEx.create_from_string("(Real|1|2|3|- 1|- 2|- 3)") 
+	var new_val = new_val_regex.search(string_sentence).get_string()
+	new_val = new_val.replacen(" ", "")
+	if new_val.is_valid_int():
+		new_val = int(new_val)
+		
+	var negated: bool = false
+	var negated_regex = RegEx.create_from_string("Not")
+	if  negated_regex.search(string_sentence):
+		negated = true
+		
+	var target: Object = null
+	var target_regex = RegEx.create_from_string("Player|Enemy")
+	var found_target = target_regex.search(string_sentence)
+	if found_target:
+		var target_string = found_target.to_string()
+		if target_string in _identifier_dict:
+			target = _identifier_dict[target_string]
+		
+		
+	# for checking the parameters are being set properly!
+	# print("New Val: %s | Negated: %s | Target: %s" % [new_val, negated, target])
+	
+	# Sending the correct signal
+	if sentence[0] == "Gravity":
+		MendingSignalHub.on_change_gravity_type.emit(new_val, negated, target)
+	elif sentence[0] == "Speed":
+		MendingSignalHub.on_change_speed_type.emit(new_val, negated, target)
+	elif sentence[0] == "Time":
+		MendingSignalHub.on_change_time_type.emit(new_val, negated, target)
