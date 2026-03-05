@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b65uxaiqqqm3j"]
+
+[ext_resource type="Script" uid="uid://bq18x3i8j5mf1" path="res://Common/MendableComponents/mendable_time.gd" id="1_ji2h3"]
+
+[node name="MendableTime" type="Node2D"]
+script = ExtResource("1_ji2h3")

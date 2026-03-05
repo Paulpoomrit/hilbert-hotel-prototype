@@ -1,8 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://bl6msvoc1qtd4"]
+[gd_scene load_steps=22 format=3 uid="uid://bl6msvoc1qtd4"]
 
 [ext_resource type="Script" uid="uid://4o0efb4i18s8" path="res://Entities/Player/player.gd" id="1_kne1u"]
-[ext_resource type="Texture2D" uid="uid://bkbivjtaukmnh" path="res://Content/sprites/Pixel Plains Premium Pack/Characters 24x24/Spring 1 v1.png" id="1_kpjcp"]
+[ext_resource type="Texture2D" uid="uid://bkbivjtaukmnh" path="res://content/sprites/Pixel Plains Premium Pack/Characters 24x24/Spring 1 v1.png" id="1_kpjcp"]
+[ext_resource type="PackedScene" uid="uid://d0ixn0uh3mnvm" path="res://Common/MendableComponents/MendableColour.tscn" id="2_hj1c0"]
 [ext_resource type="PackedScene" uid="uid://b6w35nsox3nud" path="res://Common/MendingMechanics/UI/mending_ui.tscn" id="3_vweq0"]
+[ext_resource type="PackedScene" uid="uid://b1nowex1sm4uh" path="res://Common/MendableComponents/MendableGravity.tscn" id="3_x44r4"]
+[ext_resource type="PackedScene" uid="uid://cnmp26hv874sr" path="res://Common/MendableComponents/MendableSpeed.tscn" id="4_761t5"]
+[ext_resource type="PackedScene" uid="uid://b65uxaiqqqm3j" path="res://Common/MendableComponents/MendableTime.tscn" id="5_hacra"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e80uo"]
 size = Vector2(72, 76)
@@ -106,7 +110,14 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_kne1u")
-metadata/_edit_group_ = true
+
+[node name="MendableColour" parent="." instance=ExtResource("2_hj1c0")]
+
+[node name="MendableGravity" parent="." instance=ExtResource("3_x44r4")]
+
+[node name="MendableSpeed" parent="." instance=ExtResource("4_761t5")]
+
+[node name="MendableTime" parent="." instance=ExtResource("5_hacra")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 10)
