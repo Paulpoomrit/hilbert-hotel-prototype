@@ -1,10 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://b6w35nsox3nud"]
+[gd_scene load_steps=23 format=3 uid="uid://b6w35nsox3nud"]
 
 [ext_resource type="Script" uid="uid://kgycyc3ck78a" path="res://Common/MendingMechanics/Scripts/mending_ui.gd" id="1_a0i6h"]
 [ext_resource type="PackedScene" uid="uid://ciexe7prabm03" path="res://Common/MendingMechanics/block.tscn" id="2_a0i6h"]
-[ext_resource type="Theme" uid="uid://b8xypxaan6n64" path="res://Common/MendingMechanics/UI/mending_ui_grid_theme.tres" id="2_ajjxs"]
-[ext_resource type="Script" uid="uid://d3hkrxowdn53g" path="res://Common/MendingMechanics/Scripts/mending_area_manager.gd" id="3_ktojv"]
-[ext_resource type="Resource" uid="uid://bwkt027c46iuc" path="res://Common/MendingMechanics/Blocks/time.tres" id="4_lie0p"]
+[ext_resource type="PackedScene" uid="uid://cqixjwfcu3mhc" path="res://Common/MendingMechanics/UI/mending_area.tscn" id="3_55niv"]
 [ext_resource type="Resource" uid="uid://b1a80lgxgkurs" path="res://Common/MendingMechanics/Blocks/gravity.tres" id="5_p62ws"]
 [ext_resource type="Resource" uid="uid://b28c81x7v8eys" path="res://Common/MendingMechanics/Blocks/danger.tres" id="6_756bo"]
 [ext_resource type="Resource" uid="uid://dslunw1cp57x" path="res://Common/MendingMechanics/Blocks/speed.tres" id="7_a2hsm"]
@@ -42,94 +40,8 @@ rotation = 0.00040399274
 scale = Vector2(0.37, 0.437)
 texture = ExtResource("24_57agw")
 
-[node name="MendingArea" type="GridContainer" parent="."]
+[node name="MendingArea" parent="." instance=ExtResource("3_55niv")]
 layout_mode = 0
-offset_left = 167.0
-offset_top = 104.0
-offset_right = 985.0
-offset_bottom = 784.0
-scale = Vector2(0.4, 0.4)
-size_flags_horizontal = 3
-theme = ExtResource("2_ajjxs")
-columns = 6
-script = ExtResource("3_ktojv")
-
-[node name="Block" parent="MendingArea" instance=ExtResource("2_a0i6h")]
-layout_mode = 2
-_block_data = ExtResource("4_lie0p")
-
-[node name="Block2" parent="MendingArea" instance=ExtResource("2_a0i6h")]
-layout_mode = 2
-
-[node name="Block3" parent="MendingArea" instance=ExtResource("2_a0i6h")]
-layout_mode = 2
-
-[node name="Block4" parent="MendingArea" instance=ExtResource("2_a0i6h")]
-layout_mode = 2
-
-[node name="Block5" parent="MendingArea" instance=ExtResource("2_a0i6h")]
-layout_mode = 2
-
-[node name="Block6" parent="MendingArea" instance=ExtResource("2_a0i6h")]
-layout_mode = 2
-
-[node name="Block7" parent="MendingArea" instance=ExtResource("2_a0i6h")]
-layout_mode = 2
-_block_data = ExtResource("5_p62ws")
-
-[node name="Block8" parent="MendingArea" instance=ExtResource("2_a0i6h")]
-layout_mode = 2
-_block_data = ExtResource("21_867gp")
-
-[node name="Block9" parent="MendingArea" instance=ExtResource("2_a0i6h")]
-layout_mode = 2
-
-[node name="Block10" parent="MendingArea" instance=ExtResource("2_a0i6h")]
-layout_mode = 2
-
-[node name="Block11" parent="MendingArea" instance=ExtResource("2_a0i6h")]
-layout_mode = 2
-
-[node name="Block12" parent="MendingArea" instance=ExtResource("2_a0i6h")]
-layout_mode = 2
-
-[node name="Block13" parent="MendingArea" instance=ExtResource("2_a0i6h")]
-layout_mode = 2
-_block_data = ExtResource("22_55niv")
-
-[node name="Block14" parent="MendingArea" instance=ExtResource("2_a0i6h")]
-layout_mode = 2
-_block_data = ExtResource("18_a2oxc")
-
-[node name="Block15" parent="MendingArea" instance=ExtResource("2_a0i6h")]
-layout_mode = 2
-
-[node name="Block16" parent="MendingArea" instance=ExtResource("2_a0i6h")]
-layout_mode = 2
-
-[node name="Block17" parent="MendingArea" instance=ExtResource("2_a0i6h")]
-layout_mode = 2
-
-[node name="Block18" parent="MendingArea" instance=ExtResource("2_a0i6h")]
-layout_mode = 2
-
-[node name="Block19" parent="MendingArea" instance=ExtResource("2_a0i6h")]
-layout_mode = 2
-
-[node name="Block20" parent="MendingArea" instance=ExtResource("2_a0i6h")]
-layout_mode = 2
-
-[node name="Block21" parent="MendingArea" instance=ExtResource("2_a0i6h")]
-layout_mode = 2
-
-[node name="Block22" parent="MendingArea" instance=ExtResource("2_a0i6h")]
-layout_mode = 2
-
-[node name="Block23" parent="MendingArea" instance=ExtResource("2_a0i6h")]
-layout_mode = 2
-
-[node name="Block24" parent="MendingArea" instance=ExtResource("2_a0i6h")]
-layout_mode = 2
 
 [node name="Container" type="Container" parent="."]
 layout_mode = 0
@@ -241,5 +153,3 @@ _block_data = ExtResource("21_867gp")
 [node name="Block24" parent="Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("18_a2oxc")
-
-[connection signal="property_list_changed" from="MendingArea" to="MendingArea" method="_on_property_list_changed"]

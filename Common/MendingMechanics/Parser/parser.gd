@@ -3,6 +3,11 @@ extends Node
 const GRAMMAR_PATH = "res://Common/MendingMechanics/Parser/grammar.txt"
 var _grammar_dict: Array[GrammarRule]
 
+var _identifier_dict: Dictionary[String, Object] = {
+		"Player": Player,
+		"Enemy": Enemy
+	}
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -85,11 +90,14 @@ func implement(sentence: PackedStringArray) -> void:
 	if  negated_regex.search(string_sentence):
 		negated = true
 		
-	var target = null
+	var target: Object = null
 	var target_regex = RegEx.create_from_string("Player|Enemy")
 	var found_target = target_regex.search(string_sentence)
 	if found_target:
-		target = found_target.to_string()
+		var target_string = found_target.to_string()
+		if target_string in _identifier_dict:
+			target = _identifier_dict[target_string]
+		
 		
 	# for checking the parameters are being set properly!
 	# print("New Val: %s | Negated: %s | Target: %s" % [new_val, negated, target])
