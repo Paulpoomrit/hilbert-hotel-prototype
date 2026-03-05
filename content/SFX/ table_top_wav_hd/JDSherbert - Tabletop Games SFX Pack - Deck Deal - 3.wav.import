@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cq3v00jpygwb0"
-path="res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Deck Deal - 3.wav-208f01ad890e1acb4ecee631a2185fdd.sample"
+path="res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Deck Deal - 3.wav-2bddb5ac214bd062ee498703de6a9e94.sample"
 
 [deps]
 
-source_file="res://Content/SFX/ table_top_wav_hd/JDSherbert - Tabletop Games SFX Pack - Deck Deal - 3.wav"
-dest_files=["res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Deck Deal - 3.wav-208f01ad890e1acb4ecee631a2185fdd.sample"]
+source_file="res://content/SFX/ table_top_wav_hd/JDSherbert - Tabletop Games SFX Pack - Deck Deal - 3.wav"
+dest_files=["res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Deck Deal - 3.wav-2bddb5ac214bd062ee498703de6a9e94.sample"]
 
 [params]
 
