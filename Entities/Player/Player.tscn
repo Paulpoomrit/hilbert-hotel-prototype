@@ -1,7 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://bl6msvoc1qtd4"]
+[gd_scene load_steps=22 format=3 uid="uid://bl6msvoc1qtd4"]
 
 [ext_resource type="Script" uid="uid://4o0efb4i18s8" path="res://Entities/Player/player.gd" id="1_kne1u"]
 [ext_resource type="Texture2D" uid="uid://bkbivjtaukmnh" path="res://content/sprites/Pixel Plains Premium Pack/Characters 24x24/Spring 1 v1.png" id="1_kpjcp"]
+[ext_resource type="PackedScene" uid="uid://d0ixn0uh3mnvm" path="res://Common/MendableComponents/MendableColour.tscn" id="2_hj1c0"]
+[ext_resource type="PackedScene" uid="uid://b6w35nsox3nud" path="res://Common/MendingMechanics/UI/mending_ui.tscn" id="3_vweq0"]
+[ext_resource type="PackedScene" uid="uid://b1nowex1sm4uh" path="res://Common/MendableComponents/MendableGravity.tscn" id="3_x44r4"]
+[ext_resource type="PackedScene" uid="uid://cnmp26hv874sr" path="res://Common/MendableComponents/MendableSpeed.tscn" id="4_761t5"]
+[ext_resource type="PackedScene" uid="uid://b65uxaiqqqm3j" path="res://Common/MendableComponents/MendableTime.tscn" id="5_hacra"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e80uo"]
 size = Vector2(72, 76)
@@ -103,8 +108,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_kne1u")
+
+[node name="MendableColour" parent="." instance=ExtResource("2_hj1c0")]
+
+[node name="MendableGravity" parent="." instance=ExtResource("3_x44r4")]
+
+[node name="MendableSpeed" parent="." instance=ExtResource("4_761t5")]
+
+[node name="MendableTime" parent="." instance=ExtResource("5_hacra")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 10)
@@ -116,3 +129,15 @@ sprite_frames = SubResource("SpriteFrames_wi0c6")
 animation = &"idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="MendingUI" parent="." instance=ExtResource("3_vweq0")]
+z_index = 100
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -579.0
+offset_top = -324.0
+offset_right = -579.0
+offset_bottom = -324.0
