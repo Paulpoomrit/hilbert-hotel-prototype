@@ -42,6 +42,10 @@ texture = ExtResource("24_57agw")
 
 [node name="MendingArea" parent="." instance=ExtResource("3_55niv")]
 layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 818.0
+offset_bottom = 680.0
 
 [node name="Container" type="Container" parent="."]
 layout_mode = 0

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b2kg8s2ru82uy"
-path="res://.godot/imported/Sunflowers.png-524670d669968513ae391bbe0178eda6.ctex"
+path="res://.godot/imported/Sunflowers.png-0887b0389d01f1cd888d1ddec0c2f009.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/Pixel Plains Premium Pack/Fall/Sunflowers.png"
-dest_files=["res://.godot/imported/Sunflowers.png-524670d669968513ae391bbe0178eda6.ctex"]
+source_file="res://Content/sprites/Pixel Plains Premium Pack/Fall/Sunflowers.png"
+dest_files=["res://.godot/imported/Sunflowers.png-0887b0389d01f1cd888d1ddec0c2f009.ctex"]
 
 [params]
 

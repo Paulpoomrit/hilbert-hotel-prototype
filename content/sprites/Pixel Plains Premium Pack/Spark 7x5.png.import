@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bjrq2h10jk5d0"
-path="res://.godot/imported/Spark 7x5.png-686c282f1928cd9b02d76446bf5e1b27.ctex"
+path="res://.godot/imported/Spark 7x5.png-ae28db61ed8304c0083043b304841546.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/Pixel Plains Premium Pack/Spark 7x5.png"
-dest_files=["res://.godot/imported/Spark 7x5.png-686c282f1928cd9b02d76446bf5e1b27.ctex"]
+source_file="res://Content/sprites/Pixel Plains Premium Pack/Spark 7x5.png"
+dest_files=["res://.godot/imported/Spark 7x5.png-ae28db61ed8304c0083043b304841546.ctex"]
 
 [params]
 

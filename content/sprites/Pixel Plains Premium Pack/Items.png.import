@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgjkg10m8600n"
-path="res://.godot/imported/Items.png-40bbcafe1d9c22fb319f12a8f41d1ad0.ctex"
+path="res://.godot/imported/Items.png-0195c6297a36aa0b91234964b17569b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/Pixel Plains Premium Pack/Items.png"
-dest_files=["res://.godot/imported/Items.png-40bbcafe1d9c22fb319f12a8f41d1ad0.ctex"]
+source_file="res://Content/sprites/Pixel Plains Premium Pack/Items.png"
+dest_files=["res://.godot/imported/Items.png-0195c6297a36aa0b91234964b17569b7.ctex"]
 
 [params]
 
