@@ -38,8 +38,7 @@ func HandleBlockDropped(block: Block) -> void:
 	
 	if valid_sentence_to_implement:
 		Parser.implement(valid_sentence_to_implement)
-		print(_grid_array.find(valid_sentence_to_implement[0]))
-		_implemented_sentences[_grid_array.find(valid_sentence_to_implement[0])] = valid_sentence_to_implement
+		_implemented_sentences[find_first_occurence(valid_sentence_to_implement[0])] = valid_sentence_to_implement
 	
 	revert_non_active_rules_to_default()
 
@@ -69,8 +68,8 @@ func find_first_valid_sentence(sentences: Array[PackedStringArray]) -> Variant:
 
 
 func revert_non_active_rules_to_default():
-	print(_implemented_sentences)
-	var sentences_to_revert = _implemented_sentences
+	print("Implemented sentences: %s" % _implemented_sentences)
+	var sentences_to_revert = _implemented_sentences.duplicate_deep()
 	for key in sentences_to_revert:
 		var first_block = _grid_array[key]
 		var sentences = grab_all_possible_sentences_from_rows_and_columns(first_block)
@@ -82,7 +81,8 @@ func revert_non_active_rules_to_default():
 			sentences_to_revert.erase(key)
 
 	for sentence in sentences_to_revert:
-		print("Reverting: %s" % sentence)
+		print("Reverting: %s" % sentences_to_revert[sentence])
+		_implemented_sentences.erase(sentence)
 
 
 func grab_all_possible_sentences_from_rows_and_columns(block: Block) -> Variant:
@@ -121,3 +121,10 @@ func grab_all_possible_sentences_from_rows_and_columns(block: Block) -> Variant:
 		sentences.append(sentence.split(" ", false))
 	
 	return sentences
+
+
+func find_first_occurence(block_type: String) -> Variant:
+	for i in range(_grid_array.size()):
+		if _grid_array[i].get_block_type() == block_type:
+			return i
+	return null
