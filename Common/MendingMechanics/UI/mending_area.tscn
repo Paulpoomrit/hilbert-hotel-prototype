@@ -17,7 +17,7 @@ offset_bottom = 784.0
 scale = Vector2(0.4, 0.4)
 size_flags_horizontal = 3
 theme = ExtResource("1_t6jj7")
-columns = 6
+columns = 5
 script = ExtResource("2_j2rk3")
 
 [node name="Block" parent="." instance=ExtResource("3_en6ar")]
@@ -83,18 +83,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Block20" parent="." instance=ExtResource("3_en6ar")]
-layout_mode = 2
-
-[node name="Block21" parent="." instance=ExtResource("3_en6ar")]
-layout_mode = 2
-
-[node name="Block22" parent="." instance=ExtResource("3_en6ar")]
-layout_mode = 2
-
-[node name="Block23" parent="." instance=ExtResource("3_en6ar")]
-layout_mode = 2
-
-[node name="Block24" parent="." instance=ExtResource("3_en6ar")]
 layout_mode = 2
 
 [connection signal="property_list_changed" from="." to="." method="_on_property_list_changed"]
