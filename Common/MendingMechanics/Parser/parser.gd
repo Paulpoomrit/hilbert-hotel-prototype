@@ -95,7 +95,6 @@ func implement(sentence: PackedStringArray) -> void:
 	var found_target = target_regex.search(string_sentence)
 	if found_target:
 		var target_string = found_target.get_string()
-		print(target_string)
 		if target_string in _identifier_dict:
 			target = _identifier_dict[target_string]
 		

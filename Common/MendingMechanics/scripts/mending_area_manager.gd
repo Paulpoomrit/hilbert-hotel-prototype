@@ -5,6 +5,7 @@ extends GridContainer
 
 
 var _grid_array: Array[Block]
+var _implemented_sentences: Dictionary[int, PackedStringArray]
 
 
 # Called when the node enters the scene tree for the first time.
@@ -23,6 +24,46 @@ func populate_grid_array() -> void:
 
 
 func HandleBlockDropped(block: Block) -> void:
+
+	var sentences = grab_all_possible_sentences_from_rows_and_columns(block)
+	if not sentences:
+		return
+	var valid_sentence_to_implement = find_first_valid_sentence(sentences)
+	
+	if valid_sentence_to_implement:
+		Parser.implement(valid_sentence_to_implement)
+		_implemented_sentences[_grid_array.find(valid_sentence_to_implement[0])] = valid_sentence_to_implement
+
+
+func find_first_valid_sentence(sentences: Array[PackedStringArray]) -> Variant:
+	for sentence in sentences:
+		#print(" ".join(sentence) + "\n-------\n")
+		# Try parsing the first k words
+		for k in range(sentence.size() + 1, -1, -1):
+			#print("First k")
+			if Parser.is_valid(sentence.slice(0,k)):
+				# Found valid parse!
+				return sentence.slice(0,k)
+			#print("Last k")
+			if Parser.is_valid(sentence.slice(k, sentence.size())):
+				# Found valid parse!
+				return sentence.slice(k, sentence.size())
+			
+			# Try parsing the middle words from k to l
+			for l in range(k+1, sentence.size()+1):
+				#print("Middle")
+				if Parser.is_valid(sentence.slice(k, l)):
+					# Found valid parse!
+					return sentence.slice(k, l)
+	return null
+
+
+func revert_non_active_rules_to_default():
+	for key in _implemented_sentences:
+		var first_block = _grid_array[key]
+
+
+func grab_all_possible_sentences_from_rows_and_columns(block: Block) -> Variant:
 	var block_index = _grid_array.find(block)
 	if block_index == -1:
 		return
@@ -57,28 +98,4 @@ func HandleBlockDropped(block: Block) -> void:
 		sentence = sentence.rstrip(" ")
 		sentences.append(sentence.split(" ", false))
 	
-	# print(sentences)
-	
-	for sentence in sentences:
-		#print(" ".join(sentence) + "\n-------\n")
-		# Try parsing the first k words
-		for k in range(sentence.size() + 1, -1, -1):
-			#print("First k")
-			if Parser.is_valid(sentence.slice(0,k)):
-				# Found valid parse!
-				Parser.implement(sentence.slice(0,k))
-				return
-			#print("Last k")
-			if Parser.is_valid(sentence.slice(k, sentence.size())):
-				# Found valid parse!
-				Parser.implement(sentence.slice(k, sentence.size()))
-				return
-			
-			# Try parsing the middle words from k to l
-			for l in range(k+1, sentence.size()+1):
-				#print("Middle")
-				if Parser.is_valid(sentence.slice(k, l)):
-					# Found valid parse!
-					Parser.implement(sentence.slice(k, l))
-					return
-		
+	return sentences
