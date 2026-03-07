@@ -83,14 +83,23 @@ func implement(sentence: PackedStringArray) -> void:
 	var target: Object = info[2]
 	
 	# print("New Val: %s | Negated: %s | Target: %s" % [new_val, negated, target])
-		  
-	# Sending the correct signal
-	if sentence[0] == "Gravity" or sentence[1] == "Gravity":
-		MendingSignalHub.on_change_gravity_type.emit(new_val, negated, target)
-	elif sentence[0] == "Speed" or sentence[1] == "Speed":
-		MendingSignalHub.on_change_speed_type.emit(new_val, negated, target)
-	elif sentence[0] == "Time" or sentence[1] == "Time":
-		MendingSignalHub.on_change_time_type.emit(new_val, negated, target)
+	
+	send_signal(sentence, new_val, negated, target)
+
+
+func reverse(sentence: PackedStringArray) -> void:
+	var string_sentence: String = " ".join(sentence)
+	
+	# Extracting info
+	var info = extract_val_neg_target(string_sentence)
+	var new_val: Variant = info[0]
+	var negated: bool = false # returning negated sentence to its default
+	var target: Object = info[2]
+	
+	if typeof(new_val) == TYPE_INT:
+		new_val = 1 # Assuming base quantifier will always be 1
+	
+	send_signal(sentence, new_val, negated, target)
 
 
 func extract_val_neg_target(string_sentence: String) -> Array:
@@ -114,3 +123,12 @@ func extract_val_neg_target(string_sentence: String) -> Array:
 		if target_string in _identifier_dict:
 			target = _identifier_dict[target_string]
 	return [new_val, negated, target]
+
+
+func send_signal(sentence: PackedStringArray, new_val: Variant, negated: bool, target: Object) -> void:
+	if sentence[0] == "Gravity" or sentence[1] == "Gravity":
+		MendingSignalHub.on_change_gravity_type.emit(new_val, negated, target)
+	elif sentence[0] == "Speed" or sentence[1] == "Speed":
+		MendingSignalHub.on_change_speed_type.emit(new_val, negated, target)
+	elif sentence[0] == "Time" or sentence[1] == "Time":
+		MendingSignalHub.on_change_time_type.emit(new_val, negated, target)

@@ -68,7 +68,7 @@ func find_first_valid_sentence(sentences: Array[PackedStringArray]) -> Variant:
 
 
 func revert_non_active_rules_to_default():
-	print("Implemented sentences: %s" % _implemented_sentences)
+	# print("Implemented sentences: %s" % _implemented_sentences)
 	var sentences_to_revert = _implemented_sentences.duplicate_deep()
 	for key in sentences_to_revert:
 		var first_block = _grid_array[key]
@@ -83,6 +83,7 @@ func revert_non_active_rules_to_default():
 	for sentence in sentences_to_revert:
 		print("Reverting: %s" % sentences_to_revert[sentence])
 		_implemented_sentences.erase(sentence)
+		Parser.reverse(sentences_to_revert[sentence])
 
 
 func grab_all_possible_sentences_from_rows_and_columns(block: Block) -> Variant:
