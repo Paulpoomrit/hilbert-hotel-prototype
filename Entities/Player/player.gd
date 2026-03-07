@@ -10,7 +10,7 @@ var controls_velocity = Vector2(0.0, 0.0)
 
 func _ready() -> void:
 	$AnimatedSprite2D.play()
-
+	
 
 func _physics_process(delta: float) -> void:
 	# Set time speed
@@ -25,13 +25,16 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.frame = frame_data[4]
 		return
 	
-	# Add the gravity.
-	velocity += $MendableGravity.update(delta)
-
+	var temp = $MendableColour/GravityArea.collision_mask
+	$MendableColour/GravityArea.collision_mask = $MendableColour/GravityArea.collision_mask & ~collision_layer
+	await get_tree().physics_frame
+	velocity += $MendableGravity.modify_gravity(get_gravity()) * delta
+	$MendableColour/GravityArea.collision_mask = temp
+	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
+	
 	var direction := Input.get_axis("left", "right")
 	if direction:
 		$AnimatedSprite2D.animation = "walk"
@@ -64,6 +67,10 @@ func _physics_process(delta: float) -> void:
 		velocity.y += natural_velocity.y
 	else:
 		velocity.y -= controls_velocity.y * (velocity.y / initial_velocity.y)
+		
+	# Friction
+	if is_on_floor():
+		velocity.x *= abs($MendableGravity.get_gravity_direction().normalized().x)
 	
 	# Save this frame's final result for MendableTime
 	$MendableTime.update_record(delta, [position, velocity, $AnimatedSprite2D.animation, $AnimatedSprite2D.flip_h, $AnimatedSprite2D.frame])
