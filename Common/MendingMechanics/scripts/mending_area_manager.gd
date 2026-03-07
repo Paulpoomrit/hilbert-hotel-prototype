@@ -10,20 +10,26 @@ var _implemented_sentences: Dictionary[int, PackedStringArray]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	populate_grid_array()
+	update_grid_array()
 	MendingSignalHub.on_block_drop.connect(HandleBlockDropped)
 
 
-func populate_grid_array() -> void:
+func update_grid_array() -> void:
 	
-	for block: Block in get_children():
+	_grid_array.clear()
+	
+	for block in get_children():
+		if not is_instance_of(block, Block):
+			continue
 		block.set_block_hover_scale(block_hover_scale)
 		_grid_array.append(block)
 	
-	print(_grid_array)
+	# print(_grid_array)
 
 
 func HandleBlockDropped(block: Block) -> void:
+	
+	update_grid_array()
 
 	var sentences = grab_all_possible_sentences_from_rows_and_columns(block)
 	if not sentences:
@@ -32,10 +38,14 @@ func HandleBlockDropped(block: Block) -> void:
 	
 	if valid_sentence_to_implement:
 		Parser.implement(valid_sentence_to_implement)
+		print(_grid_array.find(valid_sentence_to_implement[0]))
 		_implemented_sentences[_grid_array.find(valid_sentence_to_implement[0])] = valid_sentence_to_implement
+	
+	revert_non_active_rules_to_default()
 
 
 func find_first_valid_sentence(sentences: Array[PackedStringArray]) -> Variant:
+	# Returns a variant of either PackedStringArray for a valid sentence or null if none exists
 	for sentence in sentences:
 		#print(" ".join(sentence) + "\n-------\n")
 		# Try parsing the first k words
@@ -59,8 +69,20 @@ func find_first_valid_sentence(sentences: Array[PackedStringArray]) -> Variant:
 
 
 func revert_non_active_rules_to_default():
-	for key in _implemented_sentences:
+	print(_implemented_sentences)
+	var sentences_to_revert = _implemented_sentences
+	for key in sentences_to_revert:
 		var first_block = _grid_array[key]
+		var sentences = grab_all_possible_sentences_from_rows_and_columns(first_block)
+		if not sentences:
+			return
+		var valid_sentence = find_first_valid_sentence(sentences)
+		if valid_sentence == sentences_to_revert[key]:
+			# print("Not reverting: %s" % valid_sentence)
+			sentences_to_revert.erase(key)
+
+	for sentence in sentences_to_revert:
+		print("Reverting: %s" % sentence)
 
 
 func grab_all_possible_sentences_from_rows_and_columns(block: Block) -> Variant:
