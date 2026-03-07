@@ -109,6 +109,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_kne1u")
 
 [node name="MendableColour" parent="." instance=ExtResource("2_hj1c0")]

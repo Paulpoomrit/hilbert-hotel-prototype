@@ -1,29 +1,23 @@
 extends Node2D
 
 
-@export var base_gravity : float = 980.0
 var gravity_function = "linear"
-var gravity_multiplier = Vector2(0, 1.0)
+var gravity_direction = Vector2(0, 1.0)
+var gravity_multiplier = 1.0
 
 
 func _ready() -> void:
-	pass
+	MendingSignalHub.on_change_gravity_type.connect(_on_change_gravity_type)
 
 
-func update(delta: float):
-	if gravity_function == "linear":
-		return linear_gravity(delta, gravity_multiplier)
-	elif gravity_function == "colourful":
-		return colourful_gravity(delta)
+func get_gravity_direction():
+	return gravity_direction
 
 
-func linear_gravity(delta: float, mult):
-	return base_gravity*delta*mult
-
-
-func colourful_gravity(delta):
-	# global_position
-	return Vector2(0, 0)
+func modify_gravity(grav: Vector2):
+	return (grav
+		- (ProjectSettings.get_setting("physics/2d/default_gravity_vector") * ProjectSettings.get_setting("physics/2d/default_gravity"))
+		+ (gravity_direction * ProjectSettings.get_setting("physics/2d/default_gravity") * gravity_multiplier))
 
 
 func _on_change_gravity_type(new_val, negated : bool = false, target = null):
@@ -31,3 +25,5 @@ func _on_change_gravity_type(new_val, negated : bool = false, target = null):
 		var parent = get_parent()
 		if not parent or not is_instance_of(parent, target):
 			return
+		print('a')
+	print('b')

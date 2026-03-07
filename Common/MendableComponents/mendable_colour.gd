@@ -5,7 +5,17 @@ var color_effect = "none"
 
 
 func _ready() -> void:
-	pass # Replace with function body.
+	# Removes parent from effects of gravity
+	var parent = get_parent()
+	if parent:
+		pass
+
+
+func negate_parent_pull(dir: Vector2 = Vector2(0.0, 0.0)):
+	if position == Vector2(0.0, 0.0):
+		return Vector2(sign(dir.x), sign(dir.y)) * $GravityArea.gravity
+	else:
+		return position.direction_to(Vector2(0.0, 0.0)) * $GravityArea.gravity
 
 
 func _on_change_colour_type(new_val, negated : bool = false, target = null):
