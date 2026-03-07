@@ -101,7 +101,7 @@ func implement(sentence: PackedStringArray) -> void:
 		
 	# for checking the parameters are being set properly!
 	# print("New Val: %s | Negated: %s | Target: %s" % [new_val, negated, target])
-		
+		  
 	# Sending the correct signal
 	if sentence[0] == "Gravity" or sentence[1] == "Gravity":
 		MendingSignalHub.on_change_gravity_type.emit(new_val, negated, target)
