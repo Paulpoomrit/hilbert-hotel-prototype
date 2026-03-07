@@ -73,11 +73,27 @@ func implement(sentence: PackedStringArray) -> void:
 	# Implement an already validated sentence
 	# [So we know the structure will be grammartical according to grammar.gd]
 	
-	# I'm turning it to a string just for demonstration
-	# Feel free to keep sentence as an array
 	var string_sentence: String = " ".join(sentence)
 	print("Implementing: %s" % string_sentence)
 	
+	# Extracting info
+	var info = extract_val_neg_target(string_sentence)
+	var new_val: Variant = info[0]
+	var negated: bool = info[1]
+	var target: Object = info[2]
+	
+	# print("New Val: %s | Negated: %s | Target: %s" % [new_val, negated, target])
+		  
+	# Sending the correct signal
+	if sentence[0] == "Gravity" or sentence[1] == "Gravity":
+		MendingSignalHub.on_change_gravity_type.emit(new_val, negated, target)
+	elif sentence[0] == "Speed" or sentence[1] == "Speed":
+		MendingSignalHub.on_change_speed_type.emit(new_val, negated, target)
+	elif sentence[0] == "Time" or sentence[1] == "Time":
+		MendingSignalHub.on_change_time_type.emit(new_val, negated, target)
+
+
+func extract_val_neg_target(string_sentence: String) -> Array:
 	# Extracting info
 	var new_val_regex = RegEx.create_from_string("(Real|1|2|3|- 1|- 2|- 3)") 
 	var new_val = new_val_regex.search(string_sentence).get_string()
@@ -97,14 +113,4 @@ func implement(sentence: PackedStringArray) -> void:
 		var target_string = found_target.get_string()
 		if target_string in _identifier_dict:
 			target = _identifier_dict[target_string]
-		
-	# for checking the parameters are being set properly!
-	# print("New Val: %s | Negated: %s | Target: %s" % [new_val, negated, target])
-		  
-	# Sending the correct signal
-	if sentence[0] == "Gravity" or sentence[1] == "Gravity":
-		MendingSignalHub.on_change_gravity_type.emit(new_val, negated, target)
-	elif sentence[0] == "Speed" or sentence[1] == "Speed":
-		MendingSignalHub.on_change_speed_type.emit(new_val, negated, target)
-	elif sentence[0] == "Time" or sentence[1] == "Time":
-		MendingSignalHub.on_change_time_type.emit(new_val, negated, target)
+	return [new_val, negated, target]
