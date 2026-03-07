@@ -94,18 +94,18 @@ func implement(sentence: PackedStringArray) -> void:
 	var target_regex = RegEx.create_from_string("Player|Enemy")
 	var found_target = target_regex.search(string_sentence)
 	if found_target:
-		var target_string = found_target.to_string()
+		var target_string = found_target.get_string()
+		print(target_string)
 		if target_string in _identifier_dict:
 			target = _identifier_dict[target_string]
 		
-		
 	# for checking the parameters are being set properly!
 	# print("New Val: %s | Negated: %s | Target: %s" % [new_val, negated, target])
-	
+		
 	# Sending the correct signal
-	if sentence[0] == "Gravity":
+	if sentence[0] == "Gravity" or sentence[1] == "Gravity":
 		MendingSignalHub.on_change_gravity_type.emit(new_val, negated, target)
-	elif sentence[0] == "Speed":
+	elif sentence[0] == "Speed" or sentence[1] == "Speed":
 		MendingSignalHub.on_change_speed_type.emit(new_val, negated, target)
-	elif sentence[0] == "Time":
+	elif sentence[0] == "Time" or sentence[1] == "Time":
 		MendingSignalHub.on_change_time_type.emit(new_val, negated, target)
