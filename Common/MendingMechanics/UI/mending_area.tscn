@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ciexe7prabm03" path="res://Common/MendingMechanics/block.tscn" id="3_en6ar"]
 [ext_resource type="Resource" uid="uid://bwkt027c46iuc" path="res://Common/MendingMechanics/Blocks/time.tres" id="4_w8ebf"]
 [ext_resource type="Resource" uid="uid://b1a80lgxgkurs" path="res://Common/MendingMechanics/Blocks/gravity.tres" id="5_gtuqa"]
-[ext_resource type="Resource" uid="uid://gnkhreccae0a" path="res://Common/MendingMechanics/Blocks/i.tres" id="5_j2rk3"]
+[ext_resource type="Resource" uid="uid://gnkhreccae0a" path="res://Common/MendingMechanics/Blocks/my.tres" id="5_j2rk3"]
 [ext_resource type="Resource" uid="uid://xh7cdgo7erb7" path="res://Common/MendingMechanics/Blocks/is.tres" id="6_yd8wd"]
 [ext_resource type="Resource" uid="uid://bpyipd32l8m4o" path="res://Common/MendingMechanics/Blocks/not.tres" id="7_q7nu5"]
 [ext_resource type="Resource" uid="uid://r5joufngsc8" path="res://Common/MendingMechanics/Blocks/real.tres" id="8_ds00k"]
