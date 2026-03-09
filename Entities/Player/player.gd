@@ -14,9 +14,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Set time speed
-	delta *= $MendableTime.get_time_multiplier()
+	var time_multiplier = $MendableTime.get_time_multiplier()
+	$AnimatedSprite2D.speed_scale = time_multiplier
 	# Rewind time if time speed is backwards
-	if delta < 0:
+	if time_multiplier < 0:
 		var frame_data = $MendableTime.pop_record(-delta)
 		position = frame_data[0]
 		velocity = frame_data[1]
@@ -24,11 +25,14 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.flip_h = frame_data[3]
 		$AnimatedSprite2D.frame = frame_data[4]
 		return
+	# Do nothing if time is frozen
+	elif time_multiplier == 0:
+		return
 	
 	var temp = $MendableColour/GravityArea.collision_mask
 	$MendableColour/GravityArea.collision_mask = $MendableColour/GravityArea.collision_mask & ~collision_layer
 	await get_tree().physics_frame
-	velocity += $MendableGravity.modify_gravity(get_gravity()) * delta
+	velocity += $MendableGravity.modify_gravity(get_gravity()) * delta * time_multiplier
 	$MendableColour/GravityArea.collision_mask = temp
 	
 	# Handle jump.
@@ -51,7 +55,9 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity + controls_velocity
 	var initial_velocity = velocity
 	
-	move_and_slide() # Theoretically this should never increase velocity in any direction by itself
+	velocity *= time_multiplier
+	move_and_slide() # Never increases velocity and doesn't take custom delta values
+	velocity /= time_multiplier
 	
 	# Remove controls_velocity from total velocity
 	if abs(velocity.x) >= abs(initial_velocity.x):
