@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bi67bqpk53hl5"
-path="res://.godot/imported/Rain Sheet.png-bae48afb890e67946f865719d56997c3.ctex"
+path="res://.godot/imported/Rain Sheet.png-9d3a6d6cb5d32985bd80f3fec9de6363.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/Pixel Plains Premium Pack/Rain Sheet.png"
-dest_files=["res://.godot/imported/Rain Sheet.png-bae48afb890e67946f865719d56997c3.ctex"]
+source_file="res://Content/sprites/Pixel Plains Premium Pack/Rain Sheet.png"
+dest_files=["res://.godot/imported/Rain Sheet.png-9d3a6d6cb5d32985bd80f3fec9de6363.ctex"]
 
 [params]
 

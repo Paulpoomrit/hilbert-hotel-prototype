@@ -4510,7 +4510,7 @@ sources/4 = SubResource("TileSetAtlasSource_iorfw")
 position = Vector2(232, 7)
 
 [node name="3DParallaxObject" parent="." instance=ExtResource("2_pu5pe")]
-position = Vector2(576, 324)
+position = Vector2(576, 320)
 min_parallax = -60
 max_parallax = 20
 parallax_scroll_factor = 0.99
