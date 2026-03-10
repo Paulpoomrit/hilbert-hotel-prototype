@@ -18,6 +18,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	pass
 	# Cancle drag if the player moves
 	if Input.is_action_pressed("left") or \
 		Input.is_action_pressed("right") or \
