@@ -1,6 +1,7 @@
 extends Node2D
 
 
+@export var start_modulate_at_front : bool = false ## Start changing color at frontmost layer instead of center
 @export var min_parallax : int = -20 ## Amount of parallax layers behind
 @export var max_parallax : int = 10 ## Amount of parallax layers in front, main layer will not be drawn if 0 is outside the range
 @export var parallax_scroll_factor : float = 0.95 ## Scroll multiplier of each parallax behind and divisor for in front
@@ -29,11 +30,14 @@ func _ready() -> void:
 	# Set scroll, scale, color, and z index
 	new_parallax.scroll_scale = Vector2(1, 1) * parallax_scroll_factor ** -max_parallax
 	new_parallax.scale = Vector2(1, 1) * parallax_scale_factor ** -max_parallax
-	new_parallax.modulate.r = parallax_modulate_factor.r ** -min(0, max_parallax)
-	new_parallax.modulate.g = parallax_modulate_factor.g ** -min(0, max_parallax)
-	new_parallax.modulate.b = parallax_modulate_factor.b ** -min(0, max_parallax)
-	new_parallax.modulate.a = parallax_modulate_factor.a ** -min(0, max_parallax)
-	new_parallax.z_index += max_parallax
+	if start_modulate_at_front:
+		new_parallax.modulate = Color(1.0, 1.0, 1.0, 1.0)
+	else:
+		new_parallax.modulate.r = parallax_modulate_factor.r ** -min(0, max_parallax)
+		new_parallax.modulate.g = parallax_modulate_factor.g ** -min(0, max_parallax)
+		new_parallax.modulate.b = parallax_modulate_factor.b ** -min(0, max_parallax)
+		new_parallax.modulate.a = parallax_modulate_factor.a ** -min(0, max_parallax)
+	new_parallax.z_index = get_z_level_from_scale(new_parallax.scale.x)
 	# Add copies of children with collisions disabled
 	for child in get_children():
 		if child != $Parallaxes:
@@ -51,26 +55,41 @@ func _ready() -> void:
 			for collision_object in child_copy.find_children("*", "TileMapLayer", true, false):
 				collision_object.collision_enabled = false
 			new_parallax.add_child(child_copy)
+			# Disable visibility of original child object if applicable
+			if child is CanvasItem:
+				child.visible = false
 	$Parallaxes.add_child(new_parallax)
 	# Copy parallaxes to subsequent layers
-	for i in range(max(0, min_parallax), max_parallax-1):
-		new_parallax = new_parallax.duplicate()
-		# Set scroll, scale, and z index
-		new_parallax.scroll_scale *= parallax_scroll_factor
-		new_parallax.scale *= parallax_scale_factor
-		new_parallax.z_index -= 1
-		$Parallaxes.add_child(new_parallax)
-	for i in range(min_parallax, min(0, max_parallax)):
-		new_parallax = new_parallax.duplicate()
-		# Set scroll, scale, modulate, and z index
-		new_parallax.scroll_scale *= parallax_scroll_factor
-		new_parallax.scale *= parallax_scale_factor
-		new_parallax.modulate *= parallax_modulate_factor
-		new_parallax.z_index -= 1
-		$Parallaxes.add_child(new_parallax)
-	# Main layers are hidden if 0 is outside the min/max range
-	if max_parallax < 0 or min_parallax > 0:
-		for child in get_children():
-			if child != $Parallaxes:
-				child.hide()
-	
+	if start_modulate_at_front:
+		for i in range(min_parallax, max_parallax):
+			new_parallax = new_parallax.duplicate()
+			# Set scroll, scale, modulate, and z index
+			new_parallax.scroll_scale *= parallax_scroll_factor
+			new_parallax.scale *= parallax_scale_factor
+			new_parallax.modulate *= parallax_modulate_factor
+			new_parallax.z_index = get_z_level_from_scale(new_parallax.scale.x)
+			$Parallaxes.add_child(new_parallax)
+	else:
+		for i in range(max(0, min_parallax), max_parallax):
+			new_parallax = new_parallax.duplicate()
+			# Set scroll, scale, and z index
+			new_parallax.scroll_scale *= parallax_scroll_factor
+			new_parallax.scale *= parallax_scale_factor
+			new_parallax.z_index = get_z_level_from_scale(new_parallax.scale.x)
+			$Parallaxes.add_child(new_parallax)
+		for i in range(min_parallax, min(0, max_parallax)):
+			new_parallax = new_parallax.duplicate()
+			# Set scroll, scale, modulate, and z index
+			new_parallax.scroll_scale *= parallax_scroll_factor
+			new_parallax.scale *= parallax_scale_factor
+			new_parallax.modulate *= parallax_modulate_factor
+			new_parallax.z_index = get_z_level_from_scale(new_parallax.scale.x)
+			$Parallaxes.add_child(new_parallax)
+
+
+# Returns an appropriate z level for a given scale
+func get_z_level_from_scale(scale: float) -> int:
+	if scale <= 1:
+		return -round((1 - scale) * 4000)
+	else:
+		return round((scale - 1) * 100)
