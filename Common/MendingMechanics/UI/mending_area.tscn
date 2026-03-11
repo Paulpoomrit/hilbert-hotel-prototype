@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqixjwfcu3mhc"]
+[gd_scene load_steps=10 format=3 uid="uid://cqixjwfcu3mhc"]
 
 [ext_resource type="Theme" uid="uid://b8xypxaan6n64" path="res://Common/MendingMechanics/UI/mending_ui_grid_theme.tres" id="1_t6jj7"]
 [ext_resource type="Script" uid="uid://d3hkrxowdn53g" path="res://Common/MendingMechanics/Scripts/mending_area_manager.gd" id="2_j2rk3"]
 [ext_resource type="PackedScene" uid="uid://ciexe7prabm03" path="res://Common/MendingMechanics/block.tscn" id="3_en6ar"]
 [ext_resource type="Resource" uid="uid://bwkt027c46iuc" path="res://Common/MendingMechanics/Blocks/time.tres" id="4_w8ebf"]
 [ext_resource type="Resource" uid="uid://b1a80lgxgkurs" path="res://Common/MendingMechanics/Blocks/gravity.tres" id="5_gtuqa"]
+[ext_resource type="Resource" uid="uid://gnkhreccae0a" path="res://Common/MendingMechanics/Blocks/my.tres" id="5_j2rk3"]
 [ext_resource type="Resource" uid="uid://xh7cdgo7erb7" path="res://Common/MendingMechanics/Blocks/is.tres" id="6_yd8wd"]
 [ext_resource type="Resource" uid="uid://bpyipd32l8m4o" path="res://Common/MendingMechanics/Blocks/not.tres" id="7_q7nu5"]
 [ext_resource type="Resource" uid="uid://r5joufngsc8" path="res://Common/MendingMechanics/Blocks/real.tres" id="8_ds00k"]
@@ -17,7 +18,7 @@ offset_bottom = 784.0
 scale = Vector2(0.4, 0.4)
 size_flags_horizontal = 3
 theme = ExtResource("1_t6jj7")
-columns = 6
+columns = 5
 script = ExtResource("2_j2rk3")
 
 [node name="Block" parent="." instance=ExtResource("3_en6ar")]
@@ -26,6 +27,7 @@ _block_data = ExtResource("4_w8ebf")
 
 [node name="Block2" parent="." instance=ExtResource("3_en6ar")]
 layout_mode = 2
+_block_data = ExtResource("5_j2rk3")
 
 [node name="Block3" parent="." instance=ExtResource("3_en6ar")]
 layout_mode = 2
@@ -83,18 +85,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Block20" parent="." instance=ExtResource("3_en6ar")]
-layout_mode = 2
-
-[node name="Block21" parent="." instance=ExtResource("3_en6ar")]
-layout_mode = 2
-
-[node name="Block22" parent="." instance=ExtResource("3_en6ar")]
-layout_mode = 2
-
-[node name="Block23" parent="." instance=ExtResource("3_en6ar")]
-layout_mode = 2
-
-[node name="Block24" parent="." instance=ExtResource("3_en6ar")]
 layout_mode = 2
 
 [connection signal="property_list_changed" from="." to="." method="_on_property_list_changed"]

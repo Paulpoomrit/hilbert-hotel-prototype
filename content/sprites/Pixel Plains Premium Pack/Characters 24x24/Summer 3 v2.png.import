@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b8pyphl8qcatn"
-path="res://.godot/imported/Summer 3 v2.png-2cc668684e33ee2a3e382e905ac508e1.ctex"
+path="res://.godot/imported/Summer 3 v2.png-eb7d65cef92dd863ef2ca5eb5c9f2068.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/Pixel Plains Premium Pack/Characters 24x24/Summer 3 v2.png"
-dest_files=["res://.godot/imported/Summer 3 v2.png-2cc668684e33ee2a3e382e905ac508e1.ctex"]
+source_file="res://Content/sprites/Pixel Plains Premium Pack/Characters 24x24/Summer 3 v2.png"
+dest_files=["res://.godot/imported/Summer 3 v2.png-eb7d65cef92dd863ef2ca5eb5c9f2068.ctex"]
 
 [params]
 

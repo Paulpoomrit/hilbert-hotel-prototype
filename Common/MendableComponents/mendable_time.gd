@@ -1,6 +1,7 @@
 extends Node2D
 
 
+var real = true
 var time_function = "linear"
 var time_multiplier = 1.0
 var record_duration : float = 5.0
@@ -8,11 +9,13 @@ var record_data : Array[Array]
 
 
 func _ready() -> void:
-	pass
+	MendingSignalHub.on_change_time_type.connect(_on_change_time_type)
 
 
 func get_time_multiplier():
-	if time_function == "linear":
+	if not real:
+		return 0.0
+	elif time_function == "linear":
 		return time_multiplier
 
 
@@ -46,3 +49,10 @@ func _on_change_time_type(new_val, negated : bool = false, target = null):
 		var parent = get_parent()
 		if not parent or not is_instance_of(parent, target):
 			return
+	if typeof(new_val) == TYPE_INT:
+		time_multiplier = new_val
+		if negated:
+			time_multiplier *= -1
+	elif new_val == "Real":
+		real = !negated
+	

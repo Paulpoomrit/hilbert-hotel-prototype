@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=4 uid="uid://dvfww42havutn"]
+[gd_scene load_steps=7 format=4 uid="uid://dvfww42havutn"]
 
 [ext_resource type="PackedScene" uid="uid://bl6msvoc1qtd4" path="res://Entities/Player/Player.tscn" id="1_jyvk6"]
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="2_2yvdw"]
-[ext_resource type="TileSet" uid="uid://1olsiv5pfgjf" path="res://Content/Resources/TileSet.tres" id="3_voj1p"]
-[ext_resource type="Texture2D" uid="uid://ynl3n7wk1ttg" path="res://Content/tree-tileset.png" id="4_kxr0u"]
+[ext_resource type="TileSet" uid="uid://1olsiv5pfgjf" path="res://content/Resources/TileSet.tres" id="3_voj1p"]
+[ext_resource type="Texture2D" uid="uid://ynl3n7wk1ttg" path="res://content/tree-tileset.png" id="4_kxr0u"]
+[ext_resource type="PackedScene" uid="uid://d0ixn0uh3mnvm" path="res://Common/MendableComponents/MendableColour.tscn" id="5_2yvdw"]
+[ext_resource type="Texture2D" uid="uid://c3tydyfk8xlwf" path="res://icon.svg" id="6_voj1p"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -90,3 +92,9 @@ scale = Vector2(2.014563, 2.014563)
 texture = ExtResource("4_kxr0u")
 region_enabled = true
 region_rect = Rect2(46.662342, 183.79924, 103.03784, 118.4944)
+
+[node name="MendableColour" parent="." instance=ExtResource("5_2yvdw")]
+position = Vector2(-191, 145)
+
+[node name="Sprite2D" type="Sprite2D" parent="MendableColour"]
+texture = ExtResource("6_voj1p")

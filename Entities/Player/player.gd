@@ -10,28 +10,35 @@ var controls_velocity = Vector2(0.0, 0.0)
 
 func _ready() -> void:
 	$AnimatedSprite2D.play()
-
+	
 
 func _physics_process(delta: float) -> void:
 	# Set time speed
-	delta *= $MendableTime.get_time_multiplier()
+	var time_multiplier = $MendableTime.get_time_multiplier()
+	$AnimatedSprite2D.speed_scale = time_multiplier
 	# Rewind time if time speed is backwards
-	if delta < 0:
-		var frame_data = $MendableTime.pop_record(-delta)
+	if time_multiplier < 0:
+		var frame_data = $MendableTime.pop_record(delta*-time_multiplier)
 		position = frame_data[0]
 		velocity = frame_data[1]
 		$AnimatedSprite2D.animation = frame_data[2]
 		$AnimatedSprite2D.flip_h = frame_data[3]
 		$AnimatedSprite2D.frame = frame_data[4]
 		return
+	# Do nothing if time is frozen
+	elif time_multiplier == 0:
+		return
 	
-	# Add the gravity.
-	velocity += $MendableGravity.update(delta)
-
+	var temp = $MendableColour/GravityArea.collision_mask
+	$MendableColour/GravityArea.collision_mask = $MendableColour/GravityArea.collision_mask & ~collision_layer
+	await get_tree().physics_frame
+	velocity += $MendableGravity.modify_gravity(get_gravity()) * delta * time_multiplier
+	$MendableColour/GravityArea.collision_mask = temp
+	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
+	
 	var direction := Input.get_axis("left", "right")
 	if direction:
 		$AnimatedSprite2D.animation = "walk"
@@ -42,13 +49,15 @@ func _physics_process(delta: float) -> void:
 		controls_velocity.x = direction * SPEED * $MendableSpeed.get_speed_multiplier()
 	else:
 		$AnimatedSprite2D.animation = "idle"
-		controls_velocity.x = move_toward(controls_velocity.x, 0, SPEED * $MendableSpeed.get_speed_multiplier())
+		controls_velocity.x = move_toward(controls_velocity.x, 0, SPEED * abs($MendableSpeed.get_speed_multiplier()))
 		
 	var natural_velocity = velocity
 	velocity = velocity + controls_velocity
 	var initial_velocity = velocity
 	
-	move_and_slide() # Theoretically this should never increase velocity in any direction by itself
+	velocity *= time_multiplier
+	move_and_slide() # Never increases velocity and doesn't take custom delta values
+	velocity /= time_multiplier
 	
 	# Remove controls_velocity from total velocity
 	if abs(velocity.x) >= abs(initial_velocity.x):
@@ -64,6 +73,10 @@ func _physics_process(delta: float) -> void:
 		velocity.y += natural_velocity.y
 	else:
 		velocity.y -= controls_velocity.y * (velocity.y / initial_velocity.y)
+		
+	# Friction
+	if is_on_floor():
+		velocity.x *= abs($MendableGravity.get_gravity_direction().normalized().x)
 	
 	# Save this frame's final result for MendableTime
 	$MendableTime.update_record(delta, [position, velocity, $AnimatedSprite2D.animation, $AnimatedSprite2D.flip_h, $AnimatedSprite2D.frame])

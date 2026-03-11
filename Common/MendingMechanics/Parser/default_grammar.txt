@@ -1,0 +1,28 @@
+# This text is only for reference -> does nothing to the parser!
+
+# Gravity
+S → Gravity Is Real
+S → Gravity Is 1
+
+S → Player Gravity Is Real
+S → Player Gravity Is 1
+
+S → Enemy Gravity Is Real
+S → Enemy Gravity Is 1
+
+
+# Time
+S → Time Is Real
+S → Time Is 1
+
+S → Player Time Is Real
+S → Player Time Is 1
+
+S → Enemy Time Is Real
+S → Enemy Time Is 1
+
+
+# Speed
+S → Speed Is 1
+S → Player Speed Is 1
+S → Enemy Speed Is 1

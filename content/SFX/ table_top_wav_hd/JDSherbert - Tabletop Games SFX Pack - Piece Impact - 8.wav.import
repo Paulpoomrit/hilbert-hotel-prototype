@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dvumfkejokw3o"
-path="res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Piece Impact - 8.wav-0bcdc3d6e2e332d82b074e3867e08f00.sample"
+path="res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Piece Impact - 8.wav-92a95f5583ad4d324933e5ad77f74f89.sample"
 
 [deps]
 
-source_file="res://content/SFX/ table_top_wav_hd/JDSherbert - Tabletop Games SFX Pack - Piece Impact - 8.wav"
-dest_files=["res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Piece Impact - 8.wav-0bcdc3d6e2e332d82b074e3867e08f00.sample"]
+source_file="res://Content/SFX/ table_top_wav_hd/JDSherbert - Tabletop Games SFX Pack - Piece Impact - 8.wav"
+dest_files=["res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Piece Impact - 8.wav-92a95f5583ad4d324933e5ad77f74f89.sample"]
 
 [params]
 

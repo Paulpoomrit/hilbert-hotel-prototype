@@ -143,6 +143,9 @@ func _arrange_children() -> void:
 			pos -= child_size / 2.0
 			fit_child_in_rect(child, Rect2(pos, child_size))
 			
+			# Randomly rotate the blocks slightly
+			child.rotation_degrees = randf_range(-15, 15)
+			
 			# Increment!
 			child_index += 1
 

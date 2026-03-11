@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("2_jyvj5")
-block_type = "I"
+block_type = "Player"
 block_texture = ExtResource("1_q0nmg")
 metadata/_custom_type_script = "uid://d0g8vr3ydganx"
