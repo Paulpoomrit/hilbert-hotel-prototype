@@ -18,7 +18,7 @@ func _physics_process(delta: float) -> void:
 	$AnimatedSprite2D.speed_scale = time_multiplier
 	# Rewind time if time speed is backwards
 	if time_multiplier < 0:
-		var frame_data = $MendableTime.pop_record(-delta)
+		var frame_data = $MendableTime.pop_record(delta*-time_multiplier)
 		position = frame_data[0]
 		velocity = frame_data[1]
 		$AnimatedSprite2D.animation = frame_data[2]
