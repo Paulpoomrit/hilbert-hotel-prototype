@@ -37,7 +37,7 @@ func _ready() -> void:
 		new_parallax.modulate.g = parallax_modulate_factor.g ** -min(0, max_parallax)
 		new_parallax.modulate.b = parallax_modulate_factor.b ** -min(0, max_parallax)
 		new_parallax.modulate.a = parallax_modulate_factor.a ** -min(0, max_parallax)
-	new_parallax.z_index += max_parallax
+	new_parallax.z_index = get_z_level_from_scale(new_parallax.scale.x)
 	# Add copies of children with collisions disabled
 	for child in get_children():
 		if child != $Parallaxes:
@@ -67,7 +67,7 @@ func _ready() -> void:
 			new_parallax.scroll_scale *= parallax_scroll_factor
 			new_parallax.scale *= parallax_scale_factor
 			new_parallax.modulate *= parallax_modulate_factor
-			new_parallax.z_index -= 1
+			new_parallax.z_index = get_z_level_from_scale(new_parallax.scale.x)
 			$Parallaxes.add_child(new_parallax)
 	else:
 		for i in range(max(0, min_parallax), max_parallax):
@@ -75,7 +75,7 @@ func _ready() -> void:
 			# Set scroll, scale, and z index
 			new_parallax.scroll_scale *= parallax_scroll_factor
 			new_parallax.scale *= parallax_scale_factor
-			new_parallax.z_index -= 1
+			new_parallax.z_index = get_z_level_from_scale(new_parallax.scale.x)
 			$Parallaxes.add_child(new_parallax)
 		for i in range(min_parallax, min(0, max_parallax)):
 			new_parallax = new_parallax.duplicate()
@@ -83,10 +83,18 @@ func _ready() -> void:
 			new_parallax.scroll_scale *= parallax_scroll_factor
 			new_parallax.scale *= parallax_scale_factor
 			new_parallax.modulate *= parallax_modulate_factor
-			new_parallax.z_index -= 1
+			new_parallax.z_index = get_z_level_from_scale(new_parallax.scale.x)
 			$Parallaxes.add_child(new_parallax)
 	# Main layers are hidden if 0 is outside the min/max range
 	if max_parallax < 0 or min_parallax > 0:
 		for child in get_children():
 			if child != $Parallaxes:
 				child.hide()
+
+
+# Returns an appropriate z level for a given scale
+func get_z_level_from_scale(scale: float) -> int:
+	if scale <= 1:
+		return -round((1 - scale) * 4000)
+	else:
+		return round((scale - 1) * 100)
