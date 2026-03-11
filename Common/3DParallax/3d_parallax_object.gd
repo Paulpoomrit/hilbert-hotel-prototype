@@ -85,11 +85,6 @@ func _ready() -> void:
 			new_parallax.modulate *= parallax_modulate_factor
 			new_parallax.z_index = get_z_level_from_scale(new_parallax.scale.x)
 			$Parallaxes.add_child(new_parallax)
-	# Main layers are hidden if 0 is outside the min/max range
-	if max_parallax < 0 or min_parallax > 0:
-		for child in get_children():
-			if child != $Parallaxes:
-				child.hide()
 
 
 # Returns an appropriate z level for a given scale
