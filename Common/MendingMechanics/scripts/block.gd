@@ -58,7 +58,7 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	self.modulate = Color(1,1,1,1)
 	scale = Vector2(1, 1)
-	z_index = 0
+	z_index = 100
 
 
 func _get_drag_data(at_position: Vector2) -> Variant:

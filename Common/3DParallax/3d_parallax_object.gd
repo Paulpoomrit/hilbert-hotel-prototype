@@ -13,7 +13,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Checks for settings errors
-	assert(min_parallax < max_parallax, "Min Parallax must be a lower value than Max Parallax!")
+	assert(min_parallax <= max_parallax, "Min Parallax must be a lower value than Max Parallax!")
 	assert(parallax_scroll_factor != 0, "Parallax Scroll Factor must be a nonzero value!")
 	assert(parallax_scale_factor != 0, "Parallax Scale Factor must be a nonzero value!")
 	# Sets location to center of viewport and offsets children to reflect the new position
