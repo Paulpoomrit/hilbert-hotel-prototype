@@ -4549,13 +4549,13 @@ tile_map_data = PackedByteArray("AAABABAABAAJAA8AAAABABEABAAJABAAAAABABIABAAJABE
 tile_set = SubResource("TileSet_lnicw")
 
 [node name="3DParallaxObject2" parent="." instance=ExtResource("2_pu5pe")]
-min_parallax = 19
+min_parallax = 20
 max_parallax = 20
 parallax_scroll_factor = 0.99
 parallax_scale_factor = 0.99
 
 [node name="MendingArea" parent="3DParallaxObject2" instance=ExtResource("8_nc1j1")]
-offset_left = 1.5258789e-05
-offset_top = 288.0
-offset_right = 818.0
-offset_bottom = 968.0
+offset_left = 16.00003
+offset_top = 295.99997
+offset_right = 834.0
+offset_bottom = 976.0
