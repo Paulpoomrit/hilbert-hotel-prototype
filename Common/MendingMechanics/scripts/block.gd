@@ -11,9 +11,19 @@ var _block_type: String
 var _is_enable: bool = false
 var _block_hover_scale = Vector2(2,2)
 
+var _block_default_material: ShaderMaterial = self.material
+var _block_hover_material: ShaderMaterial = ShaderMaterial.new() 
+var _block_enable_material: ShaderMaterial = ShaderMaterial.new()
+
+
+const BLOCK_HOVER_SHADER = preload("uid://n04yvcoi5gkv")
+const BLOCK_ENABLE_SHADER = preload("uid://btfwunye6nfwv")
+
 
 func _ready() -> void:
 	update_ui()
+	_block_hover_material.shader = BLOCK_HOVER_SHADER
+	_block_enable_material.shader = BLOCK_ENABLE_SHADER
 
 
 func update_ui() -> void:
@@ -53,11 +63,15 @@ func _on_mouse_entered() -> void:
 	z_index = 1000
 	scale = _block_hover_scale
 
+	material = _block_hover_material
+
 
 func _on_mouse_exited() -> void:
 	self.modulate = Color(1,1,1,1)
 	scale = Vector2(1, 1)
 	z_index = 100
+	
+	material = _block_default_material
 
 
 func _get_drag_data(at_position: Vector2) -> Variant:
