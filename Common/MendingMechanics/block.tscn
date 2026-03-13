@@ -14,6 +14,7 @@ shader_parameter/angle = 45.0000021375
 size = Vector2(128, 128)
 
 [node name="Block" type="TextureButton" groups=["dropable"]]
+texture_filter = 2
 material = SubResource("ShaderMaterial_moekh")
 offset_right = 128.0
 offset_bottom = 128.0
