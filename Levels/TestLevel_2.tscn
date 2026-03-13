@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://cchyx4u04seg2"]
+[gd_scene load_steps=16 format=4 uid="uid://cchyx4u04seg2"]
 
 [ext_resource type="PackedScene" uid="uid://bl6msvoc1qtd4" path="res://Entities/Player/Player.tscn" id="1_s8n23"]
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="2_pu5pe"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c5kb763imexbo" path="res://Content/sprites/Pixel Plains Premium Pack/Fall/Basic Tiles 3 (Water).png" id="6_q70ef"]
 [ext_resource type="Texture2D" uid="uid://csne2ydlrc1wr" path="res://Content/sprites/Pixel Plains Premium Pack/Fall/Basic Tiles 4 (Trees & Bushes).png" id="7_lnicw"]
 [ext_resource type="PackedScene" uid="uid://cqixjwfcu3mhc" path="res://Common/MendingMechanics/UI/mending_area.tscn" id="8_nc1j1"]
+[ext_resource type="SpriteFrames" uid="uid://dgicyn81i40we" path="res://Entities/Player/PlayerSprites.tres" id="8_q70ef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nc1j1"]
 texture = ExtResource("5_ic7ty")
@@ -4559,3 +4560,15 @@ offset_left = 16.00003
 offset_top = 295.99997
 offset_right = 834.0
 offset_bottom = 976.0
+
+[node name="3DParallaxObject4" parent="." instance=ExtResource("2_pu5pe")]
+max_parallax = 20
+parallax_scroll_factor = 0.99
+parallax_scale_factor = 0.99
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="3DParallaxObject4"]
+position = Vector2(520, -32)
+scale = Vector2(8.34, 8.34)
+sprite_frames = ExtResource("8_q70ef")
+animation = &"walk"
+autoplay = "walk"
