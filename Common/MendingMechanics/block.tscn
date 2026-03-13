@@ -6,7 +6,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_moekh"]
 shader = ExtResource("1_62855")
-shader_parameter/dist = 5
+shader_parameter/dist = 6
 shader_parameter/color = Color(0, 0, 0, 1)
 shader_parameter/angle = 45.0000021375
 

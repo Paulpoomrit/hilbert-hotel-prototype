@@ -53,7 +53,6 @@ void fragment() {
 
 	// add main color on top of blackened area
 	COLOR += main_color * main_color.a;
-	// --------------------------------
 }
 
 //void light() {
