@@ -50,9 +50,8 @@ func _on_mouse_entered() -> void:
 	self.modulate = _block_data.hover_tint
 	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.ON_BLOCK_HOVER)
 	
-	if (_block_data.block_type != "Null"):
-		z_index = 1000
-		scale = _block_hover_scale
+	z_index = 1000
+	scale = _block_hover_scale
 
 
 func _on_mouse_exited() -> void:

@@ -81,8 +81,6 @@ void fragment() {
 	// need to make area where main and shadow overlap black for next step
 	COLOR = mix(COLOR, vec4(0.0, 0.0, 0.0, 1.0), main_color.a);
 
-	// add main color on top of blackened area
-	COLOR += main_color * main_color.a;
 	// --------------------------------
 	
 	// 2. Specular Effect
@@ -102,7 +100,11 @@ void fragment() {
 	specular_color_main.rgb += specular_color;
 	specular_color_main.rgb = clamp(specular_color_main.rgb, 0.0, 1.0);
 	
-	COLOR = specular_color_main;
+	// add main color on top of blackened (shadow) area
+	COLOR += main_color * main_color.a;
+	COLOR.rgb = clamp(specular_color + COLOR.rgb, 0.0, 1.0);
+	
+	// COLOR = specular_color_main;
 }
 
 //void light() {
