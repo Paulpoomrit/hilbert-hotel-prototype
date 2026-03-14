@@ -55,10 +55,10 @@ offset_left = 116.0
 offset_right = 156.0
 offset_bottom = 40.0
 
-[node name="Sprite2D" type="Sprite2D" parent="Control"]
+[node name="ThoughtBubble" type="Sprite2D" parent="Control"]
 material = SubResource("ShaderMaterial_8s5ia")
-position = Vector2(391.99997, 157)
-scale = Vector2(0.522, 0.522)
+position = Vector2(390.45996, 160.00002)
+scale = Vector2(0.5262777, 0.5771325)
 texture = ExtResource("2_s31gp")
 
 [node name="MendingArea" parent="Control" instance=ExtResource("3_55niv")]
