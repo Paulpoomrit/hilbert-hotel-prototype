@@ -33,6 +33,7 @@ sprite_frames = ExtResource("6_hj1c0")
 animation = &"idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
 
 [node name="MendingUI" parent="." instance=ExtResource("3_vweq0")]
 z_index = 100

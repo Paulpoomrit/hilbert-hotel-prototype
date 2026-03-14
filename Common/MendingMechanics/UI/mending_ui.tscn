@@ -38,12 +38,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_a0i6h")
 
-[node name="ColourPalette" type="Sprite2D" parent="."]
-position = Vector2(974, 422.99997)
-rotation = 0.00040399274
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_55niv")
-
 [node name="MendingArea" parent="." instance=ExtResource("3_55niv")]
 layout_mode = 0
 offset_left = 210.0
@@ -51,8 +45,15 @@ offset_top = 70.000015
 offset_right = 1028.0
 offset_bottom = 750.0
 
-[node name="Container" type="Container" parent="."]
-layout_mode = 0
+[node name="InventoryArea" type="CanvasLayer" parent="."]
+
+[node name="ColourPalette" type="Sprite2D" parent="InventoryArea"]
+position = Vector2(974, 422.99997)
+rotation = 0.00040399277
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_55niv")
+
+[node name="Container" type="Container" parent="InventoryArea"]
 offset_left = 1019.0
 offset_top = 586.0
 offset_right = 1019.0
@@ -67,98 +68,98 @@ rotation_offset_degrees = 172.7
 use_half_ring = true
 arc_angle = 152.9
 
-[node name="Block" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("17_8s5ia")
 
-[node name="Block2" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block2" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("16_5j1i6")
 
-[node name="Block3" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block3" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("15_s31gp")
 
-[node name="Block4" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block4" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("14_7frce")
 
-[node name="Block5" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block5" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("10_7frce")
 
-[node name="Block6" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block6" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("6_756bo")
 
-[node name="Block7" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block7" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("18_a2oxc")
 
-[node name="Block8" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block8" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("22_55niv")
 
-[node name="Block9" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block9" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("21_867gp")
 
-[node name="Block10" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block10" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("20_55niv")
 
-[node name="Block11" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block11" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("19_867gp")
 
-[node name="Block12" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block12" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("16_867gp")
 
-[node name="Block13" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block13" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("12_57agw")
 
-[node name="Block14" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block14" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("13_m5hi7")
 
-[node name="Block15" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block15" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("10_55niv")
 
-[node name="Block16" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block16" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("20_ktojv")
 
-[node name="Block17" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block17" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("21_867gp")
 
-[node name="Block18" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block18" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("20_ktojv")
 
-[node name="Block19" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block19" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("9_867gp")
 
-[node name="Block20" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block20" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("21_867gp")
 
-[node name="Block21" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block21" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("8_a2oxc")
 
-[node name="Block22" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block22" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("7_a2hsm")
 
-[node name="Block23" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block23" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("5_p62ws")
 
-[node name="Block24" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block24" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("23_57agw")

@@ -4512,11 +4512,12 @@ position = Vector2(232, 7)
 
 [node name="3DParallaxObject" parent="." instance=ExtResource("2_pu5pe")]
 position = Vector2(576, 320)
+start_modulate_at_front = true
 min_parallax = -60
 max_parallax = 20
 parallax_scroll_factor = 0.99
 parallax_scale_factor = 0.99
-parallax_modulate_factor = Color(0.98803645, 0.98803645, 0.98803645, 1)
+parallax_modulate_factor = Color(0.99215686, 0.99215686, 0.9882353, 1)
 metadata/_edit_group_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="3DParallaxObject"]
