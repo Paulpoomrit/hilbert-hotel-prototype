@@ -40,6 +40,8 @@ func HandleBlockDropped(block: Block) -> void:
 		Parser.implement(valid_sentence_to_implement)
 		_implemented_sentences[find_first_occurence(valid_sentence_to_implement[0])] = valid_sentence_to_implement
 	
+		handle_block_effects(valid_sentence_to_implement, true)
+	
 	revert_non_active_rules_to_default()
 
 
@@ -84,6 +86,7 @@ func revert_non_active_rules_to_default():
 		print("Reverting: %s" % sentences_to_revert[sentence])
 		_implemented_sentences.erase(sentence)
 		Parser.reverse(sentences_to_revert[sentence])
+		handle_block_effects(sentences_to_revert[sentence], false)
 
 
 func grab_all_possible_sentences_from_rows_and_columns(block: Block) -> Variant:
@@ -124,8 +127,21 @@ func grab_all_possible_sentences_from_rows_and_columns(block: Block) -> Variant:
 	return sentences
 
 
+## Returns the index of the first occurence of the block type in the mending area
 func find_first_occurence(block_type: String) -> Variant:
 	for i in range(_grid_array.size()):
 		if _grid_array[i].get_block_type() == block_type:
 			return i
 	return null
+
+
+## Disable or enable each individual blocks 
+## (serves as a callback to let each block handle their own effects)
+func handle_block_effects(sentence: PackedStringArray, enable: bool = true) -> void:
+	for block_string: String in sentence:
+		var block_to_enable: int = find_first_occurence(block_string)
+		
+		if enable:
+			_grid_array[block_to_enable].enable_block()
+		else:
+			_grid_array[block_to_enable].disable_block()

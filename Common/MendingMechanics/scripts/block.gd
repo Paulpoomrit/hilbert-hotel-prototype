@@ -49,11 +49,13 @@ func set_block_hover_scale(new_scale: Vector2) -> void:
 func enable_block() -> void:
 	_is_enable = true
 	# handle block enable effects
+	print('enable')
 
 
 func disable_block() -> void:
 	_is_enable = false
 	# handle block disable effects
+	print('disable')
 
 
 func _on_mouse_entered() -> void:
