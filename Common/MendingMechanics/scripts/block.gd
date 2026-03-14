@@ -13,17 +13,14 @@ var _block_hover_scale = Vector2(2,2)
 
 var _block_default_material: ShaderMaterial = self.material
 var _block_hover_material: ShaderMaterial = ShaderMaterial.new() 
-var _block_enable_material: ShaderMaterial = ShaderMaterial.new()
 
 
 const BLOCK_HOVER_SHADER = preload("uid://n04yvcoi5gkv")
-const BLOCK_ENABLE_SHADER = preload("uid://btfwunye6nfwv")
 
 
 func _ready() -> void:
 	update_ui()
 	_block_hover_material.shader = BLOCK_HOVER_SHADER
-	_block_enable_material.shader = BLOCK_ENABLE_SHADER
 
 
 func update_ui() -> void:
@@ -48,14 +45,19 @@ func set_block_hover_scale(new_scale: Vector2) -> void:
 
 func enable_block() -> void:
 	_is_enable = true
+	print("enable: %s" % self._block_type)
+	
 	# handle block enable effects
-	print('enable')
+	material = _block_hover_material
+	
 
 
 func disable_block() -> void:
 	_is_enable = false
+	print("disable: %s" % self._block_type)
+	
 	# handle block disable effects
-	print('disable')
+	material = _block_default_material
 
 
 func _on_mouse_entered() -> void:
@@ -73,7 +75,8 @@ func _on_mouse_exited() -> void:
 	scale = Vector2(1, 1)
 	z_index = 100
 	
-	material = _block_default_material
+	if not _is_enable:
+		material = _block_default_material
 
 
 func _get_drag_data(at_position: Vector2) -> Variant:

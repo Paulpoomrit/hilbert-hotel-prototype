@@ -30,6 +30,7 @@ func update_grid_array() -> void:
 func HandleBlockDropped(block: Block) -> void:
 	
 	update_grid_array()
+	revert_non_active_rules_to_default()
 
 	var sentences = grab_all_possible_sentences_from_rows_and_columns(block)
 	if not sentences:
@@ -38,11 +39,10 @@ func HandleBlockDropped(block: Block) -> void:
 	
 	if valid_sentence_to_implement:
 		Parser.implement(valid_sentence_to_implement)
+		var first_block_index = find_first_occurence(valid_sentence_to_implement[0])
 		_implemented_sentences[find_first_occurence(valid_sentence_to_implement[0])] = valid_sentence_to_implement
 	
 		handle_block_effects(valid_sentence_to_implement, true)
-	
-	revert_non_active_rules_to_default()
 
 
 func find_first_valid_sentence(sentences: Array[PackedStringArray]) -> Variant:
