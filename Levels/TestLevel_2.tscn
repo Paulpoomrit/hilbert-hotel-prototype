@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://cchyx4u04seg2"]
+[gd_scene load_steps=21 format=4 uid="uid://cchyx4u04seg2"]
 
 [ext_resource type="PackedScene" uid="uid://bl6msvoc1qtd4" path="res://Entities/Player/Player.tscn" id="1_s8n23"]
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="2_pu5pe"]
@@ -9,6 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://csne2ydlrc1wr" path="res://Content/sprites/Pixel Plains Premium Pack/Fall/Basic Tiles 4 (Trees & Bushes).png" id="7_lnicw"]
 [ext_resource type="PackedScene" uid="uid://cqixjwfcu3mhc" path="res://Common/MendingMechanics/UI/mending_area.tscn" id="8_nc1j1"]
 [ext_resource type="SpriteFrames" uid="uid://dgicyn81i40we" path="res://Entities/Player/PlayerSprites.tres" id="8_q70ef"]
+[ext_resource type="PackedScene" uid="uid://ciexe7prabm03" path="res://Common/MendingMechanics/block.tscn" id="9_tkla2"]
+[ext_resource type="Resource" uid="uid://bwkt027c46iuc" path="res://Common/MendingMechanics/Blocks/time.tres" id="10_0eonh"]
+[ext_resource type="Resource" uid="uid://gnkhreccae0a" path="res://Common/MendingMechanics/Blocks/my.tres" id="11_u8ywi"]
+[ext_resource type="Resource" uid="uid://b1a80lgxgkurs" path="res://Common/MendingMechanics/Blocks/gravity.tres" id="12_242gi"]
+[ext_resource type="Resource" uid="uid://xh7cdgo7erb7" path="res://Common/MendingMechanics/Blocks/is.tres" id="13_r2mwn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nc1j1"]
 texture = ExtResource("5_ic7ty")
@@ -4561,6 +4566,46 @@ offset_left = 16.00003
 offset_top = 295.99997
 offset_right = 834.0
 offset_bottom = 976.0
+
+[node name="Block" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+_block_data = ExtResource("10_0eonh")
+
+[node name="Block2" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+_block_data = ExtResource("11_u8ywi")
+
+[node name="Block3" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block4" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block5" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block6" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block7" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+_block_data = ExtResource("12_242gi")
+
+[node name="Block8" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+_block_data = ExtResource("13_r2mwn")
+
+[node name="Block9" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block10" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block11" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block12" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
 
 [node name="3DParallaxObject4" parent="." instance=ExtResource("2_pu5pe")]
 max_parallax = 20

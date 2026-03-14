@@ -68,6 +68,46 @@ offset_top = 74.0
 offset_right = 1095.0
 offset_bottom = 754.0
 
+[node name="Block" parent="Control/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+_block_data = ExtResource("23_57agw")
+
+[node name="Block2" parent="Control/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+_block_data = ExtResource("19_867gp")
+
+[node name="Block3" parent="Control/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block4" parent="Control/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block5" parent="Control/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block6" parent="Control/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block7" parent="Control/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+_block_data = ExtResource("5_p62ws")
+
+[node name="Block8" parent="Control/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+_block_data = ExtResource("21_867gp")
+
+[node name="Block9" parent="Control/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block10" parent="Control/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block11" parent="Control/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block12" parent="Control/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
 [node name="InventoryArea" type="CanvasLayer" parent="."]
 
 [node name="ColourPalette" type="Sprite2D" parent="InventoryArea"]
