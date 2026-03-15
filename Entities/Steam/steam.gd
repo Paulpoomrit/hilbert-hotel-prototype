@@ -10,11 +10,13 @@ extends Area2D
 
 var damage : int
 var overlapping_bodies : Dictionary
+var collosion_default: bool
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	damage = base_damage
+	collosion_default = not $CollisionShape2D.disabled
 	MendingSignalHub.on_change_steam_type.connect(_on_change_steam_property)
 
 
@@ -67,4 +69,7 @@ func _on_body_exited(body: Node2D) -> void:
 
 func handle_steam_reality(is_real: bool) -> void:
 	self.visible = is_real
-	$CollisionShape2D.disabled = not is_real
+	if (is_real and collosion_default): # to prevent parallax obj collisions
+		$CollisionShape2D.disabled = false
+	else:
+		$CollisionShape2D.disabled = true

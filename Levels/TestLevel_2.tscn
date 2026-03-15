@@ -4648,9 +4648,12 @@ autoplay = "walk"
 
 [node name="3DParallaxObject5" parent="." instance=ExtResource("2_pu5pe")]
 use_parent_material = true
+start_modulate_at_front = true
 max_parallax = 0
 parallax_scroll_factor = 0.99
 parallax_scale_factor = 0.99
 
 [node name="Steam" parent="3DParallaxObject5" instance=ExtResource("18_r2mwn")]
 position = Vector2(552, 160)
+
+[editable path="3DParallaxObject5/Steam"]

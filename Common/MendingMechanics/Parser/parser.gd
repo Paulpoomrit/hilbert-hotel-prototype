@@ -104,7 +104,7 @@ func reverse(sentence: PackedStringArray) -> void:
 
 func extract_val_neg_target(string_sentence: String) -> Array:
 	# Extracting info
-	var new_val_regex = RegEx.create_from_string("(Real|1|2|3|- 1|- 2|- 3|Gravity|Heavy)") 
+	var new_val_regex = RegEx.create_from_string("(Real|1|2|3|- 1|- 2|- 3|Gravity|Heavy|Danger)") 
 	var new_val = new_val_regex.search(string_sentence).get_string()
 	new_val = new_val.replacen(" ", "")
 	if new_val.is_valid_int():
