@@ -104,7 +104,7 @@ func reverse(sentence: PackedStringArray) -> void:
 
 func extract_val_neg_target(string_sentence: String) -> Array:
 	# Extracting info
-	var new_val_regex = RegEx.create_from_string("(Real|1|2|3|- 1|- 2|- 3)") 
+	var new_val_regex = RegEx.create_from_string("(Real|1|2|3|- 1|- 2|- 3| Gravity)") 
 	var new_val = new_val_regex.search(string_sentence).get_string()
 	new_val = new_val.replacen(" ", "")
 	if new_val.is_valid_int():
@@ -132,3 +132,5 @@ func send_signal(sentence: PackedStringArray, new_val: Variant, negated: bool, t
 		MendingSignalHub.on_change_speed_type.emit(new_val, negated, target)
 	elif sentence[0] == "Time" or sentence[1] == "Time":
 		MendingSignalHub.on_change_time_type.emit(new_val, negated, target)
+	elif sentence[0] == "Colour" or sentence[1] == "Colour":
+		MendingSignalHub.on_change_colour_type.emit(new_val, negated, target)

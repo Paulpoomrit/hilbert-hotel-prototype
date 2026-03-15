@@ -7,6 +7,8 @@ const BW = preload("uid://bkxiydok4qfbh")
 
 
 func _ready() -> void:
+	MendingSignalHub.on_change_colour_type.connect(_on_change_colour_type)
+	
 	bw_material.shader = BW
 	bw_material.set_shader_parameter("strength", 0.0)
 	
@@ -30,14 +32,14 @@ func _on_change_colour_type(new_val, negated : bool = false, target = null):
 		if not parent or not is_instance_of(parent, target):
 			return
 	if typeof(new_val) == TYPE_STRING:
-		$Area2D/CollisionShape2D.disabled = true
+		$GravityArea/CollisionShape2D.disabled = true
 		if new_val == "none":
 			pass
-		elif new_val == "gravity":
-			$Area2D/CollisionShape2D.disabled = false
-		elif new_val == "real" and not negated:
+		elif new_val == "Gravity":
+			$GravityArea/CollisionShape2D.disabled = false
+		elif new_val == "Real" and not negated:
 			handle_colour_real()
-		elif new_val == "real" and negated:
+		elif new_val == "Real" and negated:
 			handle_colour_not_real()
 		
 		color_effect = new_val
@@ -47,9 +49,10 @@ func _on_change_colour_type(new_val, negated : bool = false, target = null):
 ## in AnimatedSprite2D under the given parent node
 func handle_colour_real() -> void:
 	var parent = get_parent()
-	parent.material.set_shader_parameter("bw_strength", 0.0)
+	parent.material.set_shader_parameter("strength", 0.0)
 
 
 func handle_colour_not_real() -> void:
+	print('yo')
 	var parent = get_parent()
-	parent.material.set_shader_parameter("bw_strength", 1.0)
+	parent.material.set_shader_parameter("strength", 1.0)

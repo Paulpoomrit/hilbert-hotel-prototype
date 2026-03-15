@@ -62,3 +62,13 @@ S → Player Speed Is 3
 S → Enemy Speed Is 1
 S → Enemy Speed Is 2
 S → Enemy Speed Is 3
+
+
+# Colour
+S → Colour Is Real
+S → Colour Is Not Real
+S → Colour Is Gravity
+S → Player Colour Is Real
+S → Player Colour Is Not Real
+S → Enemy Colour Is Real
+S → Enemy Colour Is Not Real
