@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://cchyx4u04seg2"]
+[gd_scene load_steps=25 format=4 uid="uid://cchyx4u04seg2"]
 
 [ext_resource type="PackedScene" uid="uid://bl6msvoc1qtd4" path="res://Entities/Player/Player.tscn" id="1_s8n23"]
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="2_pu5pe"]
@@ -16,6 +16,7 @@
 [ext_resource type="Resource" uid="uid://xh7cdgo7erb7" path="res://Common/MendingMechanics/Blocks/is.tres" id="13_r2mwn"]
 [ext_resource type="Resource" uid="uid://d1hwyrqm43nj3" path="res://Common/MendingMechanics/Blocks/colour.tres" id="14_0eonh"]
 [ext_resource type="Resource" uid="uid://r5joufngsc8" path="res://Common/MendingMechanics/Blocks/real.tres" id="15_u8ywi"]
+[ext_resource type="Material" uid="uid://bjudla1pg6pkb" path="res://Common/MendingMechanics/Materials/BW.tres" id="16_242gi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0eonh"]
 
@@ -4637,7 +4638,7 @@ parallax_scroll_factor = 0.99
 parallax_scale_factor = 0.99
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="3DParallaxObject4"]
-use_parent_material = true
+material = ExtResource("16_242gi")
 position = Vector2(520, -32)
 scale = Vector2(8.34, 8.34)
 sprite_frames = ExtResource("8_q70ef")

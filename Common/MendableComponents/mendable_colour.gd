@@ -2,7 +2,7 @@ extends Node2D
 
 
 var color_effect = "none"
-var bw_material: ShaderMaterial = ShaderMaterial.new()
+var bw_material: ShaderMaterial = preload("uid://bjudla1pg6pkb")
 const BW = preload("uid://bkxiydok4qfbh")
 
 
@@ -11,7 +11,7 @@ func _ready() -> void:
 	
 	$GravityArea/CollisionShape2D.disabled = true
 	
-	bw_material.shader = BW
+	#bw_material.shader = BW
 	bw_material.set_shader_parameter("strength", 0.0)
 	
 	# Removes parent from effects of gravity
@@ -52,10 +52,16 @@ func _on_change_colour_type(new_val, negated : bool = false, target = null):
 ## in AnimatedSprite2D under the given parent node
 func handle_colour_real() -> void:
 	var parent = get_parent()
-	parent.material.set_shader_parameter("strength", 0.0)
+	#parent.material.set_shader_parameter("strength", 0.0)
+	var tween = create_tween()
+	tween.tween_property(parent.material, "shader_parameter/strength", 0.0, 2.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	# tween.tween_property(parent.material, "shader_parameter/noise_factor", 0.0, 0.5)
 
 
 func handle_colour_not_real() -> void:
 	print('yo')
 	var parent = get_parent()
-	parent.material.set_shader_parameter("strength", 1.0)
+	var tween = create_tween()
+	#parent.material.set_shader_parameter("strength", 1.0)
+	tween.tween_property(parent.material, "shader_parameter/strength", 1.0, 2.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	# tween.tween_property(parent.material, "shader_parameter/noise_factor", 1.0, 0.5)
