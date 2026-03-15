@@ -18,7 +18,8 @@ func _ready() -> void:
 	var parent = get_parent()
 	if parent:
 		pass
-	parent.material = bw_material
+	if is_instance_of(parent, CanvasItem):
+		parent.material = bw_material
 
 
 func negate_parent_pull(dir: Vector2 = Vector2(0.0, 0.0)):
