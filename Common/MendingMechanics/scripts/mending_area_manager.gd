@@ -139,7 +139,10 @@ func find_first_occurence(block_type: String) -> Variant:
 ## (serves as a callback to let each block handle their own effects)
 func handle_block_effects(sentence: PackedStringArray, enable: bool = true) -> void:
 	for block_string: String in sentence:
-		var block_to_enable: int = find_first_occurence(block_string)
+		var block_to_enable = find_first_occurence(block_string)
+		
+		if not block_to_enable:
+			return
 		
 		if enable:
 			_grid_array[block_to_enable].enable_block()

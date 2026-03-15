@@ -10,6 +10,7 @@ extends TextureButton
 var _block_type: String
 var _is_enable: bool = false
 var _block_hover_scale = Vector2(2,2)
+var _block_og_scale: Vector2
 
 var _block_default_material: ShaderMaterial = self.material
 var _block_hover_material: ShaderMaterial = ShaderMaterial.new() 
@@ -21,6 +22,7 @@ const BLOCK_HOVER_SHADER = preload("uid://n04yvcoi5gkv")
 func _ready() -> void:
 	update_ui()
 	_block_hover_material.shader = BLOCK_HOVER_SHADER
+	_block_og_scale = self.get_global_transform_with_canvas().get_scale()
 
 
 func update_ui() -> void:
@@ -90,7 +92,7 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	var preview_control_node = Control.new()
 	preview_control_node.add_child(preview_block)
 	preview_block.position -= self.texture_normal.get_size() / 2
-	preview_block.scale = self.get_global_transform_with_canvas().get_scale()
+	preview_block.scale = _block_og_scale * _block_hover_scale
 	preview_block.z_index =  4096
 	
 	set_drag_preview(preview_control_node)
