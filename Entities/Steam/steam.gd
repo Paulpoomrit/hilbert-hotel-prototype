@@ -5,6 +5,9 @@ extends Area2D
 @export var push_strength : float = 1960.0 ## Push strength of stema when it is heavy
 @export var damage_tick_rate : float = 0.25 ## Amount of time required for a damage tick
 @export var base_damage : int = 1 ## Amount of damage inflicted per damage tick
+
+@onready var gpu_particles_2d: GPUParticles2D = $GPUParticles2D
+
 var damage : int
 var overlapping_bodies : Dictionary
 
@@ -12,6 +15,7 @@ var overlapping_bodies : Dictionary
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	damage = base_damage
+	MendingSignalHub.on_change_steam_type.connect(_on_change_steam_property)
 
 
 func _physics_process(delta: float) -> void:
@@ -34,7 +38,7 @@ func _physics_process(delta: float) -> void:
 				overlapping_bodies[body] = fmod(overlapping_bodies[body], damage_tick_rate)
 
 
-func _on_change_steam_property(new_val, negated : bool = false):
+func _on_change_steam_property(new_val: Variant, negated: bool, target: Object):
 	if new_val == "Danger":
 		if negated:
 			damage = 0

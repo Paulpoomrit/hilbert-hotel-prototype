@@ -72,3 +72,20 @@ S → Player Colour Is Real
 S → Player Colour Is Not Real
 S → Enemy Colour Is Real
 S → Enemy Colour Is Not Real
+
+
+# Steam
+S → Steam Is Real
+S → Steam Is Not Real
+S → Steam Is Heavy
+S → Steam Is Not Heavy
+S → Steam Is Danger
+S → Steam Is Not Danger
+S → Steam Gravity Is Real
+S → Steam Gravity Is Not Real
+S → Steam Gravity is 1
+S → Steam Gravity is 2
+S → Steam Gravity is 3
+S → Steam Gravity is - 1
+S → Steam Gravity is - 2
+S → Steam Gravity is - 3
