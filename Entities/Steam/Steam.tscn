@@ -1,10 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://6d2ih3cwqnrj"]
+[gd_scene load_steps=9 format=3 uid="uid://6d2ih3cwqnrj"]
 
 [ext_resource type="Script" uid="uid://cne8wv888x06k" path="res://Entities/Steam/steam.gd" id="1_biu2e"]
+[ext_resource type="Texture2D" uid="uid://dh1p7a1iw8wle" path="res://Entities/Steam/Sprites/fuzzy_ball.png" id="2_ppudv"]
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_d8dep"]
-resource_local_to_scene = true
-points = PackedVector2Array(-50, -100, 50, -100, 0, 0)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppudv"]
+size = Vector2(48, 360)
+
+[sub_resource type="Gradient" id="Gradient_8coau"]
+offsets = PackedFloat32Array(0.80099505, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nchpf"]
+gradient = SubResource("Gradient_8coau")
+
+[sub_resource type="Curve" id="Curve_imgy0"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.48834497, 0.99745244), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_v7m0m"]
+curve = SubResource("Curve_imgy0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8coau"]
+lifetime_randomness = 0.15
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(20, 91, 1)
+initial_velocity_min = 0.099999994
+initial_velocity_max = 0.099999994
+gravity = Vector3(0, -98, 0)
+scale_min = 0.049999997
+scale_max = 0.099999994
+scale_curve = SubResource("CurveTexture_v7m0m")
+color_ramp = SubResource("GradientTexture1D_nchpf")
 
 [node name="Steam" type="Area2D"]
 collision_layer = 32
@@ -18,7 +45,15 @@ script = ExtResource("1_biu2e")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("ConvexPolygonShape2D_d8dep")
+position = Vector2(0, -108)
+shape = SubResource("RectangleShape2D_ppudv")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 500
+texture = ExtResource("2_ppudv")
+lifetime = 2.4
+visibility_rect = Rect2(-1000, -1000, 2000, 2000)
+process_material = SubResource("ParticleProcessMaterial_8coau")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
