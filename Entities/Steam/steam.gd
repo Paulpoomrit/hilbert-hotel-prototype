@@ -49,6 +49,9 @@ func _on_change_steam_property(new_val: Variant, negated: bool, target: Object):
 			gravity = 0.0
 		else:
 			gravity = push_strength
+	elif new_val == "Real":
+		print('real;')
+		handle_steam_reality(not negated)
 
 
 func _on_body_entered(body: Node2D) -> void:
@@ -60,3 +63,8 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_body_exited(body: Node2D) -> void:
 	if not Engine.is_editor_hint():
 		overlapping_bodies.erase(body.get_instance_id())
+
+
+func handle_steam_reality(is_real: bool) -> void:
+	self.visible = is_real
+	$CollisionShape2D.disabled = not is_real
