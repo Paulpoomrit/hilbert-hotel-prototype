@@ -83,9 +83,9 @@ S → Steam Is Danger
 S → Steam Is Not Danger
 S → Steam Gravity Is Real
 S → Steam Gravity Is Not Real
-S → Steam Gravity is 1
-S → Steam Gravity is 2
-S → Steam Gravity is 3
-S → Steam Gravity is - 1
-S → Steam Gravity is - 2
-S → Steam Gravity is - 3
+S → Steam Gravity Is 1
+S → Steam Gravity Is 2
+S → Steam Gravity Is 3
+S → Steam Gravity Is - 1
+S → Steam Gravity Is - 2
+S → Steam Gravity Is - 3
