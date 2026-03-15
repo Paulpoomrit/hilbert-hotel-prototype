@@ -14,7 +14,8 @@
 [ext_resource type="Resource" uid="uid://gnkhreccae0a" path="res://Common/MendingMechanics/Blocks/my.tres" id="11_u8ywi"]
 [ext_resource type="Resource" uid="uid://b1a80lgxgkurs" path="res://Common/MendingMechanics/Blocks/gravity.tres" id="12_242gi"]
 [ext_resource type="Resource" uid="uid://xh7cdgo7erb7" path="res://Common/MendingMechanics/Blocks/is.tres" id="13_r2mwn"]
-[ext_resource type="PackedScene" uid="uid://d0ixn0uh3mnvm" path="res://Common/MendableComponents/MendableColour.tscn" id="15_0eonh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0eonh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nc1j1"]
 texture = ExtResource("5_ic7ty")
@@ -4528,6 +4529,7 @@ parallax_modulate_factor = Color(0.99215686, 0.99215686, 0.9882353, 1)
 metadata/_edit_group_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="3DParallaxObject"]
+material = SubResource("ShaderMaterial_0eonh")
 use_parent_material = true
 
 [node name="Layer0" type="TileMapLayer" parent="3DParallaxObject/TileMapLayer"]
@@ -4615,6 +4617,15 @@ layout_mode = 2
 [node name="Block12" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
 layout_mode = 2
 
+[node name="Block13" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block14" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block15" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
 [node name="3DParallaxObject4" parent="." instance=ExtResource("2_pu5pe")]
 use_parent_material = true
 max_parallax = 20
@@ -4628,6 +4639,3 @@ scale = Vector2(8.34, 8.34)
 sprite_frames = ExtResource("8_q70ef")
 animation = &"walk"
 autoplay = "walk"
-
-[node name="MendableColour" parent="." instance=ExtResource("15_0eonh")]
-position = Vector2(784, 104)

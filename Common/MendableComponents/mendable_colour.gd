@@ -9,6 +9,8 @@ const BW = preload("uid://bkxiydok4qfbh")
 func _ready() -> void:
 	MendingSignalHub.on_change_colour_type.connect(_on_change_colour_type)
 	
+	$GravityArea/CollisionShape2D.disabled = true
+	
 	bw_material.shader = BW
 	bw_material.set_shader_parameter("strength", 0.0)
 	
