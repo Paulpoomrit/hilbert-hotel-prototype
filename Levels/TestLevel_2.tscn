@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://cchyx4u04seg2"]
+[gd_scene load_steps=24 format=4 uid="uid://cchyx4u04seg2"]
 
 [ext_resource type="PackedScene" uid="uid://bl6msvoc1qtd4" path="res://Entities/Player/Player.tscn" id="1_s8n23"]
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="2_pu5pe"]
@@ -14,6 +14,8 @@
 [ext_resource type="Resource" uid="uid://gnkhreccae0a" path="res://Common/MendingMechanics/Blocks/my.tres" id="11_u8ywi"]
 [ext_resource type="Resource" uid="uid://b1a80lgxgkurs" path="res://Common/MendingMechanics/Blocks/gravity.tres" id="12_242gi"]
 [ext_resource type="Resource" uid="uid://xh7cdgo7erb7" path="res://Common/MendingMechanics/Blocks/is.tres" id="13_r2mwn"]
+[ext_resource type="Resource" uid="uid://d1hwyrqm43nj3" path="res://Common/MendingMechanics/Blocks/colour.tres" id="14_0eonh"]
+[ext_resource type="Resource" uid="uid://r5joufngsc8" path="res://Common/MendingMechanics/Blocks/real.tres" id="15_u8ywi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0eonh"]
 
@@ -4619,12 +4621,14 @@ layout_mode = 2
 
 [node name="Block13" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
 layout_mode = 2
+_block_data = ExtResource("14_0eonh")
 
 [node name="Block14" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
 layout_mode = 2
 
 [node name="Block15" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
 layout_mode = 2
+_block_data = ExtResource("15_u8ywi")
 
 [node name="3DParallaxObject4" parent="." instance=ExtResource("2_pu5pe")]
 use_parent_material = true
