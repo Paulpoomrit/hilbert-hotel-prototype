@@ -2,13 +2,19 @@ extends Node2D
 
 
 var color_effect = "none"
+var bw_material: ShaderMaterial = ShaderMaterial.new()
+const BW = preload("uid://bkxiydok4qfbh")
 
 
 func _ready() -> void:
+	bw_material.shader = BW
+	bw_material.set_shader_parameter("strength", 0.0)
+	
 	# Removes parent from effects of gravity
 	var parent = get_parent()
 	if parent:
 		pass
+	parent.material = bw_material
 
 
 func negate_parent_pull(dir: Vector2 = Vector2(0.0, 0.0)):
@@ -29,5 +35,21 @@ func _on_change_colour_type(new_val, negated : bool = false, target = null):
 			pass
 		elif new_val == "gravity":
 			$Area2D/CollisionShape2D.disabled = false
+		elif new_val == "real" and not negated:
+			handle_colour_real()
+		elif new_val == "real" and negated:
+			handle_colour_not_real()
 		
 		color_effect = new_val
+
+
+## This assumes that 'Use Parent Material' is being turned on
+## in AnimatedSprite2D under the given parent node
+func handle_colour_real() -> void:
+	var parent = get_parent()
+	parent.material.set_shader_parameter("bw_strength", 0.0)
+
+
+func handle_colour_not_real() -> void:
+	var parent = get_parent()
+	parent.material.set_shader_parameter("bw_strength", 1.0)

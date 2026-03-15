@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cqixjwfcu3mhc" path="res://Common/MendingMechanics/UI/mending_area.tscn" id="8_824st"]
 [ext_resource type="PackedScene" uid="uid://ciexe7prabm03" path="res://Common/MendingMechanics/block.tscn" id="9_uibr4"]
 [ext_resource type="Resource" uid="uid://bwkt027c46iuc" path="res://Common/MendingMechanics/Blocks/time.tres" id="10_qb33r"]
-[ext_resource type="Shader" uid="uid://deyti2aaqncy4" path="res://Levels/TrailerLevels/bw_and_gradient.gdshader" id="10_vicyh"]
+[ext_resource type="Shader" uid="uid://deyti2aaqncy4" path="res://Common/Shaders/bw_postprocessing.gdshader" id="10_vicyh"]
 [ext_resource type="Resource" uid="uid://gnkhreccae0a" path="res://Common/MendingMechanics/Blocks/my.tres" id="11_usvgp"]
 [ext_resource type="Resource" uid="uid://b1a80lgxgkurs" path="res://Common/MendingMechanics/Blocks/gravity.tres" id="12_2jdro"]
 [ext_resource type="Resource" uid="uid://xh7cdgo7erb7" path="res://Common/MendingMechanics/Blocks/is.tres" id="13_8dktd"]
@@ -17,7 +17,7 @@ GridContainer/constants/v_separation = 30
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rj8so"]
 shader = ExtResource("10_vicyh")
-shader_parameter/strength = 0.0
+shader_parameter/strength = 1.0
 
 [node name="Node2D" type="Node2D"]
 
