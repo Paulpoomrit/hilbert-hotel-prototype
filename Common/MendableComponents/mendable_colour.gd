@@ -42,7 +42,6 @@ func _on_change_colour_type(new_val, negated : bool = false, target = null):
 			$GravityArea/CollisionShape2D.disabled = false
 		elif new_val == "Real" and not negated:
 			handle_colour_real()
-			print('colour is real: %s' % get_parent().name)
 		elif new_val == "Real" and negated:
 			handle_colour_not_real()
 		
@@ -52,16 +51,13 @@ func _on_change_colour_type(new_val, negated : bool = false, target = null):
 ## This assumes that 'Use Parent Material' is being turned on
 ## in AnimatedSprite2D under the given parent node
 func handle_colour_real() -> void:
+	# print('colour is real: %s' % get_parent().name)
 	var parent = get_parent()
-	#parent.material.set_shader_parameter("strength", 0.0)
 	var tween = create_tween()
 	tween.tween_property(parent.material, "shader_parameter/strength", 0.0, 2.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-	# tween.tween_property(parent.material, "shader_parameter/noise_factor", 0.0, 0.5)
 
 
 func handle_colour_not_real() -> void:
 	var parent = get_parent()
 	var tween = create_tween()
-	#parent.material.set_shader_parameter("strength", 1.0)
 	tween.tween_property(parent.material, "shader_parameter/strength", 1.0, 2.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-	# tween.tween_property(parent.material, "shader_parameter/noise_factor", 1.0, 0.5)
