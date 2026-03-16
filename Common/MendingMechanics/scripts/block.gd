@@ -14,14 +14,17 @@ var _block_og_scale: Vector2
 
 var _block_default_material: ShaderMaterial = self.material
 var _block_hover_material: ShaderMaterial = ShaderMaterial.new() 
+var _block_enable_material: ShaderMaterial = ShaderMaterial.new() 
 
 
-const BLOCK_HOVER_SHADER = preload("uid://n04yvcoi5gkv")
+const BLOCK_HOVER_SHADER = preload("res://Common/MendingMechanics/Shaders/block_hover.gdshader")
+const BLOCK_ENABLE = preload("res://Common/MendingMechanics/Shaders/block_enable.gdshader")
 
 
 func _ready() -> void:
 	update_ui()
 	_block_hover_material.shader = BLOCK_HOVER_SHADER
+	_block_enable_material.shader = BLOCK_ENABLE
 	_block_og_scale = self.get_global_transform_with_canvas().get_scale()
 
 
@@ -47,11 +50,11 @@ func set_block_hover_scale(new_scale: Vector2) -> void:
 
 func enable_block() -> void:
 	_is_enable = true
-	print("enable: %s" % self._block_type)
+	#print("enable: %s" % self._block_type)
 	
 	# handle block enable effects
-	material = _block_hover_material
-	
+	material = _block_enable_material
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.ON_BLOCK_ENABLE)
 
 
 func disable_block() -> void:
@@ -68,8 +71,7 @@ func _on_mouse_entered() -> void:
 	
 	z_index = 1000
 	scale = _block_hover_scale
-
-	material = _block_hover_material
+	
 
 
 func _on_mouse_exited() -> void:
@@ -79,6 +81,8 @@ func _on_mouse_exited() -> void:
 	
 	if not _is_enable:
 		material = _block_default_material
+	else:
+		material = _block_enable_material
 
 
 func _get_drag_data(at_position: Vector2) -> Variant:

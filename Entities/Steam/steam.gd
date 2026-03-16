@@ -1,4 +1,5 @@
 @tool
+class_name Steam
 extends Area2D
 
 
