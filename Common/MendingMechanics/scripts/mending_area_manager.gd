@@ -39,7 +39,6 @@ func HandleBlockDropped(block: Block) -> void:
 	
 	if valid_sentence_to_implement:
 		Parser.implement(valid_sentence_to_implement)
-		var first_block_index = find_first_occurence(valid_sentence_to_implement[0])
 		_implemented_sentences[find_first_occurence(valid_sentence_to_implement[0])] = valid_sentence_to_implement
 	
 		handle_block_effects(valid_sentence_to_implement, true)
@@ -135,16 +134,67 @@ func find_first_occurence(block_type: String) -> Variant:
 	return null
 
 
+func find_first_occurence_sentence(sentence: String):
+	var sentence_list = sentence.split(" ")
+	var word_count = sentence_list.size();
+	var first_index: int
+	var is_row: bool
+	
+	## Find Row
+	for i in range(_grid_array.size()):
+		for j in range(word_count):
+			if _grid_array[i+j]._block_type != sentence_list[j]:
+				break
+			if j == sentence_list.size() - 1:
+				first_index = i
+				is_row = true
+				#print(first_index)
+				break;
+		if first_index:
+			break;
+	
+	if first_index:
+		var index_list: Array[int]
+		for j in range(word_count):
+			index_list.append(first_index + j)
+		return index_list
+	
+	## Find Column
+	for i in range(_grid_array.size()):
+		for j in range(word_count):
+			if _grid_array[i+(j*columns)]._block_type != sentence_list[j]:
+				break
+			if j == sentence_list.size() - 1:
+				first_index = i
+				#print(first_index)
+				break;
+		if first_index:
+			break;
+	
+	if first_index:
+		var index_list: Array[int]
+		for j in range(word_count):
+			index_list.append(first_index + (j * columns))
+		return index_list
+	
+
 ## Disable or enable each individual blocks 
 ## (serves as a callback to let each block handle their own effects)
 func handle_block_effects(sentence: PackedStringArray, enable: bool = true) -> void:
-	for block_string: String in sentence:
-		var block_to_enable = find_first_occurence(block_string)
+	
+	var index_list = find_first_occurence_sentence(" ".join(sentence))
+	print(index_list)
+	
+	if not index_list:
+		return
+	
+	for i in index_list:
+		var block_to_enable = _grid_array[i]
 		
 		if not block_to_enable:
 			return
 		
 		if enable:
-			_grid_array[block_to_enable].enable_block()
+			block_to_enable.enable_block()
 		else:
-			_grid_array[block_to_enable].disable_block()
+			block_to_enable.disable_block()
