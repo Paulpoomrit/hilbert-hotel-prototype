@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("2_t0urt")
-block_type = "Danger"
+block_type = "Speed"
 block_texture = ExtResource("1_hjmth")
 metadata/_custom_type_script = "uid://d0g8vr3ydganx"
