@@ -11,7 +11,7 @@ signal on_change_steam_type(new_val: Variant, negated: bool, target: Object)
 
 
 # key = array of blocks, int = number of it occurence
-var _global_implemented_rules: Dictionary[PackedStringArray, int] = {}
+var _global_implemented_rules: Dictionary[String, int] = {}
 
 
 # Called when the node enters the scene tree for the first time.

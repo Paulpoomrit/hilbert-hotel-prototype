@@ -42,11 +42,12 @@ func HandleBlockDropped(block: Block) -> void:
 		var first_block_list = find_first_occurrence_sentence(" ".join(valid_sentence_to_implement))
 		if first_block_list:
 			# Update the list of all implemented rules (globally)
-			if MendingSignalHub._global_implemented_rules.has(valid_sentence_to_implement):
-				MendingSignalHub._global_implemented_rules[valid_sentence_to_implement] += 1
+			var rule = Parser.extract_rule_from_sentence(valid_sentence_to_implement)
+			if MendingSignalHub._global_implemented_rules.has(rule):
+				MendingSignalHub._global_implemented_rules[rule] += 1
 			else:
 				# intialize the entry if there's none
-				MendingSignalHub._global_implemented_rules[valid_sentence_to_implement] = 1
+				MendingSignalHub._global_implemented_rules[rule] = 1
 			_implemented_sentences[first_block_list[0]] = valid_sentence_to_implement
 			handle_block_effects(valid_sentence_to_implement, true)
 
@@ -76,7 +77,7 @@ func find_first_valid_sentence(sentences: Array[PackedStringArray]) -> Variant:
 
 
 func revert_non_active_rules_to_default():
-	# print("Implemented sentences (global): %s" % MendingSignalHub._global_implemented_rules)
+	print("Implemented sentences (global): %s" % MendingSignalHub._global_implemented_rules)
 	var sentences_to_revert = _implemented_sentences.duplicate_deep()
 	for key in sentences_to_revert.keys():
 		#print(key)
@@ -97,15 +98,16 @@ func revert_non_active_rules_to_default():
 		handle_block_effects(sentences_to_revert[sentence], false)
 		_implemented_sentences.erase(sentence)
 		# Skip reversing if there is more than 1 instance of the rule being applied globally
-		if MendingSignalHub._global_implemented_rules.has(sentences_to_revert[sentence]) and \
-			   MendingSignalHub._global_implemented_rules[sentences_to_revert[sentence]] > 1:
-			#MendingSignalHub._global_implemented_rules[sentences_to_revert[sentence]] -= 1
+		var rule = Parser.extract_rule_from_sentence(sentences_to_revert[sentence])
+		if MendingSignalHub._global_implemented_rules.has(rule) and \
+			   MendingSignalHub._global_implemented_rules[rule] > 1:
+			MendingSignalHub._global_implemented_rules[rule] -= 1
 			continue
 		print("Reverting: %s" % sentences_to_revert[sentence])
 		
 		# Update the list of all globally implemented rules
-		if MendingSignalHub._global_implemented_rules.has(sentences_to_revert[sentence]):
-			MendingSignalHub._global_implemented_rules[sentences_to_revert[sentence]] -= 1
+		if MendingSignalHub._global_implemented_rules.has(rule):
+			MendingSignalHub._global_implemented_rules[rule] -= 1
 		Parser.reverse(sentences_to_revert[sentence])
 
 
