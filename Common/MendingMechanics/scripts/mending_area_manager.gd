@@ -5,7 +5,6 @@ extends GridContainer
 
 
 var _grid_array: Array[Block]
-var _prev_grid_array: Array[Block]
 var _implemented_sentences: Dictionary[int, PackedStringArray]
 
 
@@ -30,7 +29,6 @@ func update_grid_array() -> void:
 
 func HandleBlockDropped(block: Block) -> void:
 	
-	_prev_grid_array = _grid_array.duplicate_deep()
 	update_grid_array()
 	revert_non_active_rules_to_default()
 
@@ -43,8 +41,12 @@ func HandleBlockDropped(block: Block) -> void:
 		Parser.implement(valid_sentence_to_implement)
 		var first_block_list = find_first_occurence_sentence(" ".join(valid_sentence_to_implement))
 		if first_block_list:
+			if MendingSignalHub._global_implemented_rules.has(valid_sentence_to_implement):
+				MendingSignalHub._global_implemented_rules[valid_sentence_to_implement] += 1
+			else:
+				MendingSignalHub._global_implemented_rules[valid_sentence_to_implement] = 1
 			_implemented_sentences[first_block_list[0]] = valid_sentence_to_implement
-			handle_block_effects(valid_sentence_to_implement, true, first_block_list[0])
+			handle_block_effects(valid_sentence_to_implement, true)
 
 
 func find_first_valid_sentence(sentences: Array[PackedStringArray]) -> Variant:
@@ -72,7 +74,7 @@ func find_first_valid_sentence(sentences: Array[PackedStringArray]) -> Variant:
 
 
 func revert_non_active_rules_to_default():
-	print("Implemented sentences: %s" % _implemented_sentences)
+	#print("Implemented sentences: %s" % _implemented_sentences)
 	var sentences_to_revert = _implemented_sentences.duplicate_deep()
 	for key in sentences_to_revert.keys():
 		#print(key)
@@ -80,15 +82,25 @@ func revert_non_active_rules_to_default():
 		var sentences = grab_all_possible_sentences_from_rows_and_columns(first_block)
 		if sentences:
 			var valid_sentence = find_first_valid_sentence(sentences)
-			if valid_sentence == sentences_to_revert[key]:
+			#if MendingSignalHub._global_implemented_rules.has(valid_sentence) and \
+			   #MendingSignalHub._global_implemented_rules[valid_sentence] >= 1:
 				#print("Not reverting: %s" % valid_sentence)
+				#sentences_to_revert.erase(key)
+			if valid_sentence == sentences_to_revert[key]:
+				print("Not reverting: %s" % valid_sentence)
 				sentences_to_revert.erase(key)
 
 	for sentence in sentences_to_revert:
 		print(sentence)
-		print("Reverting: %s" % sentences_to_revert[sentence])
-		handle_block_effects(sentences_to_revert[sentence], false, sentence)
+		#print("Reverting: %s" % sentences_to_revert[sentence])
+		#print(MendingSignalHub._global_implemented_rules)
+		handle_block_effects(sentences_to_revert[sentence], false)
 		_implemented_sentences.erase(sentence)
+		if MendingSignalHub._global_implemented_rules.has(sentences_to_revert[sentence]) and \
+			   MendingSignalHub._global_implemented_rules[sentences_to_revert[sentence]] >= 1:
+			MendingSignalHub._global_implemented_rules[sentences_to_revert[sentence]] -= 1
+			continue
+		
 		Parser.reverse(sentences_to_revert[sentence])
 
 
@@ -239,14 +251,14 @@ func find_first_occurence_sentence_with_one_missing(sentence: String):
 
 ## Disable or enable each individual blocks 
 ## (serves as a callback to let each block handle their own effects)
-func handle_block_effects(sentence: PackedStringArray, enable: bool, first_block_idx: int) -> void:
+func handle_block_effects(sentence: PackedStringArray, enable: bool) -> void:
 	
 	var index_list = find_first_occurence_sentence_with_one_missing(" ".join(sentence))
 	
 	if index_list:
 		print("handle_block_effect: %s" % " ".join(index_list))
 		for i in index_list:
-			var block_to_enable = _prev_grid_array[i]
+			var block_to_enable = _grid_array[i]
 			
 			if not block_to_enable:
 				return
