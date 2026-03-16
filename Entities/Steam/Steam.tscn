@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dh1p7a1iw8wle" path="res://Entities/Steam/Sprites/fuzzy_ball.png" id="2_ppudv"]
 [ext_resource type="Material" uid="uid://dg4dabavg1axp" path="res://Entities/Steam/Resources/SteamParticlesMaterial.tres" id="3_8coau"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppudv"]
-size = Vector2(48, 360)
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_8coau"]
+resource_local_to_scene = true
+points = PackedVector2Array(0, 0, 15, -50, 15, -200, -15, -200, -15, -50)
 
 [node name="Steam" type="Area2D"]
 collision_layer = 32
@@ -16,11 +17,9 @@ gravity_point_center = Vector2(0, -1)
 gravity_direction = Vector2(0, -1)
 gravity = 1960.0
 script = ExtResource("1_biu2e")
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -108)
-shape = SubResource("RectangleShape2D_ppudv")
+shape = SubResource("ConvexPolygonShape2D_8coau")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 amount = 500

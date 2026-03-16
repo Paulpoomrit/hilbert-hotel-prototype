@@ -101,4 +101,4 @@ position = Vector2(-191, 145)
 texture = ExtResource("6_voj1p")
 
 [node name="Steam" parent="." instance=ExtResource("7_kxr0u")]
-position = Vector2(699, -2)
+position = Vector2(740, 3)
