@@ -76,13 +76,17 @@ func find_first_valid_sentence(sentences: Array[PackedStringArray]) -> Variant:
 
 
 func revert_non_active_rules_to_default():
-	#print("Implemented sentences: %s" % _implemented_sentences)
+	# print("Implemented sentences (global): %s" % MendingSignalHub._global_implemented_rules)
 	var sentences_to_revert = _implemented_sentences.duplicate_deep()
 	for key in sentences_to_revert.keys():
 		#print(key)
 		var first_block = _grid_array[key]
 		var sentences = grab_all_possible_sentences_from_rows_and_columns(first_block)
 		if sentences:
+			# TODO: if there are more than 1 sentence of the same kind 
+			# TODO: in the same mending area
+			# TODO: THIS WILL BREAK
+			# TODO: update find_first_valid_sentence() to account for this!
 			var valid_sentence = find_first_valid_sentence(sentences)
 			if valid_sentence == sentences_to_revert[key]:
 				print("Not reverting: %s" % valid_sentence)
@@ -95,8 +99,9 @@ func revert_non_active_rules_to_default():
 		# Skip reversing if there is more than 1 instance of the rule being applied globally
 		if MendingSignalHub._global_implemented_rules.has(sentences_to_revert[sentence]) and \
 			   MendingSignalHub._global_implemented_rules[sentences_to_revert[sentence]] > 1:
+			#MendingSignalHub._global_implemented_rules[sentences_to_revert[sentence]] -= 1
 			continue
-		#print("Reverting: %s" % sentences_to_revert[sentence])
+		print("Reverting: %s" % sentences_to_revert[sentence])
 		
 		# Update the list of all globally implemented rules
 		if MendingSignalHub._global_implemented_rules.has(sentences_to_revert[sentence]):
@@ -269,7 +274,7 @@ func handle_block_effects(sentence: PackedStringArray, enable: bool) -> void:
 				return
 			
 			if enable:
-				print("enable: %s" % " ".join(index_list))
+				#print("enable: %s" % " ".join(index_list))
 				block_to_enable.enable_block()
 			else:
 				block_to_enable.disable_block()

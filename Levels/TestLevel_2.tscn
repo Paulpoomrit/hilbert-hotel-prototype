@@ -4520,7 +4520,7 @@ sources/4 = SubResource("TileSetAtlasSource_iorfw")
 [node name="Node2D" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_s8n23")]
-position = Vector2(232, 7)
+position = Vector2(384, 184)
 
 [node name="3DParallaxObject" parent="." instance=ExtResource("2_pu5pe")]
 use_parent_material = true
@@ -4572,6 +4572,88 @@ min_parallax = 20
 max_parallax = 20
 parallax_scroll_factor = 0.99
 parallax_scale_factor = 0.99
+
+[node name="MendingArea3" parent="3DParallaxObject2" instance=ExtResource("8_nc1j1")]
+offset_left = 400.0
+offset_top = 304.0
+offset_right = 1218.0
+offset_bottom = 984.0
+columns = 5
+
+[node name="Block17" parent="3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block18" parent="3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block19" parent="3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block20" parent="3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block21" parent="3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block22" parent="3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block23" parent="3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block24" parent="3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block25" parent="3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block26" parent="3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block27" parent="3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block28" parent="3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block29" parent="3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block30" parent="3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block31" parent="3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block32" parent="3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block33" parent="3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block34" parent="3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block35" parent="3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block36" parent="3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block37" parent="3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block38" parent="3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block39" parent="3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block40" parent="3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block41" parent="3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
 
 [node name="MendingArea" parent="3DParallaxObject2" instance=ExtResource("8_nc1j1")]
 use_parent_material = true
