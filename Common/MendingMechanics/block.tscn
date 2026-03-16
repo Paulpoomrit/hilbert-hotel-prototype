@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ciexe7prabm03"]
 
-[ext_resource type="Shader" uid="uid://cjjn8hpmhmq3i" path="res://Common/MendingMechanics/Shaders/block_enable.gdshader" id="1_62855"]
+[ext_resource type="Shader" uid="uid://cvqe1ssik14al" path="res://Common/MendingMechanics/Shaders/block_default.gdshader" id="1_62855"]
 [ext_resource type="Script" uid="uid://b05s4uikni887" path="res://Common/MendingMechanics/Scripts/block.gd" id="1_c73nc"]
 [ext_resource type="Texture2D" uid="uid://c3tydyfk8xlwf" path="res://icon.svg" id="2_62855"]
 
@@ -9,13 +9,6 @@ shader = ExtResource("1_62855")
 shader_parameter/dist = 6
 shader_parameter/color = Color(0, 0, 0, 1)
 shader_parameter/angle = 45.0000021375
-shader_parameter/specular_strength = 0.5
-shader_parameter/specular_speed = 2.0
-shader_parameter/specular_colour = Color(0.445, 0.156, 0.521, 1)
-shader_parameter/glow_color = Color(0, 1, 1, 1)
-shader_parameter/intensity = 1.5
-shader_parameter/spread = 1.50600006827512
-shader_parameter/pulse_speed = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c73nc"]
 size = Vector2(128, 128)

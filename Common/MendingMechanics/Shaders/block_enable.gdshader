@@ -15,9 +15,9 @@ uniform vec3 specular_colour: source_color = vec3(0.445, 0.156, 0.521);
 group_uniforms;
 
 group_uniforms Glow;
-uniform vec4 glow_color : source_color = vec4(1.0, 0.9, 0.5, 1.0);
+uniform vec4 glow_color : source_color = vec4(0.0, 1.0, 1.0, 1.0);
 uniform float intensity : hint_range(0.0, 10.0) = 1.5;
-uniform float spread : hint_range(0.1, 10.0) = 1.0;
+uniform float spread : hint_range(0.1, 10.0) = 1.506;
 uniform float pulse_speed : hint_range(0.0, 100.0) = 1.0;
 group_uniforms;
 

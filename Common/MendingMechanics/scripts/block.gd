@@ -50,11 +50,11 @@ func set_block_hover_scale(new_scale: Vector2) -> void:
 
 func enable_block() -> void:
 	_is_enable = true
-	print("enable: %s" % self._block_type)
+	#print("enable: %s" % self._block_type)
 	
 	# handle block enable effects
-	material = _block_hover_material
-	
+	material = _block_enable_material
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.ON_BLOCK_ENABLE)
 
 
 func disable_block() -> void:
