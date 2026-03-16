@@ -4597,6 +4597,7 @@ layout_mode = 2
 
 [node name="Block5" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
 layout_mode = 2
+_block_data = ExtResource("14_0eonh")
 
 [node name="Block6" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
 layout_mode = 2
@@ -4607,7 +4608,7 @@ _block_data = ExtResource("12_242gi")
 
 [node name="Block8" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
 layout_mode = 2
-_block_data = ExtResource("13_r2mwn")
+_block_data = ExtResource("15_u8ywi")
 
 [node name="Block9" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
 layout_mode = 2
@@ -4623,10 +4624,11 @@ layout_mode = 2
 
 [node name="Block13" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
 layout_mode = 2
-_block_data = ExtResource("14_0eonh")
+_block_data = ExtResource("15_u8ywi")
 
 [node name="Block14" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
 layout_mode = 2
+_block_data = ExtResource("13_r2mwn")
 
 [node name="Block15" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
 layout_mode = 2

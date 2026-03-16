@@ -9,7 +9,8 @@ signal on_change_time_type(new_val: Variant, negated: bool, target: Object)
 signal on_change_colour_type(new_val: Variant, negated: bool, target: Object)
 signal on_change_steam_type(new_val: Variant, negated: bool, target: Object)
 
-var mouse_pos: Vector2
+
+var _implemented_sentences: Dictionary[int, PackedStringArray]
 
 
 # Called when the node enters the scene tree for the first time.
@@ -25,11 +26,3 @@ func _process(delta: float) -> void:
 		Input.is_action_pressed("right") or \
 		Input.is_action_pressed("jump"):
 			get_viewport().gui_cancel_drag()
-
-
-func check_if_mouse_in_viewport(mouse_pos: Vector2) -> bool:
-	if mouse_pos <= get_viewport().get_visible_rect().size and \
-		mouse_pos >= Vector2(0,0):
-		print(mouse_pos)
-		return true
-	return false

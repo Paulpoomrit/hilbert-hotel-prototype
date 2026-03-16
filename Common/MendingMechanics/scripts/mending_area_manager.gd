@@ -5,6 +5,7 @@ extends GridContainer
 
 
 var _grid_array: Array[Block]
+var _prev_grid_array: Array[Block]
 var _implemented_sentences: Dictionary[int, PackedStringArray]
 
 
@@ -29,6 +30,7 @@ func update_grid_array() -> void:
 
 func HandleBlockDropped(block: Block) -> void:
 	
+	_prev_grid_array = _grid_array.duplicate_deep()
 	update_grid_array()
 	revert_non_active_rules_to_default()
 
@@ -39,9 +41,10 @@ func HandleBlockDropped(block: Block) -> void:
 	
 	if valid_sentence_to_implement:
 		Parser.implement(valid_sentence_to_implement)
-		_implemented_sentences[find_first_occurence(valid_sentence_to_implement[0])] = valid_sentence_to_implement
-	
-		handle_block_effects(valid_sentence_to_implement, true)
+		var first_block_list = find_first_occurence_sentence(valid_sentence_to_implement[0])
+		if first_block_list:
+			_implemented_sentences[first_block_list[0]] = valid_sentence_to_implement
+			handle_block_effects(valid_sentence_to_implement, true, first_block_list[0])
 
 
 func find_first_valid_sentence(sentences: Array[PackedStringArray]) -> Variant:
@@ -69,23 +72,24 @@ func find_first_valid_sentence(sentences: Array[PackedStringArray]) -> Variant:
 
 
 func revert_non_active_rules_to_default():
-	# print("Implemented sentences: %s" % _implemented_sentences)
+	print("Implemented sentences: %s" % _implemented_sentences)
 	var sentences_to_revert = _implemented_sentences.duplicate_deep()
-	for key in sentences_to_revert:
+	for key in sentences_to_revert.keys():
+		#print(key)
 		var first_block = _grid_array[key]
 		var sentences = grab_all_possible_sentences_from_rows_and_columns(first_block)
-		if not sentences:
-			return
-		var valid_sentence = find_first_valid_sentence(sentences)
-		if valid_sentence == sentences_to_revert[key]:
-			# print("Not reverting: %s" % valid_sentence)
-			sentences_to_revert.erase(key)
+		if sentences:
+			var valid_sentence = find_first_valid_sentence(sentences)
+			if valid_sentence == sentences_to_revert[key]:
+				#print("Not reverting: %s" % valid_sentence)
+				sentences_to_revert.erase(key)
 
 	for sentence in sentences_to_revert:
+		print(sentence)
 		print("Reverting: %s" % sentences_to_revert[sentence])
+		handle_block_effects(sentences_to_revert[sentence], false, sentence)
 		_implemented_sentences.erase(sentence)
 		Parser.reverse(sentences_to_revert[sentence])
-		handle_block_effects(sentences_to_revert[sentence], false)
 
 
 func grab_all_possible_sentences_from_rows_and_columns(block: Block) -> Variant:
@@ -138,7 +142,6 @@ func find_first_occurence_sentence(sentence: String):
 	var sentence_list = sentence.split(" ")
 	var word_count = sentence_list.size();
 	var first_index: int
-	var is_row: bool
 	
 	## Find Row
 	for i in range(_grid_array.size()):
@@ -147,7 +150,6 @@ func find_first_occurence_sentence(sentence: String):
 				break
 			if j == sentence_list.size() - 1:
 				first_index = i
-				is_row = true
 				#print(first_index)
 				break;
 		if first_index:
@@ -162,6 +164,8 @@ func find_first_occurence_sentence(sentence: String):
 	## Find Column
 	for i in range(_grid_array.size()):
 		for j in range(word_count):
+			if i+(j*columns) >= _grid_array.size():
+				break
 			if _grid_array[i+(j*columns)]._block_type != sentence_list[j]:
 				break
 			if j == sentence_list.size() - 1:
@@ -176,25 +180,28 @@ func find_first_occurence_sentence(sentence: String):
 		for j in range(word_count):
 			index_list.append(first_index + (j * columns))
 		return index_list
-	
+
 
 ## Disable or enable each individual blocks 
 ## (serves as a callback to let each block handle their own effects)
-func handle_block_effects(sentence: PackedStringArray, enable: bool = true) -> void:
+func handle_block_effects(sentence: PackedStringArray, enable: bool, first_block_idx: int) -> void:
 	
 	var index_list = find_first_occurence_sentence(" ".join(sentence))
-	print(index_list)
+	#print("handle_block_effect: %s" % " ".join(index_list))
 	
 	if not index_list:
 		return
 	
+	
 	for i in index_list:
-		var block_to_enable = _grid_array[i]
+		var block_to_enable = _prev_grid_array[i]
 		
 		if not block_to_enable:
 			return
 		
 		if enable:
+			print("enable: %s" % " ".join(index_list))
 			block_to_enable.enable_block()
 		else:
+			
 			block_to_enable.disable_block()
