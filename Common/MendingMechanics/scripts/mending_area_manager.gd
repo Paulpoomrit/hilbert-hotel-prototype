@@ -39,11 +39,13 @@ func HandleBlockDropped(block: Block) -> void:
 	
 	if valid_sentence_to_implement:
 		Parser.implement(valid_sentence_to_implement)
-		var first_block_list = find_first_occurence_sentence(" ".join(valid_sentence_to_implement))
+		var first_block_list = find_first_occurrence_sentence(" ".join(valid_sentence_to_implement))
 		if first_block_list:
+			# Update the list of all implemented rules (globally)
 			if MendingSignalHub._global_implemented_rules.has(valid_sentence_to_implement):
 				MendingSignalHub._global_implemented_rules[valid_sentence_to_implement] += 1
 			else:
+				# intialize the entry if there's none
 				MendingSignalHub._global_implemented_rules[valid_sentence_to_implement] = 1
 			_implemented_sentences[first_block_list[0]] = valid_sentence_to_implement
 			handle_block_effects(valid_sentence_to_implement, true)
@@ -82,25 +84,23 @@ func revert_non_active_rules_to_default():
 		var sentences = grab_all_possible_sentences_from_rows_and_columns(first_block)
 		if sentences:
 			var valid_sentence = find_first_valid_sentence(sentences)
-			#if MendingSignalHub._global_implemented_rules.has(valid_sentence) and \
-			   #MendingSignalHub._global_implemented_rules[valid_sentence] >= 1:
-				#print("Not reverting: %s" % valid_sentence)
-				#sentences_to_revert.erase(key)
 			if valid_sentence == sentences_to_revert[key]:
 				print("Not reverting: %s" % valid_sentence)
 				sentences_to_revert.erase(key)
 
 	for sentence in sentences_to_revert:
-		print(sentence)
-		#print("Reverting: %s" % sentences_to_revert[sentence])
-		#print(MendingSignalHub._global_implemented_rules)
+		#print(sentence)
 		handle_block_effects(sentences_to_revert[sentence], false)
 		_implemented_sentences.erase(sentence)
+		# Skip reversing if there is more than 1 instance of the rule being applied globally
 		if MendingSignalHub._global_implemented_rules.has(sentences_to_revert[sentence]) and \
-			   MendingSignalHub._global_implemented_rules[sentences_to_revert[sentence]] >= 1:
-			MendingSignalHub._global_implemented_rules[sentences_to_revert[sentence]] -= 1
+			   MendingSignalHub._global_implemented_rules[sentences_to_revert[sentence]] > 1:
 			continue
+		#print("Reverting: %s" % sentences_to_revert[sentence])
 		
+		# Update the list of all globally implemented rules
+		if MendingSignalHub._global_implemented_rules.has(sentences_to_revert[sentence]):
+			MendingSignalHub._global_implemented_rules[sentences_to_revert[sentence]] -= 1
 		Parser.reverse(sentences_to_revert[sentence])
 
 
@@ -142,15 +142,16 @@ func grab_all_possible_sentences_from_rows_and_columns(block: Block) -> Variant:
 	return sentences
 
 
-## Returns the index of the first occurence of the block type in the mending area
-func find_first_occurence(block_type: String) -> Variant:
+## Returns the index of the first occurrence of the block type in the mending area
+func find_first_occurrence(block_type: String) -> Variant:
 	for i in range(_grid_array.size()):
 		if _grid_array[i].get_block_type() == block_type:
 			return i
 	return null
 
 
-func find_first_occurence_sentence(sentence: String):
+## Returns the list of the indices of the first occurrence of the sentence in the mending area
+func find_first_occurrence_sentence(sentence: String):
 	var sentence_list = sentence.split(" ")
 	var word_count = sentence_list.size();
 	var first_index: int
@@ -197,7 +198,8 @@ func find_first_occurence_sentence(sentence: String):
 		return index_list
 
 
-func find_first_occurence_sentence_with_one_missing(sentence: String):
+## Returns the list of the indices of the first occurrence of the sentence in the mending area (allow for one to be missing)
+func find_first_occurrence_sentence_with_one_missing(sentence: String):
 	var sentence_list = sentence.split(" ")
 	var word_count = sentence_list.size();
 	var first_index: int
@@ -229,10 +231,13 @@ func find_first_occurence_sentence_with_one_missing(sentence: String):
 	
 	## Find Column
 	for i in range(_grid_array.size()):
+		var missing_word_counter = 0
 		for j in range(word_count):
 			if i+(j*columns) >= _grid_array.size():
 				break
 			if _grid_array[i+(j*columns)]._block_type != sentence_list[j]:
+				missing_word_counter += 1
+			if missing_word_counter > 1:
 				break
 			if j == sentence_list.size() - 1:
 				first_index = i
@@ -253,10 +258,10 @@ func find_first_occurence_sentence_with_one_missing(sentence: String):
 ## (serves as a callback to let each block handle their own effects)
 func handle_block_effects(sentence: PackedStringArray, enable: bool) -> void:
 	
-	var index_list = find_first_occurence_sentence_with_one_missing(" ".join(sentence))
+	var index_list = find_first_occurrence_sentence_with_one_missing(" ".join(sentence))
 	
 	if index_list:
-		print("handle_block_effect: %s" % " ".join(index_list))
+		#print("handle_block_effect: %s" % " ".join(index_list))
 		for i in index_list:
 			var block_to_enable = _grid_array[i]
 			
@@ -269,4 +274,3 @@ func handle_block_effects(sentence: PackedStringArray, enable: bool) -> void:
 			else:
 				block_to_enable.disable_block()
 		return
-	
