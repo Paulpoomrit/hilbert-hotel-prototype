@@ -17,8 +17,8 @@ var _block_hover_material: ShaderMaterial = ShaderMaterial.new()
 var _block_enable_material: ShaderMaterial = ShaderMaterial.new() 
 
 
-const BLOCK_HOVER_SHADER = preload("uid://n04yvcoi5gkv")
-const BLOCK_ENABLE = preload("uid://cjjn8hpmhmq3i")
+const BLOCK_HOVER_SHADER = preload("res://Common/MendingMechanics/Shaders/block_hover.gdshader")
+const BLOCK_ENABLE = preload("res://Common/MendingMechanics/Shaders/block_enable.gdshader")
 
 
 func _ready() -> void:
@@ -71,8 +71,7 @@ func _on_mouse_entered() -> void:
 	
 	z_index = 1000
 	scale = _block_hover_scale
-
-	material = _block_hover_material
+	
 
 
 func _on_mouse_exited() -> void:
@@ -82,6 +81,8 @@ func _on_mouse_exited() -> void:
 	
 	if not _is_enable:
 		material = _block_default_material
+	else:
+		material = _block_enable_material
 
 
 func _get_drag_data(at_position: Vector2) -> Variant:

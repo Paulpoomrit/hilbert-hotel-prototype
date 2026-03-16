@@ -41,7 +41,7 @@ func HandleBlockDropped(block: Block) -> void:
 	
 	if valid_sentence_to_implement:
 		Parser.implement(valid_sentence_to_implement)
-		var first_block_list = find_first_occurence_sentence(valid_sentence_to_implement[0])
+		var first_block_list = find_first_occurence_sentence(" ".join(valid_sentence_to_implement))
 		if first_block_list:
 			_implemented_sentences[first_block_list[0]] = valid_sentence_to_implement
 			handle_block_effects(valid_sentence_to_implement, true, first_block_list[0])
@@ -142,6 +142,7 @@ func find_first_occurence_sentence(sentence: String):
 	var sentence_list = sentence.split(" ")
 	var word_count = sentence_list.size();
 	var first_index: int
+	var found_first_index: bool
 	
 	## Find Row
 	for i in range(_grid_array.size()):
@@ -150,12 +151,13 @@ func find_first_occurence_sentence(sentence: String):
 				break
 			if j == sentence_list.size() - 1:
 				first_index = i
-				#print(first_index)
+				found_first_index = true
+				#print("first_index: %s" % first_index)
 				break;
-		if first_index:
+		if found_first_index:
 			break;
 	
-	if first_index:
+	if found_first_index:
 		var index_list: Array[int]
 		for j in range(word_count):
 			index_list.append(first_index + j)
@@ -170,12 +172,65 @@ func find_first_occurence_sentence(sentence: String):
 				break
 			if j == sentence_list.size() - 1:
 				first_index = i
+				found_first_index = true
 				#print(first_index)
 				break;
-		if first_index:
+		if found_first_index:
 			break;
 	
-	if first_index:
+	if found_first_index:
+		var index_list: Array[int]
+		for j in range(word_count):
+			index_list.append(first_index + (j * columns))
+		return index_list
+
+
+func find_first_occurence_sentence_with_one_missing(sentence: String):
+	var sentence_list = sentence.split(" ")
+	var word_count = sentence_list.size();
+	var first_index: int
+	var found_first_index: bool
+	
+	## Find Row
+	for i in range(_grid_array.size()):
+		var missing_word_counter = 0
+		for j in range(word_count):
+			if i+j >= _grid_array.size():
+				break
+			if _grid_array[i+j]._block_type != sentence_list[j]:
+				missing_word_counter += 1
+			if missing_word_counter > 1:
+				break
+			if j == sentence_list.size() - 1:
+				first_index = i
+				found_first_index = true
+				#print(first_index)
+				break;
+		if found_first_index:
+			break;
+	
+	if found_first_index:
+		var index_list: Array[int]
+		for j in range(word_count):
+			index_list.append(first_index + j)
+		return index_list
+	
+	## Find Column
+	for i in range(_grid_array.size()):
+		for j in range(word_count):
+			if i+(j*columns) >= _grid_array.size():
+				break
+			if _grid_array[i+(j*columns)]._block_type != sentence_list[j]:
+				break
+			if j == sentence_list.size() - 1:
+				first_index = i
+				found_first_index = true
+				#print(first_index)
+				break;
+		if found_first_index:
+			break;
+	
+	if found_first_index:
 		var index_list: Array[int]
 		for j in range(word_count):
 			index_list.append(first_index + (j * columns))
@@ -186,22 +241,20 @@ func find_first_occurence_sentence(sentence: String):
 ## (serves as a callback to let each block handle their own effects)
 func handle_block_effects(sentence: PackedStringArray, enable: bool, first_block_idx: int) -> void:
 	
-	var index_list = find_first_occurence_sentence(" ".join(sentence))
-	#print("handle_block_effect: %s" % " ".join(index_list))
+	var index_list = find_first_occurence_sentence_with_one_missing(" ".join(sentence))
 	
-	if not index_list:
+	if index_list:
+		print("handle_block_effect: %s" % " ".join(index_list))
+		for i in index_list:
+			var block_to_enable = _prev_grid_array[i]
+			
+			if not block_to_enable:
+				return
+			
+			if enable:
+				print("enable: %s" % " ".join(index_list))
+				block_to_enable.enable_block()
+			else:
+				block_to_enable.disable_block()
 		return
 	
-	
-	for i in index_list:
-		var block_to_enable = _prev_grid_array[i]
-		
-		if not block_to_enable:
-			return
-		
-		if enable:
-			print("enable: %s" % " ".join(index_list))
-			block_to_enable.enable_block()
-		else:
-			
-			block_to_enable.disable_block()
