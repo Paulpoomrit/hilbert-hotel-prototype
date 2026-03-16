@@ -14,14 +14,17 @@ var _block_og_scale: Vector2
 
 var _block_default_material: ShaderMaterial = self.material
 var _block_hover_material: ShaderMaterial = ShaderMaterial.new() 
+var _block_enable_material: ShaderMaterial = ShaderMaterial.new() 
 
 
 const BLOCK_HOVER_SHADER = preload("uid://n04yvcoi5gkv")
+const BLOCK_ENABLE = preload("uid://cjjn8hpmhmq3i")
 
 
 func _ready() -> void:
 	update_ui()
 	_block_hover_material.shader = BLOCK_HOVER_SHADER
+	_block_enable_material.shader = BLOCK_ENABLE
 	_block_og_scale = self.get_global_transform_with_canvas().get_scale()
 
 
