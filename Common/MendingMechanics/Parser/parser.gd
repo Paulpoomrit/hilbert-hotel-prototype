@@ -153,7 +153,7 @@ func send_signal(sentence: PackedStringArray, new_val: Variant, negated: bool, t
 func extract_rule_from_sentence(sentence: PackedStringArray) -> Variant:
 	var sentence_string = " ".join(sentence)
 	#TODO: complete this list!
-	var rule_regex = RegEx.create_from_string("(Gravity|Time|Steam|Colour|Perspective)") 
+	var rule_regex = RegEx.create_from_string("(Gravity|Time|Steam|Colour|Perspective|Speed)") 
 	var found_target = rule_regex.search(sentence_string)
 	if found_target:
 		return found_target.get_string()
