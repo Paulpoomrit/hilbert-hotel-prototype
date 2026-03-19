@@ -1,8 +1,8 @@
 extends Control
 
 
-@onready var mending_area: GridContainer = $CenterContainer/HBoxContainer/MendingArea
-@onready var inventory: GridContainer = $CenterContainer/HBoxContainer/Inventory
+@onready var _mending_area: GridContainer = $CenterContainer/HBoxContainer/MendingArea
+@onready var _inventory: CanvasLayer = $InventoryArea
 
 
 const HAND_OPEN = preload("uid://b88plxri55slp")
@@ -32,5 +32,7 @@ func _process(delta: float) -> void:
 func update_ui() -> void:
 	if (is_in_mending_mode):
 		self.visible = true
+		_inventory.visible = true
 	else:
 		self.visible = false
+		_inventory.visible = false

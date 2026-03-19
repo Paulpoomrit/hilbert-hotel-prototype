@@ -5,7 +5,8 @@ var _grammar_dict: Array[GrammarRule]
 
 var _identifier_dict: Dictionary[String, Object] = {
 		"Player": Player,
-		"Enemy": Enemy
+		"Enemy": Enemy,
+		"Steam": Steam
 	}
 
 
@@ -104,8 +105,19 @@ func reverse(sentence: PackedStringArray) -> void:
 
 func extract_val_neg_target(string_sentence: String) -> Array:
 	# Extracting info
-	var new_val_regex = RegEx.create_from_string("(Real|1|2|3|- 1|- 2|- 3)") 
-	var new_val = new_val_regex.search(string_sentence).get_string()
+	# Starting with 2nd degree prop (lower importance)
+	var new_val
+	var new_val_regex_prop_2nd = RegEx.create_from_string("(Gravity|Heavy|Danger)") 
+	var new_val_prop_2nd = new_val_regex_prop_2nd.search(string_sentence)
+	if new_val_prop_2nd:
+		new_val = new_val_prop_2nd.get_string()
+	
+	# Try replacing with 1st degree prop (higher importance)
+	var new_val_regex_prop_1st = RegEx.create_from_string("(Real|1|2|3|- 1|- 2|- 3)")
+	var new_val_prop_1st = new_val_regex_prop_1st.search(string_sentence)
+	if new_val_prop_1st:
+		new_val = new_val_prop_1st.get_string()
+	
 	new_val = new_val.replacen(" ", "")
 	if new_val.is_valid_int():
 		new_val = int(new_val)
@@ -116,7 +128,7 @@ func extract_val_neg_target(string_sentence: String) -> Array:
 		negated = true
 		
 	var target: Object = null
-	var target_regex = RegEx.create_from_string("Player|Enemy")
+	var target_regex = RegEx.create_from_string("Player|Enemy|Steam")
 	var found_target = target_regex.search(string_sentence)
 	if found_target:
 		var target_string = found_target.get_string()
@@ -132,3 +144,7 @@ func send_signal(sentence: PackedStringArray, new_val: Variant, negated: bool, t
 		MendingSignalHub.on_change_speed_type.emit(new_val, negated, target)
 	elif sentence[0] == "Time" or sentence[1] == "Time":
 		MendingSignalHub.on_change_time_type.emit(new_val, negated, target)
+	elif sentence[0] == "Colour" or sentence[1] == "Colour":
+		MendingSignalHub.on_change_colour_type.emit(new_val, negated, target)
+	elif sentence[0] == "Steam" or sentence[1] == "Steam":
+		MendingSignalHub.on_change_steam_type.emit(new_val, negated, target)

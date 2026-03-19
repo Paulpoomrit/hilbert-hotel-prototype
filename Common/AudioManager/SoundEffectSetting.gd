@@ -6,7 +6,8 @@ extends Resource
 enum SOUND_EFFECT_TYPE {
 	ON_BLOCK_HOVER,
 	ON_BLOCK_CLICK,
-	ON_BLOCK_DROP
+	ON_BLOCK_DROP,
+	ON_BLOCK_ENABLE
 }
 
 @export_range(0, 10) var limit: int = 5 ## Maximum number of this SoundEffect to play simultaneously before culled.

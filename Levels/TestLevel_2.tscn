@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://cchyx4u04seg2"]
+[gd_scene load_steps=26 format=4 uid="uid://cchyx4u04seg2"]
 
 [ext_resource type="PackedScene" uid="uid://bl6msvoc1qtd4" path="res://Entities/Player/Player.tscn" id="1_s8n23"]
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="2_pu5pe"]
@@ -8,6 +8,18 @@
 [ext_resource type="Texture2D" uid="uid://c5kb763imexbo" path="res://Content/sprites/Pixel Plains Premium Pack/Fall/Basic Tiles 3 (Water).png" id="6_q70ef"]
 [ext_resource type="Texture2D" uid="uid://csne2ydlrc1wr" path="res://Content/sprites/Pixel Plains Premium Pack/Fall/Basic Tiles 4 (Trees & Bushes).png" id="7_lnicw"]
 [ext_resource type="PackedScene" uid="uid://cqixjwfcu3mhc" path="res://Common/MendingMechanics/UI/mending_area.tscn" id="8_nc1j1"]
+[ext_resource type="SpriteFrames" uid="uid://dgicyn81i40we" path="res://Entities/Player/PlayerSprites.tres" id="8_q70ef"]
+[ext_resource type="PackedScene" uid="uid://ciexe7prabm03" path="res://Common/MendingMechanics/block.tscn" id="9_tkla2"]
+[ext_resource type="Resource" uid="uid://bwkt027c46iuc" path="res://Common/MendingMechanics/Blocks/time.tres" id="10_0eonh"]
+[ext_resource type="Resource" uid="uid://gnkhreccae0a" path="res://Common/MendingMechanics/Blocks/my.tres" id="11_u8ywi"]
+[ext_resource type="Resource" uid="uid://b1a80lgxgkurs" path="res://Common/MendingMechanics/Blocks/gravity.tres" id="12_242gi"]
+[ext_resource type="Resource" uid="uid://xh7cdgo7erb7" path="res://Common/MendingMechanics/Blocks/is.tres" id="13_r2mwn"]
+[ext_resource type="Resource" uid="uid://d1hwyrqm43nj3" path="res://Common/MendingMechanics/Blocks/colour.tres" id="14_0eonh"]
+[ext_resource type="Resource" uid="uid://r5joufngsc8" path="res://Common/MendingMechanics/Blocks/real.tres" id="15_u8ywi"]
+[ext_resource type="Material" uid="uid://bjudla1pg6pkb" path="res://Common/MendingMechanics/Materials/BW.tres" id="16_242gi"]
+[ext_resource type="PackedScene" uid="uid://6d2ih3cwqnrj" path="res://Entities/Steam/Steam.tscn" id="18_r2mwn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0eonh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nc1j1"]
 texture = ExtResource("5_ic7ty")
@@ -4510,15 +4522,19 @@ sources/4 = SubResource("TileSetAtlasSource_iorfw")
 position = Vector2(232, 7)
 
 [node name="3DParallaxObject" parent="." instance=ExtResource("2_pu5pe")]
+use_parent_material = true
 position = Vector2(576, 320)
+start_modulate_at_front = true
 min_parallax = -60
 max_parallax = 20
 parallax_scroll_factor = 0.99
 parallax_scale_factor = 0.99
-parallax_modulate_factor = Color(0.98803645, 0.98803645, 0.98803645, 1)
+parallax_modulate_factor = Color(0.99215686, 0.99215686, 0.9882353, 1)
 metadata/_edit_group_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="3DParallaxObject"]
+material = SubResource("ShaderMaterial_0eonh")
+use_parent_material = true
 
 [node name="Layer0" type="TileMapLayer" parent="3DParallaxObject/TileMapLayer"]
 use_parent_material = true
@@ -4534,6 +4550,7 @@ scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_lnicw")
 
 [node name="3DParallaxObject3" parent="." instance=ExtResource("2_pu5pe")]
+use_parent_material = true
 position = Vector2(576, 324)
 min_parallax = -60
 max_parallax = -20
@@ -4549,13 +4566,96 @@ tile_map_data = PackedByteArray("AAABABAABAAJAA8AAAABABEABAAJABAAAAABABIABAAJABE
 tile_set = SubResource("TileSet_lnicw")
 
 [node name="3DParallaxObject2" parent="." instance=ExtResource("2_pu5pe")]
-min_parallax = 19
+use_parent_material = true
+min_parallax = 20
 max_parallax = 20
 parallax_scroll_factor = 0.99
 parallax_scale_factor = 0.99
 
 [node name="MendingArea" parent="3DParallaxObject2" instance=ExtResource("8_nc1j1")]
-offset_left = 1.5258789e-05
-offset_top = 288.0
-offset_right = 818.0
-offset_bottom = 968.0
+use_parent_material = true
+offset_left = 16.00003
+offset_top = 295.99997
+offset_right = 834.0
+offset_bottom = 976.0
+columns = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Block" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+_block_data = ExtResource("10_0eonh")
+
+[node name="Block2" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+_block_data = ExtResource("11_u8ywi")
+
+[node name="Block3" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block4" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block5" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+_block_data = ExtResource("14_0eonh")
+
+[node name="Block6" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block7" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+_block_data = ExtResource("12_242gi")
+
+[node name="Block8" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+_block_data = ExtResource("15_u8ywi")
+
+[node name="Block9" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block10" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block11" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block12" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block13" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+_block_data = ExtResource("15_u8ywi")
+
+[node name="Block14" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+_block_data = ExtResource("13_r2mwn")
+
+[node name="Block15" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+_block_data = ExtResource("15_u8ywi")
+
+[node name="3DParallaxObject4" parent="." instance=ExtResource("2_pu5pe")]
+use_parent_material = true
+max_parallax = 20
+parallax_scroll_factor = 0.99
+parallax_scale_factor = 0.99
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="3DParallaxObject4"]
+material = ExtResource("16_242gi")
+position = Vector2(904, -64)
+scale = Vector2(8.34, 8.34)
+sprite_frames = ExtResource("8_q70ef")
+animation = &"walk"
+autoplay = "walk"
+
+[node name="3DParallaxObject5" parent="." instance=ExtResource("2_pu5pe")]
+use_parent_material = true
+start_modulate_at_front = true
+max_parallax = 0
+parallax_scroll_factor = 0.99
+parallax_scale_factor = 0.99
+
+[node name="Steam" parent="3DParallaxObject5" instance=ExtResource("18_r2mwn")]
+position = Vector2(552, 160)
+
+[editable path="3DParallaxObject5/Steam"]

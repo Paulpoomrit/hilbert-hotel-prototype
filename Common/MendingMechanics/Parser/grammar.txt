@@ -62,3 +62,30 @@ S → Player Speed Is 3
 S → Enemy Speed Is 1
 S → Enemy Speed Is 2
 S → Enemy Speed Is 3
+
+
+# Colour
+S → Colour Is Real
+S → Colour Is Not Real
+S → Colour Is Gravity
+S → Player Colour Is Real
+S → Player Colour Is Not Real
+S → Enemy Colour Is Real
+S → Enemy Colour Is Not Real
+
+
+# Steam
+S → Steam Is Real
+S → Steam Is Not Real
+S → Steam Is Heavy
+S → Steam Is Not Heavy
+S → Steam Is Danger
+S → Steam Is Not Danger
+S → Steam Gravity Is Real
+S → Steam Gravity Is Not Real
+S → Steam Gravity Is 1
+S → Steam Gravity Is 2
+S → Steam Gravity Is 3
+S → Steam Gravity Is - 1
+S → Steam Gravity Is - 2
+S → Steam Gravity Is - 3

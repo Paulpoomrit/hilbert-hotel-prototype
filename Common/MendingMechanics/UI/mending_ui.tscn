@@ -1,8 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://b6w35nsox3nud"]
+[gd_scene load_steps=31 format=3 uid="uid://b6w35nsox3nud"]
 
 [ext_resource type="Script" uid="uid://kgycyc3ck78a" path="res://Common/MendingMechanics/Scripts/mending_ui.gd" id="1_a0i6h"]
+[ext_resource type="Shader" uid="uid://dh51yijvivc2n" path="res://Common/Globals/wobbly_effect.gdshader" id="2_5j1i6"]
 [ext_resource type="Texture2D" uid="uid://qhajc4yiwps7" path="res://Common/MendingMechanics/Sprites/UIElements/HilbertHotel_UI_mockup_ver001_2026-03-08_palette_withOUTtexture.png" id="2_55niv"]
 [ext_resource type="PackedScene" uid="uid://ciexe7prabm03" path="res://Common/MendingMechanics/block.tscn" id="2_a0i6h"]
+[ext_resource type="Texture2D" uid="uid://12u5le3xrdc" path="res://Common/MendingMechanics/Sprites/UIElements/ThoughtBubble.png" id="2_s31gp"]
 [ext_resource type="PackedScene" uid="uid://cqixjwfcu3mhc" path="res://Common/MendingMechanics/UI/mending_area.tscn" id="3_55niv"]
 [ext_resource type="Resource" uid="uid://b1a80lgxgkurs" path="res://Common/MendingMechanics/Blocks/gravity.tres" id="5_p62ws"]
 [ext_resource type="Resource" uid="uid://b28c81x7v8eys" path="res://Common/MendingMechanics/Blocks/danger.tres" id="6_756bo"]
@@ -27,6 +29,15 @@
 [ext_resource type="Resource" uid="uid://bpyipd32l8m4o" path="res://Common/MendingMechanics/Blocks/not.tres" id="22_55niv"]
 [ext_resource type="Resource" uid="uid://bwkt027c46iuc" path="res://Common/MendingMechanics/Blocks/time.tres" id="23_57agw"]
 
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5j1i6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8s5ia"]
+shader = ExtResource("2_5j1i6")
+shader_parameter/flowMap = SubResource("NoiseTexture2D_5j1i6")
+shader_parameter/strength = 0.05
+shader_parameter/speed = 1.0
+shader_parameter/frames = 3
+
 [node name="MendingUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -38,21 +49,74 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_a0i6h")
 
-[node name="ColourPalette" type="Sprite2D" parent="."]
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 116.0
+offset_right = 156.0
+offset_bottom = 40.0
+
+[node name="ThoughtBubble" type="Sprite2D" parent="Control"]
+material = SubResource("ShaderMaterial_8s5ia")
+position = Vector2(390.45996, 160.00002)
+scale = Vector2(0.5262777, 0.5771325)
+texture = ExtResource("2_s31gp")
+
+[node name="MendingArea" parent="Control" instance=ExtResource("3_55niv")]
+layout_mode = 0
+offset_left = 277.0
+offset_top = 74.0
+offset_right = 1095.0
+offset_bottom = 754.0
+
+[node name="Block" parent="Control/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+_block_data = ExtResource("23_57agw")
+
+[node name="Block2" parent="Control/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+_block_data = ExtResource("19_867gp")
+
+[node name="Block3" parent="Control/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block4" parent="Control/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block5" parent="Control/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block6" parent="Control/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block7" parent="Control/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+_block_data = ExtResource("5_p62ws")
+
+[node name="Block8" parent="Control/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+_block_data = ExtResource("21_867gp")
+
+[node name="Block9" parent="Control/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block10" parent="Control/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block11" parent="Control/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="Block12" parent="Control/MendingArea" instance=ExtResource("2_a0i6h")]
+layout_mode = 2
+
+[node name="InventoryArea" type="CanvasLayer" parent="."]
+
+[node name="ColourPalette" type="Sprite2D" parent="InventoryArea"]
 position = Vector2(974, 422.99997)
-rotation = 0.00040399274
+rotation = 0.00040399277
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_55niv")
 
-[node name="MendingArea" parent="." instance=ExtResource("3_55niv")]
-layout_mode = 0
-offset_left = 210.0
-offset_top = 70.000015
-offset_right = 1028.0
-offset_bottom = 750.0
-
-[node name="Container" type="Container" parent="."]
-layout_mode = 0
+[node name="Container" type="Container" parent="InventoryArea"]
 offset_left = 1019.0
 offset_top = 586.0
 offset_right = 1019.0
@@ -67,98 +131,98 @@ rotation_offset_degrees = 172.7
 use_half_ring = true
 arc_angle = 152.9
 
-[node name="Block" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("17_8s5ia")
 
-[node name="Block2" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block2" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("16_5j1i6")
 
-[node name="Block3" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block3" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("15_s31gp")
 
-[node name="Block4" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block4" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("14_7frce")
 
-[node name="Block5" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block5" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("10_7frce")
 
-[node name="Block6" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block6" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("6_756bo")
 
-[node name="Block7" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block7" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("18_a2oxc")
 
-[node name="Block8" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block8" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("22_55niv")
 
-[node name="Block9" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block9" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("21_867gp")
 
-[node name="Block10" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block10" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("20_55niv")
 
-[node name="Block11" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block11" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("19_867gp")
 
-[node name="Block12" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block12" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("16_867gp")
 
-[node name="Block13" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block13" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("12_57agw")
 
-[node name="Block14" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block14" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("13_m5hi7")
 
-[node name="Block15" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block15" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("10_55niv")
 
-[node name="Block16" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block16" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("20_ktojv")
 
-[node name="Block17" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block17" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("21_867gp")
 
-[node name="Block18" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block18" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("20_ktojv")
 
-[node name="Block19" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block19" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("9_867gp")
 
-[node name="Block20" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block20" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("21_867gp")
 
-[node name="Block21" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block21" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("8_a2oxc")
 
-[node name="Block22" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block22" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("7_a2hsm")
 
-[node name="Block23" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block23" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("5_p62ws")
 
-[node name="Block24" parent="Container" instance=ExtResource("2_a0i6h")]
+[node name="Block24" parent="InventoryArea/Container" instance=ExtResource("2_a0i6h")]
 layout_mode = 2
 _block_data = ExtResource("23_57agw")

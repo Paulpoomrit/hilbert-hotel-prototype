@@ -10,10 +10,22 @@ extends TextureButton
 var _block_type: String
 var _is_enable: bool = false
 var _block_hover_scale = Vector2(2,2)
+var _block_og_scale: Vector2
+
+var _block_default_material: ShaderMaterial = self.material
+var _block_hover_material: ShaderMaterial = ShaderMaterial.new() 
+var _block_enable_material: ShaderMaterial = ShaderMaterial.new() 
+
+
+const BLOCK_HOVER_SHADER = preload("res://Common/MendingMechanics/Shaders/block_hover.gdshader")
+const BLOCK_ENABLE = preload("res://Common/MendingMechanics/Shaders/block_enable.gdshader")
 
 
 func _ready() -> void:
 	update_ui()
+	_block_hover_material.shader = BLOCK_HOVER_SHADER
+	_block_enable_material.shader = BLOCK_ENABLE
+	_block_og_scale = self.get_global_transform_with_canvas().get_scale()
 
 
 func update_ui() -> void:
@@ -38,27 +50,39 @@ func set_block_hover_scale(new_scale: Vector2) -> void:
 
 func enable_block() -> void:
 	_is_enable = true
+	#print("enable: %s" % self._block_type)
+	
 	# handle block enable effects
+	material = _block_enable_material
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.ON_BLOCK_ENABLE)
 
 
 func disable_block() -> void:
 	_is_enable = false
+	print("disable: %s" % self._block_type)
+	
 	# handle block disable effects
+	material = _block_default_material
 
 
 func _on_mouse_entered() -> void:
 	self.modulate = _block_data.hover_tint
 	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.ON_BLOCK_HOVER)
 	
-	if (_block_data.block_type != "Null"):
-		z_index = 1000
-		scale = _block_hover_scale
+	z_index = 1000
+	scale = _block_hover_scale
+	
 
 
 func _on_mouse_exited() -> void:
 	self.modulate = Color(1,1,1,1)
 	scale = Vector2(1, 1)
-	z_index = 0
+	z_index = 100
+	
+	if not _is_enable:
+		material = _block_default_material
+	else:
+		material = _block_enable_material
 
 
 func _get_drag_data(at_position: Vector2) -> Variant:
@@ -72,7 +96,7 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	var preview_control_node = Control.new()
 	preview_control_node.add_child(preview_block)
 	preview_block.position -= self.texture_normal.get_size() / 2
-	preview_block.scale = self.get_global_transform_with_canvas().get_scale()
+	preview_block.scale = _block_og_scale * _block_hover_scale
 	preview_block.z_index =  4096
 	
 	set_drag_preview(preview_control_node)

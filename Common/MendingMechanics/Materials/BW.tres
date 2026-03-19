@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bjudla1pg6pkb"]
+
+[ext_resource type="Shader" uid="uid://bkxiydok4qfbh" path="res://Common/Shaders/bw.gdshader" id="1_x75ap"]
+
+[resource]
+shader = ExtResource("1_x75ap")
+shader_parameter/strength = 1.0

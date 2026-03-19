@@ -2,13 +2,24 @@ extends Node2D
 
 
 var color_effect = "none"
+var bw_material: ShaderMaterial = ShaderMaterial.new()
+const BW = preload("uid://bkxiydok4qfbh")
 
 
 func _ready() -> void:
+	MendingSignalHub.on_change_colour_type.connect(_on_change_colour_type)
+	
+	$GravityArea/CollisionShape2D.disabled = true
+	
+	bw_material.shader = BW
+	bw_material.set_shader_parameter("strength", 0.0)
+	
 	# Removes parent from effects of gravity
 	var parent = get_parent()
 	if parent:
 		pass
+	if is_instance_of(parent, CanvasItem):
+		parent.material = bw_material
 
 
 func negate_parent_pull(dir: Vector2 = Vector2(0.0, 0.0)):
@@ -24,10 +35,29 @@ func _on_change_colour_type(new_val, negated : bool = false, target = null):
 		if not parent or not is_instance_of(parent, target):
 			return
 	if typeof(new_val) == TYPE_STRING:
-		$Area2D/CollisionShape2D.disabled = true
+		$GravityArea/CollisionShape2D.disabled = true
 		if new_val == "none":
 			pass
-		elif new_val == "gravity":
-			$Area2D/CollisionShape2D.disabled = false
+		elif new_val == "Gravity":
+			$GravityArea/CollisionShape2D.disabled = false
+		elif new_val == "Real" and not negated:
+			handle_colour_real()
+		elif new_val == "Real" and negated:
+			handle_colour_not_real()
 		
 		color_effect = new_val
+
+
+## This assumes that 'Use Parent Material' is being turned on
+## in AnimatedSprite2D under the given parent node
+func handle_colour_real() -> void:
+	# print('colour is real: %s' % get_parent().name)
+	var parent = get_parent()
+	var tween = create_tween()
+	tween.tween_property(parent.material, "shader_parameter/strength", 0.0, 2.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+
+
+func handle_colour_not_real() -> void:
+	var parent = get_parent()
+	var tween = create_tween()
+	tween.tween_property(parent.material, "shader_parameter/strength", 1.0, 2.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)

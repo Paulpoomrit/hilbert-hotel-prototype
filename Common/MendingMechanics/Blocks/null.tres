@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_frt8k")
-block_type = "Null"
 block_texture = ExtResource("1_uebrq")
+hover_tint = Color(0.6748467, 0.6748467, 0.6748467, 1)
 metadata/_custom_type_script = "uid://d0g8vr3ydganx"
