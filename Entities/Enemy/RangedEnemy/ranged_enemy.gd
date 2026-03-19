@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 			# Throws projectile at player's current location
 			var projectile = _projectile_scene.instantiate()
 			projectile.position = position
-			projectile.linear_velocity = Vector2(20.0, 0.0)
+			projectile.linear_velocity = Vector2(300.0, 0.0)
 			projectile.point_to(_player_ref.global_position)
 			get_parent().add_child(projectile)
 			# Reset attack timer
