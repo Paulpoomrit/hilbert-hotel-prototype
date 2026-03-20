@@ -18,3 +18,4 @@ gravity_direction = Vector2(0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GravityArea"]
 shape = SubResource("CircleShape2D_2jvfm")
+disabled = true
