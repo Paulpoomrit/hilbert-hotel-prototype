@@ -2,7 +2,7 @@
 shader_type canvas_item;
 
 group_uniforms Textures;
-uniform sampler2D dither_tex; // Needs repeat = enable and no filtering
+uniform sampler2D dither_tex : repeat_enable, filter_nearest;
 uniform sampler2D colour_tex; // Pallete: the more colour, the less effect the dither has
 group_uniforms;
 
@@ -14,13 +14,15 @@ uniform float offset; // Shifts luminance up or down
 uniform int dither_size;
 group_uniforms;
 
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
+
 
 void fragment() {
 	// Sample the screen texture at the desired output resolution (according to dither_size)
 	// this will effectively pixelate the resulting output
-	vec2 screen_size = vec2(textureSize(TEXTURE, 0)) / float(dither_size);
+	vec2 screen_size = vec2(textureSize(SCREEN_TEXTURE, 0)) / float(dither_size);
 	vec2 screen_sample_uv= floor(UV * screen_size) / screen_size;
-	vec3 screen_col = texture(TEXTURE, screen_sample_uv).rgb;
+	vec3 screen_col = texture(SCREEN_TEXTURE, screen_sample_uv).rgb;
 	
 	// Calculate pixel luminosity
 	// See: https://stackoverflow.com/questions/596216/formula-to-determine-perceived-brightness-of-rgb-color
@@ -73,6 +75,7 @@ void fragment() {
 	vec3 final_col = texture(colour_tex, vec2(col_sample, 0.5)).rgb;
 	
 	COLOR.rgb = final_col;
+	
 }
 
 //void light() {
