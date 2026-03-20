@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://cchyx4u04seg2"]
+[gd_scene load_steps=29 format=4 uid="uid://cchyx4u04seg2"]
 
 [ext_resource type="PackedScene" uid="uid://bl6msvoc1qtd4" path="res://Entities/Player/Player.tscn" id="1_s8n23"]
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="2_pu5pe"]
@@ -19,6 +19,7 @@
 [ext_resource type="Resource" uid="uid://bpyipd32l8m4o" path="res://Common/MendingMechanics/Blocks/not.tres" id="16_1a7h6"]
 [ext_resource type="Material" uid="uid://bjudla1pg6pkb" path="res://Common/MendingMechanics/Materials/BW.tres" id="16_242gi"]
 [ext_resource type="PackedScene" uid="uid://6d2ih3cwqnrj" path="res://Entities/Steam/Steam.tscn" id="18_r2mwn"]
+[ext_resource type="Shader" uid="uid://dbwjdsx4lg7cw" path="res://Common/Shaders/PostProcessing/dither.gdshader" id="20_cjjex"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0eonh"]
 
@@ -4517,6 +4518,13 @@ sources/2 = SubResource("TileSetAtlasSource_kudm5")
 sources/3 = SubResource("TileSetAtlasSource_08q04")
 sources/4 = SubResource("TileSetAtlasSource_iorfw")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ekarr"]
+shader = ExtResource("20_cjjex")
+shader_parameter/bit_depth = 0
+shader_parameter/contrast = 0.0
+shader_parameter/offset = 0.0
+shader_parameter/dither_size = 0
+
 [node name="Node2D" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_s8n23")]
@@ -4821,3 +4829,10 @@ parallax_scale_factor = 0.99
 
 [node name="Steam" parent="." instance=ExtResource("18_r2mwn")]
 position = Vector2(608, 232)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_ekarr")
+offset_right = 40.0
+offset_bottom = 40.0
