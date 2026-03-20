@@ -59,7 +59,7 @@ func enable_block() -> void:
 
 func disable_block() -> void:
 	_is_enable = false
-	print("disable: %s" % self._block_type)
+	# print("disable: %s" % self._block_type)
 	
 	# handle block disable effects
 	material = _block_default_material

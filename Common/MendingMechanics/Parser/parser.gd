@@ -148,3 +148,13 @@ func send_signal(sentence: PackedStringArray, new_val: Variant, negated: bool, t
 		MendingSignalHub.on_change_colour_type.emit(new_val, negated, target)
 	elif sentence[0] == "Steam" or sentence[1] == "Steam":
 		MendingSignalHub.on_change_steam_type.emit(new_val, negated, target)
+
+
+func extract_rule_from_sentence(sentence: PackedStringArray) -> Variant:
+	var sentence_string = " ".join(sentence)
+	#TODO: complete this list!
+	var rule_regex = RegEx.create_from_string("(Gravity|Time|Steam|Colour|Perspective|Speed)") 
+	var found_target = rule_regex.search(sentence_string)
+	if found_target:
+		return found_target.get_string()
+	return null

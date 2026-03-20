@@ -10,12 +10,13 @@ signal on_change_colour_type(new_val: Variant, negated: bool, target: Object)
 signal on_change_steam_type(new_val: Variant, negated: bool, target: Object)
 
 
-var _implemented_sentences: Dictionary[int, PackedStringArray]
+# key = array of blocks, int = number of it occurence
+var _global_implemented_rules: Dictionary[String, int] = {}
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
