@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2o8lncnef61l"
-path="res://.godot/imported/Autumn 3 v2.png-700b044f0d556641f6c6b95c81da8d97.ctex"
+path="res://.godot/imported/Autumn 3 v2.png-e287dc469ee7a848fc8925b2c747e542.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/sprites/Pixel Plains Premium Pack/Characters 24x24/Autumn 3 v2.png"
-dest_files=["res://.godot/imported/Autumn 3 v2.png-700b044f0d556641f6c6b95c81da8d97.ctex"]
+source_file="res://Content/Sprites/Pixel Plains Premium Pack/Characters 24x24/Autumn 3 v2.png"
+dest_files=["res://.godot/imported/Autumn 3 v2.png-e287dc469ee7a848fc8925b2c747e542.ctex"]
 
 [params]
 

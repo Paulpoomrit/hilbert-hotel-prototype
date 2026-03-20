@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b65uxaiqqqm3j" path="res://Common/MendableComponents/MendableTime.tscn" id="2_okqut"]
 [ext_resource type="PackedScene" uid="uid://b1nowex1sm4uh" path="res://Common/MendableComponents/MendableGravity.tscn" id="3_fesb5"]
 [ext_resource type="PackedScene" uid="uid://d0ixn0uh3mnvm" path="res://Common/MendableComponents/MendableColour.tscn" id="4_d4ed8"]
-[ext_resource type="Texture2D" uid="uid://dmt5mq7ehljr7" path="res://Common/MendingMechanics/scripts/sprites/Pixel Plains Premium Pack/Characters 24x24/Summer 3 v1.png" id="5_fesb5"]
+[ext_resource type="Texture2D" uid="uid://dmt5mq7ehljr7" path="res://Content/Sprites/Pixel Plains Premium Pack/Characters 24x24/Summer 3 v1.png" id="5_fesb5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fesb5"]
 size = Vector2(56, 64)

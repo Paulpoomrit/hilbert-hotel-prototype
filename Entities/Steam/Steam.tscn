@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://6d2ih3cwqnrj"]
 
 [ext_resource type="Script" uid="uid://cne8wv888x06k" path="res://Entities/Steam/steam.gd" id="1_biu2e"]
-[ext_resource type="Texture2D" uid="uid://dh1p7a1iw8wle" path="res://Entities/Steam/Sprites/fuzzy_ball.png" id="2_ppudv"]
+[ext_resource type="Texture2D" uid="uid://dh1p7a1iw8wle" path="res://Content/Textures/fuzzy_ball.png" id="2_ppudv"]
 [ext_resource type="Material" uid="uid://dg4dabavg1axp" path="res://Entities/Steam/Resources/SteamParticlesMaterial.tres" id="3_8coau"]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_8coau"]
