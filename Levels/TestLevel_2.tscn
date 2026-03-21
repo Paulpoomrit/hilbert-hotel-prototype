@@ -4521,7 +4521,7 @@ sources/4 = SubResource("TileSetAtlasSource_iorfw")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ekarr"]
 shader = ExtResource("20_cjjex")
-shader_parameter/dither_pixel_size = 1.0
+shader_parameter/dither_pixel_size = 4.0
 shader_parameter/dither_pixel_offset = Vector2(0, 0)
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/albedo_strength = 1.0
@@ -4535,12 +4535,10 @@ position = Vector2(384, 184)
 [node name="3DParallaxObject" parent="." instance=ExtResource("2_pu5pe")]
 use_parent_material = true
 position = Vector2(576, 320)
-start_modulate_at_front = true
 min_parallax = -60
 max_parallax = 20
 parallax_scroll_factor = 0.99
 parallax_scale_factor = 0.99
-parallax_modulate_factor = Color(0.99215686, 0.99215686, 0.9882353, 1)
 metadata/_edit_group_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="3DParallaxObject"]
@@ -4813,6 +4811,7 @@ use_parent_material = true
 max_parallax = 20
 parallax_scroll_factor = 0.99
 parallax_scale_factor = 0.99
+parallax_modulate_factor = Color(0, 0.9490196, 0.9490196, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="3DParallaxObject4"]
 material = ExtResource("16_242gi")
