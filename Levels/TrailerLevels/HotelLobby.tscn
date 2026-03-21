@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bl6msvoc1qtd4" path="res://Entities/Player/Player.tscn" id="1_es2qg"]
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="2_enuf7"]
-[ext_resource type="TileSet" uid="uid://1oudmm1ak5bm" path="res://Levels/Tilesets/HotelLobby.tres" id="3_w1gms"]
+[ext_resource type="TileSet" uid="uid://1oudmm1ak5bm" path="res://Common/Tilesets/HotelLobby.tres" id="3_w1gms"]
 
 [node name="Node2D" type="Node2D"]
 

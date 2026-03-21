@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BlockData" load_steps=3 format=3 uid="uid://di8mt442mkhqx"]
 
-[ext_resource type="Texture2D" uid="uid://dic4oo7i7k0ro" path="res://Common/MendingMechanics/Sprites/Blocks (128 x 128 px)/Steam.png" id="1_0attt"]
+[ext_resource type="Texture2D" uid="uid://dic4oo7i7k0ro" path="res://Content/Sprites/UISprites/Blocks (128 x 128 px)/Steam.png" id="1_0attt"]
 [ext_resource type="Script" uid="uid://d0g8vr3ydganx" path="res://Common/MendingMechanics/Data/block_data_resource.gd" id="2_f1dpd"]
 
 [resource]

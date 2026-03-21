@@ -1,10 +1,10 @@
 [gd_scene load_steps=31 format=3 uid="uid://b6w35nsox3nud"]
 
 [ext_resource type="Script" uid="uid://kgycyc3ck78a" path="res://Common/MendingMechanics/Scripts/mending_ui.gd" id="1_a0i6h"]
-[ext_resource type="Shader" uid="uid://dh51yijvivc2n" path="res://Common/Globals/wobbly_effect.gdshader" id="2_5j1i6"]
-[ext_resource type="Texture2D" uid="uid://qhajc4yiwps7" path="res://Common/MendingMechanics/Sprites/UIElements/HilbertHotel_UI_mockup_ver001_2026-03-08_palette_withOUTtexture.png" id="2_55niv"]
+[ext_resource type="Shader" path="res://Common/Globals/wobbly_effect.gdshader" id="2_5j1i6"]
+[ext_resource type="Texture2D" uid="uid://qhajc4yiwps7" path="res://Content/Sprites/UISprites/UIElements/HilbertHotel_UI_mockup_ver001_2026-03-08_palette_withOUTtexture.png" id="2_55niv"]
 [ext_resource type="PackedScene" uid="uid://ciexe7prabm03" path="res://Common/MendingMechanics/block.tscn" id="2_a0i6h"]
-[ext_resource type="Texture2D" uid="uid://12u5le3xrdc" path="res://Common/MendingMechanics/Sprites/UIElements/ThoughtBubble.png" id="2_s31gp"]
+[ext_resource type="Texture2D" uid="uid://12u5le3xrdc" path="res://Content/Sprites/UISprites/UIElements/ThoughtBubble.png" id="2_s31gp"]
 [ext_resource type="PackedScene" uid="uid://cqixjwfcu3mhc" path="res://Common/MendingMechanics/UI/mending_area.tscn" id="3_55niv"]
 [ext_resource type="Resource" uid="uid://b1a80lgxgkurs" path="res://Common/MendingMechanics/Blocks/gravity.tres" id="5_p62ws"]
 [ext_resource type="Resource" uid="uid://b28c81x7v8eys" path="res://Common/MendingMechanics/Blocks/danger.tres" id="6_756bo"]

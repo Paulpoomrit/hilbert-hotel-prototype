@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://vf1frcsijfet"
-path="res://.godot/imported/Winter 3 v2.png-8bab28296e6e3d615f8e635534f57103.ctex"
+path="res://.godot/imported/Winter 3 v2.png-b46f99114d4b07a4d140b4b61ccb4c96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/sprites/Pixel Plains Premium Pack/Characters 24x24/Winter 3 v2.png"
-dest_files=["res://.godot/imported/Winter 3 v2.png-8bab28296e6e3d615f8e635534f57103.ctex"]
+source_file="res://Content/Sprites/Pixel Plains Premium Pack/Characters 24x24/Winter 3 v2.png"
+dest_files=["res://.godot/imported/Winter 3 v2.png-b46f99114d4b07a4d140b4b61ccb4c96.ctex"]
 
 [params]
 

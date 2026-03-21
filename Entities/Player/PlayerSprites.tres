@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=14 format=3 uid="uid://dgicyn81i40we"]
 
-[ext_resource type="Texture2D" uid="uid://bkbivjtaukmnh" path="res://Content/sprites/Pixel Plains Premium Pack/Characters 24x24/Spring 1 v1.png" id="1_dgwdt"]
+[ext_resource type="Texture2D" uid="uid://bkbivjtaukmnh" path="res://Content/Sprites/Pixel Plains Premium Pack/Characters 24x24/Spring 1 v1.png" id="1_dgwdt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kpjcp"]
 atlas = ExtResource("1_dgwdt")
