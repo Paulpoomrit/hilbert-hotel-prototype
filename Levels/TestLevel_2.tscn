@@ -1,8 +1,8 @@
-[gd_scene load_steps=30 format=4 uid="uid://cchyx4u04seg2"]
+[gd_scene load_steps=36 format=4 uid="uid://cchyx4u04seg2"]
 
 [ext_resource type="PackedScene" uid="uid://bl6msvoc1qtd4" path="res://Entities/Player/Player.tscn" id="1_s8n23"]
+[ext_resource type="Texture2D" uid="uid://dj856q6kvmwhy" path="res://Content/Palettes/DitherPalettes/autumn-glow.png" id="2_ekarr"]
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="2_pu5pe"]
-[ext_resource type="Texture2D" uid="uid://c8a8roi6q3vls" path="res://Content/Palettes/DitherPalettes/wish-gb-1x.png" id="3_ekarr"]
 [ext_resource type="Texture2D" uid="uid://b1spn5t2go2xg" path="res://Content/Sprites/Pixel Plains Premium Pack/Fall/Basic Tiles 1.png" id="5_ic7ty"]
 [ext_resource type="Texture2D" uid="uid://c5lkkf60ydyf2" path="res://Content/Sprites/Pixel Plains Premium Pack/Fall/Basic Tiles 2.png" id="5_nc1j1"]
 [ext_resource type="Texture2D" uid="uid://dlkumecbfnikc" path="res://Content/Sprites/Pixel Plains Premium Pack/Fall/Basic Tiles 1.0.png" id="6_hf5x3"]
@@ -21,6 +21,10 @@
 [ext_resource type="Material" uid="uid://bjudla1pg6pkb" path="res://Common/MendingMechanics/Materials/BW.tres" id="16_242gi"]
 [ext_resource type="PackedScene" uid="uid://6d2ih3cwqnrj" path="res://Entities/Steam/Steam.tscn" id="18_r2mwn"]
 [ext_resource type="Shader" uid="uid://ct4ah3v3e5les" path="res://Common/Shaders/ColourDither/colour_dither_post_processing.gdshader" id="20_cjjex"]
+[ext_resource type="Shader" uid="uid://bpvavbrb2npjv" path="res://Common/Shaders/CelShader/cel_shader.gdshader" id="22_df4pt"]
+[ext_resource type="Texture2D" uid="uid://cmxybborm7k68" path="res://Content/Sprites/UISprites/Blocks (128 x 128 px)/Gravity.png" id="22_iceyf"]
+[ext_resource type="Texture2D" uid="uid://cy2w52re5p53o" path="res://Content/NormalMaps/Gravity_Normal.png" id="23_xpga1"]
+[ext_resource type="Texture2D" uid="uid://dh1p7a1iw8wle" path="res://Content/Textures/fuzzy_ball.png" id="25_uch43"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ekarr"]
 shader = ExtResource("20_cjjex")
@@ -28,7 +32,7 @@ shader_parameter/dither_pixel_size = 1.0
 shader_parameter/dither_pixel_offset = Vector2(0, 0)
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/albedo_strength = 1.0
-shader_parameter/dither_palette = ExtResource("3_ekarr")
+shader_parameter/dither_palette = ExtResource("2_ekarr")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0eonh"]
 
@@ -4527,6 +4531,22 @@ sources/2 = SubResource("TileSetAtlasSource_kudm5")
 sources/3 = SubResource("TileSetAtlasSource_08q04")
 sources/4 = SubResource("TileSetAtlasSource_iorfw")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p7h4a"]
+shader = ExtResource("22_df4pt")
+shader_parameter/first_stage = 0.5
+shader_parameter/first_smooth = 1.0
+shader_parameter/second_stage = 0.9200000437
+shader_parameter/second_smooth = 0.0
+shader_parameter/light_strength = 0.4400000209
+shader_parameter/max_light = 1.0
+shader_parameter/mid_light = 0.0
+shader_parameter/light_height = 0.0
+shader_parameter/normal_dep = 1.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_iceyf"]
+diffuse_texture = ExtResource("22_iceyf")
+normal_texture = ExtResource("23_xpga1")
+
 [node name="Node2D" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -4830,7 +4850,7 @@ parallax_modulate_factor = Color(0, 0.9490196, 0.9490196, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer2/3DParallaxObject4"]
 material = ExtResource("16_242gi")
-position = Vector2(904, -64)
+position = Vector2(552, -136)
 scale = Vector2(8.34, 8.34)
 sprite_frames = ExtResource("8_q70ef")
 animation = &"walk"
@@ -4851,3 +4871,16 @@ follow_viewport_enabled = true
 
 [node name="CharacterBody2D" parent="CanvasLayer3" instance=ExtResource("1_s8n23")]
 position = Vector2(384, 184)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_p7h4a")
+position = Vector2(888, -32)
+scale = Vector2(1.8125, 1.8125)
+texture = SubResource("CanvasTexture_iceyf")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(840, -56)
+shadow_enabled = true
+texture = ExtResource("25_uch43")
+texture_scale = 5.0
+height = 210.0
