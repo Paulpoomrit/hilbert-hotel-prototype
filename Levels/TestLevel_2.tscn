@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://cchyx4u04seg2"]
+[gd_scene load_steps=30 format=4 uid="uid://cchyx4u04seg2"]
 
 [ext_resource type="PackedScene" uid="uid://bl6msvoc1qtd4" path="res://Entities/Player/Player.tscn" id="1_s8n23"]
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="2_pu5pe"]
@@ -19,9 +19,8 @@
 [ext_resource type="Resource" uid="uid://bpyipd32l8m4o" path="res://Common/MendingMechanics/Blocks/not.tres" id="16_1a7h6"]
 [ext_resource type="Material" uid="uid://bjudla1pg6pkb" path="res://Common/MendingMechanics/Materials/BW.tres" id="16_242gi"]
 [ext_resource type="PackedScene" uid="uid://6d2ih3cwqnrj" path="res://Entities/Steam/Steam.tscn" id="18_r2mwn"]
-[ext_resource type="Shader" uid="uid://dbwjdsx4lg7cw" path="res://Common/Shaders/PostProcessing/dither.gdshader" id="20_cjjex"]
-[ext_resource type="Texture2D" uid="uid://6ejjitqhprq8" path="res://Content/ColourPalletes/my-own-summer-1x.png" id="21_iceyf"]
-[ext_resource type="Texture2D" uid="uid://dqlt6y4pvyaw3" path="res://Content/Textures/bayer-textures/bayer16tile16.png" id="22_iceyf"]
+[ext_resource type="Shader" uid="uid://ct4ah3v3e5les" path="res://Common/Shaders/ColourDither/colour_dither_post_processing.gdshader" id="20_cjjex"]
+[ext_resource type="Texture2D" uid="uid://cp0ok14rv0p6u" path="res://Content/Palettes/sweetie-16.png" id="21_ekarr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0eonh"]
 
@@ -4522,12 +4521,11 @@ sources/4 = SubResource("TileSetAtlasSource_iorfw")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ekarr"]
 shader = ExtResource("20_cjjex")
-shader_parameter/dither_tex = ExtResource("22_iceyf")
-shader_parameter/colour_tex = ExtResource("21_iceyf")
-shader_parameter/bit_depth = 32
-shader_parameter/contrast = 1.0
-shader_parameter/offset = 0.0
-shader_parameter/dither_size = 2
+shader_parameter/dither_pixel_size = 1.0
+shader_parameter/dither_pixel_offset = Vector2(0, 0)
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/albedo_strength = 1.0
+shader_parameter/dither_palette = ExtResource("21_ekarr")
 
 [node name="Node2D" type="Node2D"]
 
@@ -4843,3 +4841,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
