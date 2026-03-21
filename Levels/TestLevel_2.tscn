@@ -4535,6 +4535,7 @@ position = Vector2(384, 184)
 [node name="3DParallaxObject" parent="." instance=ExtResource("2_pu5pe")]
 use_parent_material = true
 position = Vector2(576, 320)
+start_modulate_at_front = true
 min_parallax = -60
 max_parallax = 20
 parallax_scroll_factor = 0.99
