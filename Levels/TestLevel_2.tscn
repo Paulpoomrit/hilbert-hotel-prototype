@@ -20,7 +20,7 @@
 [ext_resource type="Material" uid="uid://bjudla1pg6pkb" path="res://Common/MendingMechanics/Materials/BW.tres" id="16_242gi"]
 [ext_resource type="PackedScene" uid="uid://6d2ih3cwqnrj" path="res://Entities/Steam/Steam.tscn" id="18_r2mwn"]
 [ext_resource type="Shader" uid="uid://ct4ah3v3e5les" path="res://Common/Shaders/ColourDither/colour_dither_post_processing.gdshader" id="20_cjjex"]
-[ext_resource type="Texture2D" uid="uid://cp0ok14rv0p6u" path="res://Content/Palettes/sweetie-16.png" id="21_ekarr"]
+[ext_resource type="Texture2D" uid="uid://cp0ok14rv0p6u" path="res://Content/Palettes/DitherPalettes/sweetie-16.png" id="21_ekarr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0eonh"]
 

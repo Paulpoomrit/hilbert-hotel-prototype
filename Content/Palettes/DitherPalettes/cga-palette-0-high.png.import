@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnsvkkon4ddeb"
-path="res://.godot/imported/1bit-monitor-glow.png-2aa853329af22de6d76cfdc33b55258f.ctex"
+uid="uid://bnytc1q2tj4ac"
+path="res://.godot/imported/cga-palette-0-high.png-12519f47f10e99c9208fcc96c022ef85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Palettes/1bit-monitor-glow.png"
-dest_files=["res://.godot/imported/1bit-monitor-glow.png-2aa853329af22de6d76cfdc33b55258f.ctex"]
+source_file="res://Content/Palettes/DitherPalettes/cga-palette-0-high.png"
+dest_files=["res://.godot/imported/cga-palette-0-high.png-12519f47f10e99c9208fcc96c022ef85.ctex"]
 
 [params]
 

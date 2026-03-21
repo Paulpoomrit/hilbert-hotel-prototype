@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="2_enuf7"]
 [ext_resource type="TileSet" uid="uid://1oudmm1ak5bm" path="res://Common/Tilesets/HotelLobby.tres" id="3_w1gms"]
 [ext_resource type="Shader" uid="uid://ct4ah3v3e5les" path="res://Common/Shaders/ColourDither/colour_dither_post_processing.gdshader" id="4_nc8ev"]
-[ext_resource type="Texture2D" uid="uid://cp0ok14rv0p6u" path="res://Content/Palettes/sweetie-16.png" id="5_yuj1i"]
+[ext_resource type="Texture2D" uid="uid://cp0ok14rv0p6u" path="res://Content/Palettes/DitherPalettes/sweetie-16.png" id="5_yuj1i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_egdwc"]
 shader = ExtResource("4_nc8ev")
