@@ -6,3 +6,4 @@
 [node name="DitherPaletteGenerator" type="Node2D"]
 script = ExtResource("1_xcfik")
 palette_texture = ExtResource("2_y2pp4")
+output_folder = "res://Content/Palettes/DitherPalettes/shades_of_grey.png"
