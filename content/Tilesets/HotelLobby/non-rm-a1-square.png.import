@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://vrc7o2088bkc"
-path="res://.godot/imported/non-rm-a1-square.png-1bdff0ae81def56075279e21fd0a0b36.ctex"
+path="res://.godot/imported/non-rm-a1-square.png-646b23e470f4e78f1e57e3fefc2fde70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/Tilesets/HotelLobby/non-rm-a1-square.png"
-dest_files=["res://.godot/imported/non-rm-a1-square.png-1bdff0ae81def56075279e21fd0a0b36.ctex"]
+source_file="res://Content/Tilesets/HotelLobby/non-rm-a1-square.png"
+dest_files=["res://.godot/imported/non-rm-a1-square.png-646b23e470f4e78f1e57e3fefc2fde70.ctex"]
 
 [params]
 

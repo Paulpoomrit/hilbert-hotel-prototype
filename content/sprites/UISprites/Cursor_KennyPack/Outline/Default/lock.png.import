@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://duo836tq58h36"
-path="res://.godot/imported/lock.png-d6383211c7fe3f30e1ca807465f6508d.ctex"
+path="res://.godot/imported/lock.png-541d0a82b8354b17dd8136f637c50905.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/UISprites/Cursor_KennyPack/Outline/Default/lock.png"
-dest_files=["res://.godot/imported/lock.png-d6383211c7fe3f30e1ca807465f6508d.ctex"]
+source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Outline/Default/lock.png"
+dest_files=["res://.godot/imported/lock.png-541d0a82b8354b17dd8136f637c50905.ctex"]
 
 [params]
 

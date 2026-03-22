@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cayqkgsdubwau"]
 
-[ext_resource type="Texture2D" uid="uid://dtlsw8poqjxjw" path="res://content/sprites/ball.png" id="1_pkdkt"]
+[ext_resource type="Texture2D" uid="uid://dtlsw8poqjxjw" path="res://Content/Sprites/ball.png" id="1_pkdkt"]
 [ext_resource type="Script" uid="uid://bg5bdlj118yxy" path="res://Entities/FloatingBall/floating_ball.gd" id="1_s2i0t"]
 [ext_resource type="PackedScene" uid="uid://b65uxaiqqqm3j" path="res://Common/MendableComponents/MendableTime.tscn" id="3_byvyc"]
 [ext_resource type="PackedScene" uid="uid://d0ixn0uh3mnvm" path="res://Common/MendableComponents/MendableColour.tscn" id="4_oj2tm"]

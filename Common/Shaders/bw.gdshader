@@ -2,10 +2,10 @@ shader_type canvas_item;
 
 group_uniforms BW;
 uniform float strength: hint_range(0.0, 1.0, 0.1) = 1.0;
-
+varying vec4 modulate;
 
 void vertex() {
-	// Called for every vertex the material is visible on.
+	modulate = COLOR;
 }
 
 void fragment() {
@@ -14,7 +14,7 @@ void fragment() {
 	vec3 grayscale_colour = vec3(grayscale, grayscale, grayscale) * strength;
 	original_colour = original_colour * (1.0 - strength);
 	
-	COLOR.rgb = grayscale_colour + original_colour.rgb;
+	COLOR.rgb = (grayscale_colour + original_colour.rgb * modulate.rgb);
 }
 
 //void light() {

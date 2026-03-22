@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b3xnb0cxq165x"
-path="res://.godot/imported/resize_a_diagonal.png-d852dd53ddfa138670ad25cc9db9e169.ctex"
+path="res://.godot/imported/resize_a_diagonal.png-ad373e7f2fd0a9ec88ba0a22016b413e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/UISprites/Cursor_KennyPack/Outline/Double/resize_a_diagonal.png"
-dest_files=["res://.godot/imported/resize_a_diagonal.png-d852dd53ddfa138670ad25cc9db9e169.ctex"]
+source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Outline/Double/resize_a_diagonal.png"
+dest_files=["res://.godot/imported/resize_a_diagonal.png-ad373e7f2fd0a9ec88ba0a22016b413e.ctex"]
 
 [params]
 

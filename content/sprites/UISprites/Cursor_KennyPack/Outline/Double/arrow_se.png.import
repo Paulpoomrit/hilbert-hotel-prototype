@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dt0a5gpv08sqh"
-path="res://.godot/imported/arrow_se.png-61cc8798fdb4d90a96659f64c4e08e38.ctex"
+path="res://.godot/imported/arrow_se.png-d760d37df3e8652c4eeaea0f24e215af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/UISprites/Cursor_KennyPack/Outline/Double/arrow_se.png"
-dest_files=["res://.godot/imported/arrow_se.png-61cc8798fdb4d90a96659f64c4e08e38.ctex"]
+source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Outline/Double/arrow_se.png"
+dest_files=["res://.godot/imported/arrow_se.png-d760d37df3e8652c4eeaea0f24e215af.ctex"]
 
 [params]
 

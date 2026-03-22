@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d4h4urhvaax4n"
-path="res://.godot/imported/rotate_ccw.png-ae9821f5c1f116287619677d9d0c6e30.ctex"
+path="res://.godot/imported/rotate_ccw.png-1d565167374594a91d9fdd01f86f8d26.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/UISprites/Cursor_KennyPack/Basic/Default/rotate_ccw.png"
-dest_files=["res://.godot/imported/rotate_ccw.png-ae9821f5c1f116287619677d9d0c6e30.ctex"]
+source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Basic/Default/rotate_ccw.png"
+dest_files=["res://.godot/imported/rotate_ccw.png-1d565167374594a91d9fdd01f86f8d26.ctex"]
 
 [params]
 

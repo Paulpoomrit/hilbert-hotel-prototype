@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://gniaqa0ftt3v"
-path="res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Paper Flip - 2.wav-875d5a5f346bc19951de5c9426aa855f.sample"
+path="res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Paper Flip - 2.wav-b6a7cc129e4c2b142989ec528bf10d52.sample"
 
 [deps]
 
-source_file="res://content/SFX/ table_top_wav_hd/JDSherbert - Tabletop Games SFX Pack - Paper Flip - 2.wav"
-dest_files=["res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Paper Flip - 2.wav-875d5a5f346bc19951de5c9426aa855f.sample"]
+source_file="res://Content/SFX/ table_top_wav_hd/JDSherbert - Tabletop Games SFX Pack - Paper Flip - 2.wav"
+dest_files=["res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Paper Flip - 2.wav-b6a7cc129e4c2b142989ec528bf10d52.sample"]
 
 [params]
 

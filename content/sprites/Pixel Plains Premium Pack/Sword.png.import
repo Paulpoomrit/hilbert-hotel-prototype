@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bq4u26a50p02f"
-path="res://.godot/imported/Sword.png-cab472194c263bffd6f331ec2bb74697.ctex"
+path="res://.godot/imported/Sword.png-04dcbde35b9e53875899353c0a94a96b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/Pixel Plains Premium Pack/Sword.png"
-dest_files=["res://.godot/imported/Sword.png-cab472194c263bffd6f331ec2bb74697.ctex"]
+source_file="res://Content/Sprites/Pixel Plains Premium Pack/Sword.png"
+dest_files=["res://.godot/imported/Sword.png-04dcbde35b9e53875899353c0a94a96b.ctex"]
 
 [params]
 

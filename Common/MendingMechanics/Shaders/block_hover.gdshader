@@ -7,7 +7,7 @@ uniform float angle: hint_range(0.0, 360.0) = 45.0;
 group_uniforms;
 
 group_uniforms SpecularEffect;
-uniform float specular_strength: hint_range(0.0, 1.0, 0.1) = 0.5;
+uniform float specular_strength: hint_range(0.0, 1.0, 0.1) = 1.0;
 uniform float specular_speed = 2.0;
 uniform vec3 specular_colour: source_color = vec3(0.445, 0.156, 0.521);
 group_uniforms;

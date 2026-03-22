@@ -22,10 +22,12 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if time_multiplier == 0:
 		lock_rotation = true
 		freeze = true
+		set_collision_layer_value(1, true)
 		return
 	else:
 		lock_rotation = false
 		freeze = false
+		set_collision_layer_value(1, false)
 		if time_multiplier > 0:
 			# TODO: Adjust up simulation rate
 			_mendable_time.update_record(state.step*time_multiplier, [position, state.angular_velocity])
