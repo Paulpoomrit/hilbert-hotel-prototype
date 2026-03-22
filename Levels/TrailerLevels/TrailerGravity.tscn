@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=4 uid="uid://ck3kjt0gunptl"]
+
+[ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="1_3lcxs"]
+[ext_resource type="TileSet" uid="uid://1oudmm1ak5bm" path="res://Common/Tilesets/HotelLobby.tres" id="2_jau3s"]
+[ext_resource type="PackedScene" uid="uid://bl6msvoc1qtd4" path="res://Entities/Player/Player.tscn" id="3_jau3s"]
+
+[node name="TrailerGravity" type="Node2D"]
+
+[node name="3DParallaxObject" parent="." instance=ExtResource("1_3lcxs")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="3DParallaxObject"]
+tile_map_data = PackedByteArray("AAD6/wMABAAEAAIAAAD7/wMABAAEAAIAAAD8/wMABAAEAAIAAAD9/wMABAAEAAIAAAD+/wMABAAEAAIAAAD//wMABAAEAAIAAAAAAAMABAAEAAIAAAABAAMABAAEAAIAAAACAAMABAAEAAIAAAADAAMABAAEAAIAAAAEAAMABAAEAAIAAAAFAAMABAAEAAIAAAAGAAMABAAEAAIAAAD5/wMABAAEAAIAAAAHAAMABAAEAAIAAAD4/wMABAAEAAIAAAAFAPn/BAAEAAIAAAAGAPn/BAAEAAIAAAAHAPn/BAAEAAIAAAD6//n/BAAEAAIAAAD5//n/BAAEAAIAAAD4//n/BAAEAAIAAAA=")
+tile_set = ExtResource("2_jau3s")
+
+[node name="Player" parent="." instance=ExtResource("3_jau3s")]
