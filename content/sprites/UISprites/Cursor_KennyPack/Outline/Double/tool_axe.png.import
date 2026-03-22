@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bxpcyaq1vl0o6"
-path="res://.godot/imported/tool_axe.png-33e205c58a7ebe9db975572ca1b58c04.ctex"
+path="res://.godot/imported/tool_axe.png-6cad7e64e629b922b94b523c646999e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Outline/Double/tool_axe.png"
-dest_files=["res://.godot/imported/tool_axe.png-33e205c58a7ebe9db975572ca1b58c04.ctex"]
+source_file="res://content/sprites/UISprites/Cursor_KennyPack/Outline/Double/tool_axe.png"
+dest_files=["res://.godot/imported/tool_axe.png-6cad7e64e629b922b94b523c646999e9.ctex"]
 
 [params]
 

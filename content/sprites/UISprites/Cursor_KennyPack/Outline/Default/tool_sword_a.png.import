@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgv7egof8kc7o"
-path="res://.godot/imported/tool_sword_a.png-2e020acc1a67e5a95b6cc0e938016588.ctex"
+path="res://.godot/imported/tool_sword_a.png-cc750c9e9a069edce7041e1fdc0fb08e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Outline/Default/tool_sword_a.png"
-dest_files=["res://.godot/imported/tool_sword_a.png-2e020acc1a67e5a95b6cc0e938016588.ctex"]
+source_file="res://content/sprites/UISprites/Cursor_KennyPack/Outline/Default/tool_sword_a.png"
+dest_files=["res://.godot/imported/tool_sword_a.png-cc750c9e9a069edce7041e1fdc0fb08e.ctex"]
 
 [params]
 

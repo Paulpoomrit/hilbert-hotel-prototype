@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://dvfww42havutn"]
+[gd_scene load_steps=10 format=4 uid="uid://dvfww42havutn"]
 
 [ext_resource type="PackedScene" uid="uid://bl6msvoc1qtd4" path="res://Entities/Player/Player.tscn" id="1_jyvk6"]
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="2_2yvdw"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c3tydyfk8xlwf" path="res://icon.svg" id="6_voj1p"]
 [ext_resource type="PackedScene" uid="uid://6d2ih3cwqnrj" path="res://Entities/Steam/Steam.tscn" id="7_kxr0u"]
 [ext_resource type="PackedScene" uid="uid://bfity318a14n4" path="res://Entities/Enemy/RangedEnemy/RangedEnemy.tscn" id="8_kv5fy"]
+[ext_resource type="PackedScene" uid="uid://cayqkgsdubwau" path="res://Entities/FloatingBall/FloatingBall.tscn" id="9_jeepb"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -106,3 +107,9 @@ position = Vector2(740, 3)
 
 [node name="RangedEnemy" parent="." instance=ExtResource("8_kv5fy")]
 position = Vector2(-666, 211)
+
+[node name="FloatingBall" parent="." instance=ExtResource("9_jeepb")]
+position = Vector2(-325, -102)
+
+[node name="FloatingBall2" parent="." instance=ExtResource("9_jeepb")]
+position = Vector2(734, -397)

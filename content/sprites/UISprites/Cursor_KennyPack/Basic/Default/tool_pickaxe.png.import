@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvyhjonl3eyvd"
-path="res://.godot/imported/tool_pickaxe.png-e8a2596714e66d9dd3bf2b94c25fb72f.ctex"
+path="res://.godot/imported/tool_pickaxe.png-4458d6ea80b6eabb4778090e6ff3f80e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Basic/Default/tool_pickaxe.png"
-dest_files=["res://.godot/imported/tool_pickaxe.png-e8a2596714e66d9dd3bf2b94c25fb72f.ctex"]
+source_file="res://content/sprites/UISprites/Cursor_KennyPack/Basic/Default/tool_pickaxe.png"
+dest_files=["res://.godot/imported/tool_pickaxe.png-4458d6ea80b6eabb4778090e6ff3f80e.ctex"]
 
 [params]
 
