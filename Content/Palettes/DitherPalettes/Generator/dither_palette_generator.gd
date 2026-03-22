@@ -37,8 +37,12 @@ extends Node
 var palette_image:Image
 
 @export var palette_texture: Texture2D
-@export var output_folder:String = 'res://Content/Palettes/DitherPalettes/'
-@export var output_name:String = 'shades_of_grey'
+@export var output_folder:String = 'res://Content/Palettes/DitherPalettes/':
+	set(value):
+		output_folder = output_folder
+@export var output_name:String:
+	set(value):
+		output_name = value
 @export_range (1, 16) var dither_color_count:int = 4
 @export var create_dither_palette:bool:
 	set(value):

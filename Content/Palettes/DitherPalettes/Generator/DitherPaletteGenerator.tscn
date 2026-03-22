@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://c0ysevndxqe31"]
 
 [ext_resource type="Script" uid="uid://djv76bksgrpxm" path="res://Content/Palettes/DitherPalettes/Generator/dither_palette_generator.gd" id="1_xcfik"]
-[ext_resource type="Texture2D" uid="uid://djo5nsjhrnf55" path="res://Content/Palettes/autumn-glow-1x.png" id="2_y2pp4"]
+[ext_resource type="Texture2D" uid="uid://ns1axkx30umm" path="res://Content/Palettes/calm-sunset-1x.png" id="2_y2pp4"]
 
 [node name="DitherPaletteGenerator" type="Node2D"]
 script = ExtResource("1_xcfik")
 palette_texture = ExtResource("2_y2pp4")
-output_folder = "res://Content/Palettes/DitherPalettes/shades_of_grey.pngautumn-glow.png"
-output_name = "autumn-glow"
-dither_color_count = 16
+output_folder = "res://Content/Palettes/DitherPalettes/shades_of_grey.pngautumn-glow.pngcalm-sunset.png"
+output_name = "calm-sunset"
+dither_color_count = 7

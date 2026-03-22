@@ -54,5 +54,5 @@ offset_bottom = -324.0
 position = Vector2(0, 12)
 shadow_enabled = true
 texture = ExtResource("8_x44r4")
-texture_scale = 5.0
-height = 210.0
+texture_scale = 3.69
+height = 1024.0

@@ -1,7 +1,7 @@
 [gd_scene load_steps=36 format=4 uid="uid://cchyx4u04seg2"]
 
 [ext_resource type="PackedScene" uid="uid://bl6msvoc1qtd4" path="res://Entities/Player/Player.tscn" id="1_s8n23"]
-[ext_resource type="Texture2D" uid="uid://dj856q6kvmwhy" path="res://Content/Palettes/DitherPalettes/autumn-glow.png" id="2_ekarr"]
+[ext_resource type="Texture2D" uid="uid://ljxh30p2a6ok" path="res://Content/Palettes/DitherPalettes/calm-sunset.png" id="2_df4pt"]
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="2_pu5pe"]
 [ext_resource type="Texture2D" uid="uid://b1spn5t2go2xg" path="res://Content/Sprites/Pixel Plains Premium Pack/Fall/Basic Tiles 1.png" id="5_ic7ty"]
 [ext_resource type="Texture2D" uid="uid://c5lkkf60ydyf2" path="res://Content/Sprites/Pixel Plains Premium Pack/Fall/Basic Tiles 2.png" id="5_nc1j1"]
@@ -25,14 +25,6 @@
 [ext_resource type="Texture2D" uid="uid://cmxybborm7k68" path="res://Content/Sprites/UISprites/Blocks (128 x 128 px)/Gravity.png" id="22_iceyf"]
 [ext_resource type="Texture2D" uid="uid://cy2w52re5p53o" path="res://Content/NormalMaps/Gravity_Normal.png" id="23_xpga1"]
 [ext_resource type="Texture2D" uid="uid://dh1p7a1iw8wle" path="res://Content/Textures/fuzzy_ball.png" id="25_uch43"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ekarr"]
-shader = ExtResource("20_cjjex")
-shader_parameter/dither_pixel_size = 1.0
-shader_parameter/dither_pixel_offset = Vector2(0, 0)
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/albedo_strength = 1.0
-shader_parameter/dither_palette = ExtResource("2_ekarr")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0eonh"]
 
@@ -4547,18 +4539,15 @@ shader_parameter/normal_dep = 1.0
 diffuse_texture = ExtResource("22_iceyf")
 normal_texture = ExtResource("23_xpga1")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ekarr"]
+shader = ExtResource("20_cjjex")
+shader_parameter/dither_pixel_size = 1.0
+shader_parameter/dither_pixel_offset = Vector2(0, 0)
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/albedo_strength = 1.0
+shader_parameter/dither_palette = ExtResource("2_df4pt")
+
 [node name="Node2D" type="Node2D"]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_ekarr")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = -1
@@ -4867,6 +4856,7 @@ parallax_scale_factor = 0.99
 position = Vector2(608, 232)
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
+layer = 2
 follow_viewport_enabled = true
 
 [node name="CharacterBody2D" parent="CanvasLayer3" instance=ExtResource("1_s8n23")]
@@ -4884,3 +4874,14 @@ shadow_enabled = true
 texture = ExtResource("25_uch43")
 texture_scale = 5.0
 height = 210.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_ekarr")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
