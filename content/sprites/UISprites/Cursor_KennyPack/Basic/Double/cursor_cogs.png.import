@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cfuipc0872ycf"
-path="res://.godot/imported/cursor_cogs.png-bcebd6bc7d3faf933f833767d90fe100.ctex"
+path="res://.godot/imported/cursor_cogs.png-663479e35292c26d2a1bc6e7c281df98.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Basic/Double/cursor_cogs.png"
-dest_files=["res://.godot/imported/cursor_cogs.png-bcebd6bc7d3faf933f833767d90fe100.ctex"]
+source_file="res://content/sprites/UISprites/Cursor_KennyPack/Basic/Double/cursor_cogs.png"
+dest_files=["res://.godot/imported/cursor_cogs.png-663479e35292c26d2a1bc6e7c281df98.ctex"]
 
 [params]
 

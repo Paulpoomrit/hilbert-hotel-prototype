@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bqkndrsjre8ob"
-path="res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Deck Shuffle - 1.wav-a83c1611f7bb269d5d382b9db783f551.sample"
+path="res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Deck Shuffle - 1.wav-34bed8202b102bb119dc0640cd4dda0c.sample"
 
 [deps]
 
-source_file="res://Content/SFX/ table_top_wav_hd/JDSherbert - Tabletop Games SFX Pack - Deck Shuffle - 1.wav"
-dest_files=["res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Deck Shuffle - 1.wav-a83c1611f7bb269d5d382b9db783f551.sample"]
+source_file="res://content/SFX/ table_top_wav_hd/JDSherbert - Tabletop Games SFX Pack - Deck Shuffle - 1.wav"
+dest_files=["res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Deck Shuffle - 1.wav-34bed8202b102bb119dc0640cd4dda0c.sample"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cotbjw5y6y86s"
-path="res://.godot/imported/Winter 4 v2.png-17a4e327cf5320028d00ddbc08af4b07.ctex"
+path="res://.godot/imported/Winter 4 v2.png-cfd5101a195855d542ff84d5de4a31aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/Pixel Plains Premium Pack/Characters 24x24/Winter 4 v2.png"
-dest_files=["res://.godot/imported/Winter 4 v2.png-17a4e327cf5320028d00ddbc08af4b07.ctex"]
+source_file="res://content/sprites/Pixel Plains Premium Pack/Characters 24x24/Winter 4 v2.png"
+dest_files=["res://.godot/imported/Winter 4 v2.png-cfd5101a195855d542ff84d5de4a31aa.ctex"]
 
 [params]
 

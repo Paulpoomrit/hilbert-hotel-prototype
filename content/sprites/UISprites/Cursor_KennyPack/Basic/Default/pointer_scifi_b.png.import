@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cohvgtmta2s5m"
-path="res://.godot/imported/pointer_scifi_b.png-de7907ae693dcd5816f807b0767f271b.ctex"
+path="res://.godot/imported/pointer_scifi_b.png-020780d5d0aa62939b149d2d4d2362b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Basic/Default/pointer_scifi_b.png"
-dest_files=["res://.godot/imported/pointer_scifi_b.png-de7907ae693dcd5816f807b0767f271b.ctex"]
+source_file="res://content/sprites/UISprites/Cursor_KennyPack/Basic/Default/pointer_scifi_b.png"
+dest_files=["res://.godot/imported/pointer_scifi_b.png-020780d5d0aa62939b149d2d4d2362b2.ctex"]
 
 [params]
 

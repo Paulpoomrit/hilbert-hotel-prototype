@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dq6enxw75yya6"
-path="res://.godot/imported/target_round_b.png-5210b44bf5c6358153f50ac3f33a0b26.ctex"
+path="res://.godot/imported/target_round_b.png-316d689aca93a56e48b29f5e67a5a761.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Basic/Double/target_round_b.png"
-dest_files=["res://.godot/imported/target_round_b.png-5210b44bf5c6358153f50ac3f33a0b26.ctex"]
+source_file="res://content/sprites/UISprites/Cursor_KennyPack/Basic/Double/target_round_b.png"
+dest_files=["res://.godot/imported/target_round_b.png-316d689aca93a56e48b29f5e67a5a761.ctex"]
 
 [params]
 
