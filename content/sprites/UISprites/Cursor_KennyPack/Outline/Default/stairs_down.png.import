@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2a8i340ocf5e"
-path="res://.godot/imported/stairs_down.png-617017c7e3d55ed06db24d00fe51919b.ctex"
+path="res://.godot/imported/stairs_down.png-e6f94a74d51d584fc96eaf22bc6afd37.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Outline/Default/stairs_down.png"
-dest_files=["res://.godot/imported/stairs_down.png-617017c7e3d55ed06db24d00fe51919b.ctex"]
+source_file="res://content/sprites/UISprites/Cursor_KennyPack/Outline/Default/stairs_down.png"
+dest_files=["res://.godot/imported/stairs_down.png-e6f94a74d51d584fc96eaf22bc6afd37.ctex"]
 
 [params]
 

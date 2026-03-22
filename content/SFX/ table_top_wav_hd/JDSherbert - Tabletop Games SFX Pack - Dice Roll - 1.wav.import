@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b54rny45eyngi"
-path="res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Dice Roll - 1.wav-b550af7ce51e657deab42ead3d94aab2.sample"
+path="res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Dice Roll - 1.wav-264be12fb8da8ddf2d17906a22ba774d.sample"
 
 [deps]
 
-source_file="res://Content/SFX/ table_top_wav_hd/JDSherbert - Tabletop Games SFX Pack - Dice Roll - 1.wav"
-dest_files=["res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Dice Roll - 1.wav-b550af7ce51e657deab42ead3d94aab2.sample"]
+source_file="res://content/SFX/ table_top_wav_hd/JDSherbert - Tabletop Games SFX Pack - Dice Roll - 1.wav"
+dest_files=["res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Dice Roll - 1.wav-264be12fb8da8ddf2d17906a22ba774d.sample"]
 
 [params]
 

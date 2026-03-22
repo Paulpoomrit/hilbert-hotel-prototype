@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://la2wqg2gqlb1"
-path="res://.godot/imported/door_enter.png-7d3608060ecab7520dc28fc72aa22ef2.ctex"
+path="res://.godot/imported/door_enter.png-4df5df20a4b89365954ff801c484237a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Basic/Default/door_enter.png"
-dest_files=["res://.godot/imported/door_enter.png-7d3608060ecab7520dc28fc72aa22ef2.ctex"]
+source_file="res://content/sprites/UISprites/Cursor_KennyPack/Basic/Default/door_enter.png"
+dest_files=["res://.godot/imported/door_enter.png-4df5df20a4b89365954ff801c484237a.ctex"]
 
 [params]
 

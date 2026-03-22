@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ca2apq1a7xgiv"
-path="res://.godot/imported/Time.png-c74d169b7594db6540bb5a551afab78e.ctex"
+path="res://.godot/imported/Time.png-437c8507c248962b3780e35d606d39b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/UISprites/Blocks (128 x 128 px)/Time.png"
-dest_files=["res://.godot/imported/Time.png-c74d169b7594db6540bb5a551afab78e.ctex"]
+source_file="res://content/sprites/UISprites/Blocks (128 x 128 px)/Time.png"
+dest_files=["res://.godot/imported/Time.png-437c8507c248962b3780e35d606d39b9.ctex"]
 
 [params]
 

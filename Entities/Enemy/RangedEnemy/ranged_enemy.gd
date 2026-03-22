@@ -8,6 +8,8 @@ const JUMP_VELOCITY = -400.0
 var _attack_timer : float = 0.0
 var _player_ref : Node2D = null
 var _projectile_scene : PackedScene = preload("res://Entities/Enemy/RangedEnemy/RangedEnemyProjectile.tscn")
+@onready var _sprite_2d = $Sprite2D
+@onready var _animation_tree = $AnimationTree
 
 
 func _ready() -> void:
@@ -32,8 +34,14 @@ func _physics_process(delta: float) -> void:
 		#velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	if _player_ref:
+		if _player_ref.global_position < global_position:
+			_sprite_2d.flip_h = true
+		else:
+			_sprite_2d.flip_h = false
 		_attack_timer += delta
 		if _attack_timer >= attack_rate:
+			# Play attack animation
+			_animation_tree.set("parameters/Attack/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 			# Throws projectile at player's current location
 			var projectile = _projectile_scene.instantiate()
 			projectile.position = position

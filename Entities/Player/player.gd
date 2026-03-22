@@ -3,8 +3,8 @@ class_name Player
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -800.0
+const SPEED = 200.0
+const JUMP_VELOCITY = -600.0
 var controls_velocity = Vector2(0.0, 0.0)
 
 

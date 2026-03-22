@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://brchudvlpdvkn"
-path="res://.godot/imported/Gato v1.png-5723b3b626cf732d8d37b60cdc66d436.ctex"
+path="res://.godot/imported/Gato v1.png-58fbc4ecf3487eba1a4771bf8544f58a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/Pixel Plains Premium Pack/Characters 24x24/Gato v1.png"
-dest_files=["res://.godot/imported/Gato v1.png-5723b3b626cf732d8d37b60cdc66d436.ctex"]
+source_file="res://content/sprites/Pixel Plains Premium Pack/Characters 24x24/Gato v1.png"
+dest_files=["res://.godot/imported/Gato v1.png-58fbc4ecf3487eba1a4771bf8544f58a.ctex"]
 
 [params]
 

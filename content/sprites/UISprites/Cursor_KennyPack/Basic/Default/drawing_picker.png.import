@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bfbnmxqefnarn"
-path="res://.godot/imported/drawing_picker.png-c31e73af05bc330fcf26320192aa24c4.ctex"
+path="res://.godot/imported/drawing_picker.png-4dbfb8809ad612aa30eb7f0400a34ec4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Basic/Default/drawing_picker.png"
-dest_files=["res://.godot/imported/drawing_picker.png-c31e73af05bc330fcf26320192aa24c4.ctex"]
+source_file="res://content/sprites/UISprites/Cursor_KennyPack/Basic/Default/drawing_picker.png"
+dest_files=["res://.godot/imported/drawing_picker.png-4dbfb8809ad612aa30eb7f0400a34ec4.ctex"]
 
 [params]
 

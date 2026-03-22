@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctvm4pp6t628s"
-path="res://.godot/imported/pointer_c.png-6e679d232de23ae125e1958745b4bfe3.ctex"
+path="res://.godot/imported/pointer_c.png-76528578e72135bc07afb80229c56856.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Basic/Double/pointer_c.png"
-dest_files=["res://.godot/imported/pointer_c.png-6e679d232de23ae125e1958745b4bfe3.ctex"]
+source_file="res://content/sprites/UISprites/Cursor_KennyPack/Basic/Double/pointer_c.png"
+dest_files=["res://.godot/imported/pointer_c.png-76528578e72135bc07afb80229c56856.ctex"]
 
 [params]
 
