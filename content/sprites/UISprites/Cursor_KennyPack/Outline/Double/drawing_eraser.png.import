@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bn7k8qsgexdcb"
-path="res://.godot/imported/drawing_eraser.png-81a63b2bf7da6679ee03129937c10dbd.ctex"
+path="res://.godot/imported/drawing_eraser.png-65176f616ba1b99561af21342257a8ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/UISprites/Cursor_KennyPack/Outline/Double/drawing_eraser.png"
-dest_files=["res://.godot/imported/drawing_eraser.png-81a63b2bf7da6679ee03129937c10dbd.ctex"]
+source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Outline/Double/drawing_eraser.png"
+dest_files=["res://.godot/imported/drawing_eraser.png-65176f616ba1b99561af21342257a8ec.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c6cgki8a0bci2"
-path="res://.godot/imported/resize_d_vertical.png-a5018f691bd5608d955490d566620bb9.ctex"
+path="res://.godot/imported/resize_d_vertical.png-acb2d89dacb84122eace5be4b3497526.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/UISprites/Cursor_KennyPack/Outline/Default/resize_d_vertical.png"
-dest_files=["res://.godot/imported/resize_d_vertical.png-a5018f691bd5608d955490d566620bb9.ctex"]
+source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Outline/Default/resize_d_vertical.png"
+dest_files=["res://.godot/imported/resize_d_vertical.png-acb2d89dacb84122eace5be4b3497526.ctex"]
 
 [params]
 

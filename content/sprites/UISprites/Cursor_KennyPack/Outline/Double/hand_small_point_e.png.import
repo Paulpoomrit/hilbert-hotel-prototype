@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://lv8ps5b3yxo6"
-path="res://.godot/imported/hand_small_point_e.png-49142ac9185615f5e169d77f3bcb330c.ctex"
+path="res://.godot/imported/hand_small_point_e.png-719ec8374f5be74438d7f4840bc3f51a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/UISprites/Cursor_KennyPack/Outline/Double/hand_small_point_e.png"
-dest_files=["res://.godot/imported/hand_small_point_e.png-49142ac9185615f5e169d77f3bcb330c.ctex"]
+source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Outline/Double/hand_small_point_e.png"
+dest_files=["res://.godot/imported/hand_small_point_e.png-719ec8374f5be74438d7f4840bc3f51a.ctex"]
 
 [params]
 

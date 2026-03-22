@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://rp7xn2vmyq63"
-path="res://.godot/imported/message_dots_square.png-d5f3656e01f38abde23d627fa4772a04.ctex"
+path="res://.godot/imported/message_dots_square.png-bc22a2581e276277d67b724c8e03887b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/UISprites/Cursor_KennyPack/Outline/Default/message_dots_square.png"
-dest_files=["res://.godot/imported/message_dots_square.png-d5f3656e01f38abde23d627fa4772a04.ctex"]
+source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Outline/Default/message_dots_square.png"
+dest_files=["res://.godot/imported/message_dots_square.png-bc22a2581e276277d67b724c8e03887b.ctex"]
 
 [params]
 

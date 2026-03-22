@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qhajc4yiwps7"
-path="res://.godot/imported/HilbertHotel_UI_mockup_ver001_2026-03-08_palette_withOUTtexture.png-cc3ff0637606d0b36bb68cd7840f8eec.ctex"
+path="res://.godot/imported/HilbertHotel_UI_mockup_ver001_2026-03-08_palette_withOUTtexture.png-9423b8afac2d7a31956f5c3a5b5101a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/UISprites/UIElements/HilbertHotel_UI_mockup_ver001_2026-03-08_palette_withOUTtexture.png"
-dest_files=["res://.godot/imported/HilbertHotel_UI_mockup_ver001_2026-03-08_palette_withOUTtexture.png-cc3ff0637606d0b36bb68cd7840f8eec.ctex"]
+source_file="res://Content/Sprites/UISprites/UIElements/HilbertHotel_UI_mockup_ver001_2026-03-08_palette_withOUTtexture.png"
+dest_files=["res://.godot/imported/HilbertHotel_UI_mockup_ver001_2026-03-08_palette_withOUTtexture.png-9423b8afac2d7a31956f5c3a5b5101a7.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsomc3c4obpei"
-path="res://.godot/imported/cursor_exclamation.png-17dd9565cd78e569af8491665e0d9234.ctex"
+path="res://.godot/imported/cursor_exclamation.png-14ee06f8e8c775ebddabd3a99ea9cbec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/UISprites/Cursor_KennyPack/Outline/Default/cursor_exclamation.png"
-dest_files=["res://.godot/imported/cursor_exclamation.png-17dd9565cd78e569af8491665e0d9234.ctex"]
+source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Outline/Default/cursor_exclamation.png"
+dest_files=["res://.godot/imported/cursor_exclamation.png-14ee06f8e8c775ebddabd3a99ea9cbec.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddjohw533sbop"
-path="res://.godot/imported/tracking_horizontal.png-b3edd91b82027a156ae56206cf5b1de3.ctex"
+path="res://.godot/imported/tracking_horizontal.png-96f07a5d0d763177be94d7e5a3c6dede.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/UISprites/Cursor_KennyPack/Outline/Default/tracking_horizontal.png"
-dest_files=["res://.godot/imported/tracking_horizontal.png-b3edd91b82027a156ae56206cf5b1de3.ctex"]
+source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Outline/Default/tracking_horizontal.png"
+dest_files=["res://.godot/imported/tracking_horizontal.png-96f07a5d0d763177be94d7e5a3c6dede.ctex"]
 
 [params]
 
