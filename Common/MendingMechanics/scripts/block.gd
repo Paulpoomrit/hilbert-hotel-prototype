@@ -71,6 +71,7 @@ func _on_mouse_entered() -> void:
 	
 	z_index = 1000
 	scale = _block_hover_scale
+	material = _block_hover_material
 	
 
 

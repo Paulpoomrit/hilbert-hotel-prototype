@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://cayqkgsdubwau"]
+
+[ext_resource type="Texture2D" uid="uid://dtlsw8poqjxjw" path="res://Content/Sprites/ball.png" id="1_pkdkt"]
+[ext_resource type="Script" uid="uid://bg5bdlj118yxy" path="res://Entities/FloatingBall/floating_ball.gd" id="1_s2i0t"]
+[ext_resource type="PackedScene" uid="uid://b65uxaiqqqm3j" path="res://Common/MendableComponents/MendableTime.tscn" id="3_byvyc"]
+[ext_resource type="PackedScene" uid="uid://d0ixn0uh3mnvm" path="res://Common/MendableComponents/MendableColour.tscn" id="4_oj2tm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pkdkt"]
+radius = 88.0
+
+[node name="FloatingBall" type="RigidBody2D"]
+collision_layer = 64
+collision_mask = 127
+contact_monitor = true
+max_contacts_reported = 10
+script = ExtResource("1_s2i0t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4, -5)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_pkdkt")
+hframes = 2
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pkdkt")
+
+[node name="MendableTime" parent="." instance=ExtResource("3_byvyc")]
+
+[node name="MendableColour" parent="." instance=ExtResource("4_oj2tm")]
+visible = false

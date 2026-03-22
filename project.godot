@@ -63,6 +63,7 @@ mend={
 2d_physics/layer_4="NPC"
 2d_physics/layer_5="Projectile"
 2d_physics/layer_6="Hazard"
+2d_physics/layer_7="Prop"
 
 [rendering]
 

@@ -1,8 +1,18 @@
-[gd_scene load_steps=4 format=4 uid="uid://dwcp7hslqkgf7"]
+[gd_scene load_steps=7 format=4 uid="uid://dwcp7hslqkgf7"]
 
 [ext_resource type="PackedScene" uid="uid://bl6msvoc1qtd4" path="res://Entities/Player/Player.tscn" id="1_es2qg"]
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="2_enuf7"]
 [ext_resource type="TileSet" uid="uid://1oudmm1ak5bm" path="res://Common/Tilesets/HotelLobby.tres" id="3_w1gms"]
+[ext_resource type="Shader" uid="uid://ct4ah3v3e5les" path="res://Common/Shaders/ColourDither/colour_dither_post_processing.gdshader" id="4_nc8ev"]
+[ext_resource type="Texture2D" uid="uid://cp0ok14rv0p6u" path="res://Content/Palettes/DitherPalettes/sweetie-16.png" id="5_yuj1i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_egdwc"]
+shader = ExtResource("4_nc8ev")
+shader_parameter/dither_pixel_size = 1.0
+shader_parameter/dither_pixel_offset = Vector2(0, 0)
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/albedo_strength = 1.0
+shader_parameter/dither_palette = ExtResource("5_yuj1i")
 
 [node name="Node2D" type="Node2D"]
 
@@ -31,3 +41,14 @@ min_parallax = 20
 max_parallax = 20
 parallax_scroll_factor = 0.99
 parallax_scale_factor = 0.99
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_egdwc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
