@@ -1,7 +1,6 @@
 [gd_scene load_steps=36 format=4 uid="uid://cchyx4u04seg2"]
 
 [ext_resource type="PackedScene" uid="uid://bl6msvoc1qtd4" path="res://Entities/Player/Player.tscn" id="1_s8n23"]
-[ext_resource type="Texture2D" uid="uid://ljxh30p2a6ok" path="res://Content/Palettes/DitherPalettes/calm-sunset.png" id="2_df4pt"]
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="2_pu5pe"]
 [ext_resource type="Texture2D" uid="uid://b1spn5t2go2xg" path="res://Content/Sprites/Pixel Plains Premium Pack/Fall/Basic Tiles 1.png" id="5_ic7ty"]
 [ext_resource type="Texture2D" uid="uid://c5lkkf60ydyf2" path="res://Content/Sprites/Pixel Plains Premium Pack/Fall/Basic Tiles 2.png" id="5_nc1j1"]
@@ -24,6 +23,7 @@
 [ext_resource type="Shader" uid="uid://bpvavbrb2npjv" path="res://Common/Shaders/CelShader/cel_shader.gdshader" id="22_df4pt"]
 [ext_resource type="Texture2D" uid="uid://cmxybborm7k68" path="res://Content/Sprites/UISprites/Blocks (128 x 128 px)/Gravity.png" id="22_iceyf"]
 [ext_resource type="Texture2D" uid="uid://cy2w52re5p53o" path="res://Content/NormalMaps/Gravity_Normal.png" id="23_xpga1"]
+[ext_resource type="Texture2D" uid="uid://cefvxygoo6vy6" path="res://Content/Palettes/DitherPalettes/purple-morning.png" id="25_df4pt"]
 [ext_resource type="Texture2D" uid="uid://dh1p7a1iw8wle" path="res://Content/Textures/fuzzy_ball.png" id="25_uch43"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0eonh"]
@@ -4545,7 +4545,7 @@ shader_parameter/dither_pixel_size = 1.0
 shader_parameter/dither_pixel_offset = Vector2(0, 0)
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/albedo_strength = 1.0
-shader_parameter/dither_palette = ExtResource("2_df4pt")
+shader_parameter/dither_palette = ExtResource("25_df4pt")
 
 [node name="Node2D" type="Node2D"]
 

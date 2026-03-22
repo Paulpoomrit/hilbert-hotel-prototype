@@ -37,13 +37,12 @@ extends Node
 var palette_image:Image
 
 @export var palette_texture: Texture2D
-@export var output_folder:String = 'res://Content/Palettes/DitherPalettes/':
-	set(value):
-		output_folder = output_folder
+@export var output_folder:String = 'res://Content/Palettes/DitherPalettes/'
 @export var output_name:String:
 	set(value):
-		output_name = value
-@export_range (1, 16) var dither_color_count:int = 4
+		if value:
+			output_name = value
+@export_range (1, 128) var dither_color_count:int = 4
 @export var create_dither_palette:bool:
 	set(value):
 		if value:
@@ -81,7 +80,7 @@ func _create_dither_palette() -> void:
 	palette_image = palette_texture.get_image()
 	palette_image.decompress()
 	
-	output_folder = output_folder + output_name + ".png"
+	var final_output_path = output_folder + output_name + ".png"
 
 	var palette:Array = []
 
@@ -292,6 +291,6 @@ func _create_dither_palette() -> void:
 			for i in dither_color_count:
 				dither_palette_image.set_pixel(x, y + i * 16, mixing_plan[i])
 
-	dither_palette_image.save_png(output_folder)
+	dither_palette_image.save_png(final_output_path)
 
-	print('Dither palette image saved at "%s"' % output_folder)
+	print('Dither palette image saved at "%s"' % final_output_path)

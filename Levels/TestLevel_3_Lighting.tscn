@@ -1,14 +1,30 @@
-[gd_scene load_steps=13 format=4 uid="uid://b5or3ilobiu4e"]
+[gd_scene load_steps=16 format=4 uid="uid://b5or3ilobiu4e"]
 
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="1_kurvw"]
+[ext_resource type="Texture2D" uid="uid://b8if3bhicvbt8" path="res://Content/Palettes/DitherPalettes/magic-moon.png" id="7_4nfls"]
 [ext_resource type="TileSet" uid="uid://1oudmm1ak5bm" path="res://Common/Tilesets/HotelLobby.tres" id="8_al2jw"]
+[ext_resource type="Shader" uid="uid://c0xjytyk3t8en" path="res://Common/Shaders/bg.gdshader" id="10_65h33"]
+[ext_resource type="Texture2D" uid="uid://cefvxygoo6vy6" path="res://Content/Palettes/DitherPalettes/purple-morning.png" id="10_wix6i"]
 [ext_resource type="PackedScene" uid="uid://bl6msvoc1qtd4" path="res://Entities/Player/Player.tscn" id="19_gugw2"]
 [ext_resource type="Shader" uid="uid://bpvavbrb2npjv" path="res://Common/Shaders/CelShader/cel_shader.gdshader" id="20_8xwjm"]
 [ext_resource type="Texture2D" uid="uid://cmxybborm7k68" path="res://Content/Sprites/UISprites/Blocks (128 x 128 px)/Gravity.png" id="21_edvri"]
 [ext_resource type="Texture2D" uid="uid://cy2w52re5p53o" path="res://Content/NormalMaps/Gravity_Normal.png" id="22_hqq5q"]
 [ext_resource type="Texture2D" uid="uid://dh1p7a1iw8wle" path="res://Content/Textures/fuzzy_ball.png" id="23_eajqe"]
 [ext_resource type="Shader" uid="uid://ct4ah3v3e5les" path="res://Common/Shaders/ColourDither/colour_dither_post_processing.gdshader" id="24_t6xxg"]
-[ext_resource type="Texture2D" uid="uid://ljxh30p2a6ok" path="res://Content/Palettes/DitherPalettes/calm-sunset.png" id="25_q6reo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dryrh"]
+shader = ExtResource("10_65h33")
+shader_parameter/screen_height = 940.94
+shader_parameter/amplitude = 0.815
+shader_parameter/frequency = 16.5
+shader_parameter/speed = 2.0
+shader_parameter/amplitude_vertical = 0.23
+shader_parameter/frequency_vertical = 25.02
+shader_parameter/speed_vertical = 0.0
+shader_parameter/scroll_direction = Vector2(0, 0)
+shader_parameter/scrolling_speed = 0.08
+shader_parameter/enable_palette_cycling = false
+shader_parameter/palette_speed = 0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p7h4a"]
 shader = ExtResource("20_8xwjm")
@@ -32,9 +48,25 @@ shader_parameter/dither_pixel_size = 1.0
 shader_parameter/dither_pixel_offset = Vector2(0, 0)
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/albedo_strength = 1.0
-shader_parameter/dither_palette = ExtResource("25_q6reo")
+shader_parameter/dither_palette = ExtResource("10_wix6i")
 
 [node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2"]
+material = SubResource("ShaderMaterial_dryrh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -984.0
+offset_top = -936.0
+offset_right = 2064.0
+offset_bottom = 936.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_4nfls")
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 layer = 2
@@ -50,6 +82,7 @@ scale = Vector2(1.8125, 1.8125)
 texture = SubResource("CanvasTexture_iceyf")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 position = Vector2(904, 216)
 range_layer_min = -1024
 range_layer_max = 1024
