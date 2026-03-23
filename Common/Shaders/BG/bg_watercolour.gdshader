@@ -12,7 +12,7 @@ void fragment() {
 	vec4 tex_col = texture(TEXTURE, UV);
 	
 	float depth = (tex_col.r + tex_col.g + tex_col.b) / 3.0;
-	vec2 sample_point = VERTEX - (depth * 0.1);
+	vec2 sample_point = UV - (depth * 0.1);
 	
 	
 	vec4 grab_col = textureLod(screen_texture, sample_point, 0.0);
