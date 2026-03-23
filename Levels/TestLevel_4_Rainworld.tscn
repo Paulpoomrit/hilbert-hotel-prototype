@@ -1,9 +1,11 @@
-[gd_scene load_steps=20 format=4 uid="uid://df5dsic6s317y"]
+[gd_scene load_steps=21 format=4 uid="uid://df5dsic6s317y"]
 
+[ext_resource type="Shader" uid="uid://c6rv26sp4025h" path="res://Common/Shaders/BG/test_rainworld.gdshader" id="2_w4o45"]
 [ext_resource type="PackedScene" uid="uid://bl6msvoc1qtd4" path="res://Entities/Player/Player.tscn" id="2_wvn3y"]
 [ext_resource type="Shader" uid="uid://ct4ah3v3e5les" path="res://Common/Shaders/ColourDither/colour_dither_post_processing.gdshader" id="3_urfxv"]
+[ext_resource type="Texture2D" uid="uid://bqjjmhhsvgvlx" path="res://Content/Backgrounds/DREAMHALL-NORMAL/depth_test2.png" id="3_vbhug"]
 [ext_resource type="Texture2D" uid="uid://fvrawpjr001h" path="res://Content/Backgrounds/DREAMHALL-1920x1080/DIEMENG_1920_DAY_GARDEN.jpg" id="3_vmmii"]
-[ext_resource type="Texture2D" uid="uid://7vnx3f8hm6vk" path="res://Content/Backgrounds/DREAMHALL-NORMAL/DIEMENG_1920_DAY_GARDEN_N.jpg" id="3_w4o45"]
+[ext_resource type="Texture2D" uid="uid://dh1p7a1iw8wle" path="res://Content/Textures/fuzzy_ball.png" id="3_wvn3y"]
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="5_vmmii"]
 [ext_resource type="Texture2D" uid="uid://bdrrfh2nukybf" path="res://Content/Palettes/DitherPalettes/mega-drive-blue.png" id="6_urfxv"]
 [ext_resource type="TileSet" uid="uid://1oudmm1ak5bm" path="res://Common/Tilesets/HotelLobby.tres" id="6_vbhug"]
@@ -11,13 +13,11 @@
 [ext_resource type="Shader" uid="uid://bpvavbrb2npjv" path="res://Common/Shaders/CelShader/cel_shader.gdshader" id="8_jq6gc"]
 [ext_resource type="Texture2D" uid="uid://cmxybborm7k68" path="res://Content/Sprites/UISprites/Blocks (128 x 128 px)/Gravity.png" id="9_svsdi"]
 [ext_resource type="Texture2D" uid="uid://cy2w52re5p53o" path="res://Content/NormalMaps/Gravity_Normal.png" id="10_0xoea"]
-[ext_resource type="Texture2D" uid="uid://wxgf1qynnmll" path="res://Content/Sprites/Pixel Plains Premium Pack/Rock pillars.png" id="12_urfxv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vmmii"]
+shader = ExtResource("2_w4o45")
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_urfxv"]
-diffuse_texture = ExtResource("3_vmmii")
-normal_texture = ExtResource("3_w4o45")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w4o45"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ekarr"]
 shader = ExtResource("3_urfxv")
@@ -62,10 +62,33 @@ parallax_scroll_factor = 0.97
 parallax_scale_factor = 0.97
 parallax_modulate_factor = Color(1, 1, 1, 1)
 
-[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer_BG/3DParallaxObject"]
-position = Vector2(1384.0001, 184)
-scale = Vector2(2.7093024, 2.7093022)
-energy = 6.4
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer_BG/3DParallaxObject"]
+offset_left = -320.00003
+offset_top = -3048.0
+offset_right = -280.00003
+offset_bottom = -3008.0
+scale = Vector2(2599.0698, 142.04878)
+
+[node name="Shadow" type="Sprite2D" parent="CanvasLayer_BG/3DParallaxObject"]
+light_mask = 5
+z_index = 5
+material = SubResource("ShaderMaterial_vmmii")
+position = Vector2(-242.34729, -464.84552)
+scale = Vector2(1.1978959, 1.1973662)
+texture = ExtResource("3_vbhug")
+
+[node name="BG" type="Sprite2D" parent="CanvasLayer_BG/3DParallaxObject"]
+light_mask = 5
+material = SubResource("ShaderMaterial_w4o45")
+position = Vector2(-306.34705, -448.84552)
+scale = Vector2(3.4225554, 3.4210467)
+texture = ExtResource("3_vmmii")
+
+[node name="PointLight2D2" type="PointLight2D" parent="CanvasLayer_BG"]
+position = Vector2(688, -224.00012)
+scale = Vector2(2.7093022, 2.7093022)
+energy = 0.91
+blend_mode = 1
 range_z_min = -4096
 range_z_max = 4096
 range_layer_min = -4096
@@ -74,15 +97,8 @@ range_item_cull_mask = 4
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 shadow_filter_smooth = 5.0
-texture = ExtResource("12_urfxv")
-texture_scale = 5.28
-
-[node name="BG" type="Sprite2D" parent="CanvasLayer_BG/3DParallaxObject"]
-light_mask = 5
-material = SubResource("ShaderMaterial_vmmii")
-position = Vector2(1432.0001, -136)
-scale = Vector2(1.9333334, 1.9333334)
-texture = SubResource("CanvasTexture_urfxv")
+texture = ExtResource("3_wvn3y")
+texture_scale = 0.43
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 layer = 2
@@ -94,7 +110,6 @@ position = Vector2(128, 280)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
 material = SubResource("ShaderMaterial_ekarr")
 anchors_preset = 15
 anchor_right = 1.0
@@ -102,6 +117,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayerTile" type="CanvasLayer" parent="."]
 layer = -1
@@ -152,7 +168,7 @@ height = 1024.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_p7h4a")
-position = Vector2(264, 248)
+position = Vector2(1224, -128)
 scale = Vector2(1.8125, 1.8125)
 texture = SubResource("CanvasTexture_iceyf")
 
@@ -164,6 +180,6 @@ layer = 11
 follow_viewport_enabled = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="CanvasLayer4"]
-position = Vector2(848.0001, 96.00006)
+position = Vector2(832, 88)
 scale = Vector2(3.502228, 3.1046991)
 occluder = SubResource("OccluderPolygon2D_urfxv")
