@@ -4,18 +4,17 @@ shader_type canvas_item;
 uniform vec4 background_colour : source_color;
 uniform vec4 shadow_colour : source_color;
 uniform vec2 offset_in_pixels;
+uniform sampler2D BG: source_color;
 uniform sampler2D height_map: source_color;
 
 
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 
 void fragment() {
-	
-	
 	// Read screen texture
 	vec4 current_colour = textureLod(SCREEN_TEXTURE, SCREEN_UV, 0.0);
-	// current_colour = texture(height_map, UV);
 	
+	//current_colour += grab_col;
 	// Check if the current colour is backgroud
 	if (length(current_colour - background_colour) < 0.01) {
 		
@@ -30,8 +29,11 @@ void fragment() {
 		// i.e., need a shadow to be drawn!
 		if (length(grab_col - background_colour) > 0.01) {
 			current_colour = shadow_colour;
+		} else {
+			vec4 bg_colour = texture(BG, UV);
+			current_colour = bg_colour;
 		}
-	}
+	} 
 	COLOR = current_colour;
 	
 	
