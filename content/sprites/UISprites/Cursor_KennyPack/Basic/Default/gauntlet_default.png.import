@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ckfm0xfcq8o4c"
-path="res://.godot/imported/gauntlet_default.png-9282ad9b337f0370f8f611c775e12c16.ctex"
+path="res://.godot/imported/gauntlet_default.png-c0785f0fe5e5ef0d047856418d451b71.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Basic/Default/gauntlet_default.png"
-dest_files=["res://.godot/imported/gauntlet_default.png-9282ad9b337f0370f8f611c775e12c16.ctex"]
+source_file="res://content/sprites/UISprites/Cursor_KennyPack/Basic/Default/gauntlet_default.png"
+dest_files=["res://.godot/imported/gauntlet_default.png-c0785f0fe5e5ef0d047856418d451b71.ctex"]
 
 [params]
 

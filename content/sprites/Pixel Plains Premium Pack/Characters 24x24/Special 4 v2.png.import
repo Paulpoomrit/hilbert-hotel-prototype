@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bggqk2b1jwvw1"
-path="res://.godot/imported/Special 4 v2.png-8bbac0086e59f65f6a9cb5b5dab90318.ctex"
+path="res://.godot/imported/Special 4 v2.png-dff48f496b16406cfc634ee4193c9c27.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/Pixel Plains Premium Pack/Characters 24x24/Special 4 v2.png"
-dest_files=["res://.godot/imported/Special 4 v2.png-8bbac0086e59f65f6a9cb5b5dab90318.ctex"]
+source_file="res://content/sprites/Pixel Plains Premium Pack/Characters 24x24/Special 4 v2.png"
+dest_files=["res://.godot/imported/Special 4 v2.png-dff48f496b16406cfc634ee4193c9c27.ctex"]
 
 [params]
 

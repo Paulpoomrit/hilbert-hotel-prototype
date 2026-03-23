@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://33e2vbohp2cs"
-path="res://.godot/imported/Character 2 v1.png-ec9af09436749725b120d2adc8a76056.ctex"
+path="res://.godot/imported/Character 2 v1.png-ac779ee467954f13cdcdd166fc8e507b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/Pixel Plains Premium Pack/Characters 24x24/Character 2 v1.png"
-dest_files=["res://.godot/imported/Character 2 v1.png-ec9af09436749725b120d2adc8a76056.ctex"]
+source_file="res://content/sprites/Pixel Plains Premium Pack/Characters 24x24/Character 2 v1.png"
+dest_files=["res://.godot/imported/Character 2 v1.png-ac779ee467954f13cdcdd166fc8e507b.ctex"]
 
 [params]
 

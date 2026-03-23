@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5xewts4rb7us"
-path="res://.godot/imported/rotate_cw.png-220f5f9e0d97663e237693708fcb4f54.ctex"
+path="res://.godot/imported/rotate_cw.png-33ba4e711aa67c3da2109043abccefc2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Basic/Double/rotate_cw.png"
-dest_files=["res://.godot/imported/rotate_cw.png-220f5f9e0d97663e237693708fcb4f54.ctex"]
+source_file="res://content/sprites/UISprites/Cursor_KennyPack/Basic/Double/rotate_cw.png"
+dest_files=["res://.godot/imported/rotate_cw.png-33ba4e711aa67c3da2109043abccefc2.ctex"]
 
 [params]
 

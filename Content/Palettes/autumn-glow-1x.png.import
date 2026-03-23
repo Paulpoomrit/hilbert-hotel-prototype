@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://djo5nsjhrnf55"
-path="res://.godot/imported/autumn-glow-1x.png-a9b4e3f508633e75d3c2eb90d1a7c7da.ctex"
+path="res://.godot/imported/autumn-glow-1x.png-80e560dad02d31bbf208958dbdcaa441.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Palettes/autumn-glow-1x.png"
-dest_files=["res://.godot/imported/autumn-glow-1x.png-a9b4e3f508633e75d3c2eb90d1a7c7da.ctex"]
+source_file="res://content/Palettes/autumn-glow-1x.png"
+dest_files=["res://.godot/imported/autumn-glow-1x.png-80e560dad02d31bbf208958dbdcaa441.ctex"]
 
 [params]
 
