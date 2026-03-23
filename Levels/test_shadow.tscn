@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnfdga8e5lrtp"]
+[gd_scene load_steps=5 format=3 uid="uid://dnfdga8e5lrtp"]
 
 [ext_resource type="Texture2D" uid="uid://c3tydyfk8xlwf" path="res://icon.svg" id="2_4ehu4"]
 [ext_resource type="Shader" uid="uid://bo6po8ea4lsun" path="res://Common/Shaders/BG/test_shadow.gdshader" id="2_wkwmq"]
+[ext_resource type="Texture2D" uid="uid://drwpgewrpkrvu" path="res://Content/Backgrounds/Test/depth.png" id="3_wkwmq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y1ryb"]
 shader = ExtResource("2_wkwmq")
 shader_parameter/background_colour = Color(1, 0, 0, 1)
 shader_parameter/shadow_colour = Color(0, 0, 0, 1)
-shader_parameter/offset_in_pixels = Vector2(100, 100)
+shader_parameter/offset_in_pixels = Vector2(200, 200)
+shader_parameter/height_map = ExtResource("3_wkwmq")
 
 [node name="Node2D" type="Node2D"]
 
@@ -23,7 +25,7 @@ color = Color(1, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer2"]
-position = Vector2(224, 176)
+position = Vector2(376, 136)
 texture = ExtResource("2_4ehu4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
