@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://dnfdga8e5lrtp"]
 
 [ext_resource type="Texture2D" uid="uid://c3tydyfk8xlwf" path="res://icon.svg" id="2_4ehu4"]
-[ext_resource type="Shader" uid="uid://bo6po8ea4lsun" path="res://Common/Shaders/BG/test_shadow.gdshader" id="2_wkwmq"]
-[ext_resource type="Texture2D" uid="uid://drwpgewrpkrvu" path="res://Content/Backgrounds/Test/depth.png" id="3_wkwmq"]
-[ext_resource type="Texture2D" uid="uid://dupbvmtl2gpy0" path="res://Content/Backgrounds/Test/cyberpunk-city-2-back-preview.png" id="3_y1ryb"]
+[ext_resource type="Shader" uid="uid://bo6po8ea4lsun" path="res://Common/Shaders/BG/bg_shadow.gdshader" id="2_wkwmq"]
+[ext_resource type="Texture2D" uid="uid://drwpgewrpkrvu" path="res://Content/Backgrounds/DepthTest/depth.png" id="3_wkwmq"]
+[ext_resource type="Texture2D" uid="uid://dupbvmtl2gpy0" path="res://Content/Backgrounds/DepthTest/cyberpunk-city-2-back-preview.png" id="3_y1ryb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y1ryb"]
 shader = ExtResource("2_wkwmq")
@@ -27,7 +27,7 @@ color = Color(1, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer2"]
-position = Vector2(344, 216)
+position = Vector2(208, 192)
 texture = ExtResource("2_4ehu4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=4 uid="uid://df5dsic6s317y"]
 
-[ext_resource type="Shader" uid="uid://c6rv26sp4025h" path="res://Common/Shaders/BG/test_rainworld.gdshader" id="2_w4o45"]
+[ext_resource type="Shader" uid="uid://c6rv26sp4025h" path="res://Common/Shaders/BG/bg_watercolour.gdshader" id="2_w4o45"]
 [ext_resource type="PackedScene" uid="uid://bl6msvoc1qtd4" path="res://Entities/Player/Player.tscn" id="2_wvn3y"]
 [ext_resource type="Shader" uid="uid://ct4ah3v3e5les" path="res://Common/Shaders/ColourDither/colour_dither_post_processing.gdshader" id="3_urfxv"]
 [ext_resource type="Texture2D" uid="uid://bqjjmhhsvgvlx" path="res://Content/Backgrounds/DREAMHALL-NORMAL/depth_test2.png" id="3_vbhug"]

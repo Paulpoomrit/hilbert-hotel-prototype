@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://drwpgewrpkrvu"
-path="res://.godot/imported/depth.png-cdae31fb2c0ce52539fb03bde23a705f.ctex"
+path="res://.godot/imported/depth.png-a952847abf2366ecf44e6fb8ea6fb9d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Backgrounds/Test/depth.png"
-dest_files=["res://.godot/imported/depth.png-cdae31fb2c0ce52539fb03bde23a705f.ctex"]
+source_file="res://Content/Backgrounds/DepthTest/depth.png"
+dest_files=["res://.godot/imported/depth.png-a952847abf2366ecf44e6fb8ea6fb9d0.ctex"]
 
 [params]
 
