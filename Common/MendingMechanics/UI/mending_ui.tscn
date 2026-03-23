@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://qhajc4yiwps7" path="res://Content/Sprites/UISprites/UIElements/HilbertHotel_UI_mockup_ver001_2026-03-08_palette_withOUTtexture.png" id="2_55niv"]
 [ext_resource type="PackedScene" uid="uid://ciexe7prabm03" path="res://Common/MendingMechanics/block.tscn" id="2_a0i6h"]
 [ext_resource type="Texture2D" uid="uid://12u5le3xrdc" path="res://Content/Sprites/UISprites/UIElements/ThoughtBubble.png" id="2_s31gp"]
+[ext_resource type="Texture2D" uid="uid://dr1tk4p82qqkg" path="res://Content/Noise/mending_ui.tres" id="3_8s5ia"]
 [ext_resource type="PackedScene" uid="uid://cqixjwfcu3mhc" path="res://Common/MendingMechanics/UI/mending_area.tscn" id="3_55niv"]
 [ext_resource type="Resource" uid="uid://b1a80lgxgkurs" path="res://Common/MendingMechanics/Blocks/gravity.tres" id="5_p62ws"]
 [ext_resource type="Resource" uid="uid://b28c81x7v8eys" path="res://Common/MendingMechanics/Blocks/danger.tres" id="6_756bo"]
@@ -29,11 +30,9 @@
 [ext_resource type="Resource" uid="uid://bpyipd32l8m4o" path="res://Common/MendingMechanics/Blocks/not.tres" id="22_55niv"]
 [ext_resource type="Resource" uid="uid://bwkt027c46iuc" path="res://Common/MendingMechanics/Blocks/time.tres" id="23_57agw"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5j1i6"]
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8s5ia"]
 shader = ExtResource("2_5j1i6")
-shader_parameter/flowMap = SubResource("NoiseTexture2D_5j1i6")
+shader_parameter/flowMap = ExtResource("3_8s5ia")
 shader_parameter/strength = 0.05
 shader_parameter/speed = 1.0
 shader_parameter/frames = 3

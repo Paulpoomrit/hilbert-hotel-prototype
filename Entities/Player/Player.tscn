@@ -62,4 +62,4 @@ shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 shadow_filter_smooth = 5.0
 texture = ExtResource("8_x44r4")
-height = 1024.0
+height = 74.0
