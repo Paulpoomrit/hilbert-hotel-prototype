@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://crjt0kx3q4i88"
-path="res://.godot/imported/line_cross.png-14b4ed716a9c86064b39f2a46b921cca.ctex"
+path="res://.godot/imported/line_cross.png-231460b3bd1c326c2e3b45ff52ccbff0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Outline/Double/line_cross.png"
-dest_files=["res://.godot/imported/line_cross.png-14b4ed716a9c86064b39f2a46b921cca.ctex"]
+source_file="res://content/sprites/UISprites/Cursor_KennyPack/Outline/Double/line_cross.png"
+dest_files=["res://.godot/imported/line_cross.png-231460b3bd1c326c2e3b45ff52ccbff0.ctex"]
 
 [params]
 

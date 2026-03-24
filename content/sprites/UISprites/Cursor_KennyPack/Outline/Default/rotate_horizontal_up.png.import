@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dt6dqf5vr8qqm"
-path="res://.godot/imported/rotate_horizontal_up.png-51f50c122bd7d28fece5f2084bd6088e.ctex"
+path="res://.godot/imported/rotate_horizontal_up.png-642408455cc610d33e9b9408553b92b1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Outline/Default/rotate_horizontal_up.png"
-dest_files=["res://.godot/imported/rotate_horizontal_up.png-51f50c122bd7d28fece5f2084bd6088e.ctex"]
+source_file="res://content/sprites/UISprites/Cursor_KennyPack/Outline/Default/rotate_horizontal_up.png"
+dest_files=["res://.godot/imported/rotate_horizontal_up.png-642408455cc610d33e9b9408553b92b1.ctex"]
 
 [params]
 

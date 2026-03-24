@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cs843o6x3ya80"
-path="res://.godot/imported/mark_question_pointer_b.png-50af9535a10016743d7dcd56e2917466.ctex"
+path="res://.godot/imported/mark_question_pointer_b.png-e51d64afc78ba0f49c6f6e0b2140a811.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Basic/Double/mark_question_pointer_b.png"
-dest_files=["res://.godot/imported/mark_question_pointer_b.png-50af9535a10016743d7dcd56e2917466.ctex"]
+source_file="res://content/sprites/UISprites/Cursor_KennyPack/Basic/Double/mark_question_pointer_b.png"
+dest_files=["res://.godot/imported/mark_question_pointer_b.png-e51d64afc78ba0f49c6f6e0b2140a811.ctex"]
 
 [params]
 

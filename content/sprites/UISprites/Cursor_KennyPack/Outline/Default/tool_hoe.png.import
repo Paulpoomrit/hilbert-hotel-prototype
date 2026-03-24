@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dbiknfnfjdtrn"
-path="res://.godot/imported/tool_hoe.png-0289e83052856f54307b82a6419199ab.ctex"
+path="res://.godot/imported/tool_hoe.png-636729999e4fdd12ca3eacf086101fcc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Outline/Default/tool_hoe.png"
-dest_files=["res://.godot/imported/tool_hoe.png-0289e83052856f54307b82a6419199ab.ctex"]
+source_file="res://content/sprites/UISprites/Cursor_KennyPack/Outline/Default/tool_hoe.png"
+dest_files=["res://.godot/imported/tool_hoe.png-636729999e4fdd12ca3eacf086101fcc.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://5w1pd1rjlqg6"
-path="res://.godot/imported/busy_hourglass_outline_detail.png-a23b0622fc7c6f2a1e0f6d1d8c4d53f7.ctex"
+path="res://.godot/imported/busy_hourglass_outline_detail.png-87657109ffd0c4bed6871cca3856862f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Basic/Double/busy_hourglass_outline_detail.png"
-dest_files=["res://.godot/imported/busy_hourglass_outline_detail.png-a23b0622fc7c6f2a1e0f6d1d8c4d53f7.ctex"]
+source_file="res://content/sprites/UISprites/Cursor_KennyPack/Basic/Double/busy_hourglass_outline_detail.png"
+dest_files=["res://.godot/imported/busy_hourglass_outline_detail.png-87657109ffd0c4bed6871cca3856862f.ctex"]
 
 [params]
 

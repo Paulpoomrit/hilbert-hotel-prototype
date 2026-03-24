@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bfih60y6jsd2s"
-path="res://.godot/imported/tool_torch.png-ab2b39528a3e9db772648f4d0b94ddf0.ctex"
+path="res://.godot/imported/tool_torch.png-5c0fe73169fc1dae29b3f8314b44da5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Outline/Default/tool_torch.png"
-dest_files=["res://.godot/imported/tool_torch.png-ab2b39528a3e9db772648f4d0b94ddf0.ctex"]
+source_file="res://content/sprites/UISprites/Cursor_KennyPack/Outline/Default/tool_torch.png"
+dest_files=["res://.godot/imported/tool_torch.png-5c0fe73169fc1dae29b3f8314b44da5b.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dtxx6ywmbrflv"
-path="res://.godot/imported/tracking_vertical_left.png-89cac4c3f18abd7171ce823f60956f99.ctex"
+path="res://.godot/imported/tracking_vertical_left.png-8a925814e561bfa3c0a5c05ce7918c6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Basic/Double/tracking_vertical_left.png"
-dest_files=["res://.godot/imported/tracking_vertical_left.png-89cac4c3f18abd7171ce823f60956f99.ctex"]
+source_file="res://content/sprites/UISprites/Cursor_KennyPack/Basic/Double/tracking_vertical_left.png"
+dest_files=["res://.godot/imported/tracking_vertical_left.png-8a925814e561bfa3c0a5c05ce7918c6d.ctex"]
 
 [params]
 

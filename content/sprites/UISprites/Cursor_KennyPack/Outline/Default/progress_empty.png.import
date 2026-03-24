@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfwcagl36ptc4"
-path="res://.godot/imported/progress_empty.png-dbe581c980f8121047027140e7a8b1ac.ctex"
+path="res://.godot/imported/progress_empty.png-ae8ecc7f42de60b3088fafa092efd2ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Outline/Default/progress_empty.png"
-dest_files=["res://.godot/imported/progress_empty.png-dbe581c980f8121047027140e7a8b1ac.ctex"]
+source_file="res://content/sprites/UISprites/Cursor_KennyPack/Outline/Default/progress_empty.png"
+dest_files=["res://.godot/imported/progress_empty.png-ae8ecc7f42de60b3088fafa092efd2ed.ctex"]
 
 [params]
 

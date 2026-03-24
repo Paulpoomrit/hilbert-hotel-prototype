@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://pyaep8b1fw0q"
-path="res://.godot/imported/resize_b_diagonal_mirror.png-d63cca9059073977b1d3ade4cef11be0.ctex"
+path="res://.godot/imported/resize_b_diagonal_mirror.png-5f5358de5fe126d1219e21a42a7d0077.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Basic/Default/resize_b_diagonal_mirror.png"
-dest_files=["res://.godot/imported/resize_b_diagonal_mirror.png-d63cca9059073977b1d3ade4cef11be0.ctex"]
+source_file="res://content/sprites/UISprites/Cursor_KennyPack/Basic/Default/resize_b_diagonal_mirror.png"
+dest_files=["res://.godot/imported/resize_b_diagonal_mirror.png-5f5358de5fe126d1219e21a42a7d0077.ctex"]
 
 [params]
 

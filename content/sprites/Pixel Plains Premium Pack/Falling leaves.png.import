@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://4aianiq41elt"
-path="res://.godot/imported/Falling leaves.png-61ed2ce6637ffc8b0c778ce9b7efd8e4.ctex"
+path="res://.godot/imported/Falling leaves.png-c199198174bac4f540188ab5e40d3e56.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/Pixel Plains Premium Pack/Falling leaves.png"
-dest_files=["res://.godot/imported/Falling leaves.png-61ed2ce6637ffc8b0c778ce9b7efd8e4.ctex"]
+source_file="res://content/sprites/Pixel Plains Premium Pack/Falling leaves.png"
+dest_files=["res://.godot/imported/Falling leaves.png-c199198174bac4f540188ab5e40d3e56.ctex"]
 
 [params]
 
