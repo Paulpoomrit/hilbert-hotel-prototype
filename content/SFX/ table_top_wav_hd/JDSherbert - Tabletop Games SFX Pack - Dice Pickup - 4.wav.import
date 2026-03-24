@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c0kr3o3gccx31"
-path="res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Dice Pickup - 4.wav-6f4298eb55f1f10c99e78349836d47b3.sample"
+path="res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Dice Pickup - 4.wav-23687e9dce8bffa6adff1fa88e2a8ead.sample"
 
 [deps]
 
-source_file="res://Content/SFX/ table_top_wav_hd/JDSherbert - Tabletop Games SFX Pack - Dice Pickup - 4.wav"
-dest_files=["res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Dice Pickup - 4.wav-6f4298eb55f1f10c99e78349836d47b3.sample"]
+source_file="res://content/SFX/ table_top_wav_hd/JDSherbert - Tabletop Games SFX Pack - Dice Pickup - 4.wav"
+dest_files=["res://.godot/imported/JDSherbert - Tabletop Games SFX Pack - Dice Pickup - 4.wav-23687e9dce8bffa6adff1fa88e2a8ead.sample"]
 
 [params]
 

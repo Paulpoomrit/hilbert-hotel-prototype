@@ -1,12 +1,13 @@
-[gd_scene load_steps=26 format=4 uid="uid://cchyx4u04seg2"]
+[gd_scene load_steps=36 format=4 uid="uid://cchyx4u04seg2"]
 
 [ext_resource type="PackedScene" uid="uid://bl6msvoc1qtd4" path="res://Entities/Player/Player.tscn" id="1_s8n23"]
+[ext_resource type="Texture2D" uid="uid://ljxh30p2a6ok" path="res://Content/Palettes/DitherPalettes/calm-sunset.png" id="2_df4pt"]
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="2_pu5pe"]
-[ext_resource type="Texture2D" uid="uid://b1spn5t2go2xg" path="res://Content/sprites/Pixel Plains Premium Pack/Fall/Basic Tiles 1.png" id="5_ic7ty"]
-[ext_resource type="Texture2D" uid="uid://c5lkkf60ydyf2" path="res://Content/sprites/Pixel Plains Premium Pack/Fall/Basic Tiles 2.png" id="5_nc1j1"]
-[ext_resource type="Texture2D" uid="uid://dlkumecbfnikc" path="res://Content/sprites/Pixel Plains Premium Pack/Fall/Basic Tiles 1.0.png" id="6_hf5x3"]
-[ext_resource type="Texture2D" uid="uid://c5kb763imexbo" path="res://Content/sprites/Pixel Plains Premium Pack/Fall/Basic Tiles 3 (Water).png" id="6_q70ef"]
-[ext_resource type="Texture2D" uid="uid://csne2ydlrc1wr" path="res://Content/sprites/Pixel Plains Premium Pack/Fall/Basic Tiles 4 (Trees & Bushes).png" id="7_lnicw"]
+[ext_resource type="Texture2D" uid="uid://b1spn5t2go2xg" path="res://Content/Sprites/Pixel Plains Premium Pack/Fall/Basic Tiles 1.png" id="5_ic7ty"]
+[ext_resource type="Texture2D" uid="uid://c5lkkf60ydyf2" path="res://Content/Sprites/Pixel Plains Premium Pack/Fall/Basic Tiles 2.png" id="5_nc1j1"]
+[ext_resource type="Texture2D" uid="uid://dlkumecbfnikc" path="res://Content/Sprites/Pixel Plains Premium Pack/Fall/Basic Tiles 1.0.png" id="6_hf5x3"]
+[ext_resource type="Texture2D" uid="uid://c5kb763imexbo" path="res://Content/Sprites/Pixel Plains Premium Pack/Fall/Basic Tiles 3 (Water).png" id="6_q70ef"]
+[ext_resource type="Texture2D" uid="uid://csne2ydlrc1wr" path="res://Content/Sprites/Pixel Plains Premium Pack/Fall/Basic Tiles 4 (Trees & Bushes).png" id="7_lnicw"]
 [ext_resource type="PackedScene" uid="uid://cqixjwfcu3mhc" path="res://Common/MendingMechanics/UI/mending_area.tscn" id="8_nc1j1"]
 [ext_resource type="SpriteFrames" uid="uid://dgicyn81i40we" path="res://Entities/Player/PlayerSprites.tres" id="8_q70ef"]
 [ext_resource type="PackedScene" uid="uid://ciexe7prabm03" path="res://Common/MendingMechanics/block.tscn" id="9_tkla2"]
@@ -16,8 +17,14 @@
 [ext_resource type="Resource" uid="uid://xh7cdgo7erb7" path="res://Common/MendingMechanics/Blocks/is.tres" id="13_r2mwn"]
 [ext_resource type="Resource" uid="uid://d1hwyrqm43nj3" path="res://Common/MendingMechanics/Blocks/colour.tres" id="14_0eonh"]
 [ext_resource type="Resource" uid="uid://r5joufngsc8" path="res://Common/MendingMechanics/Blocks/real.tres" id="15_u8ywi"]
+[ext_resource type="Resource" uid="uid://bpyipd32l8m4o" path="res://Common/MendingMechanics/Blocks/not.tres" id="16_1a7h6"]
 [ext_resource type="Material" uid="uid://bjudla1pg6pkb" path="res://Common/MendingMechanics/Materials/BW.tres" id="16_242gi"]
 [ext_resource type="PackedScene" uid="uid://6d2ih3cwqnrj" path="res://Entities/Steam/Steam.tscn" id="18_r2mwn"]
+[ext_resource type="Shader" uid="uid://ct4ah3v3e5les" path="res://Common/Shaders/ColourDither/colour_dither_post_processing.gdshader" id="20_cjjex"]
+[ext_resource type="Shader" uid="uid://bpvavbrb2npjv" path="res://Common/Shaders/CelShader/cel_shader.gdshader" id="22_df4pt"]
+[ext_resource type="Texture2D" uid="uid://cmxybborm7k68" path="res://Content/Sprites/UISprites/Blocks (128 x 128 px)/Gravity.png" id="22_iceyf"]
+[ext_resource type="Texture2D" uid="uid://cy2w52re5p53o" path="res://Content/NormalMaps/Gravity_Normal.png" id="23_xpga1"]
+[ext_resource type="Texture2D" uid="uid://dh1p7a1iw8wle" path="res://Content/Textures/fuzzy_ball.png" id="25_uch43"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0eonh"]
 
@@ -4516,12 +4523,37 @@ sources/2 = SubResource("TileSetAtlasSource_kudm5")
 sources/3 = SubResource("TileSetAtlasSource_08q04")
 sources/4 = SubResource("TileSetAtlasSource_iorfw")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p7h4a"]
+shader = ExtResource("22_df4pt")
+shader_parameter/first_stage = 0.5
+shader_parameter/first_smooth = 1.0
+shader_parameter/second_stage = 0.9200000437
+shader_parameter/second_smooth = 0.0
+shader_parameter/light_strength = 0.4400000209
+shader_parameter/max_light = 1.0
+shader_parameter/mid_light = 0.0
+shader_parameter/light_height = 0.0
+shader_parameter/normal_dep = 1.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_iceyf"]
+diffuse_texture = ExtResource("22_iceyf")
+normal_texture = ExtResource("23_xpga1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ekarr"]
+shader = ExtResource("20_cjjex")
+shader_parameter/dither_pixel_size = 1.0
+shader_parameter/dither_pixel_offset = Vector2(0, 0)
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/albedo_strength = 1.0
+shader_parameter/dither_palette = ExtResource("2_df4pt")
+
 [node name="Node2D" type="Node2D"]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_s8n23")]
-position = Vector2(232, 7)
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = -1
+follow_viewport_enabled = true
 
-[node name="3DParallaxObject" parent="." instance=ExtResource("2_pu5pe")]
+[node name="3DParallaxObject" parent="CanvasLayer2" instance=ExtResource("2_pu5pe")]
 use_parent_material = true
 position = Vector2(576, 320)
 start_modulate_at_front = true
@@ -4529,50 +4561,133 @@ min_parallax = -60
 max_parallax = 20
 parallax_scroll_factor = 0.99
 parallax_scale_factor = 0.99
-parallax_modulate_factor = Color(0.99215686, 0.99215686, 0.9882353, 1)
+parallax_modulate_factor = Color(0.9955804, 0.99558026, 0.99558026, 1)
 metadata/_edit_group_ = true
 
-[node name="TileMapLayer" type="TileMapLayer" parent="3DParallaxObject"]
+[node name="TileMapLayer" type="TileMapLayer" parent="CanvasLayer2/3DParallaxObject"]
 material = SubResource("ShaderMaterial_0eonh")
 use_parent_material = true
 
-[node name="Layer0" type="TileMapLayer" parent="3DParallaxObject/TileMapLayer"]
+[node name="Layer0" type="TileMapLayer" parent="CanvasLayer2/3DParallaxObject/TileMapLayer"]
 use_parent_material = true
 position = Vector2(-576, -716)
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAAABQAAQAPAAEAAAABABQAAQATAAEAAAACABQAAQANAAEAAAADABQAAQANAAEAAAAEABQAAQAPAAEAAAAFABQAAQAOAAEAAAAGABQAAQAPAAEAAAAHABQAAQATAAEAAAAIABQAAQATAAEAAAAJABQAAQAPAAEAAAAKABQAAQATAAEAAAALABQAAQAMAAEAAAAMABQAAQALAAEAAAANABQAAQALAAEAAAAOABQAAQANAAEAAAAPABQAAQATAAEAAAAQABQAAQALAAEAAAARABQAAQAPAAEAAAASABQAAQALAAEAAAATABQAAQANAAEAAAAUABQAAQAOAAEAAAAVABQAAQAPAAEAAAAWABQAAQARAAEAAAAXABQAAQATAAEAAAAYABQAAQARAAEAAAAZABQAAQAOAAEAAAAaABQAAQAUAAEAAAAbABQAAQASAAEAAAAcABQAAQAPAAEAAAAdABQAAQATAAEAAAAeABQAAQAOAAEAAAAfABQAAQANAAEAAAAgABQAAQAMAAEAAAAAABUAAQAPAAIAAAAAABYAAQAOAAIAAAAAABcAAQAOAAQAAAAAABgAAQARAAIAAAAAABkAAQARAAIAAAAAABoAAQAPAAMAAAAAABsAAQAQAAIAAAAAABwAAQARAAIAAAAAAB0AAQANAAQAAAAAAB4AAQARAAIAAAAAAB8AAQANAAQAAAABABUAAQAQAAMAAAABABYAAQARAAMAAAABABcAAQANAAMAAAABABgAAQAOAAIAAAABABkAAQARAAIAAAABABoAAQAOAAMAAAABABsAAQAQAAIAAAABABwAAQAPAAQAAAABAB0AAQARAAMAAAABAB4AAQARAAMAAAABAB8AAQAOAAQAAAACABUAAQARAAIAAAACABYAAQAOAAMAAAACABcAAQAPAAMAAAACABgAAQAOAAMAAAACABkAAQANAAQAAAACABoAAQANAAQAAAACABsAAQARAAIAAAACABwAAQAPAAIAAAACAB0AAQAQAAQAAAACAB4AAQAQAAIAAAACAB8AAQAPAAQAAAADABUAAQAOAAIAAAADABYAAQAOAAIAAAADABcAAQAPAAIAAAADABgAAQAOAAMAAAADABkAAQAOAAQAAAADABoAAQANAAQAAAADABsAAQAQAAIAAAADABwAAQANAAQAAAADAB0AAQANAAQAAAADAB4AAQAPAAIAAAADAB8AAQAOAAQAAAAEABUAAQAPAAIAAAAEABYAAQARAAMAAAAEABcAAQAQAAQAAAAEABgAAQARAAQAAAAEABkAAQANAAQAAAAEABoAAQAOAAIAAAAEABsAAQARAAMAAAAEABwAAQARAAQAAAAEAB0AAQANAAMAAAAEAB4AAQAPAAQAAAAEAB8AAQAPAAIAAAAFABUAAQAPAAIAAAAFABYAAQAQAAIAAAAFABcAAQANAAMAAAAFABgAAQAQAAMAAAAFABkAAQARAAMAAAAFABoAAQAPAAMAAAAFABsAAQAPAAMAAAAFABwAAQARAAIAAAAFAB0AAQANAAMAAAAFAB4AAQARAAIAAAAFAB8AAQANAAMAAAAGABUAAQAOAAIAAAAGABYAAQAQAAMAAAAGABcAAQAPAAIAAAAGABgAAQAPAAMAAAAGABkAAQANAAMAAAAGABoAAQAPAAIAAAAGABsAAQANAAQAAAAGABwAAQAQAAMAAAAGAB0AAQAPAAQAAAAGAB4AAQANAAQAAAAGAB8AAQAOAAIAAAAHABUAAQANAAQAAAAHABYAAQANAAQAAAAHABcAAQANAAMAAAAHABgAAQARAAMAAAAHABkAAQAPAAQAAAAHABoAAQANAAIAAAAHABsAAQANAAMAAAAHABwAAQARAAIAAAAHAB0AAQAOAAQAAAAHAB4AAQAQAAIAAAAHAB8AAQALAAIAAAAIABUAAQANAAIAAAAIABYAAQANAAIAAAAIABcAAQAPAAMAAAAIABgAAQAOAAQAAAAIABkAAQANAAIAAAAIABoAAQAQAAMAAAAIABsAAQANAAMAAAAIABwAAQAQAAIAAAAIAB0AAQARAAIAAAAIAB4AAQANAAMAAAAIAB8AAQAOAAQAAAAJABUAAQAQAAMAAAAJABYAAQAPAAIAAAAJABcAAQAQAAMAAAAJABgAAQAOAAQAAAAJABkAAQAOAAMAAAAJABoAAQANAAMAAAAJABsAAQANAAMAAAAJABwAAQANAAQAAAAJAB0AAQARAAQAAAAJAB4AAQANAAIAAAAJAB8AAQALAAIAAAAKABUAAQANAAIAAAAKABYAAQAOAAQAAAAKABcAAQAPAAIAAAAKABgAAQAQAAMAAAAKABkAAQAQAAIAAAAKABoAAQAOAAIAAAAKABsAAQAOAAMAAAAKABwAAQARAAMAAAAKAB0AAQAOAAMAAAAKAB4AAQAOAAQAAAAKAB8AAQANAAIAAAALABUAAQAPAAMAAAALABYAAQAQAAQAAAALABcAAQAPAAMAAAALABgAAQARAAQAAAALABkAAQAOAAQAAAALABoAAQAOAAIAAAALABsAAQANAAIAAAALABwAAQAOAAMAAAALAB0AAQAOAAQAAAALAB4AAQARAAMAAAALAB8AAQAQAAMAAAAMABUAAQAOAAMAAAAMABYAAQAOAAQAAAAMABcAAQAQAAIAAAAMABgAAQANAAMAAAAMABkAAQANAAQAAAAMABoAAQAQAAIAAAAMABsAAQAQAAMAAAAMABwAAQAQAAQAAAAMAB0AAQAQAAMAAAAMAB4AAQAQAAQAAAAMAB8AAQARAAMAAAANABUAAQAOAAMAAAANABYAAQAPAAMAAAANABcAAQAOAAMAAAANABgAAQAOAAMAAAANABkAAQARAAIAAAANABoAAQARAAQAAAANABsAAQASAAIAAAANABwAAQALAAIAAAANAB0AAQAQAAMAAAANAB4AAQAQAAIAAAANAB8AAQANAAQAAAAOABUAAQASAAIAAAAOABYAAQARAAIAAAAOABcAAQAOAAMAAAAOABgAAQAQAAIAAAAOABkAAQANAAQAAAAOABoAAQAOAAMAAAAOABsAAQAMAAIAAAAOABwAAQASAAIAAAAOAB0AAQARAAMAAAAOAB4AAQAQAAIAAAAOAB8AAQARAAQAAAAPABUAAQAOAAIAAAAPABYAAQAoAAMAAAAPABcAAQAoAAQAAAAPABgAAQAoAAUAAAAPABkAAQAoAAYAAAAPABoAAQASAAIAAAAPABsAAQARAAMAAAAPABwAAQANAAMAAAAPAB0AAQAPAAQAAAAPAB4AAQAQAAQAAAAPAB8AAQAQAAIAAAAQABUAAQARAAMAAAAQABYAAQApAAMAAAAQABcAAQApAAQAAAAQABgAAQApAAUAAAAQABkAAQApAAYAAAAQABoAAQAMAAIAAAAQABsAAQANAAIAAAAQABwAAQANAAQAAAAQAB0AAQAQAAMAAAAQAB4AAQAOAAMAAAAQAB8AAQARAAIAAAARABUAAQALAAIAAAARABYAAQAqAAMAAAARABcAAQAqAAQAAAARABgAAQAqAAUAAAARABkAAQAqAAYAAAARABoAAQAPAAQAAAARABsAAQARAAQAAAARABwAAQARAAMAAAARAB0AAQASAAIAAAARAB4AAQAOAAMAAAARAB8AAQAQAAQAAAASABUAAQARAAIAAAASABYAAQArAAMAAAASABcAAQArAAQAAAASABgAAQArAAUAAAASABkAAQArAAYAAAASABoAAQANAAIAAAASABsAAQASAAIAAAASABwAAQAOAAMAAAASAB0AAQANAAIAAAASAB4AAQAOAAMAAAASAB8AAQANAAMAAAATABUAAQAOAAQAAAATABYAAQAPAAIAAAATABcAAQANAAQAAAATABgAAQARAAQAAAATABkAAQAOAAIAAAATABoAAQAPAAMAAAATABsAAQAQAAIAAAATABwAAQARAAIAAAATAB0AAQAOAAIAAAATAB4AAQAMAAIAAAATAB8AAQAPAAMAAAAUABUAAQARAAIAAAAUABYAAQAPAAMAAAAUABcAAQAQAAQAAAAUABgAAQANAAMAAAAUABkAAQANAAMAAAAUABoAAQAOAAMAAAAUABsAAQANAAMAAAAUABwAAQANAAQAAAAUAB0AAQAPAAMAAAAUAB4AAQANAAIAAAAUAB8AAQAPAAMAAAAVABUAAQALAAIAAAAVABYAAQALAAIAAAAVABcAAQAOAAIAAAAVABgAAQARAAIAAAAVABkAAQASAAIAAAAVABoAAQAPAAIAAAAVABsAAQANAAQAAAAVABwAAQAPAAIAAAAVAB0AAQAQAAMAAAAVAB4AAQAMAAIAAAAVAB8AAQAQAAMAAAAWABUAAQAOAAQAAAAWABYAAQAPAAMAAAAWABcAAQARAAQAAAAWABgAAQALAAIAAAAWABkAAQAOAAQAAAAWABoAAQAOAAQAAAAWABsAAQALAAIAAAAWABwAAQARAAIAAAAWAB0AAQARAAQAAAAWAB4AAQAPAAMAAAAWAB8AAQARAAQAAAAXABUAAQAQAAQAAAAXABYAAQAOAAQAAAAXABcAAQANAAIAAAAXABgAAQANAAIAAAAXABkAAQANAAQAAAAXABoAAQAOAAMAAAAXABsAAQAQAAQAAAAXABwAAQAOAAQAAAAXAB0AAQAQAAQAAAAXAB4AAQASAAIAAAAXAB8AAQANAAIAAAAYABUAAQAPAAIAAAAYABYAAQAPAAIAAAAYABcAAQANAAIAAAAYABgAAQAQAAIAAAAYABkAAQAOAAQAAAAYABoAAQAPAAIAAAAYABsAAQArAAMAAGAYABwAAQAqAAMAAGAYAB0AAQApAAMAAGAYAB4AAQAoAAMAAGAYAB8AAQAPAAQAAAAZABUAAQARAAMAAAAZABYAAQANAAQAAAAZABcAAQAQAAIAAAAZABgAAQARAAMAAAAZABkAAQARAAMAAAAZABoAAQANAAMAAAAZABsAAQArAAQAAGAZABwAAQAqAAQAAGAZAB0AAQApAAQAAGAZAB4AAQAoAAQAAGAZAB8AAQAOAAIAAAAaABUAAQAOAAMAAAAaABYAAQARAAMAAAAaABcAAQANAAQAAAAaABgAAQANAAMAAAAaABkAAQANAAMAAAAaABoAAQARAAQAAAAaABsAAQArAAUAAGAaABwAAQAqAAUAAGAaAB0AAQApAAUAAGAaAB4AAQAoAAUAAGAaAB8AAQAQAAIAAAAbABUAAQANAAMAAAAbABYAAQALAAIAAAAbABcAAQAPAAQAAAAbABgAAQAPAAQAAAAbABkAAQAPAAIAAAAbABoAAQAQAAMAAAAbABsAAQArAAYAAGAbABwAAQAqAAYAAGAbAB0AAQApAAYAAGAbAB4AAQAoAAYAAGAbAB8AAQALAAIAAAAcABUAAQALAAIAAAAcABYAAQANAAIAAAAcABcAAQAOAAIAAAAcABgAAQAQAAQAAAAcABkAAQAPAAMAAAAcABoAAQAOAAQAAAAcABsAAQAOAAMAAAAcABwAAQASAAIAAAAcAB0AAQARAAIAAAAcAB4AAQAQAAQAAAAcAB8AAQAQAAMAAAAdABUAAQALAAIAAAAdABYAAQAOAAMAAAAdABcAAQAOAAQAAAAdABgAAQAOAAIAAAAdABkAAQAOAAIAAAAdABoAAQAOAAIAAAAdABsAAQANAAMAAAAdABwAAQARAAQAAAAdAB0AAQALAAIAAAAdAB4AAQAOAAQAAAAdAB8AAQANAAMAAAAeABUAAQANAAMAAAAeABYAAQAOAAIAAAAeABcAAQANAAQAAAAeABgAAQAOAAMAAAAeABkAAQAOAAMAAAAeABoAAQAQAAMAAAAeABsAAQARAAQAAAAeABwAAQARAAMAAAAeAB0AAQALAAIAAAAeAB4AAQARAAMAAAAeAB8AAQANAAIAAAAfABUAAQAQAAIAAAAfABYAAQAMAAIAAAAfABcAAQASAAIAAAAfABgAAQAPAAIAAAAfABkAAQANAAQAAAAfABoAAQAMAAIAAAAfABsAAQAQAAQAAAAfABwAAQARAAIAAAAfAB0AAQAMAAIAAAAfAB4AAQAPAAQAAAAfAB8AAQALAAIAAAAgABUAAQALAAIAAAAgABYAAQAOAAIAAAAgABcAAQARAAMAAAAgABgAAQAOAAMAAAAgABkAAQANAAMAAAAgABoAAQARAAIAAAAgABsAAQAMAAIAAAAgABwAAQARAAQAAAAgAB0AAQAPAAMAAAAgAB4AAQAPAAIAAAAgAB8AAQAQAAMAAAD//xMAAQAVAAIAAAD//xIAAQAVAAMAAAD//xEAAQAVAAQAAAD//xAAAQAVAAMAAAD//w8AAQAVAAQAAAD//w4AAQAVAAQAAAD//w0AAQAVAAQAAAD//wwAAQAVAAIAAAD//wsAAQAVAAIAAAD//woAAQAVAAMAAAD//wkAAQAVAAUAAAD//wgAAQAVAAMAAAD//wcAAQAVAAMAAAD//wYAAQAVAAIAAAD//wUAAQAVAAQAAAD//wQAAQAVAAMAAAD//wMAAQAVAAIAAAD//wIAAQAVAAQAAADs/wIAAQAQAAIAAADs/wMAAQAOAAIAAADs/wQAAQAPAAIAAADs/wUAAQANAAIAAADs/wYAAQAPAAIAAADs/wcAAQAOAAIAAADs/wgAAQAOAAMAAADs/wkAAQAQAAMAAADs/woAAQAOAAIAAADs/wsAAQAQAAMAAADs/wwAAQANAAQAAADs/w0AAQAPAAIAAADs/w4AAQAPAAMAAADs/w8AAQAQAAMAAADs/xAAAQAPAAIAAADs/xEAAQAPAAQAAADs/xIAAQARAAQAAADs/xMAAQAPAAQAAADs/xQAAQANAAQAAADs/xUAAQANAAMAAADs/xYAAQAQAAIAAADs/xcAAQARAAQAAADs/xgAAQAQAAMAAADs/xkAAQAPAAQAAADs/xoAAQAQAAMAAADs/xsAAQARAAIAAADs/xwAAQANAAQAAADs/x0AAQANAAIAAADs/x4AAQAOAAMAAADs/x8AAQAOAAIAAADt/wIAAQANAAIAAADt/wMAAQAoAAMAAADt/wQAAQAoAAQAAADt/wUAAQAoAAUAAADt/wYAAQAoAAYAAADt/wcAAQAOAAQAAADt/wgAAQAQAAIAAADt/wkAAQAOAAIAAADt/woAAQAQAAIAAADt/wsAAQARAAIAAADt/wwAAQAOAAIAAADt/w0AAQAOAAMAAADt/w4AAQAPAAMAAADt/w8AAQAPAAMAAADt/xAAAQAOAAQAAADt/xEAAQAoAAMAAADt/xIAAQAoAAQAAADt/xMAAQAoAAUAAADt/xQAAQAoAAYAAADt/xUAAQARAAIAAADt/xYAAQAOAAQAAADt/xcAAQAQAAMAAADt/xgAAQAPAAIAAADt/xkAAQAPAAQAAADt/xoAAQAQAAMAAADt/xsAAQAQAAMAAADt/xwAAQANAAMAAADt/x0AAQAQAAIAAADt/x4AAQANAAQAAADt/x8AAQAPAAIAAADu/wIAAQAPAAIAAADu/wMAAQApAAMAAADu/wQAAQApAAQAAADu/wUAAQApAAUAAADu/wYAAQApAAYAAADu/wcAAQARAAQAAADu/wgAAQAOAAMAAADu/wkAAQARAAQAAADu/woAAQANAAMAAADu/wsAAQAQAAMAAADu/wwAAQANAAIAAADu/w0AAQAQAAMAAADu/w4AAQARAAMAAADu/w8AAQAOAAMAAADu/xAAAQARAAMAAADu/xEAAQApAAMAAADu/xIAAQApAAQAAADu/xMAAQApAAUAAADu/xQAAQApAAYAAADu/xUAAQAPAAQAAADu/xYAAQANAAIAAADu/xcAAQARAAQAAADu/xgAAQAOAAIAAADu/xkAAQAPAAIAAADu/xoAAQAPAAIAAADu/xsAAQAQAAMAAADu/xwAAQANAAIAAADu/x0AAQANAAQAAADu/x4AAQAPAAMAAADu/x8AAQAPAAMAAADv/wIAAQANAAMAAADv/wMAAQAqAAMAAADv/wQAAQAqAAQAAADv/wUAAQAqAAUAAADv/wYAAQAqAAYAAADv/wcAAQANAAIAAADv/wgAAQAOAAIAAADv/wkAAQAOAAIAAADv/woAAQAoAAMAAADv/wsAAQAoAAQAAADv/wwAAQAoAAUAAADv/w0AAQAoAAYAAADv/w4AAQARAAQAAADv/w8AAQAPAAIAAADv/xAAAQAOAAMAAADv/xEAAQAqAAMAAADv/xIAAQAqAAQAAADv/xMAAQAqAAUAAADv/xQAAQAqAAYAAADv/xUAAQANAAMAAADv/xYAAQAOAAMAAADv/xcAAQAOAAIAAADv/xgAAQAOAAIAAADv/xkAAQANAAQAAADv/xoAAQAPAAQAAADv/xsAAQARAAIAAADv/xwAAQAOAAMAAADv/x0AAQANAAQAAADv/x4AAQAPAAIAAADv/x8AAQAPAAQAAADw/wIAAQAPAAMAAADw/wMAAQArAAMAAADw/wQAAQArAAQAAADw/wUAAQArAAUAAADw/wYAAQArAAYAAADw/wcAAQAQAAQAAADw/wgAAQAQAAMAAADw/wkAAQANAAMAAADw/woAAQApAAMAAADw/wsAAQApAAQAAADw/wwAAQApAAUAAADw/w0AAQApAAYAAADw/w4AAQAPAAIAAADw/w8AAQAQAAMAAADw/xAAAQAOAAQAAADw/xEAAQArAAMAAADw/xIAAQArAAQAAADw/xMAAQArAAUAAADw/xQAAQArAAYAAADw/xUAAQAPAAMAAADw/xYAAQANAAMAAADw/xcAAQANAAIAAADw/xgAAQAQAAQAAADw/xkAAQAOAAMAAADw/xoAAQANAAMAAADw/xsAAQAQAAMAAADw/xwAAQAPAAIAAADw/x0AAQARAAIAAADw/x4AAQAOAAMAAADw/x8AAQARAAIAAADx/wIAAQANAAMAAADx/wMAAQARAAIAAADx/wQAAQAPAAIAAADx/wUAAQARAAIAAADx/wYAAQAQAAMAAADx/wcAAQANAAIAAADx/wgAAQAPAAQAAADx/wkAAQARAAMAAADx/woAAQAqAAMAAADx/wsAAQAqAAQAAADx/wwAAQAqAAUAAADx/w0AAQAqAAYAAADx/w4AAQAOAAMAAADx/w8AAQAQAAQAAADx/xAAAQAQAAQAAADx/xEAAQAQAAIAAADx/xIAAQAPAAIAAADx/xMAAQARAAMAAADx/xQAAQAPAAIAAADx/xUAAQAPAAQAAADx/xYAAQARAAQAAADx/xcAAQANAAQAAADx/xgAAQAPAAIAAADx/xkAAQANAAIAAADx/xoAAQASAAQAACDx/xsAAQASAAMAACDx/xwAAQASAAIAACDx/x0AAQANAAIAAADx/x4AAQAOAAMAAADx/x8AAQAQAAMAAADy/wIAAQAOAAMAAADy/wMAAQARAAQAAADy/wQAAQAQAAMAAADy/wUAAQAOAAIAAADy/wYAAQAQAAQAAADy/wcAAQARAAQAAADy/wgAAQARAAQAAADy/wkAAQAOAAIAAADy/woAAQArAAMAAADy/wsAAQArAAQAAADy/wwAAQArAAUAAADy/w0AAQArAAYAAADy/w4AAQARAAMAAADy/w8AAQANAAQAAADy/xAAAQAOAAMAAADy/xEAAQAPAAIAAADy/xIAAQAOAAQAAADy/xMAAQAQAAMAAADy/xQAAQANAAMAAADy/xUAAQAOAAMAAADy/xYAAQAQAAIAAADy/xcAAQAOAAQAAADy/xgAAQANAAQAAADy/xkAAQARAAQAAADy/xoAAQATAAQAACDy/xsAAQATAAMAACDy/xwAAQATAAIAACDy/x0AAQAPAAQAAADy/x4AAQANAAQAAADy/x8AAQARAAQAAADz/wIAAQANAAIAAADz/wMAAQAQAAMAAADz/wQAAQARAAQAAADz/wUAAQAQAAIAAADz/wYAAQAOAAIAAADz/wcAAQAOAAIAAADz/wgAAQAQAAMAAADz/wkAAQAQAAQAAADz/woAAQAPAAMAAADz/wsAAQANAAMAAADz/wwAAQARAAIAAADz/w0AAQANAAMAAADz/w4AAQAOAAIAAADz/w8AAQASAAIAAADz/xAAAQASAAMAAADz/xEAAQASAAQAAADz/xIAAQAPAAIAAADz/xMAAQAQAAIAAADz/xQAAQAQAAIAAADz/xUAAQAQAAIAAADz/xYAAQAOAAMAAADz/xcAAQAQAAQAAADz/xgAAQAQAAQAAADz/xkAAQARAAMAAADz/xoAAQAUAAQAACDz/xsAAQAUAAMAACDz/xwAAQAUAAIAACDz/x0AAQAOAAQAAADz/x4AAQAOAAMAAADz/x8AAQAQAAMAAAD0/wIAAQAOAAMAAAD0/wMAAQARAAMAAAD0/wQAAQAPAAIAAAD0/wUAAQANAAMAAAD0/wYAAQANAAMAAAD0/wcAAQARAAIAAAD0/wgAAQAQAAMAAAD0/wkAAQARAAQAAAD0/woAAQAOAAIAAAD0/wsAAQAOAAQAAAD0/wwAAQAPAAMAAAD0/w0AAQANAAIAAAD0/w4AAQAPAAIAAAD0/w8AAQATAAIAAAD0/xAAAQATAAMAAAD0/xEAAQATAAQAAAD0/xIAAQAOAAIAAAD0/xMAAQANAAMAAAD0/xQAAQARAAQAAAD0/xUAAQARAAQAAAD0/xYAAQAQAAIAAAD0/xcAAQANAAMAAAD0/xgAAQANAAMAAAD0/xkAAQAQAAQAAAD0/xoAAQARAAQAAAD0/xsAAQAQAAQAAAD0/xwAAQANAAQAAAD0/x0AAQAQAAMAAAD0/x4AAQAQAAMAAAD0/x8AAQARAAQAAAD1/wIAAQAPAAQAAAD1/wMAAQAOAAQAAAD1/wQAAQAUAAQAADD1/wUAAQAUAAMAADD1/wYAAQAUAAIAADD1/wcAAQAQAAIAAAD1/wgAAQAOAAMAAAD1/wkAAQAOAAQAAAD1/woAAQAOAAQAAAD1/wsAAQAPAAIAAAD1/wwAAQAQAAIAAAD1/w0AAQARAAQAAAD1/w4AAQANAAIAAAD1/w8AAQAUAAIAAAD1/xAAAQAUAAMAAAD1/xEAAQAUAAQAAAD1/xIAAQAQAAMAAAD1/xMAAQANAAMAAAD1/xQAAQAQAAMAAAD1/xUAAQANAAIAAAD1/xYAAQAOAAIAAAD1/xcAAQANAAQAAAD1/xgAAQAPAAIAAAD1/xkAAQARAAMAAAD1/xoAAQAQAAMAAAD1/xsAAQAPAAMAAAD1/xwAAQAQAAQAAAD1/x0AAQAOAAIAAAD1/x4AAQAQAAIAAAD1/x8AAQAQAAQAAAD2/wIAAQARAAQAAAD2/wMAAQANAAQAAAD2/wQAAQATAAQAADD2/wUAAQATAAMAADD2/wYAAQATAAIAADD2/wcAAQAQAAQAAAD2/wgAAQARAAMAAAD2/wkAAQAoAAMAAAD2/woAAQAoAAQAAAD2/wsAAQAoAAUAAAD2/wwAAQAoAAYAAAD2/w0AAQAOAAMAAAD2/w4AAQAOAAIAAAD2/w8AAQAPAAIAAAD2/xAAAQANAAMAAAD2/xEAAQAPAAIAAAD2/xIAAQARAAMAAAD2/xMAAQANAAMAAAD2/xQAAQANAAMAAAD2/xUAAQAOAAIAAAD2/xYAAQANAAQAAAD2/xcAAQAQAAQAAAD2/xgAAQAQAAQAAAD2/xkAAQANAAIAAAD2/xoAAQAQAAMAAAD2/xsAAQAOAAMAAAD2/xwAAQARAAQAAAD2/x0AAQARAAQAAAD2/x4AAQANAAMAAAD2/x8AAQAQAAQAAAD3/wIAAQAQAAQAAAD3/wMAAQANAAMAAAD3/wQAAQASAAQAADD3/wUAAQASAAMAADD3/wYAAQASAAIAADD3/wcAAQANAAIAAAD3/wgAAQAQAAQAAAD3/wkAAQApAAMAAAD3/woAAQApAAQAAAD3/wsAAQApAAUAAAD3/wwAAQApAAYAAAD3/w0AAQAQAAMAAAD3/w4AAQAQAAIAAAD3/w8AAQAPAAIAAAD3/xAAAQAOAAQAAAD3/xEAAQARAAIAAAD3/xIAAQAOAAQAAAD3/xMAAQAOAAQAAAD3/xQAAQAQAAQAAAD3/xUAAQANAAIAAAD3/xYAAQAQAAQAAAD3/xcAAQAQAAIAAAD3/xgAAQAPAAMAAAD3/xkAAQAoAAMAAAD3/xoAAQAoAAQAAAD3/xsAAQAoAAUAAAD3/xwAAQAoAAYAAAD3/x0AAQANAAQAAAD3/x4AAQARAAMAAAD3/x8AAQANAAMAAAD4/wIAAQAPAAMAAAD4/wMAAQAOAAIAAAD4/wQAAQAOAAMAAAD4/wUAAQAPAAMAAAD4/wYAAQAOAAIAAAD4/wcAAQAPAAMAAAD4/wgAAQANAAIAAAD4/wkAAQAqAAMAAAD4/woAAQAqAAQAAAD4/wsAAQAqAAUAAAD4/wwAAQAqAAYAAAD4/w0AAQAPAAQAAAD4/w4AAQAQAAQAAAD4/w8AAQANAAIAAAD4/xAAAQARAAIAAAD4/xEAAQAOAAMAAAD4/xIAAQARAAMAAAD4/xMAAQAOAAQAAAD4/xQAAQASAAIAAAD4/xUAAQASAAMAAAD4/xYAAQASAAQAAAD4/xcAAQAPAAMAAAD4/xgAAQAOAAQAAAD4/xkAAQApAAMAAAD4/xoAAQApAAQAAAD4/xsAAQApAAUAAAD4/xwAAQApAAYAAAD4/x0AAQAPAAMAAAD4/x4AAQANAAQAAAD4/x8AAQAOAAMAAAD5/wIAAQAOAAMAAAD5/wMAAQAOAAIAAAD5/wQAAQANAAMAAAD5/wUAAQAQAAIAAAD5/wYAAQAPAAQAAAD5/wcAAQARAAMAAAD5/wgAAQAOAAQAAAD5/wkAAQArAAMAAAD5/woAAQArAAQAAAD5/wsAAQArAAUAAAD5/wwAAQArAAYAAAD5/w0AAQARAAQAAAD5/w4AAQAPAAIAAAD5/w8AAQAoAAMAAAD5/xAAAQAoAAQAAAD5/xEAAQAoAAUAAAD5/xIAAQAoAAYAAAD5/xMAAQANAAQAAAD5/xQAAQATAAIAAAD5/xUAAQATAAMAAAD5/xYAAQATAAQAAAD5/xcAAQANAAMAAAD5/xgAAQAPAAIAAAD5/xkAAQAqAAMAAAD5/xoAAQAqAAQAAAD5/xsAAQAqAAUAAAD5/xwAAQAqAAYAAAD5/x0AAQAPAAMAAAD5/x4AAQANAAMAAAD5/x8AAQAPAAQAAAD6/wIAAQAOAAQAAAD6/wMAAQARAAQAAAD6/wQAAQAPAAQAAAD6/wUAAQAPAAQAAAD6/wYAAQARAAIAAAD6/wcAAQAOAAQAAAD6/wgAAQANAAQAAAD6/wkAAQARAAMAAAD6/woAAQARAAMAAAD6/wsAAQAQAAQAAAD6/wwAAQAOAAIAAAD6/w0AAQARAAQAAAD6/w4AAQAPAAMAAAD6/w8AAQApAAMAAAD6/xAAAQApAAQAAAD6/xEAAQApAAUAAAD6/xIAAQApAAYAAAD6/xMAAQAQAAIAAAD6/xQAAQAUAAIAAAD6/xUAAQAUAAMAAAD6/xYAAQAUAAQAAAD6/xcAAQARAAQAAAD6/xgAAQAOAAQAAAD6/xkAAQArAAMAAAD6/xoAAQArAAQAAAD6/xsAAQArAAUAAAD6/xwAAQArAAYAAAD6/x0AAQARAAQAAAD6/x4AAQAOAAMAAAD6/x8AAQARAAMAAAD7/wIAAQAPAAIAAAD7/wMAAQANAAMAAAD7/wQAAQAPAAIAAAD7/wUAAQAPAAMAAAD7/wYAAQANAAMAAAD7/wcAAQARAAQAAAD7/wgAAQAQAAIAAAD7/wkAAQARAAMAAAD7/woAAQAOAAIAAAD7/wsAAQARAAIAAAD7/wwAAQANAAQAAAD7/w0AAQANAAQAAAD7/w4AAQANAAQAAAD7/w8AAQAqAAMAAAD7/xAAAQAqAAQAAAD7/xEAAQAqAAUAAAD7/xIAAQAqAAYAAAD7/xMAAQANAAQAAAD7/xQAAQANAAMAAAD7/xUAAQAQAAIAAAD7/xYAAQAOAAMAAAD7/xcAAQAQAAMAAAD7/xgAAQAOAAMAAAD7/xkAAQAPAAIAAAD7/xoAAQAPAAQAAAD7/xsAAQAQAAMAAAD7/xwAAQAOAAIAAAD7/x0AAQAOAAIAAAD7/x4AAQAQAAQAAAD7/x8AAQAOAAMAAAD8/wIAAQARAAIAAAD8/wMAAQARAAMAAAD8/wQAAQAQAAIAAAD8/wUAAQANAAMAAAD8/wYAAQANAAMAAAD8/wcAAQAOAAIAAAD8/wgAAQAPAAMAAAD8/wkAAQARAAQAAAD8/woAAQANAAMAAAD8/wsAAQAOAAIAAAD8/wwAAQANAAMAAAD8/w0AAQAPAAQAAAD8/w4AAQAPAAIAAAD8/w8AAQArAAMAAAD8/xAAAQArAAQAAAD8/xEAAQArAAUAAAD8/xIAAQArAAYAAAD8/xMAAQAQAAMAAAD8/xQAAQANAAQAAAD8/xUAAQARAAIAAAD8/xYAAQARAAQAAAD8/xcAAQAQAAMAAAD8/xgAAQARAAQAAAD8/xkAAQARAAQAAAD8/xoAAQAQAAMAAAD8/xsAAQAOAAIAAAD8/xwAAQAQAAIAAAD8/x0AAQARAAMAAAD8/x4AAQARAAMAAAD8/x8AAQANAAQAAAD9/wIAAQAQAAIAAAD9/wMAAQAOAAQAAAD9/wQAAQAQAAQAAAD9/wUAAQANAAQAAAD9/wYAAQAPAAIAAAD9/wcAAQAQAAQAAAD9/wgAAQARAAIAAAD9/wkAAQAOAAIAAAD9/woAAQANAAQAAAD9/wsAAQANAAIAAAD9/wwAAQAQAAQAAAD9/w0AAQANAAIAAAD9/w4AAQARAAQAAAD9/w8AAQAOAAMAAAD9/xAAAQAQAAQAAAD9/xEAAQARAAMAAAD9/xIAAQAQAAMAAAD9/xMAAQARAAIAAAD9/xQAAQARAAMAAAD9/xUAAQAOAAIAAAD9/xYAAQARAAQAAAD9/xcAAQAQAAQAAAD9/xgAAQAPAAQAAAD9/xkAAQAPAAMAAAD9/xoAAQAOAAQAAAD9/xsAAQANAAMAAAD9/xwAAQAQAAQAAAD9/x0AAQAQAAQAAAD9/x4AAQAQAAQAAAD9/x8AAQAPAAMAAAD+/wIAAQAPAAMAAAD+/wMAAQAPAAMAAAD+/wQAAQARAAMAAAD+/wUAAQAOAAIAAAD+/wYAAQAPAAMAAAD+/wcAAQAOAAQAAAD+/wgAAQAOAAIAAAD+/wkAAQAQAAQAAAD+/woAAQAOAAQAAAD+/wsAAQARAAQAAAD+/wwAAQAQAAQAAAD+/w0AAQANAAQAAAD+/w4AAQARAAQAAAD+/w8AAQAOAAMAAAD+/xAAAQAOAAIAAAD+/xEAAQAQAAMAAAD+/xIAAQARAAMAAAD+/xMAAQARAAQAAAD+/xQAAQANAAMAAAD+/xUAAQAPAAMAAAD+/xYAAQANAAQAAAD+/xcAAQAOAAIAAAD+/xgAAQAPAAMAAAD+/xkAAQAQAAMAAAD+/xoAAQAPAAMAAAD+/xsAAQARAAIAAAD+/xwAAQARAAQAAAD+/x0AAQARAAMAAAD+/x4AAQAOAAQAAAD+/x8AAQAPAAMAAAD//xQAAQAPAAQAAAD//xUAAQAOAAIAAAD//xYAAQAOAAIAAAD//xcAAQAQAAIAAAD//xgAAQAPAAQAAAD//xkAAQANAAIAAAD//xoAAQAQAAQAAAD//xsAAQANAAIAAAD//xwAAQARAAQAAAD//x0AAQAPAAIAAAD//x4AAQAPAAQAAAD//x8AAQAPAAIAAAA=")
 tile_set = SubResource("TileSet_lnicw")
 
-[node name="Layer1" type="TileMapLayer" parent="3DParallaxObject/TileMapLayer"]
+[node name="Layer1" type="TileMapLayer" parent="CanvasLayer2/3DParallaxObject/TileMapLayer"]
 use_parent_material = true
 position = Vector2(-576, -716)
 scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_lnicw")
 
-[node name="3DParallaxObject3" parent="." instance=ExtResource("2_pu5pe")]
+[node name="3DParallaxObject3" parent="CanvasLayer2" instance=ExtResource("2_pu5pe")]
 use_parent_material = true
 position = Vector2(576, 324)
 min_parallax = -60
 max_parallax = -20
 parallax_scroll_factor = 0.99
 parallax_scale_factor = 0.99
+parallax_modulate_factor = Color(1, 1, 1, 1)
 metadata/_edit_group_ = true
 
-[node name="Layer2" type="TileMapLayer" parent="3DParallaxObject3"]
+[node name="Layer2" type="TileMapLayer" parent="CanvasLayer2/3DParallaxObject3"]
 use_parent_material = true
 position = Vector2(-576, -716)
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAABABAABAAJAA8AAAABABEABAAJABAAAAABABIABAAJABEAAAABABMABAAJABIAAAABABQABAAJABMAAAACABAABAAKAA8AAAACABEABAAKABAAAAACABIABAAKABEAAAACABMABAAKABIAAAACABQABAAKABMAAAADABAABAALAA8AAAADABEABAALABAAAAADABIABAALABEAAAADABMABAALABIAAAADABQABAALABMAAAAIABAABAAJAA8AAAAIABEABAAJABAAAAAIABIABAAJABEAAAAIABMABAAJABIAAAAIABQABAAJABMAAAAJABAABAAKAA8AAAAJABEABAAKABAAAAAJABIABAAKABEAAAAJABMABAAKABIAAAAJABQABAAKABMAAAAKABAABAALAA8AAAAKABEABAALABAAAAAKABIABAALABEAAAAKABMABAALABIAAAAKABQABAALABMAAAAbABAABAAJAA8AAAAbABEABAAJABAAAAAbABIABAAJABEAAAAbABMABAAJABIAAAAbABQABAAJABMAAAAcABAABAAKAA8AAAAcABEABAAKABAAAAAcABIABAAKABEAAAAcABMABAAKABIAAAAcABQABAAKABMAAAAdABAABAALAA8AAAAdABEABAALABAAAAAdABIABAALABEAAAAdABMABAALABIAAAAdABQABAALABMAAAA=")
 tile_set = SubResource("TileSet_lnicw")
 
-[node name="3DParallaxObject2" parent="." instance=ExtResource("2_pu5pe")]
+[node name="3DParallaxObject2" parent="CanvasLayer2" instance=ExtResource("2_pu5pe")]
 use_parent_material = true
 min_parallax = 20
 max_parallax = 20
 parallax_scroll_factor = 0.99
 parallax_scale_factor = 0.99
 
-[node name="MendingArea" parent="3DParallaxObject2" instance=ExtResource("8_nc1j1")]
+[node name="MendingArea3" parent="CanvasLayer2/3DParallaxObject2" instance=ExtResource("8_nc1j1")]
+offset_left = 400.0
+offset_top = 304.0
+offset_right = 1218.0
+offset_bottom = 984.0
+columns = 5
+
+[node name="Block17" parent="CanvasLayer2/3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block18" parent="CanvasLayer2/3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block19" parent="CanvasLayer2/3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block20" parent="CanvasLayer2/3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block21" parent="CanvasLayer2/3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block22" parent="CanvasLayer2/3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block23" parent="CanvasLayer2/3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block24" parent="CanvasLayer2/3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block25" parent="CanvasLayer2/3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block26" parent="CanvasLayer2/3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block27" parent="CanvasLayer2/3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block28" parent="CanvasLayer2/3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block29" parent="CanvasLayer2/3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block30" parent="CanvasLayer2/3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block31" parent="CanvasLayer2/3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block32" parent="CanvasLayer2/3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block33" parent="CanvasLayer2/3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block34" parent="CanvasLayer2/3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block35" parent="CanvasLayer2/3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block36" parent="CanvasLayer2/3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block37" parent="CanvasLayer2/3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block38" parent="CanvasLayer2/3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block39" parent="CanvasLayer2/3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block40" parent="CanvasLayer2/3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block41" parent="CanvasLayer2/3DParallaxObject2/MendingArea3" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="MendingArea" parent="CanvasLayer2/3DParallaxObject2" instance=ExtResource("8_nc1j1")]
 use_parent_material = true
 offset_left = 16.00003
 offset_top = 295.99997
@@ -4581,81 +4696,192 @@ offset_bottom = 976.0
 columns = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Block" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+[node name="Block" parent="CanvasLayer2/3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
 layout_mode = 2
 _block_data = ExtResource("10_0eonh")
 
-[node name="Block2" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+[node name="Block2" parent="CanvasLayer2/3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
 layout_mode = 2
 _block_data = ExtResource("11_u8ywi")
 
-[node name="Block3" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+[node name="Block3" parent="CanvasLayer2/3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
 layout_mode = 2
 
-[node name="Block4" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+[node name="Block4" parent="CanvasLayer2/3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
 layout_mode = 2
 
-[node name="Block5" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+[node name="Block5" parent="CanvasLayer2/3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
 layout_mode = 2
 _block_data = ExtResource("14_0eonh")
 
-[node name="Block6" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+[node name="Block6" parent="CanvasLayer2/3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
 layout_mode = 2
 
-[node name="Block7" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+[node name="Block7" parent="CanvasLayer2/3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
 layout_mode = 2
 _block_data = ExtResource("12_242gi")
 
-[node name="Block8" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+[node name="Block8" parent="CanvasLayer2/3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
 layout_mode = 2
 _block_data = ExtResource("15_u8ywi")
 
-[node name="Block9" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+[node name="Block9" parent="CanvasLayer2/3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
 layout_mode = 2
 
-[node name="Block10" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+[node name="Block10" parent="CanvasLayer2/3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
 layout_mode = 2
 
-[node name="Block11" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+[node name="Block11" parent="CanvasLayer2/3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
 layout_mode = 2
 
-[node name="Block12" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+[node name="Block12" parent="CanvasLayer2/3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
 layout_mode = 2
 
-[node name="Block13" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+[node name="Block13" parent="CanvasLayer2/3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
 layout_mode = 2
 _block_data = ExtResource("15_u8ywi")
 
-[node name="Block14" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+[node name="Block14" parent="CanvasLayer2/3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
 layout_mode = 2
 _block_data = ExtResource("13_r2mwn")
 
-[node name="Block15" parent="3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
+[node name="Block15" parent="CanvasLayer2/3DParallaxObject2/MendingArea" instance=ExtResource("9_tkla2")]
 layout_mode = 2
 _block_data = ExtResource("15_u8ywi")
 
-[node name="3DParallaxObject4" parent="." instance=ExtResource("2_pu5pe")]
+[node name="MendingArea2" parent="CanvasLayer2/3DParallaxObject2" instance=ExtResource("8_nc1j1")]
+use_parent_material = true
+offset_left = -336.0
+offset_top = 64.0
+offset_right = 482.0
+offset_bottom = 744.0
+columns = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Block" parent="CanvasLayer2/3DParallaxObject2/MendingArea2" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+_block_data = ExtResource("10_0eonh")
+
+[node name="Block2" parent="CanvasLayer2/3DParallaxObject2/MendingArea2" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+_block_data = ExtResource("11_u8ywi")
+
+[node name="Block3" parent="CanvasLayer2/3DParallaxObject2/MendingArea2" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+_block_data = ExtResource("16_1a7h6")
+
+[node name="Block4" parent="CanvasLayer2/3DParallaxObject2/MendingArea2" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block5" parent="CanvasLayer2/3DParallaxObject2/MendingArea2" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+_block_data = ExtResource("14_0eonh")
+
+[node name="Block6" parent="CanvasLayer2/3DParallaxObject2/MendingArea2" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block7" parent="CanvasLayer2/3DParallaxObject2/MendingArea2" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+_block_data = ExtResource("12_242gi")
+
+[node name="Block8" parent="CanvasLayer2/3DParallaxObject2/MendingArea2" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+_block_data = ExtResource("15_u8ywi")
+
+[node name="Block9" parent="CanvasLayer2/3DParallaxObject2/MendingArea2" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block10" parent="CanvasLayer2/3DParallaxObject2/MendingArea2" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block11" parent="CanvasLayer2/3DParallaxObject2/MendingArea2" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block12" parent="CanvasLayer2/3DParallaxObject2/MendingArea2" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block13" parent="CanvasLayer2/3DParallaxObject2/MendingArea2" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+_block_data = ExtResource("15_u8ywi")
+
+[node name="Block14" parent="CanvasLayer2/3DParallaxObject2/MendingArea2" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+_block_data = ExtResource("13_r2mwn")
+
+[node name="Block15" parent="CanvasLayer2/3DParallaxObject2/MendingArea2" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+_block_data = ExtResource("15_u8ywi")
+
+[node name="Block16" parent="CanvasLayer2/3DParallaxObject2/MendingArea2" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block17" parent="CanvasLayer2/3DParallaxObject2/MendingArea2" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+
+[node name="Block18" parent="CanvasLayer2/3DParallaxObject2/MendingArea2" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+_block_data = ExtResource("15_u8ywi")
+
+[node name="Block19" parent="CanvasLayer2/3DParallaxObject2/MendingArea2" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+_block_data = ExtResource("13_r2mwn")
+
+[node name="Block20" parent="CanvasLayer2/3DParallaxObject2/MendingArea2" instance=ExtResource("9_tkla2")]
+layout_mode = 2
+_block_data = ExtResource("15_u8ywi")
+
+[node name="3DParallaxObject4" parent="CanvasLayer2" instance=ExtResource("2_pu5pe")]
 use_parent_material = true
 max_parallax = 20
 parallax_scroll_factor = 0.99
 parallax_scale_factor = 0.99
+parallax_modulate_factor = Color(0, 0.9490196, 0.9490196, 1)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="3DParallaxObject4"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer2/3DParallaxObject4"]
 material = ExtResource("16_242gi")
-position = Vector2(904, -64)
+position = Vector2(552, -136)
 scale = Vector2(8.34, 8.34)
 sprite_frames = ExtResource("8_q70ef")
 animation = &"walk"
 autoplay = "walk"
 
-[node name="3DParallaxObject5" parent="." instance=ExtResource("2_pu5pe")]
+[node name="3DParallaxObject5" parent="CanvasLayer2" instance=ExtResource("2_pu5pe")]
 use_parent_material = true
 start_modulate_at_front = true
 max_parallax = 0
 parallax_scroll_factor = 0.99
 parallax_scale_factor = 0.99
 
-[node name="Steam" parent="3DParallaxObject5" instance=ExtResource("18_r2mwn")]
-position = Vector2(552, 160)
+[node name="Steam" parent="CanvasLayer2" instance=ExtResource("18_r2mwn")]
+position = Vector2(608, 232)
 
-[editable path="3DParallaxObject5/Steam"]
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+layer = 2
+follow_viewport_enabled = true
+
+[node name="CharacterBody2D" parent="CanvasLayer3" instance=ExtResource("1_s8n23")]
+position = Vector2(384, 184)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_p7h4a")
+position = Vector2(888, -32)
+scale = Vector2(1.8125, 1.8125)
+texture = SubResource("CanvasTexture_iceyf")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(840, -56)
+shadow_enabled = true
+texture = ExtResource("25_uch43")
+texture_scale = 5.0
+height = 210.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_ekarr")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
