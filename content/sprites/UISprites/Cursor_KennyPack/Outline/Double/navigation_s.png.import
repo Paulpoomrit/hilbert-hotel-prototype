@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://8nidyintxrrn"
-path="res://.godot/imported/navigation_s.png-0026a360e436ffcc918d88a0eb6e0ecb.ctex"
+path="res://.godot/imported/navigation_s.png-2395e5b58a7278cdc2a741b9101fee4a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/UISprites/Cursor_KennyPack/Outline/Double/navigation_s.png"
-dest_files=["res://.godot/imported/navigation_s.png-0026a360e436ffcc918d88a0eb6e0ecb.ctex"]
+source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Outline/Double/navigation_s.png"
+dest_files=["res://.godot/imported/navigation_s.png-2395e5b58a7278cdc2a741b9101fee4a.ctex"]
 
 [params]
 

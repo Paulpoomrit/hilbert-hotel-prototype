@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnairk2kojy7e"
-path="res://.godot/imported/busy_circle.png-74d4395dde0f7181f1a280c6ffbe0bfc.ctex"
+path="res://.godot/imported/busy_circle.png-1ebe02ddcd565f24a7a8bf8632a12777.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/UISprites/Cursor_KennyPack/Basic/Double/busy_circle.png"
-dest_files=["res://.godot/imported/busy_circle.png-74d4395dde0f7181f1a280c6ffbe0bfc.ctex"]
+source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Basic/Double/busy_circle.png"
+dest_files=["res://.godot/imported/busy_circle.png-1ebe02ddcd565f24a7a8bf8632a12777.ctex"]
 
 [params]
 

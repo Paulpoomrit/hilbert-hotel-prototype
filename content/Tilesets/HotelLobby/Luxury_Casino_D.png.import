@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://coy1qeq8qbqco"
-path="res://.godot/imported/Luxury_Casino_D.png-f85c7da635a27b9d98c47dc169575183.ctex"
+path="res://.godot/imported/Luxury_Casino_D.png-7ef7bbff33881fddfba1a41f2e3e4958.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/Tilesets/HotelLobby/Luxury_Casino_D.png"
-dest_files=["res://.godot/imported/Luxury_Casino_D.png-f85c7da635a27b9d98c47dc169575183.ctex"]
+source_file="res://Content/Tilesets/HotelLobby/Luxury_Casino_D.png"
+dest_files=["res://.godot/imported/Luxury_Casino_D.png-7ef7bbff33881fddfba1a41f2e3e4958.ctex"]
 
 [params]
 

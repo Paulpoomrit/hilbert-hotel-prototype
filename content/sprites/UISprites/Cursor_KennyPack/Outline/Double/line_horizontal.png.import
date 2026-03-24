@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://oadvbffbdu0x"
-path="res://.godot/imported/line_horizontal.png-f06b82cdd785761b9be2fac808e0d1d5.ctex"
+path="res://.godot/imported/line_horizontal.png-d83e94aa8ef3c21da70ac9a9bdfd13e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/UISprites/Cursor_KennyPack/Outline/Double/line_horizontal.png"
-dest_files=["res://.godot/imported/line_horizontal.png-f06b82cdd785761b9be2fac808e0d1d5.ctex"]
+source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Outline/Double/line_horizontal.png"
+dest_files=["res://.godot/imported/line_horizontal.png-d83e94aa8ef3c21da70ac9a9bdfd13e1.ctex"]
 
 [params]
 

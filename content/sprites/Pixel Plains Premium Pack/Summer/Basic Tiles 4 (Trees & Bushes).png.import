@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cesu1priaka0t"
-path="res://.godot/imported/Basic Tiles 4 (Trees & Bushes).png-acc3b32490fe3de5830152618eb7168e.ctex"
+path="res://.godot/imported/Basic Tiles 4 (Trees & Bushes).png-e90372be9a0d6ad0e535d09d6792e965.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/Pixel Plains Premium Pack/Summer/Basic Tiles 4 (Trees & Bushes).png"
-dest_files=["res://.godot/imported/Basic Tiles 4 (Trees & Bushes).png-acc3b32490fe3de5830152618eb7168e.ctex"]
+source_file="res://Content/Sprites/Pixel Plains Premium Pack/Summer/Basic Tiles 4 (Trees & Bushes).png"
+dest_files=["res://.godot/imported/Basic Tiles 4 (Trees & Bushes).png-e90372be9a0d6ad0e535d09d6792e965.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgbwe8pxq75o3"
-path="res://.godot/imported/mark_exclamation.png-f49783fd353a275d8721bb66dc5eed92.ctex"
+path="res://.godot/imported/mark_exclamation.png-3e3499e6a60efa6d8ecead6c717df380.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/UISprites/Cursor_KennyPack/Basic/Double/mark_exclamation.png"
-dest_files=["res://.godot/imported/mark_exclamation.png-f49783fd353a275d8721bb66dc5eed92.ctex"]
+source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Basic/Double/mark_exclamation.png"
+dest_files=["res://.godot/imported/mark_exclamation.png-3e3499e6a60efa6d8ecead6c717df380.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7v3m3ac0xu4j"
-path="res://.godot/imported/tool_wand.png-61303aa76258fdcd3d6ce13497321128.ctex"
+path="res://.godot/imported/tool_wand.png-0acd6cb95ec5614adf530647e7412f60.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/UISprites/Cursor_KennyPack/Outline/Default/tool_wand.png"
-dest_files=["res://.godot/imported/tool_wand.png-61303aa76258fdcd3d6ce13497321128.ctex"]
+source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Outline/Default/tool_wand.png"
+dest_files=["res://.godot/imported/tool_wand.png-0acd6cb95ec5614adf530647e7412f60.ctex"]
 
 [params]
 

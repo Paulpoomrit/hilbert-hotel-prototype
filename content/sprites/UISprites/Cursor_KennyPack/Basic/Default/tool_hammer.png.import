@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bycsx0b8ff7b2"
-path="res://.godot/imported/tool_hammer.png-82f248ecfb1468796ad4a2abf1f93048.ctex"
+path="res://.godot/imported/tool_hammer.png-d41f8ba6cc0fd9d53b39859a7cfb5d3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/UISprites/Cursor_KennyPack/Basic/Default/tool_hammer.png"
-dest_files=["res://.godot/imported/tool_hammer.png-82f248ecfb1468796ad4a2abf1f93048.ctex"]
+source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Basic/Default/tool_hammer.png"
+dest_files=["res://.godot/imported/tool_hammer.png-d41f8ba6cc0fd9d53b39859a7cfb5d3e.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://8rrjx0780n3m"]
+[gd_scene load_steps=11 format=4 uid="uid://csb4utdwukuxq"]
 
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="1_2kygw"]
 [ext_resource type="TileSet" uid="uid://1oudmm1ak5bm" path="res://Common/Tilesets/HotelLobby.tres" id="2_neqeq"]

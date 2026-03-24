@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qngvl7ktojmo"
-path="res://.godot/imported/tool_bow.png-46c1ef0e4a6c171b41253e88e2fa17e7.ctex"
+path="res://.godot/imported/tool_bow.png-d26d6d52fa5274ac42c31275c4b705e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/UISprites/Cursor_KennyPack/Basic/Double/tool_bow.png"
-dest_files=["res://.godot/imported/tool_bow.png-46c1ef0e4a6c171b41253e88e2fa17e7.ctex"]
+source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Basic/Double/tool_bow.png"
+dest_files=["res://.godot/imported/tool_bow.png-d26d6d52fa5274ac42c31275c4b705e2.ctex"]
 
 [params]
 

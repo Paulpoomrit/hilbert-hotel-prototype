@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bal8hbo172no4"
-path="res://.godot/imported/bayer8tile16.png-cb5ec72dd54801f4dbc5115c69d6d23e.ctex"
+path="res://.godot/imported/bayer8tile16.png-c1298546b05c020f359f3137cf25d552.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/Textures/bayer-textures/bayer8tile16.png"
-dest_files=["res://.godot/imported/bayer8tile16.png-cb5ec72dd54801f4dbc5115c69d6d23e.ctex"]
+source_file="res://Content/Textures/bayer-textures/bayer8tile16.png"
+dest_files=["res://.godot/imported/bayer8tile16.png-c1298546b05c020f359f3137cf25d552.ctex"]
 
 [params]
 

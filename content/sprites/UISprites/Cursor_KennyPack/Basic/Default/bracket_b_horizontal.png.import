@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqkapjn2y8w0y"
-path="res://.godot/imported/bracket_b_horizontal.png-7d6b09aaf823ac263a3efd6c226e2db4.ctex"
+path="res://.godot/imported/bracket_b_horizontal.png-eb46d03dd410145b780522cf1075c9bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/UISprites/Cursor_KennyPack/Basic/Default/bracket_b_horizontal.png"
-dest_files=["res://.godot/imported/bracket_b_horizontal.png-7d6b09aaf823ac263a3efd6c226e2db4.ctex"]
+source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Basic/Default/bracket_b_horizontal.png"
+dest_files=["res://.godot/imported/bracket_b_horizontal.png-eb46d03dd410145b780522cf1075c9bd.ctex"]
 
 [params]
 

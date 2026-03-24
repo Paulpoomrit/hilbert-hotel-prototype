@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dyy4do0ykpyhy"
-path="res://.godot/imported/drawing_brush_large.png-3bcbef9af6b56c2869ad2621a27dd258.ctex"
+path="res://.godot/imported/drawing_brush_large.png-0ba44da7e31b77f675d7035d39f06ada.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/UISprites/Cursor_KennyPack/Basic/Double/drawing_brush_large.png"
-dest_files=["res://.godot/imported/drawing_brush_large.png-3bcbef9af6b56c2869ad2621a27dd258.ctex"]
+source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Basic/Double/drawing_brush_large.png"
+dest_files=["res://.godot/imported/drawing_brush_large.png-0ba44da7e31b77f675d7035d39f06ada.ctex"]
 
 [params]
 
