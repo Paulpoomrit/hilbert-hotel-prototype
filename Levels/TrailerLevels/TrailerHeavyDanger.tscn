@@ -31,6 +31,30 @@ tile_map_data = PackedByteArray("AADn//n/BAAEAAIAAADn//r/BAAEAAIAAADn//v/BAAEAAI
 tile_set = ExtResource("2_ooqin")
 collision_enabled = false
 
+[node name="3DParallaxObject3" parent="." instance=ExtResource("1_sxqxa")]
+min_parallax = 3
+max_parallax = 4
+parallax_scroll_factor = 0.97
+parallax_scale_factor = 0.97
+parallax_modulate_factor = Color(0.85430586, 0.85430586, 0.85430586, 1)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="3DParallaxObject3"]
+tile_map_data = PackedByteArray("AAANAPX/BAAEAAIAAAANAPb/BAAEAAIAAAANAPf/BAAEAAIAAAANAPj/BAAEAAIAAAAOAPX/BAAEAAIAAAAOAPb/BAAEAAIAAAAOAPf/BAAEAAIAAAAOAPj/BAAEAAIAAAAPAPX/BAAEAAIAAAAPAPb/BAAEAAIAAAAPAPf/BAAEAAIAAAAPAPj/BAAEAAIAAAAQAPX/BAAEAAIAAAAQAPb/BAAEAAIAAAAQAPf/BAAEAAIAAAAQAPj/BAAEAAIAAAA=")
+tile_set = ExtResource("2_ooqin")
+collision_enabled = false
+
+[node name="3DParallaxObject4" parent="." instance=ExtResource("1_sxqxa")]
+min_parallax = -4
+max_parallax = -3
+parallax_scroll_factor = 0.97
+parallax_scale_factor = 0.97
+parallax_modulate_factor = Color(0.85430586, 0.85430586, 0.85430586, 1)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="3DParallaxObject4"]
+tile_map_data = PackedByteArray("AAANAPX/BAAEAAIAAAANAPb/BAAEAAIAAAANAPf/BAAEAAIAAAANAPj/BAAEAAIAAAAOAPX/BAAEAAIAAAAOAPb/BAAEAAIAAAAOAPf/BAAEAAIAAAAOAPj/BAAEAAIAAAAPAPX/BAAEAAIAAAAPAPb/BAAEAAIAAAAPAPf/BAAEAAIAAAAPAPj/BAAEAAIAAAAQAPX/BAAEAAIAAAAQAPb/BAAEAAIAAAAQAPf/BAAEAAIAAAAQAPj/BAAEAAIAAAA=")
+tile_set = ExtResource("2_ooqin")
+collision_enabled = false
+
 [node name="Steam" parent="." instance=ExtResource("3_ooqin")]
 position = Vector2(495, -47)
 
