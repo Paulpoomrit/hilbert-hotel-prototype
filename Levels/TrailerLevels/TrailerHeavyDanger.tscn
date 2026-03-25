@@ -44,7 +44,7 @@ tile_set = ExtResource("2_ooqin")
 collision_enabled = false
 
 [node name="3DParallaxObject4" parent="." instance=ExtResource("1_sxqxa")]
-min_parallax = -4
+min_parallax = -3
 max_parallax = -3
 parallax_scroll_factor = 0.97
 parallax_scale_factor = 0.97
