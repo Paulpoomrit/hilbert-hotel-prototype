@@ -209,12 +209,13 @@ height = 1024.0
 layer = 11
 follow_viewport_enabled = true
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="CanvasLayer_Shadows" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer_Shadows"]
 material = SubResource("ShaderMaterial_skyjd")
 offset_left = -416.0
 offset_top = -480.0
 offset_right = 728.0
 offset_bottom = 232.0
 scale = Vector2(1.5, 1.5)
+metadata/_edit_use_anchors_ = true

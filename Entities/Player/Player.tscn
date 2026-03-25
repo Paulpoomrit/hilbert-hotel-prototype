@@ -28,6 +28,19 @@ script = ExtResource("1_kne1u")
 position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_e80uo")
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 12)
+energy = 1.75
+range_z_min = -4096
+range_z_max = 4096
+range_layer_min = -2048
+range_layer_max = 2048
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter_smooth = 5.0
+texture = ExtResource("8_x44r4")
+height = 74.0
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
 use_parent_material = true
@@ -50,16 +63,3 @@ offset_left = -579.0
 offset_top = -324.0
 offset_right = -579.0
 offset_bottom = -324.0
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(0, 12)
-energy = 1.75
-range_z_min = -4096
-range_z_max = 4096
-range_layer_min = -2048
-range_layer_max = 2048
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter_smooth = 5.0
-texture = ExtResource("8_x44r4")
-height = 74.0
