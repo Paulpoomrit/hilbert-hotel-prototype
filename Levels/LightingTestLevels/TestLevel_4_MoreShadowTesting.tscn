@@ -29,6 +29,7 @@ shader_parameter/dither_palette = ExtResource("8_yai72")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_skyjd"]
 shader = ExtResource("14_yai72")
+shader_parameter/strength = 1.0
 shader_parameter/background_colour = Color(0, 0, 0, 1)
 shader_parameter/shadow_colour = Color(0, 0.024485156, 0, 1)
 shader_parameter/offset_in_pixels = Vector2(100, 100)

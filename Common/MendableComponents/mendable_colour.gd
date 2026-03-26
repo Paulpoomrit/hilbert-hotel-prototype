@@ -2,6 +2,10 @@ extends Node2D
 
 
 @export var gravity_enabled : bool = true
+
+## This means the script will skip the process of adding the custom bw shader
+## and assumes that the shader of the parent obj has param 'shader_parameter/strength'
+@export var object_has_compatible_shader: bool = false
 var color_effect = "none"
 var bw_material: ShaderMaterial = ShaderMaterial.new()
 const BW = preload("uid://bkxiydok4qfbh")
@@ -17,7 +21,7 @@ func _ready() -> void:
 	var parent = get_parent()
 	if parent:
 		pass
-	if is_instance_of(parent, CanvasItem):
+	if is_instance_of(parent, CanvasItem) and not object_has_compatible_shader:
 		parent.material = bw_material
 
 
