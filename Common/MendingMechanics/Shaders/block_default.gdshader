@@ -1,10 +1,15 @@
 shader_type canvas_item;
 
+#include "res://Common/Shaders/ColourDither/colour_dither_include.gdshaderinc"
+
 group_uniforms Shadow;
 uniform int dist = 2;
 uniform vec4 color: source_color = vec4(0.0, 0.0, 0.0, 0.5);
 uniform float angle: hint_range(0.0, 360.0) = 90.0;
 group_uniforms;
+
+// Pixel offset used only for alpha dithering
+uniform vec2 alpha_dither_pixel_offset = vec2(0.0);
 
 varying vec2 main_uv;
 varying vec2 shadow_uv;
@@ -53,6 +58,16 @@ void fragment() {
 
 	// add main color on top of blackened area
 	COLOR += main_color * main_color.a;
+	
+	// 2. Dither
+	vec4 colour_before_dither = COLOR;
+    vec2 pixel = get_pixel_center(TEXTURE, UV);
+    float dither_value_alpha = get_dither_value(pixel + alpha_dither_pixel_offset);
+    if (colour_before_dither.a <= dither_value_alpha) {
+        discard;
+    }
+    float dither_value = get_dither_value(pixel);
+    COLOR = get_dither_colour(dither_value, colour_before_dither);
 }
 
 //void light() {

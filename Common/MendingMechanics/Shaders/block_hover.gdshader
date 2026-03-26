@@ -1,4 +1,5 @@
 shader_type canvas_item;
+#include "res://Common/Shaders/ColourDither/colour_dither_include.gdshaderinc"
 
 group_uniforms Shadow;
 uniform int dist = 6;
@@ -11,6 +12,9 @@ uniform float specular_strength: hint_range(0.0, 1.0, 0.1) = 1.0;
 uniform float specular_speed = 2.0;
 uniform vec3 specular_colour: source_color = vec3(0.445, 0.156, 0.521);
 group_uniforms;
+
+// Pixel offset used only for alpha dithering
+uniform vec2 alpha_dither_pixel_offset = vec2(0.0);
 
 varying vec2 main_uv;
 varying vec2 shadow_uv;
@@ -105,6 +109,18 @@ void fragment() {
 	COLOR.rgb = clamp(specular_color + COLOR.rgb, 0.0, 1.0);
 	
 	// COLOR = specular_color_main;
+	
+	// --------------------------------
+	
+	// 3. Dither
+	vec4 colour_before_dither = COLOR;
+    vec2 pixel = get_pixel_center(TEXTURE, UV);
+    float dither_value_alpha = get_dither_value(pixel + alpha_dither_pixel_offset);
+    if (colour_before_dither.a <= dither_value_alpha) {
+        discard;
+    }
+    float dither_value = get_dither_value(pixel);
+    COLOR = get_dither_colour(dither_value, colour_before_dither);
 }
 
 //void light() {

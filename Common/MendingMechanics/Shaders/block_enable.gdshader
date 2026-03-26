@@ -1,4 +1,6 @@
 shader_type canvas_item;
+#include "res://Common/Shaders/ColourDither/colour_dither_include.gdshaderinc"
+
 
 // render_mode blend_add;
 
@@ -20,6 +22,11 @@ uniform float intensity : hint_range(0.0, 10.0) = 1.5;
 uniform float spread : hint_range(0.1, 10.0) = 1.506;
 uniform float pulse_speed : hint_range(0.0, 100.0) = 1.0;
 group_uniforms;
+
+
+// Pixel offset used only for alpha dithering
+uniform vec2 alpha_dither_pixel_offset = vec2(0.0);
+
 
 varying vec2 main_uv;
 varying vec2 shadow_uv;
@@ -129,6 +136,18 @@ void fragment() {
 	
 	vec3 final_colour = (COLOR.rgb + specular_color) * glow_alpha;
 	COLOR.rgb = clamp(final_colour, 0.0, 1.0);
+	
+	// --------------------------------
+	
+	// 3. Dither
+	vec4 colour_before_dither = COLOR;
+    vec2 pixel = get_pixel_center(TEXTURE, UV);
+    float dither_value_alpha = get_dither_value(pixel + alpha_dither_pixel_offset);
+    if (colour_before_dither.a <= dither_value_alpha) {
+        discard;
+    }
+    float dither_value = get_dither_value(pixel);
+    COLOR = get_dither_colour(dither_value, colour_before_dither);
 }
 
 //void light() {
