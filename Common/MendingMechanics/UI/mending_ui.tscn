@@ -109,7 +109,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="InventoryArea" type="CanvasLayer" parent="."]
-layer = 2
+layer = 3
 
 [node name="ColourPalette" type="Sprite2D" parent="InventoryArea"]
 position = Vector2(974, 422.99997)
