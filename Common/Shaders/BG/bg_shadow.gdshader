@@ -1,4 +1,5 @@
 shader_type canvas_item;
+#include "res://Common/Shaders/BW/bw_include.gdshaderinc"
 
 
 uniform vec4 background_colour : source_color;
@@ -33,10 +34,9 @@ void fragment() {
 			// if it is background, we replace with the actual bg texture
 			vec4 bg_colour = texture(BG, UV);
 			current_colour = bg_colour;
+			// make this works with mendable gravity
+			current_colour.rgb = get_bw_colour_from_colour(current_colour.rgb);
 		}
 	} 
 	COLOR = current_colour;
-	
-	
-	
 }
