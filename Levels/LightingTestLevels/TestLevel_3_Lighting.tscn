@@ -50,6 +50,7 @@ polygon = PackedVector2Array(-43, -62, -43, -61, -44, -61, -44, -60, -45, -60, -
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aenh3"]
 shader = ExtResource("10_l155o")
+shader_parameter/strength = 0.0
 shader_parameter/background_colour = Color(0, 0, 0, 1)
 shader_parameter/shadow_colour = Color(0, 0, 0, 1)
 shader_parameter/offset_in_pixels = Vector2(25, 25)
@@ -107,7 +108,7 @@ mouse_filter = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_p7h4a")
-position = Vector2(832, 192)
+position = Vector2(920, -336)
 scale = Vector2(1.8125, 1.8125)
 texture = SubResource("CanvasTexture_iceyf")
 
