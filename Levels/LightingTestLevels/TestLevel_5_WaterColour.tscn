@@ -69,7 +69,7 @@ offset_right = -280.00003
 offset_bottom = -3000.0002
 scale = Vector2(2599.0698, 142.04878)
 
-[node name="Shadow" type="Sprite2D" parent="CanvasLayer_BG/3DParallaxObject"]
+[node name="WaterColour" type="Sprite2D" parent="CanvasLayer_BG/3DParallaxObject"]
 light_mask = 5
 z_index = 5
 material = SubResource("ShaderMaterial_vmmii")

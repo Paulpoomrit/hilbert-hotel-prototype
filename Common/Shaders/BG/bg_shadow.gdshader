@@ -5,7 +5,7 @@ shader_type canvas_item;
 uniform vec4 background_colour : source_color;
 uniform vec4 shadow_colour : source_color;
 uniform vec2 offset_in_pixels;
-uniform sampler2D BG: source_color, repeat_enable;
+uniform sampler2D BG: source_color, repeat_enable, filter_nearest;
 uniform sampler2D height_map: source_color;
 
 

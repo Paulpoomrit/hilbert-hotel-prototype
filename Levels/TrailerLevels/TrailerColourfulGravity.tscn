@@ -31,12 +31,6 @@ shader_parameter/offset_in_pixels = Vector2(100, 20)
 shader_parameter/BG = ExtResource("9_6au4y")
 shader_parameter/height_map = ExtResource("7_8qby1")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_loe6v"]
-shader = ExtResource("12_3wct8")
-shader_parameter/alpha = 1.0
-shader_parameter/inner_radius = 0.37
-shader_parameter/outer_radius = 2.01
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_locus"]
 shader = ExtResource("11_8xxd6")
 shader_parameter/dither_pixel_size = 4.0
@@ -44,6 +38,12 @@ shader_parameter/dither_pixel_offset = Vector2(0, 0)
 shader_parameter/albedo = Color(0.8560673, 0.8560673, 0.85606724, 1)
 shader_parameter/albedo_strength = 1.24
 shader_parameter/dither_palette = ExtResource("12_8xxd6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_loe6v"]
+shader = ExtResource("12_3wct8")
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 0.37
+shader_parameter/outer_radius = 2.01
 
 [node name="TrailerColourfulGravity" type="Node2D"]
 
@@ -84,6 +84,7 @@ offset_right = -7800.9277
 offset_bottom = -2400.0002
 scale = Vector2(2599.0698, 142.04878)
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer_Objects" type="CanvasLayer" parent="."]
 layer = -1
@@ -449,9 +450,9 @@ object_has_compatible_shader = true
 
 [node name="ColorRect3" type="ColorRect" parent="CanvasLayer_Shadows/3DParallaxObject_Tiles"]
 material = SubResource("ShaderMaterial_42i1m")
-offset_left = 192.00012
+offset_left = 191.99997
 offset_top = -328.0
-offset_right = 2112.0
+offset_right = 2111.9998
 offset_bottom = 752.0
 scale = Vector2(0.65000004, 0.65000004)
 mouse_filter = 2
@@ -495,8 +496,8 @@ mouse_filter = 2
 [node name="CanvasLayer_PostProcessing" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="Vignette" type="ColorRect" parent="CanvasLayer_PostProcessing"]
-material = SubResource("ShaderMaterial_loe6v")
+[node name="Dither" type="ColorRect" parent="CanvasLayer_PostProcessing"]
+material = SubResource("ShaderMaterial_locus")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -505,8 +506,8 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Dither" type="ColorRect" parent="CanvasLayer_PostProcessing"]
-material = SubResource("ShaderMaterial_locus")
+[node name="Vignette" type="ColorRect" parent="CanvasLayer_PostProcessing"]
+material = SubResource("ShaderMaterial_loe6v")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
