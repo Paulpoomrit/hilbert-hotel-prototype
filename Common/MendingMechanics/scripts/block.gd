@@ -18,8 +18,8 @@ var _block_hover_material: ShaderMaterial = ShaderMaterial.new()
 var _block_enable_material: ShaderMaterial = ShaderMaterial.new() 
 
 
-const BLOCK_HOVER_SHADER = preload("res://Common/MendingMechanics/Shaders/block_hover.gdshader")
-const BLOCK_ENABLE = preload("res://Common/MendingMechanics/Shaders/block_enable.gdshader")
+const BLOCK_HOVER_SHADER = preload("res://Common/Shaders/BlockShaders/block_hover.gdshader")
+const BLOCK_ENABLE = preload("res://Common/Shaders/BlockShaders/block_enable.gdshader")
 
 
 func _ready() -> void:

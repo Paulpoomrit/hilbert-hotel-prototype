@@ -9,9 +9,9 @@
 [ext_resource type="Shader" uid="uid://bo6po8ea4lsun" path="res://Common/Shaders/BG/bg_shadow.gdshader" id="5_2cvtv"]
 [ext_resource type="Texture2D" uid="uid://dupbvmtl2gpy0" path="res://Content/Backgrounds/DepthTest/cyberpunk-city-2-back-preview.png" id="5_jtbo2"]
 [ext_resource type="Texture2D" uid="uid://drwpgewrpkrvu" path="res://Content/Backgrounds/DepthTest/depth.png" id="6_45saw"]
-[ext_resource type="Texture2D" uid="uid://dnsvkkon4ddeb" path="res://Content/Palettes/DitherPalettes/1bit-monitor-glow.png" id="6_ydvo6"]
 [ext_resource type="Shader" uid="uid://ct4ah3v3e5les" path="res://Common/Shaders/ColourDither/colour_dither_post_processing.gdshader" id="8_54g8q"]
 [ext_resource type="Shader" uid="uid://nrqvmkhs2gp2" path="res://Common/Shaders/Vignette/vignette.gdshader" id="10_ydvo6"]
+[ext_resource type="Texture2D" uid="uid://5rmp2nfmiket" path="res://Content/Palettes/DitherPalettes/knockkia3310.png" id="12_ldndq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ydvo6"]
 
@@ -20,8 +20,8 @@ shader = ExtResource("4_q6gcs")
 shader_parameter/dither_pixel_size = 4.0
 shader_parameter/dither_pixel_offset = Vector2(0, 0)
 shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/albedo_strength = 1.26
-shader_parameter/dither_palette = ExtResource("6_ydvo6")
+shader_parameter/albedo_strength = 0.92
+shader_parameter/dither_palette = ExtResource("12_ldndq")
 shader_parameter/alpha_dither_pixel_offset = Vector2(0, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ldndq"]
@@ -38,8 +38,8 @@ shader = ExtResource("8_54g8q")
 shader_parameter/dither_pixel_size = 4.0
 shader_parameter/dither_pixel_offset = Vector2(0, 0)
 shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/albedo_strength = 1.26
-shader_parameter/dither_palette = ExtResource("6_ydvo6")
+shader_parameter/albedo_strength = 0.92
+shader_parameter/dither_palette = ExtResource("12_ldndq")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mdwvd"]
 shader = ExtResource("10_ydvo6")
@@ -123,9 +123,6 @@ tile_map_data = PackedByteArray("AAANAPX/AAALAAQAAAANAPb/AAALAAQAAAANAPf/AAALAAQ
 tile_set = ExtResource("2_g4giy")
 collision_enabled = false
 
-[node name="Steam" parent="CanvasLayer_ENV" instance=ExtResource("3_ooqin")]
-position = Vector2(495, -47)
-
 [node name="CanvasLayer_Foreground" type="CanvasLayer" parent="."]
 layer = 6
 follow_viewport_enabled = true
@@ -190,6 +187,9 @@ metadata/_edit_use_anchors_ = true
 [node name="CanvasLayer_Player" type="CanvasLayer" parent="."]
 layer = 5
 follow_viewport_enabled = true
+
+[node name="Steam" parent="CanvasLayer_Player" instance=ExtResource("3_ooqin")]
+position = Vector2(495, -47)
 
 [node name="Player" parent="CanvasLayer_Player" instance=ExtResource("3_g4giy")]
 

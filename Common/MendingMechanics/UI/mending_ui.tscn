@@ -6,13 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://qhajc4yiwps7" path="res://Content/Sprites/UISprites/UIElements/HilbertHotel_UI_mockup_ver001_2026-03-08_palette_withOUTtexture.png" id="2_55niv"]
 [ext_resource type="PackedScene" uid="uid://ciexe7prabm03" path="res://Common/MendingMechanics/block.tscn" id="2_a0i6h"]
 [ext_resource type="Texture2D" uid="uid://5lntn6abuuuw" path="res://Content/Palettes/wish-gb-1x.png" id="2_gq7mh"]
-[ext_resource type="Texture2D" uid="uid://12u5le3xrdc" path="res://Content/Sprites/UISprites/UIElements/ThoughtBubble.png" id="2_s31gp"]
 [ext_resource type="Texture2D" uid="uid://dr1tk4p82qqkg" path="res://Content/Noise/mending_ui.tres" id="3_8s5ia"]
 [ext_resource type="PackedScene" uid="uid://cqixjwfcu3mhc" path="res://Common/MendingMechanics/UI/mending_area.tscn" id="3_55niv"]
 [ext_resource type="Texture2D" uid="uid://bdrrfh2nukybf" path="res://Content/Palettes/DitherPalettes/mega-drive-blue.png" id="5_gq7mh"]
 [ext_resource type="Resource" uid="uid://b1a80lgxgkurs" path="res://Common/MendingMechanics/Blocks/gravity.tres" id="5_p62ws"]
 [ext_resource type="Resource" uid="uid://b28c81x7v8eys" path="res://Common/MendingMechanics/Blocks/danger.tres" id="6_756bo"]
 [ext_resource type="Resource" uid="uid://dslunw1cp57x" path="res://Common/MendingMechanics/Blocks/speed.tres" id="7_a2hsm"]
+[ext_resource type="Texture2D" uid="uid://c60phl8f0560x" path="res://Content/Sprites/UISprites/UIElements/HH_Ui.png" id="7_gq7mh"]
 [ext_resource type="Script" uid="uid://boot62ab1jtq6" path="res://Common/MendingMechanics/Scripts/inventory_manger.gd" id="7_m5hi7"]
 [ext_resource type="Resource" uid="uid://bxpj41o2usndm" path="res://Common/MendingMechanics/Blocks/perspective.tres" id="8_a2oxc"]
 [ext_resource type="Resource" uid="uid://25rjd7yrrg7t" path="res://Common/MendingMechanics/Blocks/size.tres" id="9_867gp"]
@@ -70,16 +70,16 @@ script = ExtResource("1_a0i6h")
 [node name="Control" type="Control" parent="."]
 use_parent_material = true
 anchors_preset = 0
-offset_left = 116.0
-offset_right = 156.0
+offset_left = 93.0
+offset_right = 133.0
 offset_bottom = 40.0
 
 [node name="ThoughtBubble" type="Sprite2D" parent="Control"]
 light_mask = 0
 material = SubResource("ShaderMaterial_8s5ia")
-position = Vector2(390.45996, 160.00002)
+position = Vector2(403, 161)
 scale = Vector2(0.5262777, 0.5771325)
-texture = ExtResource("2_s31gp")
+texture = ExtResource("7_gq7mh")
 
 [node name="MendingArea" parent="Control" instance=ExtResource("3_55niv")]
 use_parent_material = true

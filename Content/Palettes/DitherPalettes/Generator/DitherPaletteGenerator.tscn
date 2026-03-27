@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://c0ysevndxqe31"]
 
 [ext_resource type="Script" uid="uid://djv76bksgrpxm" path="res://Content/Palettes/DitherPalettes/Generator/dither_palette_generator.gd" id="1_xcfik"]
-[ext_resource type="Texture2D" uid="uid://beelyivrxs2kg" path="res://Content/Palettes/purplemorning8-1x.png" id="2_y2pp4"]
+[ext_resource type="Texture2D" uid="uid://ckr2r1gguejrr" path="res://Content/Palettes/knockia3310-1x.png" id="2_y2pp4"]
 
 [node name="DitherPaletteGenerator" type="Node2D"]
 script = ExtResource("1_xcfik")
 palette_texture = ExtResource("2_y2pp4")
-output_name = "purple-morning"
-dither_color_count = 8
+output_name = "knockkia3310"
+dither_color_count = 2
