@@ -32,6 +32,7 @@ shader_parameter/shadow_colour = Color(0, 0, 0, 1)
 shader_parameter/offset_in_pixels = Vector2(100, 20)
 shader_parameter/BG = ExtResource("5_jtbo2")
 shader_parameter/height_map = ExtResource("6_45saw")
+shader_parameter/chroma_key_strength = 0.01
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5eu2v"]
 shader = ExtResource("8_54g8q")

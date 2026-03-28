@@ -30,6 +30,8 @@ func _ready() -> void:
 	_block_enable_material.set_shader_parameter("dither_palette", _block_default_dither_palette);
 	
 	_block_og_scale = self.get_global_transform_with_canvas().get_scale()
+	if (get_parent_control()):
+		_block_og_scale = get_parent_control().scale
 
 
 func update_ui() -> void:
