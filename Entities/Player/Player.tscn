@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cnmp26hv874sr" path="res://Common/MendableComponents/MendableSpeed.tscn" id="4_761t5"]
 [ext_resource type="PackedScene" uid="uid://b65uxaiqqqm3j" path="res://Common/MendableComponents/MendableTime.tscn" id="5_hacra"]
 [ext_resource type="SpriteFrames" uid="uid://dgicyn81i40we" path="res://Entities/Player/PlayerSprites.tres" id="6_hj1c0"]
-[ext_resource type="Texture2D" uid="uid://dh1p7a1iw8wle" path="res://Content/Textures/fuzzy_ball.png" id="8_x44r4"]
+[ext_resource type="Texture2D" uid="uid://c3m4r85f05c2i" path="res://Content/Textures/FREE Textures Of Light Alpha/512x512/512x512 textures (5).png" id="8_x44r4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e80uo"]
 size = Vector2(72, 76)
@@ -28,7 +28,21 @@ script = ExtResource("1_kne1u")
 position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_e80uo")
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 12)
+energy = 1.75
+range_z_min = -4096
+range_z_max = 4096
+range_layer_min = -2048
+range_layer_max = 2048
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter_smooth = 5.0
+texture = ExtResource("8_x44r4")
+height = 74.0
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 2
 use_parent_material = true
 scale = Vector2(4, 4)
 sprite_frames = ExtResource("6_hj1c0")
@@ -49,14 +63,3 @@ offset_left = -579.0
 offset_top = -324.0
 offset_right = -579.0
 offset_bottom = -324.0
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(0, 12)
-energy = 0.37
-range_z_min = -2048
-range_layer_min = -1024
-range_layer_max = 1024
-shadow_enabled = true
-texture = ExtResource("8_x44r4")
-texture_scale = 3.69
-height = 1024.0

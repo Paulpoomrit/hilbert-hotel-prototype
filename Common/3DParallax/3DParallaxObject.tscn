@@ -13,3 +13,4 @@ script = ExtResource("1_jc7ad")
 [node name="Parallaxes" type="Node2D" parent="."]
 
 [node name="MendableColour" parent="." instance=ExtResource("2_hw86k")]
+gravity_enabled = false

@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnfdga8e5lrtp"]
+
+[ext_resource type="Texture2D" uid="uid://c3tydyfk8xlwf" path="res://icon.svg" id="1_spaiw"]
+[ext_resource type="Shader" uid="uid://bo6po8ea4lsun" path="res://Common/Shaders/BG/bg_shadow.gdshader" id="2_6j6mk"]
+[ext_resource type="Texture2D" uid="uid://dupbvmtl2gpy0" path="res://Content/Backgrounds/DepthTest/cyberpunk-city-2-back-preview.png" id="3_coijk"]
+[ext_resource type="Texture2D" uid="uid://drwpgewrpkrvu" path="res://Content/Backgrounds/DepthTest/depth.png" id="4_5pbrx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y1ryb"]
+shader = ExtResource("2_6j6mk")
+shader_parameter/background_colour = Color(1, 0, 0, 1)
+shader_parameter/shadow_colour = Color(0, 0.024485156, 0, 1)
+shader_parameter/offset_in_pixels = Vector2(100, 100)
+shader_parameter/BG = ExtResource("3_coijk")
+shader_parameter/height_map = ExtResource("4_5pbrx")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer2"]
+offset_left = -312.0
+offset_top = -424.0
+offset_right = 832.0
+offset_bottom = 288.0
+scale = Vector2(1.6400018, 2.2400002)
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer2"]
+position = Vector2(280, 80)
+texture = ExtResource("1_spaiw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_y1ryb")
+offset_left = -56.0
+offset_top = -264.0
+offset_right = 1088.0
+offset_bottom = 448.0
