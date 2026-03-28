@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dm5linmguvrmo"
-path="res://.godot/imported/steps.png-05c8b5cf7192202fbba358654cfb98ef.ctex"
+path="res://.godot/imported/steps.png-fc1fd53b4e0056c0cc53c765c7f20b70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/UISprites/Cursor_KennyPack/Basic/Default/steps.png"
-dest_files=["res://.godot/imported/steps.png-05c8b5cf7192202fbba358654cfb98ef.ctex"]
+source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Basic/Default/steps.png"
+dest_files=["res://.godot/imported/steps.png-fc1fd53b4e0056c0cc53c765c7f20b70.ctex"]
 
 [params]
 

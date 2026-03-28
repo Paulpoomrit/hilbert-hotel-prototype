@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://baoihyexcmuff"
-path="res://.godot/imported/Tileset 8x8 Ver.png-28f5e818aa923d7048420a9792ff895f.ctex"
+path="res://.godot/imported/Tileset 8x8 Ver.png-2d6324cca5b7fc07848676d85e4c31fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/Pixel Plains Premium Pack/Tileset 8x8 Ver.png"
-dest_files=["res://.godot/imported/Tileset 8x8 Ver.png-28f5e818aa923d7048420a9792ff895f.ctex"]
+source_file="res://Content/Sprites/Pixel Plains Premium Pack/Tileset 8x8 Ver.png"
+dest_files=["res://.godot/imported/Tileset 8x8 Ver.png-2d6324cca5b7fc07848676d85e4c31fc.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://buhmeuy0dfco5"
-path="res://.godot/imported/drawing_pen.png-d1ed30a9a59db0ed68b224bbee238e9d.ctex"
+path="res://.godot/imported/drawing_pen.png-31c926e6c00b3c66e34981458645dc3a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/UISprites/Cursor_KennyPack/Outline/Double/drawing_pen.png"
-dest_files=["res://.godot/imported/drawing_pen.png-d1ed30a9a59db0ed68b224bbee238e9d.ctex"]
+source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Outline/Double/drawing_pen.png"
+dest_files=["res://.godot/imported/drawing_pen.png-31c926e6c00b3c66e34981458645dc3a.ctex"]
 
 [params]
 

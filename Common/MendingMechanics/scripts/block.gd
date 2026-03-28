@@ -5,6 +5,7 @@ extends TextureButton
 
 
 @export var _block_data: BlockData = preload("uid://c80app652t07d")
+@export var _block_default_dither_palette: Texture2D = preload("uid://bdrrfh2nukybf");
 
 
 var _block_type: String
@@ -17,14 +18,17 @@ var _block_hover_material: ShaderMaterial = ShaderMaterial.new()
 var _block_enable_material: ShaderMaterial = ShaderMaterial.new() 
 
 
-const BLOCK_HOVER_SHADER = preload("res://Common/MendingMechanics/Shaders/block_hover.gdshader")
-const BLOCK_ENABLE = preload("res://Common/MendingMechanics/Shaders/block_enable.gdshader")
+const BLOCK_HOVER_SHADER = preload("res://Common/Shaders/BlockShaders/block_hover.gdshader")
+const BLOCK_ENABLE = preload("res://Common/Shaders/BlockShaders/block_enable.gdshader")
 
 
 func _ready() -> void:
 	update_ui()
 	_block_hover_material.shader = BLOCK_HOVER_SHADER
 	_block_enable_material.shader = BLOCK_ENABLE
+	_block_hover_material.set_shader_parameter("dither_palette", _block_default_dither_palette);
+	_block_enable_material.set_shader_parameter("dither_palette", _block_default_dither_palette);
+	
 	_block_og_scale = self.get_global_transform_with_canvas().get_scale()
 
 

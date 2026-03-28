@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyc7dcjmqo7io"
-path="res://.godot/imported/DG Knight 4 v1.png-b35c04baa7129f8bc2314707ff68a084.ctex"
+path="res://.godot/imported/DG Knight 4 v1.png-4f2fbdc72c5278e6af3b0b43c259c1f3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/Pixel Plains Premium Pack/Characters 24x24/DG Knight 4 v1.png"
-dest_files=["res://.godot/imported/DG Knight 4 v1.png-b35c04baa7129f8bc2314707ff68a084.ctex"]
+source_file="res://Content/Sprites/Pixel Plains Premium Pack/Characters 24x24/DG Knight 4 v1.png"
+dest_files=["res://.godot/imported/DG Knight 4 v1.png-4f2fbdc72c5278e6af3b0b43c259c1f3.ctex"]
 
 [params]
 

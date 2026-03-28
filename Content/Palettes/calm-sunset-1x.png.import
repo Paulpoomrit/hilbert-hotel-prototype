@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ns1axkx30umm"
-path="res://.godot/imported/calm-sunset-1x.png-a28ba19b9d9825fc25448c14f5496daf.ctex"
+path="res://.godot/imported/calm-sunset-1x.png-d95812c1d0939faf3f097cd6f4d66d59.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/Palettes/calm-sunset-1x.png"
-dest_files=["res://.godot/imported/calm-sunset-1x.png-a28ba19b9d9825fc25448c14f5496daf.ctex"]
+source_file="res://Content/Palettes/calm-sunset-1x.png"
+dest_files=["res://.godot/imported/calm-sunset-1x.png-d95812c1d0939faf3f097cd6f4d66d59.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2akqtj5wuigy"
-path="res://.godot/imported/hand_thin_small_open.png-7f04a072a57e3a5fff572af6f098c353.ctex"
+path="res://.godot/imported/hand_thin_small_open.png-c50aef261da8cc147c8e0894383bb52a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/sprites/UISprites/Cursor_KennyPack/Basic/Double/hand_thin_small_open.png"
-dest_files=["res://.godot/imported/hand_thin_small_open.png-7f04a072a57e3a5fff572af6f098c353.ctex"]
+source_file="res://Content/Sprites/UISprites/Cursor_KennyPack/Basic/Double/hand_thin_small_open.png"
+dest_files=["res://.godot/imported/hand_thin_small_open.png-c50aef261da8cc147c8e0894383bb52a.ctex"]
 
 [params]
 

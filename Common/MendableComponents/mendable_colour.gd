@@ -1,6 +1,11 @@
 extends Node2D
 
 
+@export var gravity_enabled : bool = true
+
+## This means the script will skip the process of adding the custom bw shader
+## and assumes that the shader of the parent obj has param 'shader_parameter/strength'
+@export var object_has_compatible_shader: bool = false
 var color_effect = "none"
 var bw_material: ShaderMaterial = ShaderMaterial.new()
 const BW = preload("uid://bkxiydok4qfbh")
@@ -8,9 +13,7 @@ const BW = preload("uid://bkxiydok4qfbh")
 
 func _ready() -> void:
 	MendingSignalHub.on_change_colour_type.connect(_on_change_colour_type)
-	
-	$GravityArea/CollisionShape2D.disabled = true
-	
+		
 	bw_material.shader = BW
 	bw_material.set_shader_parameter("strength", 0.0)
 	
@@ -18,7 +21,7 @@ func _ready() -> void:
 	var parent = get_parent()
 	if parent:
 		pass
-	if is_instance_of(parent, CanvasItem):
+	if is_instance_of(parent, CanvasItem) and not object_has_compatible_shader:
 		parent.material = bw_material
 
 
@@ -38,12 +41,13 @@ func _on_change_colour_type(new_val, negated : bool = false, target = null):
 		$GravityArea/CollisionShape2D.disabled = true
 		if new_val == "none":
 			pass
-		elif new_val == "Gravity":
+		elif new_val == "Gravity" and gravity_enabled:
 			$GravityArea/CollisionShape2D.disabled = false
-		elif new_val == "Real" and not negated:
-			handle_colour_real()
-		elif new_val == "Real" and negated:
-			handle_colour_not_real()
+		elif new_val == "Real":
+			if negated:
+				handle_colour_not_real()
+			elif not negated:
+				handle_colour_real()
 		
 		color_effect = new_val
 
