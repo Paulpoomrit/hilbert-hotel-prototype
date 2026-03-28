@@ -8,6 +8,7 @@ signal on_change_speed_type(new_val: Variant, negated: bool, target: Object)
 signal on_change_time_type(new_val: Variant, negated: bool, target: Object)
 signal on_change_colour_type(new_val: Variant, negated: bool, target: Object)
 signal on_change_steam_type(new_val: Variant, negated: bool, target: Object)
+signal on_change_perspective_type(new_val: Variant, negated: bool, target: Object)
 
 
 # key = array of blocks, int = number of it occurence
