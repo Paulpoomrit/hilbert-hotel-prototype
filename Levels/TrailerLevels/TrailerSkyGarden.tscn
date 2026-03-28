@@ -329,10 +329,10 @@ layout_mode = 2
 _block_data = ExtResource("13_wmo6u")
 
 [node name="MendingArea2" parent="CanvasLayer/TerrainChunk1" instance=ExtResource("9_yq7sc")]
-offset_left = 347.00003
-offset_top = -69.0
+offset_left = 347.0
+offset_top = -66.0
 offset_right = 1115.0
-offset_bottom = 379.0
+offset_bottom = 382.0
 scale = Vector2(0.63, 0.63)
 theme_override_constants/h_separation = 32
 theme_override_constants/v_separation = 32

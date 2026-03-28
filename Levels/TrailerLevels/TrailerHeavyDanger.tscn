@@ -94,6 +94,7 @@ parallax_scale_factor = 0.97
 parallax_modulate_factor = Color(0.85430586, 0.85430586, 0.85430586, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="CanvasLayer_ENV/3DParallaxObjectLight"]
+visible = false
 position = Vector2(-160.00002, -48)
 scale = Vector2(3.980549, 0.11701245)
 energy = 34.8
@@ -103,6 +104,7 @@ texture = ExtResource("3_ydvo6")
 height = 2650.0
 
 [node name="PointLight2D2" type="PointLight2D" parent="CanvasLayer_ENV/3DParallaxObjectLight"]
+visible = false
 position = Vector2(1056, -47.000004)
 scale = Vector2(3.780549, 0.11701245)
 energy = 34.8
