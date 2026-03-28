@@ -89,3 +89,6 @@ S → Steam Gravity Is 3
 S → Steam Gravity Is - 1
 S → Steam Gravity Is - 2
 S → Steam Gravity Is - 3
+
+# Perspective
+S → Perspective Is 2
