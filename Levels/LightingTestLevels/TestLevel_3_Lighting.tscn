@@ -71,7 +71,6 @@ scale = Vector2(1139.2682, 291.23578)
 color = Color(0, 0, 0, 1)
 
 [node name="Shadow" type="Sprite2D" parent="CanvasLayer_BG"]
-visible = false
 light_mask = 5
 z_index = 5
 material = SubResource("ShaderMaterial_x7gcp")
@@ -80,7 +79,6 @@ scale = Vector2(1.1978959, 1.1973662)
 texture = ExtResource("3_x7gcp")
 
 [node name="BG2" type="Sprite2D" parent="CanvasLayer_BG"]
-visible = false
 light_mask = 5
 material = SubResource("ShaderMaterial_kkmb2")
 position = Vector2(-306.34705, -448.84552)
@@ -95,7 +93,6 @@ follow_viewport_enabled = true
 position = Vector2(128, 280)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_ekarr")
