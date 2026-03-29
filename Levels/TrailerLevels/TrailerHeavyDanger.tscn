@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dnbyqqqsjdo8"]
+[gd_scene load_steps=26 format=4 uid="uid://dnbyqqqsjdo8"]
 
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="1_sxqxa"]
 [ext_resource type="TileSet" uid="uid://bkdfjakis6ppt" path="res://Common/Tilesets/WhimsyTextures.tres" id="2_g4giy"]
@@ -34,6 +34,44 @@ shader_parameter/offset_in_pixels = Vector2(100, 20)
 shader_parameter/BG = ExtResource("5_jtbo2")
 shader_parameter/height_map = ExtResource("6_45saw")
 shader_parameter/chroma_key_strength = 0.01
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ldndq"]
+blend_mode = 1
+light_mode = 1
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_5eu2v"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mdwvd"]
+gradient = SubResource("Gradient_5eu2v")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_wembm"]
+offsets = PackedFloat32Array(0, 0.3275, 0.65, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ein75"]
+gradient = SubResource("Gradient_wembm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i1e6g"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(2000, 1000, 1)
+direction = Vector3(0, 0, 0)
+initial_velocity_max = 300.0
+gravity = Vector3(0, 10, 0)
+scale_min = 0.099999994
+scale_max = 0.5
+color_ramp = SubResource("GradientTexture1D_ein75")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.49999997
+turbulence_enabled = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5eu2v"]
 shader = ExtResource("8_54g8q")
@@ -213,6 +251,16 @@ scale = Vector2(0.58186615, 0.6466042)
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer_Shadows"]
+material = SubResource("CanvasItemMaterial_ldndq")
+position = Vector2(861, -182)
+amount = 200
+texture = SubResource("GradientTexture2D_mdwvd")
+lifetime = 5.0
+randomness = 0.8
+visibility_rect = Rect2(-1000, -500, 2000, 1000)
+process_material = SubResource("ParticleProcessMaterial_i1e6g")
+
 [node name="CanvasLayer_Player" type="CanvasLayer" parent="."]
 layer = 5
 follow_viewport_enabled = true
@@ -249,7 +297,6 @@ metadata/_edit_use_anchors_ = true
 layer = 10
 
 [node name="VHS" type="ColorRect" parent="CanvasLayer_VHS"]
-visible = false
 material = SubResource("ShaderMaterial_ein75")
 anchors_preset = 15
 anchor_right = 1.0

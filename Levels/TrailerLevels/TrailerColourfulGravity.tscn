@@ -618,7 +618,6 @@ layout_mode = 2
 
 [node name="CanvasLayer_VHS" type="CanvasLayer" parent="."]
 layer = 10
-visible = false
 
 [node name="VHS" type="ColorRect" parent="CanvasLayer_VHS"]
 material = SubResource("ShaderMaterial_6osri")
