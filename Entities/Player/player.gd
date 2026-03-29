@@ -6,28 +6,38 @@ extends CharacterBody2D
 const SPEED = 200.0
 const JUMP_VELOCITY = -600.0
 var controls_velocity = Vector2(0.0, 0.0)
+var jumping := false
+var running := false
+@onready var _mendable_speed = $MendableSpeed
+@onready var _sprite_2d = $Sprite2D
 
 
 func _ready() -> void:
-	$AnimatedSprite2D.play()
+	pass
 	
 
 func _physics_process(delta: float) -> void:
-	# Set time speed
 	var time_multiplier = $MendableTime.get_time_multiplier()
-	$AnimatedSprite2D.speed_scale = time_multiplier
+	var speed_multiplier = _mendable_speed.get_speed_multiplier()
+	# Sets animation speeds
+	$AnimationTree.set("parameters/TimeMultiplier/scale", time_multiplier)
+	$AnimationTree.set("parameters/StateMachine/BlendTree/RunSpeedMultiplier/scale", speed_multiplier)
 	# Rewind time if time speed is backwards
 	if time_multiplier < 0:
 		var frame_data = $MendableTime.pop_record(delta*-time_multiplier)
 		position = frame_data[0]
 		velocity = frame_data[1]
-		$AnimatedSprite2D.animation = frame_data[2]
-		$AnimatedSprite2D.flip_h = frame_data[3]
-		$AnimatedSprite2D.frame = frame_data[4]
+		_sprite_2d.flip_h = frame_data[2]
+		running = frame_data[3]
+		_sprite_2d.frame = frame_data[4]
+		$AnimationTree.active = false
 		return
 	# Do nothing if time is frozen
 	elif time_multiplier == 0:
+		$AnimationTree.active = false
 		return
+	else:
+		$AnimationTree.active = true
 	
 	var temp = $MendableColour/GravityArea.collision_mask
 	$MendableColour/GravityArea.collision_mask = $MendableColour/GravityArea.collision_mask & ~collision_layer
@@ -36,20 +46,22 @@ func _physics_process(delta: float) -> void:
 	$MendableColour/GravityArea.collision_mask = temp
 	
 	# Handle jump.
+	jumping = false
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		jumping = true
 	
 	var direction := Input.get_axis("left", "right")
 	if direction:
-		$AnimatedSprite2D.animation = "walk"
+		running = true
 		if direction < 0:
-			$AnimatedSprite2D.flip_h = true
+			_sprite_2d.flip_h = true
 		else:
-			$AnimatedSprite2D.flip_h = false
-		controls_velocity.x = direction * SPEED * $MendableSpeed.get_speed_multiplier()
+			_sprite_2d.flip_h = false
+		controls_velocity.x = direction * SPEED * speed_multiplier
 	else:
-		$AnimatedSprite2D.animation = "idle"
-		controls_velocity.x = move_toward(controls_velocity.x, 0, SPEED * abs($MendableSpeed.get_speed_multiplier()))
+		running = false
+		controls_velocity.x = move_toward(controls_velocity.x, 0, SPEED * abs(speed_multiplier))
 		
 	var natural_velocity = velocity
 	velocity = velocity + controls_velocity
@@ -79,4 +91,4 @@ func _physics_process(delta: float) -> void:
 		velocity.x *= abs($MendableGravity.get_gravity_direction().normalized().x)
 	
 	# Save this frame's final result for MendableTime
-	$MendableTime.update_record(delta, [position, velocity, $AnimatedSprite2D.animation, $AnimatedSprite2D.flip_h, $AnimatedSprite2D.frame])
+	$MendableTime.update_record(delta, [position, velocity, _sprite_2d.flip_h, running, _sprite_2d.frame])
