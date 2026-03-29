@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://btny25srs8xrm"]
+[gd_scene load_steps=30 format=4 uid="uid://btny25srs8xrm"]
 
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="1_bmca3"]
 [ext_resource type="TileSet" uid="uid://bkdfjakis6ppt" path="res://Common/Tilesets/WhimsyTextures.tres" id="2_2id6g"]
@@ -19,6 +19,7 @@
 [ext_resource type="Shader" uid="uid://nrqvmkhs2gp2" path="res://Common/Shaders/Vignette/vignette.gdshader" id="12_3wct8"]
 [ext_resource type="Texture2D" uid="uid://dj856q6kvmwhy" path="res://Content/Palettes/DitherPalettes/autumn-glow.png" id="12_8xxd6"]
 [ext_resource type="Shader" uid="uid://ccuywbjoejik4" path="res://Common/Shaders/vhs.gdshader" id="14_loe6v"]
+[ext_resource type="Shader" uid="uid://7mbbgvpcs3pc" path="res://Common/Shaders/fog.gdshader" id="15_jv2py"]
 [ext_resource type="Resource" uid="uid://r5joufngsc8" path="res://Common/MendingMechanics/Blocks/real.tres" id="17_3wct8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3wct8"]
@@ -71,6 +72,27 @@ shader_parameter/roll_speed = 8.0
 shader_parameter/roll_strength = 0.15
 shader_parameter/glow_strength = 0.25
 shader_parameter/glow_threshold = 0.330000015675
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jv2py"]
+noise_type = 0
+frequency = 0.0024
+fractal_octaves = 10
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ii10t"]
+width = 1920
+height = 1080
+noise = SubResource("FastNoiseLite_jv2py")
+seamless = true
+normalize = false
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m68a5"]
+shader = ExtResource("15_jv2py")
+shader_parameter/strength = 0.0
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ii10t")
+shader_parameter/smoke_color = Color(0.43357468, 0.18668845, 0.0030466283, 1)
+shader_parameter/distortion_speed = 0.10000000475
+shader_parameter/density = 0.514000024415
 
 [node name="TrailerColourfulGravity" type="Node2D"]
 
@@ -629,3 +651,29 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer_PostProcessing2" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer_PostProcessing2"]
+
+[node name="Fog" type="ColorRect" parent="CanvasLayer_PostProcessing2/Node2D"]
+material = SubResource("ShaderMaterial_m68a5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1504.0
+offset_top = -1078.0
+offset_right = 416.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.31, 2.31)
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MendableColour" parent="CanvasLayer_PostProcessing2/Node2D/Fog" instance=ExtResource("8_8qby1")]
+position = Vector2(651.0823, 466.6667)
+scale = Vector2(0.43290046, 0.43290046)
+gravity_enabled = false
+object_has_compatible_shader = true

@@ -91,8 +91,9 @@ shader_parameter/outer_radius = 2.01
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_5eu2v"]
 noise_type = 0
 frequency = 0.0024
+fractal_octaves = 10
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mdwvd"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5eu2v"]
 width = 1920
 height = 1080
 noise = SubResource("FastNoiseLite_5eu2v")
@@ -102,8 +103,9 @@ seamless_blend_skirt = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i1e6g"]
 shader = ExtResource("13_5eu2v")
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_mdwvd")
-shader_parameter/smoke_color = Color(0.48962224, 0.48962224, 0.48962218, 1)
+shader_parameter/strength = 1.0
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_5eu2v")
+shader_parameter/smoke_color = Color(0, 0, 0.09019608, 1)
 shader_parameter/distortion_speed = 0.2
 shader_parameter/density = 0.5510000261725
 

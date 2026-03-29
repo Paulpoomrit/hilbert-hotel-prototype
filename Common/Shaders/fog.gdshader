@@ -1,5 +1,9 @@
 shader_type canvas_item;
 
+
+#include "BW/bw_include.gdshaderinc"
+
+
 // Uniforms for customization
 uniform sampler2D noise_texture : repeat_enable;
 uniform vec3 smoke_color : source_color = vec3(0.8);
@@ -22,4 +26,5 @@ void fragment() {
     
     // Output color
     COLOR = vec4(smoke_color, smoke_alpha);
+	COLOR.rgb = get_bw_colour_from_colour(COLOR.rgb);
 }
