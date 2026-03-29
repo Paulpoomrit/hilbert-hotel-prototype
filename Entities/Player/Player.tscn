@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://b1nowex1sm4uh" path="res://Common/MendableComponents/MendableGravity.tscn" id="3_x44r4"]
 [ext_resource type="PackedScene" uid="uid://cnmp26hv874sr" path="res://Common/MendableComponents/MendableSpeed.tscn" id="4_761t5"]
 [ext_resource type="PackedScene" uid="uid://b65uxaiqqqm3j" path="res://Common/MendableComponents/MendableTime.tscn" id="5_hacra"]
-[ext_resource type="Texture2D" uid="uid://c3m4r85f05c2i" path="res://content/Textures/FREE Textures Of Light Alpha/512x512/512x512 textures (5).png" id="8_x44r4"]
-[ext_resource type="Texture2D" uid="uid://cs4lk8w1g5pkb" path="res://content/sprites/MC/MC.png" id="9_761t5"]
+[ext_resource type="Texture2D" uid="uid://c3m4r85f05c2i" path="res://Content/Textures/FREE Textures Of Light Alpha/512x512/512x512 textures (5).png" id="8_x44r4"]
+[ext_resource type="Texture2D" uid="uid://cs4lk8w1g5pkb" path="res://Content/Sprites/MC/MC.png" id="9_761t5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e80uo"]
 size = Vector2(72, 100)
@@ -98,6 +98,21 @@ nodes/TimeMultiplier/node = SubResource("AnimationNodeTimeScale_hacra")
 nodes/TimeMultiplier/position = Vector2(140, 140)
 node_connections = [&"output", 0, &"TimeMultiplier", &"TimeMultiplier", 0, &"StateMachine"]
 
+[sub_resource type="Animation" id="Animation_x44r4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
 [sub_resource type="Animation" id="Animation_uw7o4"]
 resource_name = "fall"
 tracks/0/type = "value"
@@ -179,21 +194,6 @@ tracks/0/keys = {
 "values": [5, 6, 7, 8]
 }
 
-[sub_resource type="Animation" id="Animation_x44r4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [5]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e34i1"]
 _data = {
 &"RESET": SubResource("Animation_x44r4"),
@@ -237,6 +237,8 @@ position = Vector2(0, 22)
 shape = SubResource("RectangleShape2D_e80uo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 2
+use_parent_material = true
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("9_761t5")
 hframes = 5

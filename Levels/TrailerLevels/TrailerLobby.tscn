@@ -382,6 +382,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer_VHS" type="CanvasLayer" parent="."]
 layer = 10
+visible = false
 
 [node name="VHS" type="ColorRect" parent="CanvasLayer_VHS"]
 material = SubResource("ShaderMaterial_g3023")

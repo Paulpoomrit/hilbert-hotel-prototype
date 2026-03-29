@@ -78,7 +78,7 @@ size = Vector2(4390.5, 505)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c2fe4"]
 shader = ExtResource("15_kmi2x")
-shader_parameter/dither_pixel_size = 4.0
+shader_parameter/dither_pixel_size = 2.0
 shader_parameter/dither_pixel_offset = Vector2(0, 0)
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/albedo_strength = 1.0
@@ -232,7 +232,7 @@ follow_viewport_enabled = true
 [node name="Player" parent="CanvasLayer_Player" instance=ExtResource("3_1qspi")]
 scale = Vector2(1.002248, 1.0029422)
 
-[node name="Camera2D" parent="CanvasLayer_Player/Player" index="7"]
+[node name="Camera2D" parent="CanvasLayer_Player/Player" index="4"]
 position = Vector2(0, 16)
 zoom = Vector2(0.45, 0.45)
 
@@ -284,6 +284,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(8, 80)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(704, 888)
@@ -313,6 +314,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer_VHS" type="CanvasLayer" parent="."]
 layer = 10
+visible = false
 
 [node name="VHS" type="ColorRect" parent="CanvasLayer_VHS"]
 material = SubResource("ShaderMaterial_5kusp")
