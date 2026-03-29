@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://btny25srs8xrm"]
+[gd_scene load_steps=26 format=4 uid="uid://btny25srs8xrm"]
 
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="1_bmca3"]
 [ext_resource type="TileSet" uid="uid://bkdfjakis6ppt" path="res://Common/Tilesets/WhimsyTextures.tres" id="2_2id6g"]
@@ -18,6 +18,7 @@
 [ext_resource type="Shader" uid="uid://ct4ah3v3e5les" path="res://Common/Shaders/ColourDither/colour_dither_post_processing.gdshader" id="11_8xxd6"]
 [ext_resource type="Shader" uid="uid://nrqvmkhs2gp2" path="res://Common/Shaders/Vignette/vignette.gdshader" id="12_3wct8"]
 [ext_resource type="Texture2D" uid="uid://dj856q6kvmwhy" path="res://Content/Palettes/DitherPalettes/autumn-glow.png" id="12_8xxd6"]
+[ext_resource type="Shader" uid="uid://ccuywbjoejik4" path="res://Common/Shaders/vhs.gdshader" id="14_loe6v"]
 [ext_resource type="Resource" uid="uid://r5joufngsc8" path="res://Common/MendingMechanics/Blocks/real.tres" id="17_3wct8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3wct8"]
@@ -30,6 +31,7 @@ shader_parameter/shadow_colour = Color(0, 0, 0, 1)
 shader_parameter/offset_in_pixels = Vector2(100, 20)
 shader_parameter/BG = ExtResource("9_6au4y")
 shader_parameter/height_map = ExtResource("7_8qby1")
+shader_parameter/chroma_key_strength = 0.01
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_locus"]
 shader = ExtResource("11_8xxd6")
@@ -44,6 +46,31 @@ shader = ExtResource("12_3wct8")
 shader_parameter/alpha = 1.0
 shader_parameter/inner_radius = 0.37
 shader_parameter/outer_radius = 2.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6osri"]
+shader = ExtResource("14_loe6v")
+shader_parameter/brightness = 1.02
+shader_parameter/contrast = 1.08
+shader_parameter/saturation = 1.1
+shader_parameter/gamma = 1.05
+shader_parameter/curvature = 0.06000000285
+shader_parameter/corner_soften = 0.0800000038
+shader_parameter/vignette = 1.0
+shader_parameter/scanline_strength = 2.0
+shader_parameter/scanline_density = 2.2410000826975
+shader_parameter/interlace_strength = 0.2
+shader_parameter/mask_strength = 0.22
+shader_parameter/mask_scale = 1.0
+shader_parameter/chroma_offset_px = 1.6
+shader_parameter/luma_smear_px = 2.2
+shader_parameter/jitter_px = 1.8
+shader_parameter/wobble_px = 1.5
+shader_parameter/tape_noise = 0.22
+shader_parameter/tape_lines = 0.35
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_strength = 0.15
+shader_parameter/glow_strength = 0.25
+shader_parameter/glow_threshold = 0.330000015675
 
 [node name="TrailerColourfulGravity" type="Node2D"]
 
@@ -517,19 +544,23 @@ mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer_Player" type="CanvasLayer" parent="."]
-layer = 2
+layer = 15
 follow_viewport_enabled = true
 
 [node name="Player" parent="CanvasLayer_Player" instance=ExtResource("2_7ccki")]
 position = Vector2(-304, 64)
 
-[node name="3DParallaxObject_Mending" parent="CanvasLayer_Player" instance=ExtResource("1_bmca3")]
+[node name="CanvasLayer_Mending" type="CanvasLayer" parent="."]
+layer = 2
+follow_viewport_enabled = true
+
+[node name="3DParallaxObject_Mending" parent="CanvasLayer_Mending" instance=ExtResource("1_bmca3")]
 min_parallax = 8
 max_parallax = 8
 parallax_scroll_factor = 0.97
 parallax_scale_factor = 0.97
 
-[node name="MendingArea" parent="CanvasLayer_Player/3DParallaxObject_Mending" instance=ExtResource("5_520xq")]
+[node name="MendingArea" parent="CanvasLayer_Mending/3DParallaxObject_Mending" instance=ExtResource("5_520xq")]
 offset_left = 36.0
 offset_top = 195.0
 offset_right = 755.9999
@@ -538,49 +569,62 @@ theme_override_constants/h_separation = 32
 theme_override_constants/v_separation = 32
 columns = 5
 
-[node name="Block" parent="CanvasLayer_Player/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
+[node name="Block" parent="CanvasLayer_Mending/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
 layout_mode = 2
 _block_data = ExtResource("5_iqq0o")
 
-[node name="Block2" parent="CanvasLayer_Player/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
+[node name="Block2" parent="CanvasLayer_Mending/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
 layout_mode = 2
 
-[node name="Block3" parent="CanvasLayer_Player/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
+[node name="Block3" parent="CanvasLayer_Mending/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
 layout_mode = 2
 
-[node name="Block4" parent="CanvasLayer_Player/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
+[node name="Block4" parent="CanvasLayer_Mending/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
 layout_mode = 2
 
-[node name="Block5" parent="CanvasLayer_Player/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
+[node name="Block5" parent="CanvasLayer_Mending/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
 layout_mode = 2
 _block_data = ExtResource("17_3wct8")
 
-[node name="Block6" parent="CanvasLayer_Player/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
+[node name="Block6" parent="CanvasLayer_Mending/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
 layout_mode = 2
 
-[node name="Block7" parent="CanvasLayer_Player/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
+[node name="Block7" parent="CanvasLayer_Mending/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
 layout_mode = 2
 
-[node name="Block8" parent="CanvasLayer_Player/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
+[node name="Block8" parent="CanvasLayer_Mending/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
 layout_mode = 2
 
-[node name="Block9" parent="CanvasLayer_Player/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
+[node name="Block9" parent="CanvasLayer_Mending/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
 layout_mode = 2
 
-[node name="Block10" parent="CanvasLayer_Player/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
+[node name="Block10" parent="CanvasLayer_Mending/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
 layout_mode = 2
 
-[node name="Block11" parent="CanvasLayer_Player/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
+[node name="Block11" parent="CanvasLayer_Mending/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
 layout_mode = 2
 
-[node name="Block12" parent="CanvasLayer_Player/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
+[node name="Block12" parent="CanvasLayer_Mending/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
 layout_mode = 2
 
-[node name="Block13" parent="CanvasLayer_Player/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
+[node name="Block13" parent="CanvasLayer_Mending/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
 layout_mode = 2
 
-[node name="Block14" parent="CanvasLayer_Player/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
+[node name="Block14" parent="CanvasLayer_Mending/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
 layout_mode = 2
 
-[node name="Block15" parent="CanvasLayer_Player/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
+[node name="Block15" parent="CanvasLayer_Mending/3DParallaxObject_Mending/MendingArea" instance=ExtResource("6_iqq0o")]
 layout_mode = 2
+
+[node name="CanvasLayer_VHS" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="VHS" type="ColorRect" parent="CanvasLayer_VHS"]
+material = SubResource("ShaderMaterial_6osri")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
