@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://csb4utdwukuxq"]
+[gd_scene load_steps=29 format=4 uid="uid://csb4utdwukuxq"]
 
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="1_2kygw"]
 [ext_resource type="Shader" uid="uid://bo6po8ea4lsun" path="res://Common/Shaders/BG/bg_shadow.gdshader" id="2_goqtp"]
@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://bpyipd32l8m4o" path="res://Common/MendingMechanics/Blocks/not.tres" id="9_l7x3d"]
 [ext_resource type="PackedScene" uid="uid://cayqkgsdubwau" path="res://Entities/FloatingBall/FloatingBall.tscn" id="10_rpb32"]
 [ext_resource type="Shader" uid="uid://mpkkl4ljp1ty" path="res://Common/Shaders/volumetric_ocean_waves.gdshader" id="14_eom42"]
+[ext_resource type="Shader" uid="uid://c5mw21se76req" path="res://Common/Shaders/god_ray.gdshader" id="15_5kusp"]
 [ext_resource type="Shader" uid="uid://ct4ah3v3e5les" path="res://Common/Shaders/ColourDither/colour_dither_post_processing.gdshader" id="15_kmi2x"]
 [ext_resource type="Texture2D" uid="uid://dj856q6kvmwhy" path="res://Content/Palettes/DitherPalettes/autumn-glow.png" id="16_tddai"]
 [ext_resource type="Shader" uid="uid://nrqvmkhs2gp2" path="res://Common/Shaders/Vignette/vignette.gdshader" id="17_5kusp"]
@@ -56,6 +57,22 @@ shader_parameter/BG = ExtResource("3_goqtp")
 shader_parameter/height_map = ExtResource("4_eom42")
 shader_parameter/chroma_key_strength = 0.01
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8rbne"]
+shader = ExtResource("15_5kusp")
+shader_parameter/angle = 0.1
+shader_parameter/position = 0.15
+shader_parameter/spread = 0.2690000127775
+shader_parameter/cutoff = 0.09000005177499992
+shader_parameter/falloff = 0.31200001482
+shader_parameter/edge_fade = 0.2400000114
+shader_parameter/speed = 5.05
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.3
+shader_parameter/color = Color(1, 0.9019608, 0.6509804, 0.40784314)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_goqtp"]
 size = Vector2(4390.5, 505)
 
@@ -75,7 +92,7 @@ shader_parameter/outer_radius = 2.01
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5kusp"]
 shader = ExtResource("18_tddai")
-shader_parameter/brightness = 1.02
+shader_parameter/brightness = 0.0
 shader_parameter/contrast = 1.08
 shader_parameter/saturation = 1.1
 shader_parameter/gamma = 1.05
@@ -96,7 +113,7 @@ shader_parameter/tape_lines = 0.35
 shader_parameter/roll_speed = 8.0
 shader_parameter/roll_strength = 0.15
 shader_parameter/glow_strength = 0.25
-shader_parameter/glow_threshold = 0.330000015675
+shader_parameter/glow_threshold = 0.65
 
 [node name="TrailerSpeedAndTime" type="Node2D"]
 
@@ -193,11 +210,27 @@ scale = Vector2(0.96000004, 0.96000004)
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
+[node name="GodRay" type="ColorRect" parent="CanvasLayer_Shadows"]
+material = SubResource("ShaderMaterial_8rbne")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1216.0
+offset_top = -1112.0
+offset_right = -1216.0
+offset_bottom = -1112.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.1257463, 3.0952854)
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
 [node name="CanvasLayer_Player" type="CanvasLayer" parent="."]
 layer = 5
 follow_viewport_enabled = true
 
 [node name="Player" parent="CanvasLayer_Player" instance=ExtResource("3_1qspi")]
+visible = false
 scale = Vector2(1.002248, 1.0029422)
 
 [node name="Camera2D" parent="CanvasLayer_Player/Player" index="7"]
@@ -281,6 +314,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer_VHS" type="CanvasLayer" parent="."]
 layer = 10
+visible = false
 
 [node name="VHS" type="ColorRect" parent="CanvasLayer_VHS"]
 material = SubResource("ShaderMaterial_5kusp")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://cak0n8enr543r"]
+[gd_scene load_steps=25 format=4 uid="uid://cak0n8enr543r"]
 
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="1_osx1b"]
 [ext_resource type="TileSet" uid="uid://bkdfjakis6ppt" path="res://Common/Tilesets/WhimsyTextures.tres" id="2_d5bpt"]
@@ -18,7 +18,24 @@
 [ext_resource type="Resource" uid="uid://r5joufngsc8" path="res://Common/MendingMechanics/Blocks/real.tres" id="13_wmo6u"]
 [ext_resource type="Resource" uid="uid://bxpj41o2usndm" path="res://Common/MendingMechanics/Blocks/perspective.tres" id="14_kdktk"]
 [ext_resource type="Resource" uid="uid://c2onf2tr5qfp8" path="res://Common/MendingMechanics/Blocks/2.tres" id="15_tvwvh"]
+[ext_resource type="Shader" uid="uid://c5mw21se76req" path="res://Common/Shaders/god_ray.gdshader" id="16_wmo6u"]
 [ext_resource type="Shader" uid="uid://ccuywbjoejik4" path="res://Common/Shaders/vhs.gdshader" id="19_tvwvh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mwyto"]
+shader = ExtResource("16_wmo6u")
+shader_parameter/angle = 0.1
+shader_parameter/position = 0.15
+shader_parameter/spread = 0.2690000127775
+shader_parameter/cutoff = 0.09000005177499992
+shader_parameter/falloff = 0.31200001482
+shader_parameter/edge_fade = 0.2400000114
+shader_parameter/speed = 5.05
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.3
+shader_parameter/color = Color(1, 0.9019608, 0.6509804, 0.40784314)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g7wqi"]
 shader = ExtResource("6_2dpe5")
@@ -377,6 +394,21 @@ _block_data = ExtResource("11_kdktk")
 [node name="Block4" parent="CanvasLayer/TerrainChunk1/MendingArea2" instance=ExtResource("10_n7b4e")]
 layout_mode = 2
 _block_data = ExtResource("15_tvwvh")
+
+[node name="GodRay" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_mwyto")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1216.0
+offset_top = -1112.0
+offset_right = -1216.0
+offset_bottom = -1112.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.1257463, 3.0952854)
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer_PostProcessing" type="CanvasLayer" parent="."]
 layer = 2

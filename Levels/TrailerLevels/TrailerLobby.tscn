@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://unoixwid6r8o"]
+[gd_scene load_steps=18 format=4 uid="uid://unoixwid6r8o"]
 
 [ext_resource type="PackedScene" uid="uid://bl6msvoc1qtd4" path="res://Entities/Player/Player.tscn" id="1_c3unq"]
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="2_mkirl"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cenkjxekv1q2l" path="res://Content/Backgrounds/interior_entrance_evening.png" id="5_qrxsl"]
 [ext_resource type="Texture2D" uid="uid://c0sfk62jitu6u" path="res://Content/Backgrounds/interior_entrance_evening_p.png" id="6_qrxsl"]
 [ext_resource type="Shader" uid="uid://ct4ah3v3e5les" path="res://Common/Shaders/ColourDither/colour_dither_post_processing.gdshader" id="7_mw7pt"]
+[ext_resource type="Shader" uid="uid://c5mw21se76req" path="res://Common/Shaders/god_ray.gdshader" id="8_g3023"]
 [ext_resource type="Texture2D" uid="uid://ljxh30p2a6ok" path="res://Content/Palettes/DitherPalettes/calm-sunset.png" id="8_mw7pt"]
 [ext_resource type="Shader" uid="uid://nrqvmkhs2gp2" path="res://Common/Shaders/Vignette/vignette.gdshader" id="9_y2jxk"]
 [ext_resource type="Shader" uid="uid://ccuywbjoejik4" path="res://Common/Shaders/vhs.gdshader" id="11_jkx7f"]
@@ -21,6 +22,22 @@ shader_parameter/offset_in_pixels = Vector2(100, 100)
 shader_parameter/BG = ExtResource("5_qrxsl")
 shader_parameter/height_map = ExtResource("6_qrxsl")
 shader_parameter/chroma_key_strength = 0.00999999977648
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jh7og"]
+shader = ExtResource("8_g3023")
+shader_parameter/angle = 0.1
+shader_parameter/position = 0.15
+shader_parameter/spread = 0.2690000127775
+shader_parameter/cutoff = 0.09000005177499992
+shader_parameter/falloff = 0.31200001482
+shader_parameter/edge_fade = 0.2400000114
+shader_parameter/speed = 5.05
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.3
+shader_parameter/color = Color(1, 0.9019608, 0.6509804, 0.40784314)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_awijj"]
 shader = ExtResource("7_mw7pt")
@@ -274,6 +291,21 @@ offset_top = -905.0
 offset_right = 5485.915
 offset_bottom = 1778.0771
 scale = Vector2(0.49, 0.49)
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="GodRay" type="ColorRect" parent="CanvasLayer_Shadows"]
+material = SubResource("ShaderMaterial_jh7og")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1216.0
+offset_top = -1112.0
+offset_right = -1216.0
+offset_bottom = -1112.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.1257463, 3.0952854)
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
