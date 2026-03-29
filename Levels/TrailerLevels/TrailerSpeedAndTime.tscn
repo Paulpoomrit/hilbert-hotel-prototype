@@ -230,7 +230,6 @@ layer = 5
 follow_viewport_enabled = true
 
 [node name="Player" parent="CanvasLayer_Player" instance=ExtResource("3_1qspi")]
-visible = false
 scale = Vector2(1.002248, 1.0029422)
 
 [node name="Camera2D" parent="CanvasLayer_Player/Player" index="7"]
