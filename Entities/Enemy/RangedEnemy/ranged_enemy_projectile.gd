@@ -13,5 +13,5 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 
 func point_to(dest: Vector2):
 	var new_angle = global_position.angle_to_point(dest)
-	$Sprite2D.rotation = new_angle
+	$Sprite2D.rotation += new_angle
 	linear_velocity = linear_velocity.rotated(new_angle)
