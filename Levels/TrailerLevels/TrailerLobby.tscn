@@ -300,7 +300,7 @@ follow_viewport_enabled = true
 layer = -1
 follow_viewport_enabled = true
 
-[node name="Player_Shadow" parent="CanvasLayer_Player2" instance=ExtResource("5_hclan")]
+[node name="Player" parent="CanvasLayer_Player2" instance=ExtResource("5_hclan")]
 position = Vector2(5, 0)
 
 [node name="CanvasLayer_Shadows" type="CanvasLayer" parent="."]
@@ -407,6 +407,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="LensDist" type="ColorRect" parent="CanvasLayer_VHS"]
+visible = false
 material = SubResource("ShaderMaterial_hclan")
 anchors_preset = 15
 anchor_right = 1.0

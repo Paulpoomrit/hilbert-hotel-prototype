@@ -22,7 +22,7 @@ noise = ExtResource("8_061yh")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hacra"]
 shader = ExtResource("7_lmeus")
 shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_uw7o4")
-shader_parameter/dissolve_value = 0.0
+shader_parameter/dissolve_value = 1.0
 shader_parameter/burn_size = 0.03999999910592
 shader_parameter/burn_color = Color(0.98039216, 0.4509804, 0.32156864, 1)
 
@@ -312,6 +312,6 @@ shadow_filter_smooth = 5.0
 texture = ExtResource("8_x44r4")
 height = 74.0
 
-[node name="SpriteTailComponent" type="Node2D" parent="." node_paths=PackedStringArray("sprite_2d_ref")]
+[node name="SpriteTrailComponent" type="Node2D" parent="." node_paths=PackedStringArray("sprite_2d_ref")]
 script = ExtResource("9_hacra")
 sprite_2d_ref = NodePath("../Sprite2D")
