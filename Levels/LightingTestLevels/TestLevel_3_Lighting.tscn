@@ -56,6 +56,7 @@ shader_parameter/shadow_colour = Color(0, 0, 0, 1)
 shader_parameter/offset_in_pixels = Vector2(25, 25)
 shader_parameter/BG = ExtResource("11_3c5ao")
 shader_parameter/height_map = ExtResource("12_lw1mf")
+shader_parameter/chroma_key_strength = 0.01
 
 [node name="Node2D" type="Node2D"]
 

@@ -290,6 +290,11 @@ follow_viewport_enabled = true
 
 [node name="Player" parent="CanvasLayer_Player" instance=ExtResource("1_c3unq")]
 
+[node name="CanvasLayer_Player2" type="CanvasLayer" parent="."]
+layer = -1
+visible = false
+follow_viewport_enabled = true
+
 [node name="CanvasLayer_Shadows" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
@@ -337,10 +342,10 @@ material = SubResource("ShaderMaterial_jh7og")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1216.0
-offset_top = -1112.0
-offset_right = -1216.0
-offset_bottom = -1112.0
+offset_left = -1268.0
+offset_top = -1124.0
+offset_right = -1268.0
+offset_bottom = -1124.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(3.1257463, 3.0952854)
