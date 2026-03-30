@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://unoixwid6r8o"]
+[gd_scene load_steps=29 format=4 uid="uid://unoixwid6r8o"]
 
 [ext_resource type="PackedScene" uid="uid://bl6msvoc1qtd4" path="res://Entities/Player/Player.tscn" id="1_c3unq"]
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="2_mkirl"]
@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://ljxh30p2a6ok" path="res://Content/Palettes/DitherPalettes/calm-sunset.png" id="8_mw7pt"]
 [ext_resource type="Shader" uid="uid://nrqvmkhs2gp2" path="res://Common/Shaders/Vignette/vignette.gdshader" id="9_y2jxk"]
 [ext_resource type="Shader" uid="uid://ccuywbjoejik4" path="res://Common/Shaders/vhs.gdshader" id="11_jkx7f"]
+[ext_resource type="Shader" uid="uid://b6tfqxaw8l1bu" path="res://Common/Shaders/burning.gdshader" id="13_hclan"]
+[ext_resource type="FastNoiseLite" uid="uid://ckcryb5xnovyg" path="res://Common/NoiseTextures/BurnTextures.tres" id="14_kkvm4"]
+[ext_resource type="Texture2D" uid="uid://c3tydyfk8xlwf" path="res://icon.svg" id="14_lrd73"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y2jxk"]
 shader = ExtResource("4_qrxsl")
@@ -115,6 +118,16 @@ shader_parameter/roll_speed = 8.0
 shader_parameter/roll_strength = 0.15
 shader_parameter/glow_strength = 0.25
 shader_parameter/glow_threshold = 0.330000015675
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lrd73"]
+noise = ExtResource("14_kkvm4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hclan"]
+shader = ExtResource("13_hclan")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_lrd73")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/burn_size = 0.03999999910592
+shader_parameter/burn_color = Color(1, 0.7019608, 0.32156864, 1)
 
 [node name="TrailerLobby" type="Node2D"]
 
@@ -398,3 +411,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="Icon" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_hclan")
+position = Vector2(-400, -520.00006)
+scale = Vector2(4.200001, 4.200001)
+texture = ExtResource("14_lrd73")

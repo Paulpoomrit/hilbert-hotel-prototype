@@ -92,3 +92,9 @@ func _physics_process(delta: float) -> void:
 	
 	# Save this frame's final result for MendableTime
 	$MendableTime.update_record(delta, [position, velocity, _sprite_2d.flip_h, running, _sprite_2d.frame])
+
+
+func handle_death() -> void:
+	_sprite_2d.use_parent_material = false
+	var tween = create_tween()
+	tween.tween_property(_sprite_2d.material, "shader_parameter/dissolve_value", 0.0, 2.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
