@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs4lk8w1g5pkb"
-path="res://.godot/imported/MC.png-12dde2a23dfce48bf55b2afb825718c7.ctex"
+uid="uid://cimyrxu6tc6iu"
+path="res://.godot/imported/Jorg_2.png-16d09203fb6e8f43b1f002b21aa8f203.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/MC/MC.png"
-dest_files=["res://.godot/imported/MC.png-12dde2a23dfce48bf55b2afb825718c7.ctex"]
+source_file="res://Content/TempEnemy/CarrotAndOtherEnemies/Jorg Sprites/Jorg_2.png"
+dest_files=["res://.godot/imported/Jorg_2.png-16d09203fb6e8f43b1f002b21aa8f203.ctex"]
 
 [params]
 

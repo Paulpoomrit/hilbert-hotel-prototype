@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs4lk8w1g5pkb"
-path="res://.godot/imported/MC.png-12dde2a23dfce48bf55b2afb825718c7.ctex"
+uid="uid://cw73er6taeu7q"
+path="res://.godot/imported/Icon35_21.png-205bada1bed115af913178e4f0476e86.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Sprites/MC/MC.png"
-dest_files=["res://.godot/imported/MC.png-12dde2a23dfce48bf55b2afb825718c7.ctex"]
+source_file="res://Content/TempEnemy/FruitAndVeggieIcons/Icon35_21.png"
+dest_files=["res://.godot/imported/Icon35_21.png-205bada1bed115af913178e4f0476e86.ctex"]
 
 [params]
 
