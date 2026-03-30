@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://kv7tk7lk7gk7"]
+[gd_scene load_steps=36 format=3 uid="uid://kv7tk7lk7gk7"]
 
 [ext_resource type="Script" uid="uid://4o0efb4i18s8" path="res://Entities/Player/player.gd" id="1_cqssc"]
 [ext_resource type="PackedScene" uid="uid://d0ixn0uh3mnvm" path="res://Common/MendableComponents/MendableColour.tscn" id="2_suqqh"]
@@ -6,9 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://cnmp26hv874sr" path="res://Common/MendableComponents/MendableSpeed.tscn" id="4_gioqk"]
 [ext_resource type="PackedScene" uid="uid://b65uxaiqqqm3j" path="res://Common/MendableComponents/MendableTime.tscn" id="5_43ty5"]
 [ext_resource type="Texture2D" uid="uid://cs4lk8w1g5pkb" path="res://Content/Sprites/MC/MC.png" id="6_qp4yh"]
+[ext_resource type="Shader" uid="uid://c2qi0bwv3k8ut" path="res://Common/Shaders/player.gdshader" id="6_suqqh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e80uo"]
 size = Vector2(72, 100)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aq04g"]
+shader = ExtResource("6_suqqh")
+shader_parameter/shadow_only = true
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/blur_std = 0.4
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uw7o4"]
 animation = &"fall"
@@ -220,7 +227,7 @@ shape = SubResource("RectangleShape2D_e80uo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 light_mask = 2
-use_parent_material = true
+material = SubResource("ShaderMaterial_aq04g")
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("6_qp4yh")
 hframes = 5

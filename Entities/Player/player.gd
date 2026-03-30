@@ -13,7 +13,7 @@ var running := false
 
 
 func _ready() -> void:
-	handle_death_revert()
+	#handle_death_revert()
 	pass
 	
 
@@ -105,4 +105,4 @@ func handle_death_revert() -> void:
 	_sprite_2d.use_parent_material = false
 	var tween = create_tween()
 	tween.tween_property(_sprite_2d.material, "shader_parameter/dissolve_value", 1.0, 2.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-	_sprite_2d.use_parent_material = true
+	## TODO: handle parent material: _sprite_2d.use_parent_material = true
