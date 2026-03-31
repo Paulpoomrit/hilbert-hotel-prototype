@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://df5dsic6s317y"]
+[gd_scene load_steps=25 format=4 uid="uid://df5dsic6s317y"]
 
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="1_l7y4u"]
 [ext_resource type="Shader" uid="uid://c6rv26sp4025h" path="res://Common/Shaders/BG/bg_watercolour.gdshader" id="2_22rkx"]
@@ -13,6 +13,8 @@
 [ext_resource type="Shader" uid="uid://bpvavbrb2npjv" path="res://Common/Shaders/CelShader/cel_shader.gdshader" id="11_yq5nd"]
 [ext_resource type="Texture2D" uid="uid://cmxybborm7k68" path="res://Content/Sprites/UISprites/Blocks (128 x 128 px)/Gravity.png" id="12_mef7n"]
 [ext_resource type="Texture2D" uid="uid://cy2w52re5p53o" path="res://Content/NormalMaps/Gravity_Normal.png" id="13_ohgb3"]
+[ext_resource type="Shader" path="res://Common/Shaders/vhs.gdshader" id="14_h1rj3"]
+[ext_resource type="Shader" path="res://Common/Shaders/lens_distortion.gdshader" id="15_qt3dr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vmmii"]
 shader = ExtResource("2_22rkx")
@@ -48,6 +50,35 @@ polygon = PackedVector2Array(-43, -62, -43, -61, -44, -61, -44, -60, -45, -60, -
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_urfxv"]
 polygon = PackedVector2Array(-24.582458, -47.92521, 55.36664, -40.194992, 53.082397, 3.6095734, -40.572266, -9.274124)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6lg8g"]
+shader = ExtResource("14_h1rj3")
+shader_parameter/brightness = 0.0
+shader_parameter/contrast = 1.08
+shader_parameter/saturation = 1.1
+shader_parameter/gamma = 1.05
+shader_parameter/curvature = 0.06000000285
+shader_parameter/corner_soften = 0.0800000038
+shader_parameter/vignette = 1.0
+shader_parameter/scanline_strength = 2.0
+shader_parameter/scanline_density = 2.2410000826975
+shader_parameter/interlace_strength = 0.2
+shader_parameter/mask_strength = 0.22
+shader_parameter/mask_scale = 1.0
+shader_parameter/chroma_offset_px = 1.6
+shader_parameter/luma_smear_px = 2.2
+shader_parameter/jitter_px = 1.8
+shader_parameter/wobble_px = 1.5
+shader_parameter/tape_noise = 0.22
+shader_parameter/tape_lines = 0.35
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_strength = 0.15
+shader_parameter/glow_strength = 0.25
+shader_parameter/glow_threshold = 0.65
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qvqed"]
+shader = ExtResource("15_qt3dr")
+shader_parameter/effect_amount = 0.7500001543749999
 
 [node name="Node2D" type="Node2D"]
 
@@ -183,3 +214,26 @@ follow_viewport_enabled = true
 position = Vector2(832, 88)
 scale = Vector2(3.502228, 3.1046991)
 occluder = SubResource("OccluderPolygon2D_urfxv")
+
+[node name="CanvasLayer_VHS" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="VHS" type="ColorRect" parent="CanvasLayer_VHS"]
+visible = false
+material = SubResource("ShaderMaterial_6lg8g")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="LensDist" type="ColorRect" parent="CanvasLayer_VHS"]
+material = SubResource("ShaderMaterial_qvqed")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
