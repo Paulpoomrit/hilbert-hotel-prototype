@@ -8,10 +8,13 @@ extends Node2D
 @export var parallax_scale_factor : float = 0.95 ## Scale multiplier of each parallax behind and divisor for in front
 @export var parallax_modulate_factor : Color = Color(0.95, 0.95, 0.95, 1) ## Modulate multiplier of each parallax behind
 @export var parallax_offset : Vector2 = Vector2(0.5, 0.5)
+var _saved_scale : Array[Vector2] = []
+var _saved_scroll_scale : Array[Vector2] = []
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	MendingSignalHub.on_change_perspective_type.connect(_on_change_perspective_property)
 	# Checks for settings errors
 	assert(min_parallax <= max_parallax, "Min Parallax must be a lower or the same value as the Max Parallax!")
 	assert(parallax_scroll_factor != 0, "Parallax Scroll Factor must be a nonzero value!")
@@ -93,3 +96,46 @@ func get_z_level_from_scale(scale: float) -> int:
 		return -round((1 - scale) * 4000)
 	else:
 		return round((scale - 1) * 100)
+
+
+func _on_change_perspective_property(new_val: Variant, negated: bool, target: Object) -> void:
+	if new_val == 2:
+		_compress_to_2d(0.0)
+	
+	elif new_val == 3:
+		pass
+		#_expand_to_3d(5.0)
+
+ 
+func _compress_to_2d(duration: float) -> void:
+	var camera_position = get_viewport().get_camera_2d().get_screen_center_position()
+	var offset : Vector2
+	var viewport_size = get_viewport().size
+	offset.x = viewport_size.x * parallax_offset.x
+	offset.y = viewport_size.y * parallax_offset.y
+	for child in $Parallaxes.get_children():
+		_saved_scale.append(child.scale)
+		_saved_scroll_scale.append(child.scroll_scale)
+		var tween = create_tween()
+		var tween2 = create_tween()
+		var tween3 = create_tween()
+		tween.tween_property(child, "screen_offset", camera_position-offset, duration)
+		tween2.tween_property(child, "scroll_scale", Vector2(1.0, 1.0), duration)
+		tween3.tween_property(child, "scale", Vector2(1.0, 1.0), duration)
+
+
+func _expand_to_3d(duration: float) -> void:
+	var camera_position = get_viewport().get_camera_2d().get_screen_center_position()
+	var offset : Vector2
+	var viewport_size = get_viewport().size
+	offset.x = viewport_size.x * parallax_offset.x
+	offset.y = viewport_size.y * parallax_offset.y
+	for child in $Parallaxes.get_children():
+		var tween = create_tween()
+		var tween2 = create_tween()
+		var tween3 = create_tween()
+		#(camera_position-offset)*_saved_scroll_scale[0]
+		tween.tween_property(child, "screen_offset", (camera_position-offset)*_saved_scroll_scale[0], duration)
+		tween2.tween_property(child, "scroll_scale", _saved_scroll_scale.pop_front(), duration)
+		tween3.tween_property(child, "scale", _saved_scale.pop_front(), duration)
+ 
