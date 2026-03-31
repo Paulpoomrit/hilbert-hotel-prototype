@@ -93,7 +93,7 @@ states/End/position = Vector2(891, 100)
 states/fall/node = SubResource("AnimationNodeAnimation_uw7o4")
 states/fall/position = Vector2(589, 203)
 states/idle/node = SubResource("AnimationNodeAnimation_gallu")
-states/idle/position = Vector2(303, 100)
+states/idle/position = Vector2(303.5, 100)
 states/rise/node = SubResource("AnimationNodeAnimation_samso")
 states/rise/position = Vector2(589, 40)
 states/run/node = SubResource("AnimationNodeBlendTree_lmeus")
@@ -104,7 +104,7 @@ graph_offset = Vector2(-64, 4)
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_hacra"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_jynvv"]
-graph_offset = Vector2(-208.38017, 67.432304)
+graph_offset = Vector2(-386, 19)
 nodes/output/position = Vector2(320, 140)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_761t5")
 nodes/StateMachine/position = Vector2(-120, 140)

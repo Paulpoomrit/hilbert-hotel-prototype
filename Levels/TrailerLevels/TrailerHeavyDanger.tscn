@@ -1,5 +1,6 @@
-[gd_scene load_steps=43 format=4 uid="uid://dnbyqqqsjdo8"]
+[gd_scene load_steps=44 format=4 uid="uid://dnbyqqqsjdo8"]
 
+[ext_resource type="Script" uid="uid://bsymrlg70108f" path="res://Levels/TrailerLevels/utility_scripts/trailer_heavy_danger.gd" id="1_bpw2i"]
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="1_sxqxa"]
 [ext_resource type="TileSet" uid="uid://bkdfjakis6ppt" path="res://Common/Tilesets/WhimsyTextures.tres" id="2_g4giy"]
 [ext_resource type="PackedScene" uid="uid://bl6msvoc1qtd4" path="res://Entities/Player/Player.tscn" id="3_g4giy"]
@@ -14,7 +15,7 @@
 [ext_resource type="Shader" uid="uid://ct4ah3v3e5les" path="res://Common/Shaders/ColourDither/colour_dither_post_processing.gdshader" id="8_54g8q"]
 [ext_resource type="Shader" uid="uid://nrqvmkhs2gp2" path="res://Common/Shaders/Vignette/vignette.gdshader" id="10_ydvo6"]
 [ext_resource type="Texture2D" uid="uid://5rmp2nfmiket" path="res://Content/Palettes/DitherPalettes/knockkia3310.png" id="12_ldndq"]
-[ext_resource type="Shader" path="res://Common/Shaders/fog.gdshader" id="13_5eu2v"]
+[ext_resource type="Shader" uid="uid://7mbbgvpcs3pc" path="res://Common/Shaders/fog.gdshader" id="13_5eu2v"]
 [ext_resource type="PackedScene" uid="uid://cqixjwfcu3mhc" path="res://Common/MendingMechanics/UI/mending_area.tscn" id="13_ios8m"]
 [ext_resource type="Shader" path="res://Common/Shaders/vhs.gdshader" id="13_ldndq"]
 [ext_resource type="PackedScene" uid="uid://ciexe7prabm03" path="res://Common/MendingMechanics/block.tscn" id="14_tu1rm"]
@@ -167,6 +168,7 @@ shader = ExtResource("25_ncea3")
 shader_parameter/effect_amount = 0.7500001543749999
 
 [node name="TrailerHeavyDanger" type="Node2D"]
+script = ExtResource("1_bpw2i")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -10
@@ -361,6 +363,35 @@ layout_mode = 2
 layout_mode = 2
 _block_data = ExtResource("19_ncea3")
 
+[node name="Mending2" parent="CanvasLayer_Player" instance=ExtResource("1_sxqxa")]
+start_modulate_at_front = true
+min_parallax = 4
+max_parallax = 4
+parallax_scroll_factor = 0.97
+parallax_scale_factor = 0.97
+parallax_modulate_factor = Color(0.9490196, 0.9490196, 0.9490196, 0.9411765)
+
+[node name="MendingArea" parent="CanvasLayer_Player/Mending2" instance=ExtResource("13_ios8m")]
+offset_left = -752.00006
+offset_top = 119.99994
+offset_right = 16.0
+offset_bottom = 567.99994
+scale = Vector2(0.42, 0.42)
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 32
+
+[node name="Block" parent="CanvasLayer_Player/Mending2/MendingArea" instance=ExtResource("14_tu1rm")]
+layout_mode = 2
+_block_data = ExtResource("18_72xgc")
+
+[node name="Block2" parent="CanvasLayer_Player/Mending2/MendingArea" instance=ExtResource("14_tu1rm")]
+layout_mode = 2
+_block_data = ExtResource("15_7t3ux")
+
+[node name="Block3" parent="CanvasLayer_Player/Mending2/MendingArea" instance=ExtResource("14_tu1rm")]
+layout_mode = 2
+_block_data = ExtResource("19_ncea3")
+
 [node name="CanvasLayer_Player2" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
@@ -396,13 +427,15 @@ follow_viewport_enabled = true
 
 [node name="Fog" type="ColorRect" parent="CanvasLayer_PostProcessing2"]
 material = SubResource("ShaderMaterial_i1e6g")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1024.0
-offset_top = -968.0
-offset_right = -1024.0
-offset_bottom = -968.0
+anchors_preset = -1
+anchor_left = -0.20987637
+anchor_top = -0.20987654
+anchor_right = 0.8790543
+anchor_bottom = 0.8790541
+offset_left = -1432.0001
+offset_top = -872.0
+offset_right = -1432.0001
+offset_bottom = -872.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.3600001, 2.3600001)
@@ -431,3 +464,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[connection signal="area_entered" from="CanvasLayer_Player/Steam" to="." method="_on_steam_area_entered"]
+[connection signal="body_entered" from="CanvasLayer_Player/Steam" to="." method="_on_steam_body_entered"]

@@ -38,4 +38,5 @@ func handle_on_change_time_type(new_val: Variant, negated: bool, target: Object)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if is_instance_of(body, Player):
+		MendingSignalHub.on_change_time_type()
 		player.handle_death()

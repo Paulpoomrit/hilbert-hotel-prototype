@@ -19,7 +19,7 @@
 [ext_resource type="Shader" uid="uid://nrqvmkhs2gp2" path="res://Common/Shaders/Vignette/vignette.gdshader" id="12_3wct8"]
 [ext_resource type="Texture2D" uid="uid://dj856q6kvmwhy" path="res://Content/Palettes/DitherPalettes/autumn-glow.png" id="12_8xxd6"]
 [ext_resource type="Shader" path="res://Common/Shaders/vhs.gdshader" id="14_loe6v"]
-[ext_resource type="Shader" path="res://Common/Shaders/fog.gdshader" id="15_jv2py"]
+[ext_resource type="Shader" uid="uid://7mbbgvpcs3pc" path="res://Common/Shaders/fog.gdshader" id="15_jv2py"]
 [ext_resource type="Resource" uid="uid://r5joufngsc8" path="res://Common/MendingMechanics/Blocks/real.tres" id="17_3wct8"]
 [ext_resource type="Shader" path="res://Common/Shaders/lens_distortion.gdshader" id="21_ii10t"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://ck3kjt0gunptl"]
+[gd_scene load_steps=32 format=4 uid="uid://ck3kjt0gunptl"]
 
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="1_3lcxs"]
 [ext_resource type="TileSet" uid="uid://1oudmm1ak5bm" path="res://Common/Tilesets/HotelLobby.tres" id="2_jau3s"]
@@ -13,7 +13,11 @@
 [ext_resource type="Shader" uid="uid://ct4ah3v3e5les" path="res://Common/Shaders/ColourDither/colour_dither_post_processing.gdshader" id="10_1mb6j"]
 [ext_resource type="Resource" uid="uid://r5joufngsc8" path="res://Common/MendingMechanics/Blocks/real.tres" id="10_rmycs"]
 [ext_resource type="PackedScene" uid="uid://kv7tk7lk7gk7" path="res://Entities/TrailerExperiments/Player_Shadows.tscn" id="11_88kt7"]
+[ext_resource type="Shader" path="res://Common/Shaders/BlockShaders/block_enable.gdshader" id="11_ipf2g"]
 [ext_resource type="Texture2D" uid="uid://dc40hd8crsr66" path="res://Content/Palettes/DitherPalettes/sailor-moon.png" id="11_l4uub"]
+[ext_resource type="Texture2D" uid="uid://bdrrfh2nukybf" path="res://Content/Palettes/DitherPalettes/mega-drive-blue.png" id="12_enq5p"]
+[ext_resource type="Texture2D" uid="uid://cmxybborm7k68" path="res://Content/Sprites/UISprites/Blocks (128 x 128 px)/Gravity.png" id="13_d8i67"]
+[ext_resource type="Texture2D" uid="uid://cbkns5ne4f5gf" path="res://Content/Textures/FREE Textures Of Light Alpha/288x288/288x288 textures (72).png" id="14_iy3rp"]
 [ext_resource type="Shader" path="res://Common/Shaders/vhs.gdshader" id="14_rmycs"]
 [ext_resource type="Shader" path="res://Common/Shaders/lens_distortion.gdshader" id="16_8wiml"]
 
@@ -54,6 +58,25 @@ color_ramp = SubResource("GradientTexture1D_pmk52")
 hue_variation_min = -2.2351742e-08
 hue_variation_max = 0.49999997
 turbulence_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eb0y0"]
+shader = ExtResource("11_ipf2g")
+shader_parameter/dither_pixel_size = 1.0
+shader_parameter/dither_pixel_offset = Vector2(0, 0)
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/albedo_strength = 1.0
+shader_parameter/dither_palette = ExtResource("12_enq5p")
+shader_parameter/alpha_dither_pixel_offset = Vector2(0, 0)
+shader_parameter/dist = 6
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/angle = 45.0
+shader_parameter/specular_strength = 0.5
+shader_parameter/specular_speed = 2.0
+shader_parameter/specular_colour = Color(0.445, 0.156, 0.521, 1)
+shader_parameter/glow_color = Color(0, 1, 1, 1)
+shader_parameter/intensity = 1.5
+shader_parameter/spread = 1.506
+shader_parameter/pulse_speed = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8wiml"]
 shader = ExtResource("10_1mb6j")
@@ -222,6 +245,21 @@ _block_data = ExtResource("9_1mb6j")
 [node name="Block4" parent="CanvasLayer_Player/TerrainChunk1/MendingArea" instance=ExtResource("7_cvudc")]
 layout_mode = 2
 _block_data = ExtResource("10_rmycs")
+
+[node name="Gravity" type="Sprite2D" parent="CanvasLayer_Player"]
+visible = false
+material = SubResource("ShaderMaterial_eb0y0")
+position = Vector2(-839.99994, 47.99997)
+rotation = 0.5235988
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("13_d8i67")
+
+[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer_Player/Gravity"]
+energy = 2.2
+range_layer_min = -1024
+range_layer_max = 1024
+texture = ExtResource("14_iy3rp")
+texture_scale = 2.5
 
 [node name="CanvasLayer_Player2" type="CanvasLayer" parent="."]
 layer = -1
