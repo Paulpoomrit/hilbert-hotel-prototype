@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://btny25srs8xrm"]
+[gd_scene load_steps=32 format=4 uid="uid://btny25srs8xrm"]
 
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="1_bmca3"]
 [ext_resource type="TileSet" uid="uid://bkdfjakis6ppt" path="res://Common/Tilesets/WhimsyTextures.tres" id="2_2id6g"]
@@ -18,9 +18,10 @@
 [ext_resource type="Shader" uid="uid://ct4ah3v3e5les" path="res://Common/Shaders/ColourDither/colour_dither_post_processing.gdshader" id="11_8xxd6"]
 [ext_resource type="Shader" uid="uid://nrqvmkhs2gp2" path="res://Common/Shaders/Vignette/vignette.gdshader" id="12_3wct8"]
 [ext_resource type="Texture2D" uid="uid://dj856q6kvmwhy" path="res://Content/Palettes/DitherPalettes/autumn-glow.png" id="12_8xxd6"]
-[ext_resource type="Shader" uid="uid://ccuywbjoejik4" path="res://Common/Shaders/vhs.gdshader" id="14_loe6v"]
-[ext_resource type="Shader" uid="uid://7mbbgvpcs3pc" path="res://Common/Shaders/fog.gdshader" id="15_jv2py"]
+[ext_resource type="Shader" path="res://Common/Shaders/vhs.gdshader" id="14_loe6v"]
+[ext_resource type="Shader" path="res://Common/Shaders/fog.gdshader" id="15_jv2py"]
 [ext_resource type="Resource" uid="uid://r5joufngsc8" path="res://Common/MendingMechanics/Blocks/real.tres" id="17_3wct8"]
+[ext_resource type="Shader" path="res://Common/Shaders/lens_distortion.gdshader" id="21_ii10t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3wct8"]
 
@@ -72,6 +73,10 @@ shader_parameter/roll_speed = 8.0
 shader_parameter/roll_strength = 0.15
 shader_parameter/glow_strength = 0.25
 shader_parameter/glow_threshold = 0.330000015675
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kubd7"]
+shader = ExtResource("21_ii10t")
+shader_parameter/effect_amount = 0.7500001543749999
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_jv2py"]
 noise_type = 0
@@ -640,9 +645,9 @@ layout_mode = 2
 
 [node name="CanvasLayer_VHS" type="CanvasLayer" parent="."]
 layer = 10
-visible = false
 
 [node name="VHS" type="ColorRect" parent="CanvasLayer_VHS"]
+visible = false
 material = SubResource("ShaderMaterial_6osri")
 anchors_preset = 15
 anchor_right = 1.0
@@ -651,6 +656,15 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="LensDist" type="ColorRect" parent="CanvasLayer_VHS"]
+material = SubResource("ShaderMaterial_kubd7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="CanvasLayer_PostProcessing2" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true

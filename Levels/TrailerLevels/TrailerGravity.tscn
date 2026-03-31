@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://ck3kjt0gunptl"]
+[gd_scene load_steps=27 format=4 uid="uid://ck3kjt0gunptl"]
 
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="1_3lcxs"]
 [ext_resource type="TileSet" uid="uid://1oudmm1ak5bm" path="res://Common/Tilesets/HotelLobby.tres" id="2_jau3s"]
@@ -12,8 +12,10 @@
 [ext_resource type="Shader" uid="uid://nrqvmkhs2gp2" path="res://Common/Shaders/Vignette/vignette.gdshader" id="9_cvudc"]
 [ext_resource type="Shader" uid="uid://ct4ah3v3e5les" path="res://Common/Shaders/ColourDither/colour_dither_post_processing.gdshader" id="10_1mb6j"]
 [ext_resource type="Resource" uid="uid://r5joufngsc8" path="res://Common/MendingMechanics/Blocks/real.tres" id="10_rmycs"]
+[ext_resource type="PackedScene" uid="uid://kv7tk7lk7gk7" path="res://Entities/TrailerExperiments/Player_Shadows.tscn" id="11_88kt7"]
 [ext_resource type="Texture2D" uid="uid://dc40hd8crsr66" path="res://Content/Palettes/DitherPalettes/sailor-moon.png" id="11_l4uub"]
-[ext_resource type="Shader" uid="uid://ccuywbjoejik4" path="res://Common/Shaders/vhs.gdshader" id="14_rmycs"]
+[ext_resource type="Shader" path="res://Common/Shaders/vhs.gdshader" id="14_rmycs"]
+[ext_resource type="Shader" path="res://Common/Shaders/lens_distortion.gdshader" id="16_8wiml"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rmycs"]
 blend_mode = 1
@@ -91,6 +93,10 @@ shader_parameter/roll_speed = 8.0
 shader_parameter/roll_strength = 0.15
 shader_parameter/glow_strength = 0.25
 shader_parameter/glow_threshold = 0.866000041135
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pmk52"]
+shader = ExtResource("16_8wiml")
+shader_parameter/effect_amount = 0.7500001543749999
 
 [node name="TrailerGravity" type="Node2D"]
 
@@ -184,7 +190,6 @@ layer = 2
 follow_viewport_enabled = true
 
 [node name="Player" parent="CanvasLayer_Player" instance=ExtResource("3_jau3s")]
-position = Vector2(-304, 64)
 
 [node name="TerrainChunk1" parent="CanvasLayer_Player" instance=ExtResource("1_3lcxs")]
 start_modulate_at_front = true
@@ -218,6 +223,13 @@ _block_data = ExtResource("9_1mb6j")
 layout_mode = 2
 _block_data = ExtResource("10_rmycs")
 
+[node name="CanvasLayer_Player2" type="CanvasLayer" parent="."]
+layer = -1
+follow_viewport_enabled = true
+
+[node name="Player" parent="CanvasLayer_Player2" instance=ExtResource("11_88kt7")]
+position = Vector2(2.5, 0)
+
 [node name="CanvasLayer_PostProcessing" type="CanvasLayer" parent="."]
 
 [node name="Dither" type="ColorRect" parent="CanvasLayer_PostProcessing"]
@@ -242,9 +254,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer_VHS" type="CanvasLayer" parent="."]
 layer = 10
-visible = false
 
 [node name="VHS" type="ColorRect" parent="CanvasLayer_VHS"]
+visible = false
 material = SubResource("ShaderMaterial_uxfie")
 anchors_preset = 15
 anchor_right = 1.0
@@ -253,3 +265,12 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="LensDist" type="ColorRect" parent="CanvasLayer_VHS"]
+material = SubResource("ShaderMaterial_pmk52")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

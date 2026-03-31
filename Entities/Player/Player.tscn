@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://b1nowex1sm4uh" path="res://Common/MendableComponents/MendableGravity.tscn" id="3_x44r4"]
 [ext_resource type="PackedScene" uid="uid://cnmp26hv874sr" path="res://Common/MendableComponents/MendableSpeed.tscn" id="4_761t5"]
 [ext_resource type="PackedScene" uid="uid://b65uxaiqqqm3j" path="res://Common/MendableComponents/MendableTime.tscn" id="5_hacra"]
-[ext_resource type="Shader" uid="uid://b6tfqxaw8l1bu" path="res://Common/Shaders/burning.gdshader" id="7_lmeus"]
+[ext_resource type="Shader" path="res://Common/Shaders/burning.gdshader" id="7_lmeus"]
 [ext_resource type="FastNoiseLite" uid="uid://ckcryb5xnovyg" path="res://Common/NoiseTextures/BurnTextures.tres" id="8_061yh"]
-[ext_resource type="Script" uid="uid://cw2h5y4uitqlc" path="res://Common/UtilityScripts/sprite_2d_player.gd" id="8_hacra"]
+[ext_resource type="Script" path="res://Common/UtilityScripts/sprite_2d_player.gd" id="8_hacra"]
 [ext_resource type="Texture2D" uid="uid://c3m4r85f05c2i" path="res://Content/Textures/FREE Textures Of Light Alpha/512x512/512x512 textures (5).png" id="8_x44r4"]
 [ext_resource type="Texture2D" uid="uid://cs4lk8w1g5pkb" path="res://Content/Sprites/MC/MC.png" id="9_761t5"]
-[ext_resource type="Script" uid="uid://bemm75x824gvg" path="res://Common/UtilityScripts/sprite_trail_component.gd" id="9_hacra"]
+[ext_resource type="Script" path="res://Common/UtilityScripts/sprite_trail_component.gd" id="9_hacra"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e80uo"]
 size = Vector2(72, 100)

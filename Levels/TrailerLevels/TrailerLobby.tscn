@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://unoixwid6r8o"]
+[gd_scene load_steps=27 format=4 uid="uid://dmr6htdx6wpfi"]
 
 [ext_resource type="PackedScene" uid="uid://bl6msvoc1qtd4" path="res://Entities/Player/Player.tscn" id="1_c3unq"]
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="2_mkirl"]
@@ -9,11 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://cenkjxekv1q2l" path="res://Content/Backgrounds/interior_entrance_evening.png" id="5_qrxsl"]
 [ext_resource type="Texture2D" uid="uid://c0sfk62jitu6u" path="res://Content/Backgrounds/interior_entrance_evening_p.png" id="6_qrxsl"]
 [ext_resource type="Shader" uid="uid://ct4ah3v3e5les" path="res://Common/Shaders/ColourDither/colour_dither_post_processing.gdshader" id="7_mw7pt"]
-[ext_resource type="Shader" uid="uid://c5mw21se76req" path="res://Common/Shaders/god_ray.gdshader" id="8_g3023"]
+[ext_resource type="Shader" path="res://Common/Shaders/god_ray.gdshader" id="8_g3023"]
 [ext_resource type="Texture2D" uid="uid://ljxh30p2a6ok" path="res://Content/Palettes/DitherPalettes/calm-sunset.png" id="8_mw7pt"]
 [ext_resource type="Shader" uid="uid://nrqvmkhs2gp2" path="res://Common/Shaders/Vignette/vignette.gdshader" id="9_y2jxk"]
-[ext_resource type="Shader" uid="uid://ccuywbjoejik4" path="res://Common/Shaders/vhs.gdshader" id="11_jkx7f"]
-[ext_resource type="Shader" uid="uid://ylmdxjd8dmr5" path="res://Common/Shaders/lens_distortion.gdshader" id="13_jh7og"]
+[ext_resource type="Shader" path="res://Common/Shaders/vhs.gdshader" id="11_jkx7f"]
+[ext_resource type="Shader" path="res://Common/Shaders/lens_distortion.gdshader" id="13_jh7og"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y2jxk"]
 shader = ExtResource("4_qrxsl")
@@ -407,7 +407,6 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="LensDist" type="ColorRect" parent="CanvasLayer_VHS"]
-visible = false
 material = SubResource("ShaderMaterial_hclan")
 anchors_preset = 15
 anchor_right = 1.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://cak0n8enr543r"]
+[gd_scene load_steps=27 format=4 uid="uid://cak0n8enr543r"]
 
 [ext_resource type="PackedScene" uid="uid://cj71l6m3fgrxf" path="res://Common/3DParallax/3DParallaxObject.tscn" id="1_osx1b"]
 [ext_resource type="TileSet" uid="uid://bkdfjakis6ppt" path="res://Common/Tilesets/WhimsyTextures.tres" id="2_d5bpt"]
@@ -18,8 +18,9 @@
 [ext_resource type="Resource" uid="uid://r5joufngsc8" path="res://Common/MendingMechanics/Blocks/real.tres" id="13_wmo6u"]
 [ext_resource type="Resource" uid="uid://bxpj41o2usndm" path="res://Common/MendingMechanics/Blocks/perspective.tres" id="14_kdktk"]
 [ext_resource type="Resource" uid="uid://c2onf2tr5qfp8" path="res://Common/MendingMechanics/Blocks/2.tres" id="15_tvwvh"]
-[ext_resource type="Shader" uid="uid://c5mw21se76req" path="res://Common/Shaders/god_ray.gdshader" id="16_wmo6u"]
-[ext_resource type="Shader" uid="uid://ccuywbjoejik4" path="res://Common/Shaders/vhs.gdshader" id="19_tvwvh"]
+[ext_resource type="Shader" path="res://Common/Shaders/god_ray.gdshader" id="16_wmo6u"]
+[ext_resource type="Shader" path="res://Common/Shaders/vhs.gdshader" id="19_tvwvh"]
+[ext_resource type="Shader" path="res://Common/Shaders/lens_distortion.gdshader" id="21_mwyto"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mwyto"]
 shader = ExtResource("16_wmo6u")
@@ -75,6 +76,10 @@ shader_parameter/roll_speed = 8.0
 shader_parameter/roll_strength = 0.15
 shader_parameter/glow_strength = 0.25
 shader_parameter/glow_threshold = 0.330000015675
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ri0eg"]
+shader = ExtResource("21_mwyto")
+shader_parameter/effect_amount = 0.7500001543749999
 
 [node name="TrailerSkyGarden" type="Node2D"]
 
@@ -435,9 +440,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer_VHS" type="CanvasLayer" parent="."]
 layer = 10
-visible = false
 
 [node name="VHS" type="ColorRect" parent="CanvasLayer_VHS"]
+visible = false
 material = SubResource("ShaderMaterial_wmo6u")
 anchors_preset = 15
 anchor_right = 1.0
@@ -446,3 +451,12 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="LensDist" type="ColorRect" parent="CanvasLayer_VHS"]
+material = SubResource("ShaderMaterial_ri0eg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
