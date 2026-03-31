@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://b5or3ilobiu4e"]
+[gd_scene load_steps=27 format=4 uid="uid://b5or3ilobiu4e"]
 
 [ext_resource type="PackedScene" uid="uid://bl6msvoc1qtd4" path="res://Entities/Player/Player.tscn" id="1_qnwms"]
 [ext_resource type="Shader" uid="uid://ct4ah3v3e5les" path="res://Common/Shaders/ColourDither/colour_dither_post_processing.gdshader" id="2_4ye24"]
@@ -15,6 +15,8 @@
 [ext_resource type="Shader" uid="uid://bo6po8ea4lsun" path="res://Common/Shaders/BG/bg_shadow.gdshader" id="10_l155o"]
 [ext_resource type="Texture2D" uid="uid://dupbvmtl2gpy0" path="res://Content/Backgrounds/DepthTest/cyberpunk-city-2-back-preview.png" id="11_3c5ao"]
 [ext_resource type="Texture2D" uid="uid://drwpgewrpkrvu" path="res://Content/Backgrounds/DepthTest/depth.png" id="12_lw1mf"]
+[ext_resource type="Shader" path="res://Common/Shaders/vhs.gdshader" id="16_kkmb2"]
+[ext_resource type="Shader" path="res://Common/Shaders/lens_distortion.gdshader" id="17_qn6kr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x7gcp"]
 shader = ExtResource("2_aenh3")
@@ -56,6 +58,36 @@ shader_parameter/shadow_colour = Color(0, 0, 0, 1)
 shader_parameter/offset_in_pixels = Vector2(25, 25)
 shader_parameter/BG = ExtResource("11_3c5ao")
 shader_parameter/height_map = ExtResource("12_lw1mf")
+shader_parameter/chroma_key_strength = 0.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4lomr"]
+shader = ExtResource("16_kkmb2")
+shader_parameter/brightness = 0.0
+shader_parameter/contrast = 1.08
+shader_parameter/saturation = 1.1
+shader_parameter/gamma = 1.05
+shader_parameter/curvature = 0.06000000285
+shader_parameter/corner_soften = 0.0800000038
+shader_parameter/vignette = 1.0
+shader_parameter/scanline_strength = 2.0
+shader_parameter/scanline_density = 2.2410000826975
+shader_parameter/interlace_strength = 0.2
+shader_parameter/mask_strength = 0.22
+shader_parameter/mask_scale = 1.0
+shader_parameter/chroma_offset_px = 1.6
+shader_parameter/luma_smear_px = 2.2
+shader_parameter/jitter_px = 1.8
+shader_parameter/wobble_px = 1.5
+shader_parameter/tape_noise = 0.22
+shader_parameter/tape_lines = 0.35
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_strength = 0.15
+shader_parameter/glow_strength = 0.25
+shader_parameter/glow_threshold = 0.65
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tc3y8"]
+shader = ExtResource("17_qn6kr")
+shader_parameter/effect_amount = 0.7500001543749999
 
 [node name="Node2D" type="Node2D"]
 
@@ -165,3 +197,26 @@ offset_top = -424.0
 offset_right = 744.0
 offset_bottom = 288.0
 scale = Vector2(1.5, 1.5)
+
+[node name="CanvasLayer_VHS" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="VHS" type="ColorRect" parent="CanvasLayer_VHS"]
+visible = false
+material = SubResource("ShaderMaterial_4lomr")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="LensDist" type="ColorRect" parent="CanvasLayer_VHS"]
+material = SubResource("ShaderMaterial_tc3y8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

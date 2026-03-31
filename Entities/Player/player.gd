@@ -3,7 +3,7 @@ class_name Player
 extends CharacterBody2D
 
 
-const SPEED = 200.0
+const SPEED = 300.0
 const JUMP_VELOCITY = -600.0
 var controls_velocity = Vector2(0.0, 0.0)
 var jumping := false
@@ -92,3 +92,17 @@ func _physics_process(delta: float) -> void:
 	
 	# Save this frame's final result for MendableTime
 	$MendableTime.update_record(delta, [position, velocity, _sprite_2d.flip_h, running, _sprite_2d.frame])
+
+
+func handle_death() -> void:
+	_sprite_2d.use_parent_material = false
+	var tween = create_tween()
+	tween.tween_property(_sprite_2d.material, "shader_parameter/dissolve_value", 1.0, 0.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(_sprite_2d.material, "shader_parameter/dissolve_value", 0.0, 2.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+
+
+func handle_death_revert() -> void:
+	_sprite_2d.use_parent_material = false
+	var tween = create_tween()
+	tween.tween_property(_sprite_2d.material, "shader_parameter/dissolve_value", 1.0, 2.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	## TODO: handle parent material: _sprite_2d.use_parent_material = true

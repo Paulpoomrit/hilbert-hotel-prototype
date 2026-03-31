@@ -1,9 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://cayqkgsdubwau"]
+[gd_scene load_steps=8 format=3 uid="uid://cayqkgsdubwau"]
 
-[ext_resource type="Texture2D" uid="uid://dtlsw8poqjxjw" path="res://content/sprites/ball.png" id="1_pkdkt"]
+[ext_resource type="Texture2D" uid="uid://dtlsw8poqjxjw" path="res://Content/Sprites/ball.png" id="1_pkdkt"]
 [ext_resource type="Script" uid="uid://bg5bdlj118yxy" path="res://Entities/FloatingBall/floating_ball.gd" id="1_s2i0t"]
 [ext_resource type="PackedScene" uid="uid://b65uxaiqqqm3j" path="res://Common/MendableComponents/MendableTime.tscn" id="3_byvyc"]
+[ext_resource type="Texture2D" uid="uid://busfjevtoa8vb" path="res://Content/Sprites/ball_n.png" id="3_oj2tm"]
 [ext_resource type="PackedScene" uid="uid://d0ixn0uh3mnvm" path="res://Common/MendableComponents/MendableColour.tscn" id="4_oj2tm"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_485i1"]
+diffuse_texture = ExtResource("1_pkdkt")
+normal_texture = ExtResource("3_oj2tm")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pkdkt"]
 radius = 88.0
@@ -18,7 +23,7 @@ script = ExtResource("1_s2i0t")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-4, -5)
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_pkdkt")
+texture = SubResource("CanvasTexture_485i1")
 hframes = 2
 vframes = 2
 
@@ -28,4 +33,3 @@ shape = SubResource("CircleShape2D_pkdkt")
 [node name="MendableTime" parent="." instance=ExtResource("3_byvyc")]
 
 [node name="MendableColour" parent="." instance=ExtResource("4_oj2tm")]
-visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bl6msvoc1qtd4"]
+[gd_scene load_steps=44 format=3 uid="uid://bl6msvoc1qtd4"]
 
 [ext_resource type="Script" uid="uid://4o0efb4i18s8" path="res://Entities/Player/player.gd" id="1_kne1u"]
 [ext_resource type="PackedScene" uid="uid://d0ixn0uh3mnvm" path="res://Common/MendableComponents/MendableColour.tscn" id="2_hj1c0"]
@@ -6,11 +6,25 @@
 [ext_resource type="PackedScene" uid="uid://b1nowex1sm4uh" path="res://Common/MendableComponents/MendableGravity.tscn" id="3_x44r4"]
 [ext_resource type="PackedScene" uid="uid://cnmp26hv874sr" path="res://Common/MendableComponents/MendableSpeed.tscn" id="4_761t5"]
 [ext_resource type="PackedScene" uid="uid://b65uxaiqqqm3j" path="res://Common/MendableComponents/MendableTime.tscn" id="5_hacra"]
-[ext_resource type="Texture2D" uid="uid://c3m4r85f05c2i" path="res://content/Textures/FREE Textures Of Light Alpha/512x512/512x512 textures (5).png" id="8_x44r4"]
-[ext_resource type="Texture2D" uid="uid://cs4lk8w1g5pkb" path="res://content/sprites/MC/MC.png" id="9_761t5"]
+[ext_resource type="Shader" path="res://Common/Shaders/burning.gdshader" id="7_lmeus"]
+[ext_resource type="FastNoiseLite" uid="uid://ckcryb5xnovyg" path="res://Common/NoiseTextures/BurnTextures.tres" id="8_061yh"]
+[ext_resource type="Script" path="res://Common/UtilityScripts/sprite_2d_player.gd" id="8_hacra"]
+[ext_resource type="Texture2D" uid="uid://c3m4r85f05c2i" path="res://Content/Textures/FREE Textures Of Light Alpha/512x512/512x512 textures (5).png" id="8_x44r4"]
+[ext_resource type="Texture2D" uid="uid://cs4lk8w1g5pkb" path="res://Content/Sprites/MC/MC.png" id="9_761t5"]
+[ext_resource type="Script" path="res://Common/UtilityScripts/sprite_trail_component.gd" id="9_hacra"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e80uo"]
 size = Vector2(72, 100)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uw7o4"]
+noise = ExtResource("8_061yh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hacra"]
+shader = ExtResource("7_lmeus")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_uw7o4")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/burn_size = 0.03999999910592
+shader_parameter/burn_color = Color(0.98039216, 0.4509804, 0.32156864, 1)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uw7o4"]
 animation = &"fall"
@@ -79,7 +93,7 @@ states/End/position = Vector2(891, 100)
 states/fall/node = SubResource("AnimationNodeAnimation_uw7o4")
 states/fall/position = Vector2(589, 203)
 states/idle/node = SubResource("AnimationNodeAnimation_gallu")
-states/idle/position = Vector2(303, 100)
+states/idle/position = Vector2(303.5, 100)
 states/rise/node = SubResource("AnimationNodeAnimation_samso")
 states/rise/position = Vector2(589, 40)
 states/run/node = SubResource("AnimationNodeBlendTree_lmeus")
@@ -90,13 +104,28 @@ graph_offset = Vector2(-64, 4)
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_hacra"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_jynvv"]
-graph_offset = Vector2(-337.1809, 72.18298)
+graph_offset = Vector2(-386, 19)
 nodes/output/position = Vector2(320, 140)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_761t5")
 nodes/StateMachine/position = Vector2(-120, 140)
 nodes/TimeMultiplier/node = SubResource("AnimationNodeTimeScale_hacra")
 nodes/TimeMultiplier/position = Vector2(140, 140)
 node_connections = [&"output", 0, &"TimeMultiplier", &"TimeMultiplier", 0, &"StateMachine"]
+
+[sub_resource type="Animation" id="Animation_x44r4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
 
 [sub_resource type="Animation" id="Animation_uw7o4"]
 resource_name = "fall"
@@ -179,21 +208,6 @@ tracks/0/keys = {
 "values": [5, 6, 7, 8]
 }
 
-[sub_resource type="Animation" id="Animation_x44r4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [5]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e34i1"]
 _data = {
 &"RESET": SubResource("Animation_x44r4"),
@@ -203,6 +217,15 @@ _data = {
 &"rise": SubResource("Animation_hl213"),
 &"run": SubResource("Animation_5m37j")
 }
+
+[sub_resource type="Gradient" id="Gradient_x44r4"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_761t5"]
+gradient = SubResource("Gradient_x44r4")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -237,11 +260,15 @@ position = Vector2(0, 22)
 shape = SubResource("RectangleShape2D_e80uo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 2
+material = SubResource("ShaderMaterial_hacra")
+use_parent_material = true
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("9_761t5")
 hframes = 5
 vframes = 4
 frame = 5
+script = ExtResource("8_hacra")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeBlendTree_jynvv")
@@ -255,6 +282,23 @@ libraries = {
 &"": SubResource("AnimationLibrary_e34i1")
 }
 
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(-8, -16)
+energy = 0.31
+range_z_min = -4096
+range_z_max = 4096
+range_layer_min = -2048
+range_layer_max = 2048
+range_item_cull_mask = 3
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter_smooth = 5.0
+texture = SubResource("GradientTexture2D_761t5")
+texture_scale = 2.39
+height = 74.0
+
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(0, 12)
 energy = 1.75
@@ -267,3 +311,7 @@ shadow_color = Color(0, 0, 0, 1)
 shadow_filter_smooth = 5.0
 texture = ExtResource("8_x44r4")
 height = 74.0
+
+[node name="SpriteTrailComponent" type="Node2D" parent="." node_paths=PackedStringArray("sprite_2d_ref")]
+script = ExtResource("9_hacra")
+sprite_2d_ref = NodePath("../Sprite2D")

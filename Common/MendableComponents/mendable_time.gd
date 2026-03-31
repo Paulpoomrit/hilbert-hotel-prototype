@@ -4,7 +4,7 @@ extends Node2D
 var real = true
 var time_function = "linear"
 var time_multiplier = 1.0
-var record_duration : float = 5.0
+var record_duration : float = 10.0
 var record_data : Array[Array]
 
 
